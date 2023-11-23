@@ -41,7 +41,7 @@ namespace OOD_Project
 
         private void manageUsersBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new usersListForms(), sender);
         }
     }
 }
