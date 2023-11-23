@@ -29,18 +29,18 @@ namespace OOD_Project
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelLogin = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnRegister = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panelLogin = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.panelHeader.SuspendLayout();
             this.panelLogin.SuspendLayout();
+            this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -52,6 +52,84 @@ namespace OOD_Project
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(784, 561);
             this.panel1.TabIndex = 0;
+            // 
+            // panelLogin
+            // 
+            this.panelLogin.Controls.Add(this.label3);
+            this.panelLogin.Controls.Add(this.label2);
+            this.panelLogin.Controls.Add(this.btnRegister);
+            this.panelLogin.Controls.Add(this.btnLogin);
+            this.panelLogin.Controls.Add(this.txtPassword);
+            this.panelLogin.Controls.Add(this.txtUsername);
+            this.panelLogin.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelLogin.Location = new System.Drawing.Point(0, 72);
+            this.panelLogin.Name = "panelLogin";
+            this.panelLogin.Size = new System.Drawing.Size(784, 489);
+            this.panelLogin.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(66, 170);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 25);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Password: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(62, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 25);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Username: ";
+            // 
+            // btnRegister
+            // 
+            this.btnRegister.FlatAppearance.BorderSize = 0;
+            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnRegister.Location = new System.Drawing.Point(284, 329);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(205, 40);
+            this.btnRegister.TabIndex = 12;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLogin.Location = new System.Drawing.Point(201, 244);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(383, 54);
+            this.btnLogin.TabIndex = 11;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Location = new System.Drawing.Point(201, 167);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(384, 31);
+            this.txtPassword.TabIndex = 10;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(201, 103);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(384, 31);
+            this.txtUsername.TabIndex = 9;
             // 
             // panelHeader
             // 
@@ -76,83 +154,6 @@ namespace OOD_Project
             this.label1.Text = "eLMS System";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtUsername
-            // 
-            this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(201, 103);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(384, 31);
-            this.txtUsername.TabIndex = 9;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(201, 167);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(384, 31);
-            this.txtPassword.TabIndex = 10;
-            this.txtPassword.UseSystemPasswordChar = true;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLogin.Location = new System.Drawing.Point(201, 244);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(383, 54);
-            this.btnLogin.TabIndex = 11;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // btnRegister
-            // 
-            this.btnRegister.FlatAppearance.BorderSize = 0;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.btnRegister.Location = new System.Drawing.Point(284, 329);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(205, 40);
-            this.btnRegister.TabIndex = 12;
-            this.btnRegister.Text = "Register";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(62, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 25);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Username: ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(66, 170);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 25);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Password: ";
-            // 
-            // panelLogin
-            // 
-            this.panelLogin.Controls.Add(this.label3);
-            this.panelLogin.Controls.Add(this.label2);
-            this.panelLogin.Controls.Add(this.btnRegister);
-            this.panelLogin.Controls.Add(this.btnLogin);
-            this.panelLogin.Controls.Add(this.txtPassword);
-            this.panelLogin.Controls.Add(this.txtUsername);
-            this.panelLogin.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLogin.Location = new System.Drawing.Point(0, 72);
-            this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(784, 489);
-            this.panelLogin.TabIndex = 2;
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,9 +164,9 @@ namespace OOD_Project
             this.Name = "LoginForm";
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
-            this.panelHeader.ResumeLayout(false);
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
+            this.panelHeader.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

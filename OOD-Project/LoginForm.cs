@@ -17,24 +17,31 @@ namespace OOD_Project
         {
             string givenUsername = txtUsername.Text;
             string givenPassword = txtPassword.Text;
+            int userRole = 1;
+            // role ids
+            // admin = 1
+            /* role ids:
+                admin = 1 
+                teacher = 2
+                student = 3
+             */
 
             if (username == givenUsername && password == givenPassword)
             {
-                RegisterForm registerForm = new RegisterForm();
-                registerForm.Show();
-                this.Hide();
+                   
             }
             else
             {
-                
                 MessageBox.Show("Invalid Email and/or password", "Invalid Login");
             }
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Hello, World");
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
+            this.Hide();
         }
     }
 }
