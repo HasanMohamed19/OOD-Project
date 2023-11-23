@@ -57,12 +57,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtCPR = new System.Windows.Forms.TextBox();
             this.panelBottom = new System.Windows.Forms.Panel();
+            this.lblError = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabTeacherRegister = new System.Windows.Forms.TabPage();
             this.label13 = new System.Windows.Forms.Label();
-            this.lblError = new System.Windows.Forms.Label();
+            this.tabTeacherRegister = new System.Windows.Forms.TabPage();
             this.panelRegisterFormTeacher = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
@@ -267,7 +267,6 @@
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(185, 31);
             this.txtFName.TabIndex = 17;
-            this.txtFName.UseSystemPasswordChar = true;
             // 
             // txtLName
             // 
@@ -277,7 +276,6 @@
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(185, 31);
             this.txtLName.TabIndex = 19;
-            this.txtLName.UseSystemPasswordChar = true;
             // 
             // label11
             // 
@@ -339,9 +337,10 @@
             // dateDOB
             // 
             this.dateDOB.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateDOB.Location = new System.Drawing.Point(543, 129);
+            this.dateDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateDOB.Location = new System.Drawing.Point(584, 129);
             this.dateDOB.Name = "dateDOB";
-            this.dateDOB.Size = new System.Drawing.Size(181, 20);
+            this.dateDOB.Size = new System.Drawing.Size(99, 20);
             this.dateDOB.TabIndex = 28;
             // 
             // txtPhone
@@ -352,7 +351,6 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(185, 31);
             this.txtPhone.TabIndex = 23;
-            this.txtPhone.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -409,7 +407,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(185, 31);
             this.txtEmail.TabIndex = 25;
-            this.txtEmail.UseSystemPasswordChar = true;
             // 
             // label9
             // 
@@ -431,7 +428,6 @@
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(185, 31);
             this.txtStudentID.TabIndex = 32;
-            this.txtStudentID.UseSystemPasswordChar = true;
             // 
             // label7
             // 
@@ -454,7 +450,6 @@
             this.txtCPR.Name = "txtCPR";
             this.txtCPR.Size = new System.Drawing.Size(185, 31);
             this.txtCPR.TabIndex = 21;
-            this.txtCPR.UseSystemPasswordChar = true;
             // 
             // panelBottom
             // 
@@ -465,6 +460,18 @@
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(777, 130);
             this.panelBottom.TabIndex = 35;
+            // 
+            // lblError
+            // 
+            this.lblError.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(1, 9);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(760, 28);
+            this.lblError.TabIndex = 12;
+            this.lblError.Text = "Error";
+            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegister
             // 
@@ -479,6 +486,7 @@
             this.btnRegister.TabIndex = 11;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // panelHeader
             // 
@@ -505,18 +513,6 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // tabTeacherRegister
-            // 
-            this.tabTeacherRegister.Controls.Add(this.panelRegisterFormTeacher);
-            this.tabTeacherRegister.Controls.Add(this.panelHeaderTeacher);
-            this.tabTeacherRegister.Location = new System.Drawing.Point(4, 22);
-            this.tabTeacherRegister.Name = "tabTeacherRegister";
-            this.tabTeacherRegister.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTeacherRegister.Size = new System.Drawing.Size(776, 535);
-            this.tabTeacherRegister.TabIndex = 1;
-            this.tabTeacherRegister.Text = "tabPage2";
-            this.tabTeacherRegister.UseVisualStyleBackColor = true;
-            // 
             // label13
             // 
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
@@ -530,17 +526,17 @@
             this.label13.Text = "Register Student";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblError
+            // tabTeacherRegister
             // 
-            this.lblError.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(1, 9);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(760, 28);
-            this.lblError.TabIndex = 12;
-            this.lblError.Text = "Error";
-            this.lblError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.tabTeacherRegister.Controls.Add(this.panelRegisterFormTeacher);
+            this.tabTeacherRegister.Controls.Add(this.panelHeaderTeacher);
+            this.tabTeacherRegister.Location = new System.Drawing.Point(4, 22);
+            this.tabTeacherRegister.Name = "tabTeacherRegister";
+            this.tabTeacherRegister.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTeacherRegister.Size = new System.Drawing.Size(776, 535);
+            this.tabTeacherRegister.TabIndex = 1;
+            this.tabTeacherRegister.Text = "tabPage2";
+            this.tabTeacherRegister.UseVisualStyleBackColor = true;
             // 
             // panelRegisterFormTeacher
             // 
