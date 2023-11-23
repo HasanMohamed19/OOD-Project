@@ -24,11 +24,23 @@ namespace OOD_Project
                 admin = 1 
                 teacher = 2
                 student = 3
+                it will be an enum
              */
 
             if (username == givenUsername && password == givenPassword)
             {
-                   
+                switch (userRole)
+                {
+                    case 1:
+                        AdminPanel adminPanel = new AdminPanel();
+                        adminPanel.Show();
+                        this.Hide();
+                        break;
+                    case 2: Console.WriteLine("teacher");
+                        break;
+                    case 3: Console.WriteLine("Student");
+                        break;
+                }
             }
             else
             {
