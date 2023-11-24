@@ -103,61 +103,61 @@ namespace OOD_Project
     // temporary to remove later
     // status id:
     // 1 = pending, 2 = accepted, 3 = rejected
-    class User
-    {
-        private string firstName;
-        private string lastName;
-        private string email;
-        private int roleId;
-        private int statusId;
+    //class User
+    //{
+    //    private string firstName;
+    //    private string lastName;
+    //    private string email;
+    //    private int roleId;
+    //    private int statusId;
 
-        public string FirstName { get { return firstName; } set {  firstName = value; } }
-        public string LastName { get { return lastName;} set { lastName = value; } }
-        public string Email { get { return email; } set { email = value; } }
-        public int RoleId { get {  return roleId; } set {  roleId = value; } }
-        public int StatusId { get { return statusId;  } set {  statusId = value; } }
+    //    public string FirstName { get { return firstName; } set {  firstName = value; } }
+    //    public string LastName { get { return lastName;} set { lastName = value; } }
+    //    public string Email { get { return email; } set { email = value; } }
+    //    public int RoleId { get {  return roleId; } set {  roleId = value; } }
+    //    public int StatusId { get { return statusId;  } set {  statusId = value; } }
 
-        public User(string firstName, string lastName, string email, int roleId)
-        {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.email = email;
-            this.roleId = roleId;
-            this.statusId = 1;
-        }
-            public override string ToString()
-        {
-            string roleName = "";
-            string status = "";
-            switch (roleId)
-            {
-                case 1:
-                    roleName = "Admin";
-                    break;
-                case 2:
-                    roleName = "Teacher";
-                    break;
-                case 3:
-                    roleName = "Student";
-                    break;
-            }
+    //    public User(string firstName, string lastName, string email, int roleId)
+    //    {
+    //        this.firstName = firstName;
+    //        this.lastName = lastName;
+    //        this.email = email;
+    //        this.roleId = roleId;
+    //        this.statusId = 1;
+    //    }
+    //        public override string ToString()
+    //    {
+    //        string roleName = "";
+    //        string status = "";
+    //        switch (roleId)
+    //        {
+    //            case 1:
+    //                roleName = "Admin";
+    //                break;
+    //            case 2:
+    //                roleName = "Teacher";
+    //                break;
+    //            case 3:
+    //                roleName = "Student";
+    //                break;
+    //        }
 
-            switch (statusId)
-            {
-                case 1:
-                    status = "pending";
-                    break;
-                case 2:
-                    status = "accepted";
-                    break;
-                case 3:
-                    status = "rejected";
-                    break;
+    //        switch (statusId)
+    //        {
+    //            case 1:
+    //                status = "pending";
+    //                break;
+    //            case 2:
+    //                status = "accepted";
+    //                break;
+    //            case 3:
+    //                status = "rejected";
+    //                break;
 
-            }
-            // status just for testing now
-            return roleName + ": " + firstName + " " + lastName + ". Status:" + status;
-        }
-    }
+    //        }
+    //        // status just for testing now
+    //        return roleName + ": " + firstName + " " + lastName + ". Status:" + status;
+    //    }
+    //}
     
 }

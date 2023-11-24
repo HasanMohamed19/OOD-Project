@@ -78,6 +78,7 @@
     <Compile Include="ManageBranchesForm.Designer.cs">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="usersListForms.cs">
       <SubType>Form</SubType>
     </Compile>
