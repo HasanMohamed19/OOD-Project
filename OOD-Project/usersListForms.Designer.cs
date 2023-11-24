@@ -54,7 +54,7 @@
             this.tabControl1.Controls.Add(this.pendingUsersTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1045, 417);
@@ -64,10 +64,11 @@
             // 
             this.currentUsersTab.Controls.Add(this.panel1);
             this.currentUsersTab.Controls.Add(this.currentUsersListBox);
+            this.currentUsersTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentUsersTab.Location = new System.Drawing.Point(4, 25);
-            this.currentUsersTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentUsersTab.Margin = new System.Windows.Forms.Padding(4);
             this.currentUsersTab.Name = "currentUsersTab";
-            this.currentUsersTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentUsersTab.Padding = new System.Windows.Forms.Padding(4);
             this.currentUsersTab.Size = new System.Drawing.Size(1037, 388);
             this.currentUsersTab.TabIndex = 0;
             this.currentUsersTab.Text = "Current Users";
@@ -78,7 +79,7 @@
             this.panel1.Controls.Add(this.usersListControls);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1029, 41);
             this.panel1.TabIndex = 5;
@@ -89,7 +90,7 @@
             this.usersListControls.Controls.Add(this.deleteUserBtn);
             this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersListControls.Location = new System.Drawing.Point(0, 0);
-            this.usersListControls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usersListControls.Margin = new System.Windows.Forms.Padding(4);
             this.usersListControls.Name = "usersListControls";
             this.usersListControls.Size = new System.Drawing.Size(1029, 41);
             this.usersListControls.TabIndex = 3;
@@ -102,7 +103,7 @@
             this.editUserBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.editUserBtn.Location = new System.Drawing.Point(4, 4);
-            this.editUserBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editUserBtn.Margin = new System.Windows.Forms.Padding(4);
             this.editUserBtn.Name = "editUserBtn";
             this.editUserBtn.Size = new System.Drawing.Size(100, 33);
             this.editUserBtn.TabIndex = 0;
@@ -119,7 +120,7 @@
             this.deleteUserBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.deleteUserBtn.Location = new System.Drawing.Point(112, 4);
-            this.deleteUserBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteUserBtn.Margin = new System.Windows.Forms.Padding(4);
             this.deleteUserBtn.Name = "deleteUserBtn";
             this.deleteUserBtn.Size = new System.Drawing.Size(100, 33);
             this.deleteUserBtn.TabIndex = 1;
@@ -129,22 +130,24 @@
             // 
             // currentUsersListBox
             // 
+            this.currentUsersListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentUsersListBox.FormattingEnabled = true;
-            this.currentUsersListBox.ItemHeight = 16;
+            this.currentUsersListBox.ItemHeight = 25;
             this.currentUsersListBox.Location = new System.Drawing.Point(4, 59);
-            this.currentUsersListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentUsersListBox.Margin = new System.Windows.Forms.Padding(4);
             this.currentUsersListBox.Name = "currentUsersListBox";
-            this.currentUsersListBox.Size = new System.Drawing.Size(1025, 324);
+            this.currentUsersListBox.Size = new System.Drawing.Size(1025, 304);
             this.currentUsersListBox.TabIndex = 5;
             // 
             // pendingUsersTab
             // 
             this.pendingUsersTab.Controls.Add(this.flowLayoutPanel1);
             this.pendingUsersTab.Controls.Add(this.pendingUsersListBox);
+            this.pendingUsersTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingUsersTab.Location = new System.Drawing.Point(4, 25);
-            this.pendingUsersTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pendingUsersTab.Margin = new System.Windows.Forms.Padding(4);
             this.pendingUsersTab.Name = "pendingUsersTab";
-            this.pendingUsersTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pendingUsersTab.Padding = new System.Windows.Forms.Padding(4);
             this.pendingUsersTab.Size = new System.Drawing.Size(1037, 388);
             this.pendingUsersTab.TabIndex = 1;
             this.pendingUsersTab.Text = "Pending Users";
@@ -156,7 +159,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnReject);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1029, 41);
             this.flowLayoutPanel1.TabIndex = 6;
@@ -169,7 +172,7 @@
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccept.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.btnAccept.Location = new System.Drawing.Point(4, 4);
-            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(100, 33);
             this.btnAccept.TabIndex = 0;
@@ -185,7 +188,7 @@
             this.btnReject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.btnReject.Location = new System.Drawing.Point(112, 4);
-            this.btnReject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReject.Margin = new System.Windows.Forms.Padding(4);
             this.btnReject.Name = "btnReject";
             this.btnReject.Size = new System.Drawing.Size(100, 33);
             this.btnReject.TabIndex = 1;
@@ -196,11 +199,11 @@
             // pendingUsersListBox
             // 
             this.pendingUsersListBox.FormattingEnabled = true;
-            this.pendingUsersListBox.ItemHeight = 16;
+            this.pendingUsersListBox.ItemHeight = 29;
             this.pendingUsersListBox.Location = new System.Drawing.Point(4, 58);
-            this.pendingUsersListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pendingUsersListBox.Margin = new System.Windows.Forms.Padding(4);
             this.pendingUsersListBox.Name = "pendingUsersListBox";
-            this.pendingUsersListBox.Size = new System.Drawing.Size(1025, 324);
+            this.pendingUsersListBox.Size = new System.Drawing.Size(1025, 323);
             this.pendingUsersListBox.TabIndex = 7;
             // 
             // usersListForms
@@ -209,7 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1045, 417);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "usersListForms";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);

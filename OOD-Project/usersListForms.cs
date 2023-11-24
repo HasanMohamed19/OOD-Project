@@ -31,6 +31,10 @@ namespace OOD_Project
         public usersListForms()
         {
             InitializeComponent();
+            foreach (var user in currentUsers)
+            {
+                user.StatusId = 2;
+            }
             currentUsersListBox.Items.AddRange(currentUsers);
             pendingUsersListBox.Items.AddRange(pendingUsers);
 
@@ -134,7 +138,7 @@ namespace OOD_Project
 
             }
             // status just for testing now
-            return roleName + ": " + firstName + " " + lastName + " " + status;
+            return roleName + ": " + firstName + " " + lastName + ". Status:" + status;
         }
     }
     
