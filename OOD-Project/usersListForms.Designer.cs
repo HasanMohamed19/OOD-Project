@@ -30,11 +30,16 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.currentUsersTab = new System.Windows.Forms.TabPage();
+            this.currentUsersListView = new System.Windows.Forms.ListView();
+            this.firstNameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lastNameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.emailCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.roleCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.statusCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.usersListControls = new System.Windows.Forms.FlowLayoutPanel();
             this.editUserBtn = new System.Windows.Forms.Button();
             this.deleteUserBtn = new System.Windows.Forms.Button();
-            this.currentUsersListBox = new System.Windows.Forms.ListBox();
             this.pendingUsersTab = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAccept = new System.Windows.Forms.Button();
@@ -63,7 +68,7 @@
             // currentUsersTab
             // 
             this.currentUsersTab.Controls.Add(this.panel1);
-            this.currentUsersTab.Controls.Add(this.currentUsersListBox);
+            this.currentUsersTab.Controls.Add(this.currentUsersListView);
             this.currentUsersTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentUsersTab.Location = new System.Drawing.Point(4, 25);
             this.currentUsersTab.Margin = new System.Windows.Forms.Padding(4);
@@ -73,6 +78,57 @@
             this.currentUsersTab.TabIndex = 0;
             this.currentUsersTab.Text = "Current Users";
             this.currentUsersTab.UseVisualStyleBackColor = true;
+            // 
+            // currentUsersListView
+            // 
+            this.currentUsersListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.firstNameCol,
+            this.lastNameCol,
+            this.emailCol,
+            this.roleCol,
+            this.statusCol});
+            this.currentUsersListView.FullRowSelect = true;
+            this.currentUsersListView.GridLines = true;
+            this.currentUsersListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.currentUsersListView.HideSelection = false;
+            this.currentUsersListView.HoverSelection = true;
+            this.currentUsersListView.LabelEdit = true;
+            this.currentUsersListView.Location = new System.Drawing.Point(3, 48);
+            this.currentUsersListView.MultiSelect = false;
+            this.currentUsersListView.Name = "currentUsersListView";
+            this.currentUsersListView.Size = new System.Drawing.Size(1030, 340);
+            this.currentUsersListView.TabIndex = 6;
+            this.currentUsersListView.UseCompatibleStateImageBehavior = false;
+            this.currentUsersListView.View = System.Windows.Forms.View.Details;
+            // 
+            // firstNameCol
+            // 
+            this.firstNameCol.Text = "First Name";
+            this.firstNameCol.Width = 130;
+            // 
+            // lastNameCol
+            // 
+            this.lastNameCol.Text = "Last Name";
+            this.lastNameCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lastNameCol.Width = 130;
+            // 
+            // emailCol
+            // 
+            this.emailCol.Text = "Email";
+            this.emailCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.emailCol.Width = 200;
+            // 
+            // roleCol
+            // 
+            this.roleCol.Text = "Role";
+            this.roleCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.roleCol.Width = 100;
+            // 
+            // statusCol
+            // 
+            this.statusCol.Text = "Status";
+            this.statusCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.statusCol.Width = 100;
             // 
             // panel1
             // 
@@ -127,17 +183,6 @@
             this.deleteUserBtn.Text = "Delete";
             this.deleteUserBtn.UseVisualStyleBackColor = false;
             this.deleteUserBtn.Click += new System.EventHandler(this.deleteUserBtn_Click);
-            // 
-            // currentUsersListBox
-            // 
-            this.currentUsersListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentUsersListBox.FormattingEnabled = true;
-            this.currentUsersListBox.ItemHeight = 25;
-            this.currentUsersListBox.Location = new System.Drawing.Point(4, 59);
-            this.currentUsersListBox.Margin = new System.Windows.Forms.Padding(4);
-            this.currentUsersListBox.Name = "currentUsersListBox";
-            this.currentUsersListBox.Size = new System.Drawing.Size(1025, 304);
-            this.currentUsersListBox.TabIndex = 5;
             // 
             // pendingUsersTab
             // 
@@ -234,10 +279,15 @@
         private System.Windows.Forms.Button deleteUserBtn;
         private System.Windows.Forms.TabPage pendingUsersTab;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListBox currentUsersListBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.Button btnReject;
         private System.Windows.Forms.ListBox pendingUsersListBox;
+        private System.Windows.Forms.ListView currentUsersListView;
+        private System.Windows.Forms.ColumnHeader firstNameCol;
+        private System.Windows.Forms.ColumnHeader lastNameCol;
+        private System.Windows.Forms.ColumnHeader emailCol;
+        private System.Windows.Forms.ColumnHeader roleCol;
+        private System.Windows.Forms.ColumnHeader statusCol;
     }
 }

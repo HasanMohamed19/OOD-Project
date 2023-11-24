@@ -31,7 +31,7 @@ namespace OOD_Project
 
         private void manageBranchesBtn_Click(object sender, EventArgs e)
         {
-
+            OpenChildForm(new ManageBranchesForm(), sender);
         }
 
         private void manageInformationBtn_Click(object sender, EventArgs e)

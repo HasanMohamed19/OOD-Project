@@ -23,7 +23,15 @@ namespace OOD_Project
         new User("test1", "Ali", "student@gmail.com", 1),
         new User("test2", "Ali", "student@gmail.com", 2),
         new User("test3", "Ali", "student@gmail.com", 3),
-        new User("human4", "Ali", "student@gmail.com", 2),};
+        new User("human4", "Ali", "student@gmail.com", 2),
+        new User("Yousif", "Ali", "student@gmail.com", 2),
+        new User("Ahmed", "Ali", "student@gmail.com", 1),
+        new User("Mahmood", "Ali", "student@gmail.com", 3),
+        new User("Osama", "Ali", "student@gmail.com", 3),
+        new User("test1", "Ali", "student@gmail.com", 1),
+        new User("test2", "Ali", "student@gmail.com", 2),
+        new User("test3", "Ali", "student@gmail.com", 3),
+        new User("human4", "Ali", "student@gmail.com", 2)};
 
         User[] pendingUsers = { new User("pending", "user", "pending@pending.com", 3),
         new User("pending", "user", "pendingUser@pending.com", 2)};
@@ -34,8 +42,16 @@ namespace OOD_Project
             foreach (var user in currentUsers)
             {
                 user.StatusId = 2;
+                ListViewItem item = new ListViewItem(user.FirstName);
+                item.SubItems.Add(user.LastName);
+                item.SubItems.Add(user.Email);
+                item.SubItems.Add(user.RoleId.ToString());
+                item.SubItems.Add(user.StatusId.ToString());
+                currentUsersListView.Items.Add(item);
             }
-            currentUsersListBox.Items.AddRange(currentUsers);
+            
+
+            // currentUsersListBox.Items.AddRange(currentUsers);
             pendingUsersListBox.Items.AddRange(pendingUsers);
 
         }
@@ -49,13 +65,15 @@ namespace OOD_Project
         {
             DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected user?", "Delete Confirmation", MessageBoxButtons.YesNo);
 
+            
+
             if (deleteConfirmation == DialogResult.Yes)
             {
-                currentUsersListBox.Items.Remove(currentUsersListBox.SelectedItem);
-                currentUsersListBox.Update();
-            } else
-            {
-                Console.WriteLine("user deleted");
+                while (currentUsersListView.SelectedItems.Count > 0)
+                {
+                    currentUsersListView.Items.Remove(currentUsersListView.SelectedItems[0]);
+                }
+
             }
 
         }
@@ -64,8 +82,8 @@ namespace OOD_Project
         {
             User pendingUser = (User) pendingUsersListBox.SelectedItem;
             pendingUser.StatusId = 2;
-            currentUsersListBox.Items.Add(pendingUser);
-            currentUsersListBox.Update();
+            //currentUsersListBox.Items.Add(pendingUser);
+            //currentUsersListBox.Update();
             pendingUsersListBox.Items.Remove(pendingUser);
             pendingUsersListBox.Update();
             MessageBox.Show("User Request Accepted Successfully", "User Added");
