@@ -15,33 +15,33 @@ namespace OOD_Project
     {
 
         // fake data from db
-        User[] currentUsers = { new User("Hasan", "Ali", "student@gmail.com", 3),
-        new User("Yousif", "Ali", "student@gmail.com", 2),
-        new User("Ahmed", "Ali", "student@gmail.com", 1),
-        new User("Mahmood", "Ali", "student@gmail.com", 3),
-        new User("Osama", "Ali", "student@gmail.com", 3),
-        new User("test1", "Ali", "student@gmail.com", 1),
-        new User("test2", "Ali", "student@gmail.com", 2),
-        new User("test3", "Ali", "student@gmail.com", 3),
-        new User("human4", "Ali", "student@gmail.com", 2),
-        new User("Yousif", "Ali", "student@gmail.com", 2),
-        new User("Ahmed", "Ali", "student@gmail.com", 1),
-        new User("Mahmood", "Ali", "student@gmail.com", 3),
-        new User("Osama", "Ali", "student@gmail.com", 3),
-        new User("test1", "Ali", "student@gmail.com", 1),
-        new User("test2", "Ali", "student@gmail.com", 2),
-        new User("test3", "Ali", "student@gmail.com", 3),
-        new User("human4", "Ali", "student@gmail.com", 2)};
+        User[] currentUsers = { new User("Hasan", "Ali", "student@gmail.com", UserRole.student),
+        new User("Yousif", "Ali", "student@gmail.com", UserRole.teacher),
+        new User("Ahmed", "Ali", "student@gmail.com", UserRole.admin),
+        new User("Mahmood", "Ali", "student@gmail.com", UserRole.student),
+        new User("Osama", "Ali", "student@gmail.com", UserRole.student),
+        new User("test1", "Ali", "student@gmail.com", UserRole.admin),
+        new User("test2", "Ali", "student@gmail.com", UserRole.teacher),
+        new User("test3", "Ali", "student@gmail.com", UserRole.student),
+        new User("human4", "Ali", "student@gmail.com", UserRole.teacher),
+        new User("Yousif", "Ali", "student@gmail.com", UserRole.teacher),
+        new User("Ahmed", "Ali", "student@gmail.com", UserRole.teacher),
+        new User("Mahmood", "Ali", "student@gmail.com", UserRole.student),
+        new User("Osama", "Ali", "student@gmail.com", UserRole.student),
+        new User("test1", "Ali", "student@gmail.com", UserRole.admin),
+        new User("test2", "Ali", "student@gmail.com", UserRole.teacher),
+        new User("test3", "Ali", "student@gmail.com", UserRole.student),
+        new User("human4", "Ali", "student@gmail.com", UserRole.teacher)};
 
-        User[] pendingUsers = { new User("pending", "user", "pending@pending.com", 3),
-        new User("pending", "user", "pendingUser@pending.com", 2)};
+        User[] pendingUsers = { new User("pending", "user", "pending@pending.com", UserRole.student),
+        new User("pending", "user", "pendingUser@pending.com", UserRole.teacher)};
 
         public usersListForms()
         {
             InitializeComponent();
             foreach (var user in currentUsers)
             {
-                user.StatusId = 2;
+                user.StatusId = UserStatus.accepted;
                 ListViewItem item = new ListViewItem(user.FirstName);
                 item.SubItems.Add(user.LastName);
                 item.SubItems.Add(user.Email);
@@ -81,7 +81,7 @@ namespace OOD_Project
         private void btnAccept_Click(object sender, EventArgs e)
         {
             User pendingUser = (User) pendingUsersListBox.SelectedItem;
-            pendingUser.StatusId = 2;
+            pendingUser.StatusId = UserStatus.accepted;
             //currentUsersListBox.Items.Add(pendingUser);
             //currentUsersListBox.Update();
             pendingUsersListBox.Items.Remove(pendingUser);
@@ -92,7 +92,7 @@ namespace OOD_Project
         private void btnReject_Click(object sender, EventArgs e)
         {
             User pendingUser = (User)pendingUsersListBox.SelectedItem;
-            pendingUser.StatusId = 3;
+            pendingUser.StatusId = UserStatus.rejected;
             // just remove the user? or also something else? add list also for rejected user?
             pendingUsersListBox.Items.Remove(pendingUser);
             pendingUsersListBox.Update();

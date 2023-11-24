@@ -83,11 +83,11 @@ namespace OOD_Project
 
             // create user based on data received
             Student newUser = new Student();
-            newUser.RoleId = 3;
+            newUser.RoleId = UserRole.student;
             newUser.FirstName = inFName; newUser.LastName = inLName; newUser.Email = inEmail;
             newUser.Password = inPassword; newUser.Cpr = inCPR; newUser.Gender = inGender;
             newUser.Dob = inDOB; newUser.Phone = inPhone; newUser.Username = inUsername;
-            newUser.Id = inStudentID; newUser.StatusId = 1;
+            newUser.Id = inStudentID; newUser.StatusId = UserStatus.pending;
             Console.WriteLine(newUser.LastName);
             // move to login page with autofill ?
             MessageBox.Show(newUser.ToString(), "New User");
@@ -123,11 +123,11 @@ namespace OOD_Project
 
             // create user based on data received
             Teacher newUser = new Teacher();
-            newUser.RoleId = 2;
+            newUser.RoleId = UserRole.teacher;
             newUser.FirstName = inFName; newUser.LastName = inLName; newUser.Email = inEmail;
             newUser.Password = inPassword; newUser.Cpr = inCPR; newUser.Gender = inGender;
             newUser.Dob = inDOB; newUser.Phone = inPhone; newUser.Username = inUsername;
-            newUser.Dept = inDept; newUser.StatusId = 1;
+            newUser.Dept = inDept; newUser.StatusId = UserStatus.pending;
             Console.WriteLine(newUser.LastName);
             // move to login page with autofill ?
             MessageBox.Show(newUser.ToString(), "New User");
