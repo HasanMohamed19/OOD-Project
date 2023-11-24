@@ -54,19 +54,21 @@
             this.tabControl1.Controls.Add(this.pendingUsersTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(784, 339);
+            this.tabControl1.Size = new System.Drawing.Size(1045, 417);
             this.tabControl1.TabIndex = 0;
             // 
             // currentUsersTab
             // 
             this.currentUsersTab.Controls.Add(this.panel1);
             this.currentUsersTab.Controls.Add(this.currentUsersListBox);
-            this.currentUsersTab.Location = new System.Drawing.Point(4, 22);
+            this.currentUsersTab.Location = new System.Drawing.Point(4, 25);
+            this.currentUsersTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.currentUsersTab.Name = "currentUsersTab";
-            this.currentUsersTab.Padding = new System.Windows.Forms.Padding(3);
-            this.currentUsersTab.Size = new System.Drawing.Size(776, 313);
+            this.currentUsersTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.currentUsersTab.Size = new System.Drawing.Size(1037, 388);
             this.currentUsersTab.TabIndex = 0;
             this.currentUsersTab.Text = "Current Users";
             this.currentUsersTab.UseVisualStyleBackColor = true;
@@ -75,9 +77,10 @@
             // 
             this.panel1.Controls.Add(this.usersListControls);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(770, 33);
+            this.panel1.Size = new System.Drawing.Size(1029, 41);
             this.panel1.TabIndex = 5;
             // 
             // usersListControls
@@ -86,46 +89,63 @@
             this.usersListControls.Controls.Add(this.deleteUserBtn);
             this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersListControls.Location = new System.Drawing.Point(0, 0);
+            this.usersListControls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usersListControls.Name = "usersListControls";
-            this.usersListControls.Size = new System.Drawing.Size(770, 32);
+            this.usersListControls.Size = new System.Drawing.Size(1029, 41);
             this.usersListControls.TabIndex = 3;
             // 
             // editUserBtn
             // 
-            this.editUserBtn.Location = new System.Drawing.Point(3, 3);
+            this.editUserBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.editUserBtn.FlatAppearance.BorderSize = 0;
+            this.editUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editUserBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.editUserBtn.Location = new System.Drawing.Point(4, 4);
+            this.editUserBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editUserBtn.Name = "editUserBtn";
-            this.editUserBtn.Size = new System.Drawing.Size(75, 23);
+            this.editUserBtn.Size = new System.Drawing.Size(100, 33);
             this.editUserBtn.TabIndex = 0;
+            this.editUserBtn.TabStop = false;
             this.editUserBtn.Text = "Edit";
-            this.editUserBtn.UseVisualStyleBackColor = true;
+            this.editUserBtn.UseVisualStyleBackColor = false;
             this.editUserBtn.Click += new System.EventHandler(this.editUserBtn_Click);
             // 
             // deleteUserBtn
             // 
-            this.deleteUserBtn.Location = new System.Drawing.Point(84, 3);
+            this.deleteUserBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.deleteUserBtn.FlatAppearance.BorderSize = 0;
+            this.deleteUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteUserBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.deleteUserBtn.Location = new System.Drawing.Point(112, 4);
+            this.deleteUserBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deleteUserBtn.Name = "deleteUserBtn";
-            this.deleteUserBtn.Size = new System.Drawing.Size(75, 23);
+            this.deleteUserBtn.Size = new System.Drawing.Size(100, 33);
             this.deleteUserBtn.TabIndex = 1;
             this.deleteUserBtn.Text = "Delete";
-            this.deleteUserBtn.UseVisualStyleBackColor = true;
+            this.deleteUserBtn.UseVisualStyleBackColor = false;
             this.deleteUserBtn.Click += new System.EventHandler(this.deleteUserBtn_Click);
             // 
             // currentUsersListBox
             // 
             this.currentUsersListBox.FormattingEnabled = true;
-            this.currentUsersListBox.Location = new System.Drawing.Point(3, 48);
+            this.currentUsersListBox.ItemHeight = 16;
+            this.currentUsersListBox.Location = new System.Drawing.Point(4, 59);
+            this.currentUsersListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.currentUsersListBox.Name = "currentUsersListBox";
-            this.currentUsersListBox.Size = new System.Drawing.Size(770, 264);
+            this.currentUsersListBox.Size = new System.Drawing.Size(1025, 324);
             this.currentUsersListBox.TabIndex = 5;
             // 
             // pendingUsersTab
             // 
             this.pendingUsersTab.Controls.Add(this.flowLayoutPanel1);
             this.pendingUsersTab.Controls.Add(this.pendingUsersListBox);
-            this.pendingUsersTab.Location = new System.Drawing.Point(4, 22);
+            this.pendingUsersTab.Location = new System.Drawing.Point(4, 25);
+            this.pendingUsersTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pendingUsersTab.Name = "pendingUsersTab";
-            this.pendingUsersTab.Padding = new System.Windows.Forms.Padding(3);
-            this.pendingUsersTab.Size = new System.Drawing.Size(776, 313);
+            this.pendingUsersTab.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pendingUsersTab.Size = new System.Drawing.Size(1037, 388);
             this.pendingUsersTab.TabIndex = 1;
             this.pendingUsersTab.Text = "Pending Users";
             this.pendingUsersTab.UseVisualStyleBackColor = true;
@@ -135,45 +155,61 @@
             this.flowLayoutPanel1.Controls.Add(this.btnAccept);
             this.flowLayoutPanel1.Controls.Add(this.btnReject);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(770, 32);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1029, 41);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(3, 3);
+            this.btnAccept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.btnAccept.FlatAppearance.BorderSize = 0;
+            this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccept.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.btnAccept.Location = new System.Drawing.Point(4, 4);
+            this.btnAccept.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(75, 23);
+            this.btnAccept.Size = new System.Drawing.Size(100, 33);
             this.btnAccept.TabIndex = 0;
             this.btnAccept.Text = "Accept";
-            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.UseVisualStyleBackColor = false;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnReject
             // 
-            this.btnReject.Location = new System.Drawing.Point(84, 3);
+            this.btnReject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.btnReject.FlatAppearance.BorderSize = 0;
+            this.btnReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.btnReject.Location = new System.Drawing.Point(112, 4);
+            this.btnReject.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReject.Name = "btnReject";
-            this.btnReject.Size = new System.Drawing.Size(75, 23);
+            this.btnReject.Size = new System.Drawing.Size(100, 33);
             this.btnReject.TabIndex = 1;
             this.btnReject.Text = "Reject";
-            this.btnReject.UseVisualStyleBackColor = true;
+            this.btnReject.UseVisualStyleBackColor = false;
             this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
             // 
             // pendingUsersListBox
             // 
             this.pendingUsersListBox.FormattingEnabled = true;
-            this.pendingUsersListBox.Location = new System.Drawing.Point(3, 47);
+            this.pendingUsersListBox.ItemHeight = 16;
+            this.pendingUsersListBox.Location = new System.Drawing.Point(4, 58);
+            this.pendingUsersListBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pendingUsersListBox.Name = "pendingUsersListBox";
-            this.pendingUsersListBox.Size = new System.Drawing.Size(770, 264);
+            this.pendingUsersListBox.Size = new System.Drawing.Size(1025, 324);
             this.pendingUsersListBox.TabIndex = 7;
             // 
             // usersListForms
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 339);
+            this.ClientSize = new System.Drawing.Size(1045, 417);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "usersListForms";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
