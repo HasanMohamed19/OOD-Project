@@ -884,6 +884,7 @@
             this.btnRegisterT.TabIndex = 11;
             this.btnRegisterT.Text = "Register";
             this.btnRegisterT.UseVisualStyleBackColor = false;
+            this.btnRegisterT.Click += new System.EventHandler(this.btnRegisterT_Click);
             // 
             // panelHeaderTeacher
             // 

@@ -81,12 +81,51 @@ namespace OOD_Project
             DateTime inDOB = dateDOB.Value.Date;
 
             // create user based on data received
-            User newUser = new User();
+            Student newUser = new Student();
             newUser.RoleId = 3;
             newUser.FirstName = inFName; newUser.LastName = inLName; newUser.Email = inEmail;
             newUser.Password = inPassword; newUser.Cpr = inCPR; newUser.Gender = inGender;
             newUser.Dob = inDOB; newUser.Phone = inPhone; newUser.Username = inUsername;
             newUser.Id = inStudentID;
+            Console.WriteLine(newUser.LastName);
+            // move to login page with autofill ?
+            MessageBox.Show(newUser.ToString(), "New User");
+        }
+
+        private void btnRegisterT_Click(object sender, EventArgs e)
+        {
+            string inUsername = txtUsernameT.Text;
+            string inPassword = txtPassT.Text;
+            string inConfirm = txtConfirmT.Text;
+            string inEmail = txtEmailT.Text;
+            string inDept = txtDeptT.Text;
+            string inCPR = txtCPRT.Text;
+            string inFName = txtFNameT.Text;
+            string inLName = txtLNameT.Text;
+            string inPhone = txtPhoneT.Text;
+            // get gender from radio buttons and store as char 'M' or 'F'
+            char inGender = 'X';
+            if (radioMaleT.Checked)
+            {
+                inGender = 'M';
+            }
+            else if (radioFemaleT.Checked)
+            {
+                inGender = 'F';
+            }
+            else
+            {
+                MessageBox.Show("Please select a gender to continue.", "Gender Not Selected");
+            }
+            DateTime inDOB = dateDOBT.Value.Date;
+
+            // create user based on data received
+            Teacher newUser = new Teacher();
+            newUser.RoleId = 2;
+            newUser.FirstName = inFName; newUser.LastName = inLName; newUser.Email = inEmail;
+            newUser.Password = inPassword; newUser.Cpr = inCPR; newUser.Gender = inGender;
+            newUser.Dob = inDOB; newUser.Phone = inPhone; newUser.Username = inUsername;
+            newUser.Dept = inDept;
             Console.WriteLine(newUser.LastName);
             // move to login page with autofill ?
             MessageBox.Show(newUser.ToString(), "New User");
@@ -98,7 +137,6 @@ namespace OOD_Project
         private string lastName;
         private string phone;
         private string cpr;
-        private string id;
         private string username;
         private string password;
         private string email;
@@ -114,7 +152,6 @@ namespace OOD_Project
         public string Phone { get => phone; set => phone = value; }
         public string Password { get => password; set => password = value; }
         public string Username { get => username; set => username = value; }
-        public string Id { get => id; set => id = value; }
         public char Gender { get => gender; set => gender = value; }
         public DateTime Dob { get => dob; set => dob = value; }
         public string Cpr { get => cpr; set => cpr = value; }
@@ -148,7 +185,63 @@ namespace OOD_Project
                     break;
             }
             return rolename + " " + FirstName + " " + LastName + "\n"
-                + Email + " " + Cpr + " " + Id + "\n"
+                + Email + " " + Cpr + " " + "\n"
+                + Username + " " + Password + " " + Phone + "\n"
+                + Dob + " " + Gender;
+        }
+    }
+
+    class Student : User
+    {
+        private string id;
+
+        public string Id { get => id; set => id = value; }
+
+        public override string ToString()
+        {
+            string rolename = "";
+            switch (RoleId)
+            {
+                case 1:
+                    rolename = "admin";
+                    break;
+                case 2:
+                    rolename = "teacher";
+                    break;
+                case 3:
+                    rolename = "student";
+                    break;
+            }
+            return rolename + " " + FirstName + " " + LastName + "\n"
+                + Email + " " + Cpr + " " + id + "\n"
+                + Username + " " + Password + " " + Phone + "\n"
+                + Dob + " " + Gender;
+        }
+    }
+
+    class Teacher : User
+    {
+        private string dept;
+
+        public string Dept { get => dept; set => dept = value; }
+
+        public override string ToString()
+        {
+            string rolename = "";
+            switch (RoleId)
+            {
+                case 1:
+                    rolename = "admin";
+                    break;
+                case 2:
+                    rolename = "teacher";
+                    break;
+                case 3:
+                    rolename = "student";
+                    break;
+            }
+            return rolename + " " + FirstName + " " + LastName + "\n"
+                + Email + " " + Cpr + " " + dept + "\n"
                 + Username + " " + Password + " " + Phone + "\n"
                 + Dob + " " + Gender;
         }
