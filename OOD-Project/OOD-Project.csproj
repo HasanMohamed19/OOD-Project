@@ -66,6 +66,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel.Designer.cs">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageBranchesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageBranchesForm.Designer.cs">
+      <DependentUpon>ManageBranchesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usersListForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="usersListForms.Designer.cs">
+      <DependentUpon>usersListForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +98,15 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminPanel.resx">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageBranchesForm.resx">
+      <DependentUpon>ManageBranchesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usersListForms.resx">
+      <DependentUpon>usersListForms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
