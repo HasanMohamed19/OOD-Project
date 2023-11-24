@@ -67,31 +67,31 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUsernameT = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtFNameT = new System.Windows.Forms.TextBox();
+            this.txtLNameT = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioMaleT = new System.Windows.Forms.RadioButton();
+            this.radioFemaleT = new System.Windows.Forms.RadioButton();
             this.label20 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.dateDOBT = new System.Windows.Forms.DateTimePicker();
+            this.txtPhoneT = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtPassT = new System.Windows.Forms.TextBox();
+            this.txtConfirmT = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtEmailT = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtDeptT = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtCPRT = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblErrorT = new System.Windows.Forms.Label();
+            this.btnRegisterT = new System.Windows.Forms.Button();
             this.panelHeaderTeacher = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -559,26 +559,26 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.Controls.Add(this.label14, 2, 4);
             this.tableLayoutPanel2.Controls.Add(this.label15, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtUsernameT, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.label16, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label17, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label18, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtFNameT, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtLNameT, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.label19, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 3, 2);
             this.tableLayoutPanel2.Controls.Add(this.label20, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(this.dateTimePicker1, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBox4, 3, 4);
+            this.tableLayoutPanel2.Controls.Add(this.dateDOBT, 3, 3);
+            this.tableLayoutPanel2.Controls.Add(this.txtPhoneT, 3, 4);
             this.tableLayoutPanel2.Controls.Add(this.label21, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox5, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox6, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtPassT, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtConfirmT, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label22, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.textBox7, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.txtEmailT, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label23, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.textBox8, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.txtDeptT, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.label24, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.textBox9, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.txtCPRT, 1, 5);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(-4, 3);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -617,14 +617,14 @@
             this.label15.Text = "Username: ";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // txtUsernameT
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(182, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 31);
-            this.textBox1.TabIndex = 9;
+            this.txtUsernameT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtUsernameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsernameT.Location = new System.Drawing.Point(182, 13);
+            this.txtUsernameT.Name = "txtUsernameT";
+            this.txtUsernameT.Size = new System.Drawing.Size(185, 31);
+            this.txtUsernameT.TabIndex = 9;
             // 
             // label16
             // 
@@ -662,25 +662,23 @@
             this.label18.Text = "Last Name:";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // txtFNameT
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(541, 13);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(185, 31);
-            this.textBox2.TabIndex = 17;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.txtFNameT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtFNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFNameT.Location = new System.Drawing.Point(541, 13);
+            this.txtFNameT.Name = "txtFNameT";
+            this.txtFNameT.Size = new System.Drawing.Size(185, 31);
+            this.txtFNameT.TabIndex = 17;
             // 
-            // textBox3
+            // txtLNameT
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(541, 50);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(185, 31);
-            this.textBox3.TabIndex = 19;
-            this.textBox3.UseSystemPasswordChar = true;
+            this.txtLNameT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtLNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLNameT.Location = new System.Drawing.Point(541, 50);
+            this.txtLNameT.Name = "txtLNameT";
+            this.txtLNameT.Size = new System.Drawing.Size(185, 31);
+            this.txtLNameT.TabIndex = 19;
             // 
             // label19
             // 
@@ -698,34 +696,34 @@
             // 
             this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flowLayoutPanel2.AutoSize = true;
-            this.flowLayoutPanel2.Controls.Add(this.radioButton1);
-            this.flowLayoutPanel2.Controls.Add(this.radioButton2);
+            this.flowLayoutPanel2.Controls.Add(this.radioMaleT);
+            this.flowLayoutPanel2.Controls.Add(this.radioFemaleT);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(574, 91);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(119, 23);
             this.flowLayoutPanel2.TabIndex = 34;
             // 
-            // radioButton1
+            // radioMaleT
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(48, 17);
-            this.radioButton1.TabIndex = 30;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Male";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioMaleT.AutoSize = true;
+            this.radioMaleT.Location = new System.Drawing.Point(3, 3);
+            this.radioMaleT.Name = "radioMaleT";
+            this.radioMaleT.Size = new System.Drawing.Size(48, 17);
+            this.radioMaleT.TabIndex = 30;
+            this.radioMaleT.TabStop = true;
+            this.radioMaleT.Text = "Male";
+            this.radioMaleT.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioFemaleT
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(57, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(59, 17);
-            this.radioButton2.TabIndex = 31;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Female";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioFemaleT.AutoSize = true;
+            this.radioFemaleT.Location = new System.Drawing.Point(57, 3);
+            this.radioFemaleT.Name = "radioFemaleT";
+            this.radioFemaleT.Size = new System.Drawing.Size(59, 17);
+            this.radioFemaleT.TabIndex = 31;
+            this.radioFemaleT.TabStop = true;
+            this.radioFemaleT.Text = "Female";
+            this.radioFemaleT.UseVisualStyleBackColor = true;
             // 
             // label20
             // 
@@ -739,23 +737,22 @@
             this.label20.Text = "Date of Birth: ";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dateTimePicker1
+            // dateDOBT
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.Location = new System.Drawing.Point(543, 129);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(181, 20);
-            this.dateTimePicker1.TabIndex = 28;
+            this.dateDOBT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dateDOBT.Location = new System.Drawing.Point(543, 129);
+            this.dateDOBT.Name = "dateDOBT";
+            this.dateDOBT.Size = new System.Drawing.Size(181, 20);
+            this.dateDOBT.TabIndex = 28;
             // 
-            // textBox4
+            // txtPhoneT
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(541, 161);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(185, 31);
-            this.textBox4.TabIndex = 23;
-            this.textBox4.UseSystemPasswordChar = true;
+            this.txtPhoneT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPhoneT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneT.Location = new System.Drawing.Point(541, 161);
+            this.txtPhoneT.Name = "txtPhoneT";
+            this.txtPhoneT.Size = new System.Drawing.Size(185, 31);
+            this.txtPhoneT.TabIndex = 23;
             // 
             // label21
             // 
@@ -769,25 +766,25 @@
             this.label21.Text = "Password: ";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // txtPassT
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(182, 50);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(185, 31);
-            this.textBox5.TabIndex = 10;
-            this.textBox5.UseSystemPasswordChar = true;
+            this.txtPassT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtPassT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassT.Location = new System.Drawing.Point(182, 50);
+            this.txtPassT.Name = "txtPassT";
+            this.txtPassT.Size = new System.Drawing.Size(185, 31);
+            this.txtPassT.TabIndex = 10;
+            this.txtPassT.UseSystemPasswordChar = true;
             // 
-            // textBox6
+            // txtConfirmT
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(182, 87);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(185, 31);
-            this.textBox6.TabIndex = 15;
-            this.textBox6.UseSystemPasswordChar = true;
+            this.txtConfirmT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtConfirmT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirmT.Location = new System.Drawing.Point(182, 87);
+            this.txtConfirmT.Name = "txtConfirmT";
+            this.txtConfirmT.Size = new System.Drawing.Size(185, 31);
+            this.txtConfirmT.TabIndex = 15;
+            this.txtConfirmT.UseSystemPasswordChar = true;
             // 
             // label22
             // 
@@ -801,15 +798,14 @@
             this.label22.Text = "Email:";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox7
+            // txtEmailT
             // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(182, 124);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(185, 31);
-            this.textBox7.TabIndex = 25;
-            this.textBox7.UseSystemPasswordChar = true;
+            this.txtEmailT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtEmailT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailT.Location = new System.Drawing.Point(182, 124);
+            this.txtEmailT.Name = "txtEmailT";
+            this.txtEmailT.Size = new System.Drawing.Size(185, 31);
+            this.txtEmailT.TabIndex = 25;
             // 
             // label23
             // 
@@ -823,15 +819,14 @@
             this.label23.Text = "Department:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox8
+            // txtDeptT
             // 
-            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(182, 161);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(185, 31);
-            this.textBox8.TabIndex = 32;
-            this.textBox8.UseSystemPasswordChar = true;
+            this.txtDeptT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDeptT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDeptT.Location = new System.Drawing.Point(182, 161);
+            this.txtDeptT.Name = "txtDeptT";
+            this.txtDeptT.Size = new System.Drawing.Size(185, 31);
+            this.txtDeptT.TabIndex = 32;
             // 
             // label24
             // 
@@ -845,51 +840,50 @@
             this.label24.Text = "CPR:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox9
+            // txtCPRT
             // 
-            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(182, 198);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(185, 31);
-            this.textBox9.TabIndex = 21;
-            this.textBox9.UseSystemPasswordChar = true;
+            this.txtCPRT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCPRT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPRT.Location = new System.Drawing.Point(182, 198);
+            this.txtCPRT.Name = "txtCPRT";
+            this.txtCPRT.Size = new System.Drawing.Size(185, 31);
+            this.txtCPRT.TabIndex = 21;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label25);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.lblErrorT);
+            this.panel2.Controls.Add(this.btnRegisterT);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 286);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(777, 130);
             this.panel2.TabIndex = 35;
             // 
-            // label25
+            // lblErrorT
             // 
-            this.label25.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.Red;
-            this.label25.Location = new System.Drawing.Point(1, 9);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(760, 28);
-            this.label25.TabIndex = 12;
-            this.label25.Text = "Error";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblErrorT.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblErrorT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorT.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorT.Location = new System.Drawing.Point(1, 9);
+            this.lblErrorT.Name = "lblErrorT";
+            this.lblErrorT.Size = new System.Drawing.Size(760, 28);
+            this.lblErrorT.TabIndex = 12;
+            this.lblErrorT.Text = "Error";
+            this.lblErrorT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // btnRegisterT
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(195, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(383, 54);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Register";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnRegisterT.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnRegisterT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.btnRegisterT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRegisterT.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterT.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRegisterT.Location = new System.Drawing.Point(195, 56);
+            this.btnRegisterT.Name = "btnRegisterT";
+            this.btnRegisterT.Size = new System.Drawing.Size(383, 54);
+            this.btnRegisterT.TabIndex = 11;
+            this.btnRegisterT.Text = "Register";
+            this.btnRegisterT.UseVisualStyleBackColor = false;
             // 
             // panelHeaderTeacher
             // 
@@ -1000,31 +994,31 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUsernameT;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtFNameT;
+        private System.Windows.Forms.TextBox txtLNameT;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioMaleT;
+        private System.Windows.Forms.RadioButton radioFemaleT;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DateTimePicker dateDOBT;
+        private System.Windows.Forms.TextBox txtPhoneT;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtPassT;
+        private System.Windows.Forms.TextBox txtConfirmT;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtEmailT;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtDeptT;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtCPRT;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblErrorT;
+        private System.Windows.Forms.Button btnRegisterT;
         private System.Windows.Forms.Panel panelHeaderTeacher;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
