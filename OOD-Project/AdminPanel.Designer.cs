@@ -35,6 +35,7 @@
             this.manageUsersBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.adminMainContent = new System.Windows.Forms.Panel();
+            this.manageCoursesBtn = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -56,9 +57,10 @@
             this.flowLayoutPanel1.Controls.Add(this.manageBranchesBtn);
             this.flowLayoutPanel1.Controls.Add(this.manageInformationBtn);
             this.flowLayoutPanel1.Controls.Add(this.manageUsersBtn);
+            this.flowLayoutPanel1.Controls.Add(this.manageCoursesBtn);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(275, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(476, 54);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(513, 54);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // manageBranchesBtn
@@ -111,6 +113,15 @@
             this.adminMainContent.Size = new System.Drawing.Size(800, 378);
             this.adminMainContent.TabIndex = 3;
             // 
+            // manageCoursesBtn
+            // 
+            this.manageCoursesBtn.Location = new System.Drawing.Point(369, 3);
+            this.manageCoursesBtn.Name = "manageCoursesBtn";
+            this.manageCoursesBtn.Size = new System.Drawing.Size(116, 33);
+            this.manageCoursesBtn.TabIndex = 7;
+            this.manageCoursesBtn.Text = "Manage Courses";
+            this.manageCoursesBtn.UseVisualStyleBackColor = true;
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,5 +146,6 @@
         private System.Windows.Forms.Button manageInformationBtn;
         private System.Windows.Forms.Button manageUsersBtn;
         private System.Windows.Forms.Panel adminMainContent;
+        private System.Windows.Forms.Button manageCoursesBtn;
     }
 }
