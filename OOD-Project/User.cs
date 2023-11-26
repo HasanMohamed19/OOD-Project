@@ -80,13 +80,11 @@ namespace OOD_Project
 
         public override string ToString()
         {
-            string rolename = RoleId.ToString();
-            string status = StatusId.ToString();
-            
-            return rolename + " " + FirstName + " " + LastName + "\n"
-                + Email + " " + Cpr + " " + id + "\n"
-                + Username + " " + Password + " " + Phone + "\n"
-                + Dob + " " + Gender + "Status: " + status;
+            return base.ToString() + " Student ID: " + Id;
+            //return rolename + " " + FirstName + " " + LastName + "\n"
+            //    + Email + " " + Cpr + " " + id + "\n"
+            //    + Username + " " + Password + " " + Phone + "\n"
+            //    + Dob + " " + Gender + "Status: " + status;
         }
     }
 
@@ -100,10 +98,14 @@ namespace OOD_Project
         {
             string rolename = RoleId.ToString();
             string status = StatusId.ToString();
-            return rolename + " " + FirstName + " " + LastName + "\n"
-                + Email + " " + Cpr + " " + dept + "\n"
-                + Username + " " + Password + " " + Phone + "\n"
-                + Dob + " " + Gender + "Status: " + status;
+            string baseString = base.ToString();
+            baseString += "Status: " + status;
+            return baseString;
+            
+            //return rolename + " " + FirstName + " " + LastName + "\n"
+            //    + Email + " " + Cpr + " " + dept + "\n"
+            //    + Username + " " + Password + " " + Phone + "\n"
+            //    + Dob + " " + Gender + "Status: " + status;
         }
     }
 }
