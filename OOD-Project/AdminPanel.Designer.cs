@@ -33,6 +33,7 @@
             this.manageBranchesBtn = new System.Windows.Forms.Button();
             this.manageInformationBtn = new System.Windows.Forms.Button();
             this.manageUsersBtn = new System.Windows.Forms.Button();
+            this.manageCoursesBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.adminMainContent = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
@@ -56,13 +57,16 @@
             this.flowLayoutPanel1.Controls.Add(this.manageBranchesBtn);
             this.flowLayoutPanel1.Controls.Add(this.manageInformationBtn);
             this.flowLayoutPanel1.Controls.Add(this.manageUsersBtn);
+            this.flowLayoutPanel1.Controls.Add(this.manageCoursesBtn);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(275, 12);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(476, 54);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(513, 38);
             this.flowLayoutPanel1.TabIndex = 3;
             // 
             // manageBranchesBtn
             // 
+            this.manageBranchesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageBranchesBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.manageBranchesBtn.Location = new System.Drawing.Point(3, 3);
             this.manageBranchesBtn.Name = "manageBranchesBtn";
             this.manageBranchesBtn.Size = new System.Drawing.Size(116, 33);
@@ -73,6 +77,8 @@
             // 
             // manageInformationBtn
             // 
+            this.manageInformationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageInformationBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.manageInformationBtn.Location = new System.Drawing.Point(125, 3);
             this.manageInformationBtn.Name = "manageInformationBtn";
             this.manageInformationBtn.Size = new System.Drawing.Size(116, 33);
@@ -83,6 +89,8 @@
             // 
             // manageUsersBtn
             // 
+            this.manageUsersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageUsersBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.manageUsersBtn.Location = new System.Drawing.Point(247, 3);
             this.manageUsersBtn.Name = "manageUsersBtn";
             this.manageUsersBtn.Size = new System.Drawing.Size(116, 33);
@@ -90,6 +98,17 @@
             this.manageUsersBtn.Text = "Manage Users";
             this.manageUsersBtn.UseVisualStyleBackColor = true;
             this.manageUsersBtn.Click += new System.EventHandler(this.manageUsersBtn_Click);
+            // 
+            // manageCoursesBtn
+            // 
+            this.manageCoursesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageCoursesBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.manageCoursesBtn.Location = new System.Drawing.Point(369, 3);
+            this.manageCoursesBtn.Name = "manageCoursesBtn";
+            this.manageCoursesBtn.Size = new System.Drawing.Size(116, 33);
+            this.manageCoursesBtn.TabIndex = 7;
+            this.manageCoursesBtn.Text = "Manage Courses";
+            this.manageCoursesBtn.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -135,5 +154,6 @@
         private System.Windows.Forms.Button manageInformationBtn;
         private System.Windows.Forms.Button manageUsersBtn;
         private System.Windows.Forms.Panel adminMainContent;
+        private System.Windows.Forms.Button manageCoursesBtn;
     }
 }
