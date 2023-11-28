@@ -78,6 +78,12 @@
     <Compile Include="ManageBranchesForm.Designer.cs">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentPanel.Designer.cs">
+      <DependentUpon>StudentPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="usersListForms.cs">
       <SubType>Form</SubType>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentPanel.resx">
+      <DependentUpon>StudentPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usersListForms.resx">
       <DependentUpon>usersListForms.cs</DependentUpon>

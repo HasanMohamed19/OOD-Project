@@ -17,7 +17,7 @@ namespace OOD_Project
         {
             string givenUsername = txtUsername.Text;
             string givenPassword = txtPassword.Text;
-            int userRole = 1;
+            int userRole = 3;
             // role ids
             // admin = 1
             /* role ids:
@@ -38,7 +38,10 @@ namespace OOD_Project
                         break;
                     case 2: Console.WriteLine("teacher");
                         break;
-                    case 3: Console.WriteLine("Student");
+                    case 3:
+                        StudentPanel studentPanel = new StudentPanel();
+                        studentPanel.Show();
+                        this.Hide();
                         break;
                 }
             }
