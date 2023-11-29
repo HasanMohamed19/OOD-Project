@@ -39,5 +39,10 @@ namespace OOD_Project
         {
             OpenChildForm(new ViewCoursesForm(), sender);
         }
+
+        private void editProfileBtn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new StudentEditProfileForm(), sender);
+        }
     }
 }

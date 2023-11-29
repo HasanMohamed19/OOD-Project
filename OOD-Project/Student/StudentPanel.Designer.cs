@@ -33,6 +33,7 @@
             this.viewCoursesBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.studentMainContent = new System.Windows.Forms.Panel();
+            this.editProfileBtn = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
             this.flowLayoutPanel1.Controls.Add(this.viewCoursesBtn);
+            this.flowLayoutPanel1.Controls.Add(this.editProfileBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(284, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -96,6 +98,18 @@
             this.studentMainContent.Size = new System.Drawing.Size(784, 489);
             this.studentMainContent.TabIndex = 3;
             // 
+            // editProfileBtn
+            // 
+            this.editProfileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editProfileBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.editProfileBtn.Location = new System.Drawing.Point(125, 19);
+            this.editProfileBtn.Name = "editProfileBtn";
+            this.editProfileBtn.Size = new System.Drawing.Size(116, 34);
+            this.editProfileBtn.TabIndex = 7;
+            this.editProfileBtn.Text = "Edit Profile";
+            this.editProfileBtn.UseVisualStyleBackColor = true;
+            this.editProfileBtn.Click += new System.EventHandler(this.editProfileBtn_Click);
+            // 
             // StudentPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -122,5 +136,6 @@
         private System.Windows.Forms.Panel studentMainContent;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button viewCoursesBtn;
+        private System.Windows.Forms.Button editProfileBtn;
     }
 }

@@ -78,6 +78,12 @@
     <Compile Include="Admin\ManageBranchesForm.Designer.cs">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student\StudentEditProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\StudentEditProfileForm.Designer.cs">
+      <DependentUpon>StudentEditProfileForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student\StudentPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\StudentEditProfileForm.resx">
+      <DependentUpon>StudentEditProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\StudentPanel.resx">
       <DependentUpon>StudentPanel.cs</DependentUpon>
