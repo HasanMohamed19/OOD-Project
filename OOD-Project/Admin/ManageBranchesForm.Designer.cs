@@ -96,7 +96,7 @@
             this.branchesListView.HideSelection = false;
             this.branchesListView.HoverSelection = true;
             this.branchesListView.Location = new System.Drawing.Point(0, 33);
-            this.branchesListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.branchesListView.Margin = new System.Windows.Forms.Padding(2);
             this.branchesListView.MultiSelect = false;
             this.branchesListView.Name = "branchesListView";
             this.branchesListView.Size = new System.Drawing.Size(600, 333);
@@ -134,7 +134,7 @@
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.branchesListView);
             this.Controls.Add(this.usersListControls);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageBranchesForm";
             this.Text = "ManageBranchesForm";
             this.usersListControls.ResumeLayout(false);

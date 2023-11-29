@@ -60,7 +60,7 @@
             this.flowLayoutPanel1.Controls.Add(this.manageCoursesBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(274, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 16, 8, 0);
             this.flowLayoutPanel1.Size = new System.Drawing.Size(510, 72);
@@ -113,6 +113,7 @@
             this.manageCoursesBtn.TabIndex = 7;
             this.manageCoursesBtn.Text = "Manage Courses";
             this.manageCoursesBtn.UseVisualStyleBackColor = true;
+            this.manageCoursesBtn.Click += new System.EventHandler(this.manageCoursesBtn_Click_1);
             // 
             // label1
             // 
