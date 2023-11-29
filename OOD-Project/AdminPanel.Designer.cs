@@ -48,7 +48,7 @@
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(800, 72);
+            this.panelHeader.Size = new System.Drawing.Size(784, 72);
             this.panelHeader.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -127,17 +127,20 @@
             this.adminMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminMainContent.Location = new System.Drawing.Point(0, 72);
             this.adminMainContent.Name = "adminMainContent";
-            this.adminMainContent.Size = new System.Drawing.Size(800, 378);
+            this.adminMainContent.Size = new System.Drawing.Size(784, 489);
             this.adminMainContent.TabIndex = 3;
             // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.adminMainContent);
             this.Controls.Add(this.panelHeader);
+            this.MaximumSize = new System.Drawing.Size(800, 600);
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "AdminPanel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Panel";
             this.panelHeader.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
