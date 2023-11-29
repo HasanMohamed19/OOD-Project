@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Code | Course",
+            "Tutor Name"}, -1);
             this.coursesListView = new System.Windows.Forms.ListView();
             this.viewCoursesMainPanel = new System.Windows.Forms.Panel();
             this.courseDetailedPanel = new System.Windows.Forms.Panel();
-            this.buttonPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.classDetailsPanel = new System.Windows.Forms.Panel();
             this.courseTitleDetailsPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.courseTitleLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -47,6 +48,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.classDetailsPanel = new System.Windows.Forms.Panel();
+            this.buttonPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.viewCoursesMainPanel.SuspendLayout();
             this.courseDetailedPanel.SuspendLayout();
             this.courseTitleDetailsPanel.SuspendLayout();
@@ -61,16 +64,18 @@
             this.coursesListView.Dock = System.Windows.Forms.DockStyle.Left;
             this.coursesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coursesListView.FullRowSelect = true;
-            this.coursesListView.GridLines = true;
             this.coursesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.coursesListView.HideSelection = false;
             this.coursesListView.HoverSelection = true;
+            this.coursesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
             this.coursesListView.Location = new System.Drawing.Point(0, 0);
             this.coursesListView.Margin = new System.Windows.Forms.Padding(2);
             this.coursesListView.MultiSelect = false;
             this.coursesListView.Name = "coursesListView";
             this.coursesListView.Size = new System.Drawing.Size(184, 448);
             this.coursesListView.TabIndex = 6;
+            this.coursesListView.TileSize = new System.Drawing.Size(180, 60);
             this.coursesListView.UseCompatibleStateImageBehavior = false;
             this.coursesListView.View = System.Windows.Forms.View.Tile;
             // 
@@ -94,22 +99,6 @@
             this.courseDetailedPanel.Name = "courseDetailedPanel";
             this.courseDetailedPanel.Size = new System.Drawing.Size(505, 448);
             this.courseDetailedPanel.TabIndex = 7;
-            // 
-            // buttonPanel
-            // 
-            this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonPanel.Location = new System.Drawing.Point(0, 380);
-            this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(505, 68);
-            this.buttonPanel.TabIndex = 0;
-            // 
-            // classDetailsPanel
-            // 
-            this.classDetailsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classDetailsPanel.Location = new System.Drawing.Point(0, 0);
-            this.classDetailsPanel.Name = "classDetailsPanel";
-            this.classDetailsPanel.Size = new System.Drawing.Size(505, 380);
-            this.classDetailsPanel.TabIndex = 2;
             // 
             // courseTitleDetailsPanel
             // 
@@ -277,6 +266,22 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "CRN: 43789";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // classDetailsPanel
+            // 
+            this.classDetailsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classDetailsPanel.Location = new System.Drawing.Point(0, 0);
+            this.classDetailsPanel.Name = "classDetailsPanel";
+            this.classDetailsPanel.Size = new System.Drawing.Size(505, 380);
+            this.classDetailsPanel.TabIndex = 2;
+            // 
+            // buttonPanel
+            // 
+            this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonPanel.Location = new System.Drawing.Point(0, 380);
+            this.buttonPanel.Name = "buttonPanel";
+            this.buttonPanel.Size = new System.Drawing.Size(505, 68);
+            this.buttonPanel.TabIndex = 0;
             // 
             // ViewCoursesForm
             // 
