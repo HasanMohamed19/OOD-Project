@@ -45,9 +45,8 @@
             this.usersListControls.Controls.Add(this.deleteBranchBtn);
             this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersListControls.Location = new System.Drawing.Point(0, 0);
-            this.usersListControls.Margin = new System.Windows.Forms.Padding(4);
             this.usersListControls.Name = "usersListControls";
-            this.usersListControls.Size = new System.Drawing.Size(800, 41);
+            this.usersListControls.Size = new System.Drawing.Size(600, 33);
             this.usersListControls.TabIndex = 4;
             // 
             // editBranchBtn
@@ -57,10 +56,9 @@
             this.editBranchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editBranchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editBranchBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.editBranchBtn.Location = new System.Drawing.Point(4, 4);
-            this.editBranchBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.editBranchBtn.Location = new System.Drawing.Point(3, 3);
             this.editBranchBtn.Name = "editBranchBtn";
-            this.editBranchBtn.Size = new System.Drawing.Size(100, 33);
+            this.editBranchBtn.Size = new System.Drawing.Size(75, 27);
             this.editBranchBtn.TabIndex = 0;
             this.editBranchBtn.TabStop = false;
             this.editBranchBtn.Text = "Edit";
@@ -74,10 +72,9 @@
             this.deleteBranchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBranchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteBranchBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.deleteBranchBtn.Location = new System.Drawing.Point(112, 4);
-            this.deleteBranchBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteBranchBtn.Location = new System.Drawing.Point(84, 3);
             this.deleteBranchBtn.Name = "deleteBranchBtn";
-            this.deleteBranchBtn.Size = new System.Drawing.Size(100, 33);
+            this.deleteBranchBtn.Size = new System.Drawing.Size(75, 27);
             this.deleteBranchBtn.TabIndex = 1;
             this.deleteBranchBtn.Text = "Delete";
             this.deleteBranchBtn.UseVisualStyleBackColor = false;
@@ -98,10 +95,11 @@
             this.branchesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.branchesListView.HideSelection = false;
             this.branchesListView.HoverSelection = true;
-            this.branchesListView.Location = new System.Drawing.Point(0, 41);
+            this.branchesListView.Location = new System.Drawing.Point(0, 33);
+            this.branchesListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.branchesListView.MultiSelect = false;
             this.branchesListView.Name = "branchesListView";
-            this.branchesListView.Size = new System.Drawing.Size(800, 409);
+            this.branchesListView.Size = new System.Drawing.Size(600, 333);
             this.branchesListView.TabIndex = 5;
             this.branchesListView.UseCompatibleStateImageBehavior = false;
             this.branchesListView.View = System.Windows.Forms.View.Details;
@@ -131,11 +129,12 @@
             // 
             // ManageBranchesForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.branchesListView);
             this.Controls.Add(this.usersListControls);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManageBranchesForm";
             this.Text = "ManageBranchesForm";
             this.usersListControls.ResumeLayout(false);

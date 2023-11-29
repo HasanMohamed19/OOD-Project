@@ -30,9 +30,9 @@
         {
             this.panelHeader = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.viewCoursesBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.studentMainContent = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -50,53 +50,60 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(275, 23);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.flowLayoutPanel1.Controls.Add(this.viewCoursesBtn);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(284, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(339, 29);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 16, 8, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(500, 72);
+            this.flowLayoutPanel1.TabIndex = 4;
+            this.flowLayoutPanel1.WrapContents = false;
             // 
-            // button1
+            // viewCoursesBtn
             // 
-            this.button1.Location = new System.Drawing.Point(2, 2);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 27);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "View Courses";
-            this.button1.UseVisualStyleBackColor = true;
+            this.viewCoursesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewCoursesBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.viewCoursesBtn.Location = new System.Drawing.Point(3, 19);
+            this.viewCoursesBtn.Name = "viewCoursesBtn";
+            this.viewCoursesBtn.Size = new System.Drawing.Size(116, 34);
+            this.viewCoursesBtn.TabIndex = 6;
+            this.viewCoursesBtn.Text = "View Courses";
+            this.viewCoursesBtn.UseVisualStyleBackColor = true;
+            this.viewCoursesBtn.Click += new System.EventHandler(this.viewCoursesBtn_Click);
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(586, 72);
+            this.label2.Size = new System.Drawing.Size(284, 72);
             this.label2.TabIndex = 0;
             this.label2.Text = "eLMS System";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel1
+            // studentMainContent
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 72);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 489);
-            this.panel1.TabIndex = 3;
+            this.studentMainContent.BackColor = System.Drawing.SystemColors.Control;
+            this.studentMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentMainContent.Location = new System.Drawing.Point(0, 72);
+            this.studentMainContent.Margin = new System.Windows.Forms.Padding(2);
+            this.studentMainContent.Name = "studentMainContent";
+            this.studentMainContent.Size = new System.Drawing.Size(784, 489);
+            this.studentMainContent.TabIndex = 3;
             // 
             // StudentPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.studentMainContent);
             this.Controls.Add(this.panelHeader);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(800, 600);
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "StudentPanel";
@@ -112,8 +119,8 @@
 
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel studentMainContent;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button viewCoursesBtn;
     }
 }

@@ -66,29 +66,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminPanel.cs">
+    <Compile Include="Admin\AdminPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminPanel.Designer.cs">
+    <Compile Include="Admin\AdminPanel.Designer.cs">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManageBranchesForm.cs">
+    <Compile Include="Admin\ManageBranchesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManageBranchesForm.Designer.cs">
+    <Compile Include="Admin\ManageBranchesForm.Designer.cs">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentPanel.cs">
+    <Compile Include="Student\StudentPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentPanel.Designer.cs">
+    <Compile Include="Student\StudentPanel.Designer.cs">
       <DependentUpon>StudentPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
-    <Compile Include="usersListForms.cs">
+    <Compile Include="Student\ViewCoursesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="usersListForms.Designer.cs">
+    <Compile Include="Student\ViewCoursesForm.Designer.cs">
+      <DependentUpon>ViewCoursesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs" />
+    <Compile Include="Admin\usersListForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\usersListForms.Designer.cs">
       <DependentUpon>usersListForms.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
@@ -105,16 +111,16 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AdminPanel.resx">
+    <EmbeddedResource Include="Admin\AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManageBranchesForm.resx">
+    <EmbeddedResource Include="Admin\ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StudentPanel.resx">
+    <EmbeddedResource Include="Student\StudentPanel.resx">
       <DependentUpon>StudentPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usersListForms.resx">
+    <EmbeddedResource Include="Admin\usersListForms.resx">
       <DependentUpon>usersListForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
@@ -131,6 +137,9 @@
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\ViewCoursesForm.resx">
+      <DependentUpon>ViewCoursesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
