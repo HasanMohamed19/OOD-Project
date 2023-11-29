@@ -50,6 +50,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.classDetailsPanel = new System.Windows.Forms.Panel();
             this.buttonPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.courseTutor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.courseName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.viewCoursesMainPanel.SuspendLayout();
             this.courseDetailedPanel.SuspendLayout();
             this.courseTitleDetailsPanel.SuspendLayout();
@@ -61,6 +63,9 @@
             // coursesListView
             // 
             this.coursesListView.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.coursesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.courseName,
+            this.courseTutor});
             this.coursesListView.Dock = System.Windows.Forms.DockStyle.Left;
             this.coursesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coursesListView.FullRowSelect = true;
@@ -283,6 +288,14 @@
             this.buttonPanel.Size = new System.Drawing.Size(505, 68);
             this.buttonPanel.TabIndex = 0;
             // 
+            // courseTutor
+            // 
+            this.courseTutor.DisplayIndex = 0;
+            // 
+            // courseName
+            // 
+            this.courseName.DisplayIndex = 1;
+            // 
             // ViewCoursesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,5 +338,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ColumnHeader courseName;
+        private System.Windows.Forms.ColumnHeader courseTutor;
     }
 }
