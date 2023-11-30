@@ -18,7 +18,9 @@ namespace OOD_Project
         {
             InitializeComponent();
             courses.Add(new Course("OOD", "IT7006", "Ito", "1", "15"));
-            courses.Add(new Course("OOPS", "IT7005", "Jason Bourne", "1", "10"));
+            courses.Add(new Course("Systems Analysis and Design", "IT7005", "Saba Mustafa", "1", "10"));
+            courses.Add(new Course("Systems Analysis and Design", "IT7005", "Saba Mustafa", "1", "10"));
+            courses.Add(new Course("Systems Analysis and Design", "IT7005", "Saba Mustafa", "1", "10"));
             courses.Add(new Course("OOPS", "IT7005", "Jason Bourne", "1", "10"));
             courses.Add(new Course("OOPS", "IT7005", "Jason Bourne", "1", "10"));
             courses.Add(new Course("OOPS", "IT7005", "Jason Bourne", "1", "10"));
@@ -30,6 +32,11 @@ namespace OOD_Project
                 item.SubItems.Add(course.Tutor);
                 coursesListView.Items.Add(item);
             }
+        }
+
+        private void coursesListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
