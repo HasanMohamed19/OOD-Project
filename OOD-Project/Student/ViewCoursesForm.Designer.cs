@@ -35,6 +35,10 @@
             "Wednesday",
             "10:00 AM - 11:50 AM",
             "36.203"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            "Thursday",
+            "8:00 AM - 9:50 AM",
+            "36.206"}, -1);
             this.coursesListView = new System.Windows.Forms.ListView();
             this.courseName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.courseTutor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -124,9 +128,9 @@
             // 
             this.classDetailsPanel.Controls.Add(this.classesListView);
             this.classDetailsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classDetailsPanel.Location = new System.Drawing.Point(0, 307);
+            this.classDetailsPanel.Location = new System.Drawing.Point(0, 301);
             this.classDetailsPanel.Name = "classDetailsPanel";
-            this.classDetailsPanel.Size = new System.Drawing.Size(560, 113);
+            this.classDetailsPanel.Size = new System.Drawing.Size(560, 119);
             this.classDetailsPanel.TabIndex = 2;
             // 
             // classesListView
@@ -136,14 +140,17 @@
             this.columnTime,
             this.columnLocation});
             this.classesListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classesListView.FullRowSelect = true;
             this.classesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.classesListView.HideSelection = false;
             this.classesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
+            listViewItem2,
+            listViewItem3});
             this.classesListView.Location = new System.Drawing.Point(0, 0);
+            this.classesListView.MultiSelect = false;
             this.classesListView.Name = "classesListView";
-            this.classesListView.Size = new System.Drawing.Size(560, 113);
+            this.classesListView.Size = new System.Drawing.Size(560, 119);
             this.classesListView.TabIndex = 0;
             this.classesListView.UseCompatibleStateImageBehavior = false;
             this.classesListView.View = System.Windows.Forms.View.Details;
@@ -170,7 +177,7 @@
             this.courseDetailedTablePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.courseDetailedTablePanel.Location = new System.Drawing.Point(0, 0);
             this.courseDetailedTablePanel.Name = "courseDetailedTablePanel";
-            this.courseDetailedTablePanel.Size = new System.Drawing.Size(560, 307);
+            this.courseDetailedTablePanel.Size = new System.Drawing.Size(560, 301);
             this.courseDetailedTablePanel.TabIndex = 0;
             // 
             // CourseDetailsPanelTable
@@ -193,7 +200,7 @@
             this.CourseDetailsPanelTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.CourseDetailsPanelTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.CourseDetailsPanelTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.CourseDetailsPanelTable.Size = new System.Drawing.Size(560, 246);
+            this.CourseDetailsPanelTable.Size = new System.Drawing.Size(560, 240);
             this.CourseDetailsPanelTable.TabIndex = 5;
             // 
             // courseDescription
@@ -201,7 +208,7 @@
             this.courseDescription.AutoSize = true;
             this.CourseDetailsPanelTable.SetColumnSpan(this.courseDescription, 3);
             this.courseDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseDescription.Location = new System.Drawing.Point(6, 156);
+            this.courseDescription.Location = new System.Drawing.Point(6, 154);
             this.courseDescription.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
             this.courseDescription.Name = "courseDescription";
             this.courseDescription.Size = new System.Drawing.Size(552, 60);
@@ -215,7 +222,7 @@
             // 
             this.courseProgrammeLabel.AutoSize = true;
             this.courseProgrammeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseProgrammeLabel.Location = new System.Drawing.Point(388, 83);
+            this.courseProgrammeLabel.Location = new System.Drawing.Point(388, 82);
             this.courseProgrammeLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
             this.courseProgrammeLabel.Name = "courseProgrammeLabel";
             this.courseProgrammeLabel.Size = new System.Drawing.Size(99, 40);
@@ -227,7 +234,7 @@
             // 
             this.courseCreditsLabel.AutoSize = true;
             this.courseCreditsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseCreditsLabel.Location = new System.Drawing.Point(207, 83);
+            this.courseCreditsLabel.Location = new System.Drawing.Point(207, 82);
             this.courseCreditsLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
             this.courseCreditsLabel.Name = "courseCreditsLabel";
             this.courseCreditsLabel.Size = new System.Drawing.Size(85, 20);
@@ -239,7 +246,7 @@
             // 
             this.courseTutorLabel.AutoSize = true;
             this.courseTutorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseTutorLabel.Location = new System.Drawing.Point(6, 83);
+            this.courseTutorLabel.Location = new System.Drawing.Point(6, 82);
             this.courseTutorLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
             this.courseTutorLabel.Name = "courseTutorLabel";
             this.courseTutorLabel.Size = new System.Drawing.Size(116, 20);
