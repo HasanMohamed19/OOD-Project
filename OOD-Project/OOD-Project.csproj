@@ -78,6 +78,11 @@
     <Compile Include="Admin\ManageBranchesForm.Designer.cs">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Branch.cs" />
+    <Compile Include="Class.cs" />
+    <Compile Include="Course.cs" />
+    <Compile Include="Department.cs" />
+    <Compile Include="Section.cs" />
     <Compile Include="Student\StudentPanel.cs">
       <SubType>Form</SubType>
     </Compile>

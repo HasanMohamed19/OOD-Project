@@ -19,11 +19,11 @@ namespace OOD_Project
         public ManageBranchesForm()
         {
             InitializeComponent();
-            branches.Add(new Branch(1, "10Km", "Manama", "12345678"));
-            branches.Add(new Branch(2, "30Km", "Isa Town", "8765432"));
+            branches.Add(new Branch("10Km^2", 1, "Manama", "BTI", "12345678"));
+            branches.Add(new Branch("30Km^2", 2, "Isa Town", "Polytechnic", "8765432"));
             foreach (var branch in branches)
             {
-                ListViewItem item = new ListViewItem(branch.BranchID.ToString());
+                ListViewItem item = new ListViewItem(branch.BranchId.ToString());
                 item.SubItems.Add(branch.Area);
                 item.SubItems.Add(branch.City);
                 item.SubItems.Add(branch.PhoneNumber);
@@ -55,31 +55,4 @@ namespace OOD_Project
 
         
     }
-
-
-    public class Branch
-    {
-        // name?
-        private int branchID;
-        private string area;
-        private string city;
-        private string phoneNumber;
-
-        public int BranchID { get { return branchID; } set { branchID = value; } }
-        public string Area { get { return area; } set {  area = value; } }
-        public string City { get { return city; } set { city = value; } }
-        public string PhoneNumber { get { return phoneNumber; } set { phoneNumber = value; } }
-
-
-        public Branch(int branchID, string area, string city, string phoneNumber)
-        {
-            this.branchID = branchID;
-            this.area = area;
-            this.city = city;
-            this.phoneNumber = phoneNumber;
-        }
-
-
-    }
-
 }

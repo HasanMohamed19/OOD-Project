@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace OOD_Project
@@ -17,19 +18,17 @@ namespace OOD_Project
         public ViewCoursesForm()
         {
             InitializeComponent();
-            courses.Add(new Course("OOD", "IT7006", "Ito", "1", "15"));
-            courses.Add(new Course("Systems Analysis and Design", "IT7005", "Saba Mustafa", "1", "10"));
-            courses.Add(new Course("Systems Analysis and Design", "IT7005", "Saba Mustafa", "1", "10"));
-            courses.Add(new Course("Systems Analysis and Design", "IT7005", "Saba Mustafa", "1", "10"));
-            courses.Add(new Course("OOPS", "IT7005", "Jason Bourne", "1", "10"));
-            courses.Add(new Course("OOPS", "IT7005", "Jason Bourne", "1", "10"));
-            courses.Add(new Course("OOPS", "IT7005", "Jason Bourne", "1", "10"));
-            courses.Add(new Course("OOPS", "IT7005", "Jason Bourne", "1", "10"));
-            courses.Add(new Course("OOPS", "IT7005", "Jason Bourne", "1", "10"));
+            courses.Add(new Course(1, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
+            courses.Add(new Course(2, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
+            courses.Add(new Course(3, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
+            courses.Add(new Course(4, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
+            courses.Add(new Course(5, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
+            courses.Add(new Course(6, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
             foreach (var course in courses)
             {
                 ListViewItem item = new ListViewItem(course.Code + " | " + course.Name);
-                item.SubItems.Add(course.Tutor);
+                // use sections instead of courses, add teacher from section here
+                //item.SubItems.Add();
                 coursesListView.Items.Add(item);
             }
         }
@@ -40,28 +39,4 @@ namespace OOD_Project
         }
     }
 
-
-    class Course
-    {
-        string name;
-        string code;
-        string tutor;
-        string section;
-        string credits;
-
-        public Course(string name, string code, string tutor, string section, string credits)
-        {
-            this.name = name;
-            this.Code = code;
-            this.tutor = tutor;
-            this.section = section;
-            this.credits = credits;
-        }
-
-        public string Name { get => name; set => name = value; }
-        public string Tutor { get => tutor; set => tutor = value; }
-        public string Section { get => section; set => section = value; }
-        public string Credits { get => credits; set => credits = value; }
-        public string Code { get => code; set => code = value; }
-    }
 }
