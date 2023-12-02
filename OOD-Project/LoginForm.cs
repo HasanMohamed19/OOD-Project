@@ -17,28 +17,46 @@ namespace OOD_Project
         {
             string givenUsername = txtUsername.Text;
             string givenPassword = txtPassword.Text;
-            int userRole = 1;
+            int userRole = 3;
             // role ids
             // admin = 1
             /* role ids:
                 admin = 1 
                 teacher = 2
                 student = 3
+                it will be an enum
              */
 
             if (username == givenUsername && password == givenPassword)
             {
-                   
+                switch (userRole)
+                {
+                    case 1:
+                        AdminPanel adminPanel = new AdminPanel();
+                        adminPanel.Show();
+                        this.Hide();
+                        break;
+                    case 2: Console.WriteLine("teacher");
+                        break;
+                    case 3:
+                        StudentPanel studentPanel = new StudentPanel();
+                        studentPanel.Show();
+                        this.Hide();
+                        break;
+                }
             }
             else
             {
                 MessageBox.Show("Invalid Email and/or password", "Invalid Login");
+                Console.WriteLine("Wrong email and password");
+                Console.WriteLine("Why working now?");
             }
 
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Working Now?? Why??");
             RegisterForm registerForm = new RegisterForm();
             registerForm.Show();
             this.Hide();
