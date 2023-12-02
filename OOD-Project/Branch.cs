@@ -21,7 +21,7 @@ namespace OOD_Project
         private string city;
         private string name;
         private string phoneNumber;
-        public Department m_Department;
+        private Department department;
 
         public Branch(string area, int branchId, string city, string name, string phoneNumber)
         {
@@ -97,6 +97,7 @@ namespace OOD_Project
             }
         }
 
+        public Department Department { get => department; set => department = value; }
     }//end Branch
 }
 

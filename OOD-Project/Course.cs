@@ -8,13 +8,18 @@ namespace OOD_Project
 {
     public class Course
     {
-        int id;
-        string name;
-        string code;
-        string description;
-        string programme;
-        int credits;
-        List<Section> sections;
+        private int id;
+        private string name;
+        private string code;
+        private string description;
+        private string programme;
+        private int credits;
+        private List<Section> sections;
+
+        public Course()
+        {
+            sections = new List<Section>();
+        }
 
         public Course(int id, string name, string code, string description, string programme, int credits)
         {
@@ -24,6 +29,7 @@ namespace OOD_Project
             this.description = description;
             this.programme = programme;
             this.credits = credits;
+            sections = new List<Section>();
         }
 
         public string Name { get => name; set => name = value; }
@@ -32,5 +38,6 @@ namespace OOD_Project
         public string Description { get => description; set => description = value; }
         public string Programme { get => programme; set => programme = value; }
         public List<Section> Sections { get => sections; set => sections = value; }
+        public int Credits { get => credits; set => credits = value; }
     }
 }

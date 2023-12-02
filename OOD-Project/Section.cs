@@ -11,13 +11,14 @@ namespace OOD_Project
     {
 
         private int capacity;
-        private List<Class> classes;
         private string crn;
-        private int id;
+        private int sectionId;
         private string name;
         private int number;
+        private List<Class> classes;
         private List<Student> registeredStudents;
-        private Teacher teacher;
+        private Teacher assignedTeacher;
+        private Course assignedCourse;
 
         public Section()
         {
@@ -69,11 +70,11 @@ namespace OOD_Project
         {
             get
             {
-                return id;
+                return sectionId;
             }
             set
             {
-                id = value;
+                sectionId = value;
             }
         }
 
@@ -114,6 +115,8 @@ namespace OOD_Project
         }
 
         public List<Class> Classes { get => classes; set => classes = value; }
+        public Course AssignedCourse { get => assignedCourse; set => assignedCourse = value; }
+        public Teacher AssignedTeacher { get => assignedTeacher; set => assignedTeacher = value; }
     }//end Section
 
 }

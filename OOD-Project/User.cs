@@ -75,8 +75,30 @@ namespace OOD_Project
     public class Student : User
     {
         private string id;
+        private List<Section> registeredSections;
+
+        public Student()
+        {
+            RoleId = UserRole.student;
+            StatusId = UserStatus.pending;
+            registeredSections = new List<Section>();
+        }
 
         public string Id { get => id; set => id = value; }
+        public List<Section> RegisteredSections { get => registeredSections; set => registeredSections = value; }
+        public List<Course> RegisteredCourses
+        {
+            get
+            {
+                List<Course> courses = new List<Course>();
+                foreach (var section in RegisteredSections)
+                {
+                    courses.Add(section.AssignedCourse);
+                }
+                return courses;
+            }
+        }
+
 
         public override string ToString()
         {
@@ -91,8 +113,23 @@ namespace OOD_Project
     public class Teacher : User
     {
         private string dept;
+        private List<Section> assignedSections;
 
         public string Dept { get => dept; set => dept = value; }
+        public List<Section> AssignedSections { get => assignedSections; set => assignedSections = value; }
+        public List<Course> AssignedCourses
+        {
+            get
+            {
+                List<Course> courses = new List<Course>();
+                foreach (var section in AssignedSections)
+                {
+                    courses.Add(section.AssignedCourse);
+                }
+                return courses;
+            }
+        }
+
 
         public override string ToString()
         {
@@ -106,6 +143,28 @@ namespace OOD_Project
             //    + Email + " " + Cpr + " " + dept + "\n"
             //    + Username + " " + Password + " " + Phone + "\n"
             //    + Dob + " " + Gender + "Status: " + status;
+        }
+    }
+
+    public class Admin : User
+    {
+        private int adminId;
+
+        public int AdminId { get => adminId; set => adminId = value; }
+        
+        public Admin() 
+        {
+            this.AdminId = 0;
+            RoleId = UserRole.admin;
+            StatusId = UserStatus.accepted;
+
+            FirstName = "Admin";
+            LastName = string.Empty;
+            Gender = 'M';
+            Dob = DateTime.Now;
+            Phone = string.Empty;
+            Cpr = string.Empty;
+            Email = string.Empty;
         }
     }
 }

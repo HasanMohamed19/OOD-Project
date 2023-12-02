@@ -37,7 +37,7 @@ namespace OOD_Project
         private DateTime finishDate;
         private string roomNumber;
         private DateTime startTime;
-        public Section m_Section;
+        private Section section;
 
 
 
@@ -136,5 +136,6 @@ namespace OOD_Project
         }
 
         public WeekDays DayOfTheWeek { get => dayOfTheWeek; set => dayOfTheWeek = value; }
+        public Section Section { get => section; set => section = value; }
     }//end Class
 }
