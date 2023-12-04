@@ -14,11 +14,11 @@ namespace OOD_Project.Admin
     {
 
         List<Course> courses = new List<Course>();
-
-        public ManageCourseForm()
+        public AdminPanel adminPanel;
+        public ManageCourseForm(AdminPanel adminPanel)
         {
             InitializeComponent();
-            courses.Add(new Course(1, 15, 5,"OOD", "This is a description", "ICT"));
+            courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
             courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
             courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
             courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
@@ -34,6 +34,7 @@ namespace OOD_Project.Admin
                 courseListView.Items.Add(item);
             }
 
+            this.adminPanel = adminPanel;
         }
 
         private void ManageCourse_Load(object sender, EventArgs e)

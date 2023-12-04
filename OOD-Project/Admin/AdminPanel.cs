@@ -50,7 +50,7 @@ namespace OOD_Project
 
         private void manageCoursesBtn_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new ManageCourseForm(), sender);
+            OpenChildForm(new ManageCourseForm(this), sender);
         }
     }
 }
