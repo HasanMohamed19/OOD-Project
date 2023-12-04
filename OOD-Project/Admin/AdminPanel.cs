@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOD_Project.Admin;
 
 namespace OOD_Project
 {
@@ -15,6 +16,7 @@ namespace OOD_Project
         public AdminPanel()
         {
             InitializeComponent();
+           
         }
 
         private void OpenChildForm(Form childForm, object senderBtn)
@@ -42,6 +44,13 @@ namespace OOD_Project
         private void manageUsersBtn_Click(object sender, EventArgs e)
         {
             OpenChildForm(new usersListForms(), sender);
+        }
+
+ 
+
+        private void manageCoursesBtn_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new ManageCourseForm(this), sender);
         }
     }
 }
