@@ -14,16 +14,14 @@ namespace OOD_Project.Admin
     {
 
         List<Course> courses = new List<Course>();
-        public AdminPanel adminPanel;
 
-        public ManageCourseForm(AdminPanel adminPanel)
+        public ManageCourseForm()
         {
             InitializeComponent();
             courses.Add(new Course(1, 15, 5,"OOD", "This is a description", "ICT"));
             courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
             courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
             courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
-            this.adminPanel = adminPanel;
             foreach (var course in courses)
             {
                 ListViewItem item = new ListViewItem(course.CourseID.ToString());
