@@ -21,7 +21,6 @@ namespace OOD_Project
         private int deptId;
         private string deptName;
         private string phoneNumber;
-        private Teacher teacher;
         private Branch branch;
 
         public Department()
@@ -81,8 +80,6 @@ namespace OOD_Project
                 phoneNumber = value;
             }
         }
-
-        public Teacher Teacher { get => teacher; set => teacher = value; }
         public Branch Branch { get => branch; set => branch = value; }
     }//end Department
 }

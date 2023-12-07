@@ -112,10 +112,10 @@ namespace OOD_Project
 
     public class Teacher : User
     {
-        private string dept;
+        private Department dept;
         private List<Section> assignedSections;
 
-        public string Dept { get => dept; set => dept = value; }
+        public Department Dept { get => dept; set => dept = value; }
         public List<Section> AssignedSections { get => assignedSections; set => assignedSections = value; }
         public List<Course> AssignedCourses
         {

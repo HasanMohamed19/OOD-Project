@@ -13,7 +13,6 @@ namespace OOD_Project
         private int capacity;
         private string crn;
         private int sectionId;
-        private string name;
         private int number;
         private List<Class> classes;
         private List<Student> registeredStudents;
@@ -30,7 +29,7 @@ namespace OOD_Project
 
         }
 
-        public Teacher assignedTeacher
+        public Teacher AssignedTeacher
         {
             get
             {
@@ -78,18 +77,6 @@ namespace OOD_Project
             }
         }
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
-        }
-
         public int Number
         {
             get
@@ -116,8 +103,7 @@ namespace OOD_Project
 
         public List<Class> Classes { get => classes; set => classes = value; }
         public Course AssignedCourse { get => assignedCourse; set => assignedCourse = value; }
-        public Teacher AssignedTeacher { get => assignedTeacher; set => assignedTeacher = value; }
-    }//end Section
+        }//end Section
 
 }
 
