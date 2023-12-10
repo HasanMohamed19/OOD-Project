@@ -146,25 +146,25 @@ namespace OOD_Project
         }
     }
 
-    public class Admin : User
-    {
-        private int adminId;
+    //public class Admin : User
+    //{
+    //    private int adminId;
 
-        public int AdminId { get => adminId; set => adminId = value; }
+    //    public int AdminId { get => adminId; set => adminId = value; }
         
-        public Admin() 
-        {
-            this.AdminId = 0;
-            RoleId = UserRole.admin;
-            StatusId = UserStatus.accepted;
+    //    public Admin() 
+    //    {
+    //        this.AdminId = 0;
+    //        RoleId = UserRole.admin;
+    //        StatusId = UserStatus.accepted;
 
-            FirstName = "Admin";
-            LastName = string.Empty;
-            Gender = 'M';
-            Dob = DateTime.Now;
-            Phone = string.Empty;
-            Cpr = string.Empty;
-            Email = string.Empty;
-        }
-    }
+    //        FirstName = "Admin";
+    //        LastName = string.Empty;
+    //        Gender = 'M';
+    //        Dob = DateTime.Now;
+    //        Phone = string.Empty;
+    //        Cpr = string.Empty;
+    //        Email = string.Empty;
+    //    }
+    //}
 }
