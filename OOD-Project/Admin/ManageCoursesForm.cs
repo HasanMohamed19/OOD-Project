@@ -73,7 +73,7 @@ namespace OOD_Project.Admin
 
         private void deleteCourseBtn_Click(object sender, EventArgs e)
         {
-            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected branch?", "Delete Confirmation", MessageBoxButtons.YesNo);
+            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected course?", "Delete Confirmation", MessageBoxButtons.YesNo);
 
 
 
