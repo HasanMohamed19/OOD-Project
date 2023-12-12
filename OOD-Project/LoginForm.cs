@@ -36,7 +36,10 @@ namespace OOD_Project
                         adminPanel.Show();
                         this.Hide();
                         break;
-                    case 2: Console.WriteLine("teacher");
+                    case 2:
+                        TeacherPanel teacherPanel = new TeacherPanel();
+                        teacherPanel.Show();
+                        this.Hide();
                         break;
                     case 3:
                         StudentPanel studentPanel = new StudentPanel();

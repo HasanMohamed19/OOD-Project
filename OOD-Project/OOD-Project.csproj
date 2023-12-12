@@ -134,6 +134,12 @@
     <Compile Include="Student\ViewCoursesForm.Designer.cs">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\TeacherPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\TeacherPanel.Designer.cs">
+      <DependentUpon>TeacherPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Admin\usersListForms.cs">
       <SubType>Form</SubType>
@@ -187,6 +193,9 @@
     </Compile>
     <EmbeddedResource Include="Student\ViewCoursesForm.resx">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\TeacherPanel.resx">
+      <DependentUpon>TeacherPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
