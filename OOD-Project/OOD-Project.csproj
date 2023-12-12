@@ -113,6 +113,7 @@
     </Compile>
     <Compile Include="Branch.cs" />
     <Compile Include="Class.cs" />
+    <Compile Include="Content.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
