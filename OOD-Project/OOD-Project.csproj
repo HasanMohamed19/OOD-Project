@@ -115,6 +115,12 @@
     <Compile Include="Class.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="Department.cs" />
+    <Compile Include="RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Section.cs" />
     <Compile Include="Student\StudentPanel.cs">
       <SubType>Form</SubType>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\StudentPanel.resx">
       <DependentUpon>StudentPanel.cs</DependentUpon>
