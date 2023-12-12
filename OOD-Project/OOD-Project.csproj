@@ -115,6 +115,7 @@
     <Compile Include="Class.cs" />
     <Compile Include="Content.cs" />
     <Compile Include="Course.cs" />
+    <Compile Include="DatabaseManager.cs" />
     <Compile Include="dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
