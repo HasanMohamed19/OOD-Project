@@ -41,12 +41,13 @@
             // 
             // usersListControls
             // 
+            this.usersListControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.usersListControls.Controls.Add(this.editBranchBtn);
             this.usersListControls.Controls.Add(this.deleteBranchBtn);
             this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersListControls.Location = new System.Drawing.Point(0, 0);
             this.usersListControls.Name = "usersListControls";
-            this.usersListControls.Size = new System.Drawing.Size(600, 33);
+            this.usersListControls.Size = new System.Drawing.Size(784, 33);
             this.usersListControls.TabIndex = 4;
             // 
             // editBranchBtn
@@ -99,7 +100,7 @@
             this.branchesListView.Margin = new System.Windows.Forms.Padding(2);
             this.branchesListView.MultiSelect = false;
             this.branchesListView.Name = "branchesListView";
-            this.branchesListView.Size = new System.Drawing.Size(600, 333);
+            this.branchesListView.Size = new System.Drawing.Size(784, 456);
             this.branchesListView.TabIndex = 5;
             this.branchesListView.UseCompatibleStateImageBehavior = false;
             this.branchesListView.View = System.Windows.Forms.View.Details;
@@ -131,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(784, 489);
             this.Controls.Add(this.branchesListView);
             this.Controls.Add(this.usersListControls);
             this.Margin = new System.Windows.Forms.Padding(2);

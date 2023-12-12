@@ -38,8 +38,8 @@ namespace OOD_Project.Admin
             this.courseNameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.creditsColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.programmeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.descriptionColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sectionCountCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.descriptionColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.usersListControls.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +82,7 @@ namespace OOD_Project.Admin
             this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersListControls.Location = new System.Drawing.Point(0, 0);
             this.usersListControls.Name = "usersListControls";
-            this.usersListControls.Size = new System.Drawing.Size(600, 33);
+            this.usersListControls.Size = new System.Drawing.Size(784, 33);
             this.usersListControls.TabIndex = 5;
             // 
             // deleteCourseBtn
@@ -121,7 +121,7 @@ namespace OOD_Project.Admin
             this.courseListView.Margin = new System.Windows.Forms.Padding(2);
             this.courseListView.MultiSelect = false;
             this.courseListView.Name = "courseListView";
-            this.courseListView.Size = new System.Drawing.Size(600, 333);
+            this.courseListView.Size = new System.Drawing.Size(784, 456);
             this.courseListView.TabIndex = 6;
             this.courseListView.UseCompatibleStateImageBehavior = false;
             this.courseListView.View = System.Windows.Forms.View.Details;
@@ -149,23 +149,23 @@ namespace OOD_Project.Admin
             this.programmeColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.programmeColumn.Width = 130;
             // 
-            // descriptionColumn
-            // 
-            this.descriptionColumn.Text = "Description";
-            this.descriptionColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.descriptionColumn.Width = 200;
-            // 
             // sectionCountCol
             // 
             this.sectionCountCol.Text = "Section Count";
             this.sectionCountCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.sectionCountCol.Width = 132;
             // 
+            // descriptionColumn
+            // 
+            this.descriptionColumn.Text = "Description";
+            this.descriptionColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.descriptionColumn.Width = 200;
+            // 
             // ManageCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(784, 489);
             this.Controls.Add(this.courseListView);
             this.Controls.Add(this.usersListControls);
             this.Margin = new System.Windows.Forms.Padding(2);

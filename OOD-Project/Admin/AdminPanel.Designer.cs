@@ -42,7 +42,7 @@
             // 
             // panelHeader
             // 
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(213)))), ((int)(((byte)(221)))));
             this.panelHeader.Controls.Add(this.flowLayoutPanel1);
             this.panelHeader.Controls.Add(this.label1);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
@@ -53,83 +53,94 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
             this.flowLayoutPanel1.Controls.Add(this.manageBranchesBtn);
             this.flowLayoutPanel1.Controls.Add(this.manageInformationBtn);
             this.flowLayoutPanel1.Controls.Add(this.manageUsersBtn);
             this.flowLayoutPanel1.Controls.Add(this.manageCoursesBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(274, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(283, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 16, 8, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(510, 72);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 12, 8, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(501, 72);
             this.flowLayoutPanel1.TabIndex = 3;
             this.flowLayoutPanel1.WrapContents = false;
             // 
             // manageBranchesBtn
             // 
+            this.manageBranchesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.manageBranchesBtn.FlatAppearance.BorderSize = 0;
             this.manageBranchesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageBranchesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageBranchesBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.manageBranchesBtn.Location = new System.Drawing.Point(3, 19);
+            this.manageBranchesBtn.Location = new System.Drawing.Point(3, 15);
             this.manageBranchesBtn.Name = "manageBranchesBtn";
-            this.manageBranchesBtn.Size = new System.Drawing.Size(116, 34);
+            this.manageBranchesBtn.Size = new System.Drawing.Size(116, 42);
             this.manageBranchesBtn.TabIndex = 6;
             this.manageBranchesBtn.Text = "Manage Branches";
-            this.manageBranchesBtn.UseVisualStyleBackColor = true;
+            this.manageBranchesBtn.UseVisualStyleBackColor = false;
             this.manageBranchesBtn.Click += new System.EventHandler(this.manageBranchesBtn_Click);
             // 
             // manageInformationBtn
             // 
+            this.manageInformationBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.manageInformationBtn.FlatAppearance.BorderSize = 0;
             this.manageInformationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageInformationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageInformationBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.manageInformationBtn.Location = new System.Drawing.Point(125, 19);
+            this.manageInformationBtn.Location = new System.Drawing.Point(125, 15);
             this.manageInformationBtn.Name = "manageInformationBtn";
-            this.manageInformationBtn.Size = new System.Drawing.Size(116, 34);
+            this.manageInformationBtn.Size = new System.Drawing.Size(116, 42);
             this.manageInformationBtn.TabIndex = 5;
             this.manageInformationBtn.Text = "Upload Information";
-            this.manageInformationBtn.UseVisualStyleBackColor = true;
+            this.manageInformationBtn.UseVisualStyleBackColor = false;
             this.manageInformationBtn.Click += new System.EventHandler(this.manageInformationBtn_Click);
             // 
             // manageUsersBtn
             // 
+            this.manageUsersBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.manageUsersBtn.FlatAppearance.BorderSize = 0;
             this.manageUsersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageUsersBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageUsersBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.manageUsersBtn.Location = new System.Drawing.Point(247, 19);
+            this.manageUsersBtn.Location = new System.Drawing.Point(247, 15);
             this.manageUsersBtn.Name = "manageUsersBtn";
-            this.manageUsersBtn.Size = new System.Drawing.Size(116, 34);
+            this.manageUsersBtn.Size = new System.Drawing.Size(116, 42);
             this.manageUsersBtn.TabIndex = 4;
             this.manageUsersBtn.Text = "Manage Users";
-            this.manageUsersBtn.UseVisualStyleBackColor = true;
+            this.manageUsersBtn.UseVisualStyleBackColor = false;
             this.manageUsersBtn.Click += new System.EventHandler(this.manageUsersBtn_Click);
             // 
             // manageCoursesBtn
             // 
+            this.manageCoursesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.manageCoursesBtn.FlatAppearance.BorderSize = 0;
             this.manageCoursesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageCoursesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manageCoursesBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.manageCoursesBtn.Location = new System.Drawing.Point(369, 19);
+            this.manageCoursesBtn.Location = new System.Drawing.Point(369, 15);
             this.manageCoursesBtn.Name = "manageCoursesBtn";
-            this.manageCoursesBtn.Size = new System.Drawing.Size(116, 34);
+            this.manageCoursesBtn.Size = new System.Drawing.Size(116, 42);
             this.manageCoursesBtn.TabIndex = 7;
             this.manageCoursesBtn.Text = "Manage Courses";
-            this.manageCoursesBtn.UseVisualStyleBackColor = true;
+            this.manageCoursesBtn.UseVisualStyleBackColor = false;
             this.manageCoursesBtn.Click += new System.EventHandler(this.manageCoursesBtn_Click_1);
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(247)))));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(274, 72);
+            this.label1.Size = new System.Drawing.Size(283, 72);
             this.label1.TabIndex = 0;
             this.label1.Text = "eLMS System";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // adminMainContent
             // 
+            this.adminMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.adminMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminMainContent.Location = new System.Drawing.Point(0, 72);
             this.adminMainContent.Name = "adminMainContent";
