@@ -90,11 +90,12 @@
             this.label24 = new System.Windows.Forms.Label();
             this.txtCPRT = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblErrorT = new System.Windows.Forms.Label();
             this.btnRegisterT = new System.Windows.Forms.Button();
             this.panelHeaderTeacher = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.tabControl1.SuspendLayout();
             this.tabStudentRegister.SuspendLayout();
             this.panelRegisterFormStudent.SuspendLayout();
@@ -577,8 +578,10 @@
             this.tableLayoutPanel2.Controls.Add(this.txtEmailT, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label23, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.txtDeptT, 1, 4);
-            this.tableLayoutPanel2.Controls.Add(this.label24, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.label24, 2, 5);
             this.tableLayoutPanel2.Controls.Add(this.txtCPRT, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.label25, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.checkedListBox1, 3, 5);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(-4, 3);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -590,8 +593,9 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(770, 242);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(770, 305);
             this.tableLayoutPanel2.TabIndex = 34;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // label14
             // 
@@ -600,7 +604,7 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(373, 158);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(132, 37);
+            this.label14.Size = new System.Drawing.Size(163, 37);
             this.label14.TabIndex = 24;
             this.label14.Text = "Phone Number:";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -645,7 +649,7 @@
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(373, 10);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(132, 37);
+            this.label17.Size = new System.Drawing.Size(163, 37);
             this.label17.TabIndex = 18;
             this.label17.Text = "First Name:";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -657,7 +661,7 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(373, 47);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(132, 37);
+            this.label18.Size = new System.Drawing.Size(163, 37);
             this.label18.TabIndex = 20;
             this.label18.Text = "Last Name:";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -666,7 +670,7 @@
             // 
             this.txtFNameT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFNameT.Location = new System.Drawing.Point(541, 13);
+            this.txtFNameT.Location = new System.Drawing.Point(557, 13);
             this.txtFNameT.Name = "txtFNameT";
             this.txtFNameT.Size = new System.Drawing.Size(185, 31);
             this.txtFNameT.TabIndex = 17;
@@ -675,7 +679,7 @@
             // 
             this.txtLNameT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLNameT.Location = new System.Drawing.Point(541, 50);
+            this.txtLNameT.Location = new System.Drawing.Point(557, 50);
             this.txtLNameT.Name = "txtLNameT";
             this.txtLNameT.Size = new System.Drawing.Size(185, 31);
             this.txtLNameT.TabIndex = 19;
@@ -687,7 +691,7 @@
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(373, 84);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(132, 37);
+            this.label19.Size = new System.Drawing.Size(163, 37);
             this.label19.TabIndex = 29;
             this.label19.Text = "Gender:";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -698,7 +702,7 @@
             this.flowLayoutPanel2.AutoSize = true;
             this.flowLayoutPanel2.Controls.Add(this.radioMaleT);
             this.flowLayoutPanel2.Controls.Add(this.radioFemaleT);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(574, 91);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(590, 91);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(119, 23);
             this.flowLayoutPanel2.TabIndex = 34;
@@ -732,7 +736,7 @@
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(373, 121);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(132, 37);
+            this.label20.Size = new System.Drawing.Size(163, 37);
             this.label20.TabIndex = 27;
             this.label20.Text = "Date of Birth: ";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -740,7 +744,7 @@
             // dateDOBT
             // 
             this.dateDOBT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateDOBT.Location = new System.Drawing.Point(543, 129);
+            this.dateDOBT.Location = new System.Drawing.Point(559, 129);
             this.dateDOBT.Name = "dateDOBT";
             this.dateDOBT.Size = new System.Drawing.Size(181, 20);
             this.dateDOBT.TabIndex = 28;
@@ -749,7 +753,7 @@
             // 
             this.txtPhoneT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPhoneT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhoneT.Location = new System.Drawing.Point(541, 161);
+            this.txtPhoneT.Location = new System.Drawing.Point(557, 161);
             this.txtPhoneT.Name = "txtPhoneT";
             this.txtPhoneT.Size = new System.Drawing.Size(185, 31);
             this.txtPhoneT.TabIndex = 23;
@@ -830,19 +834,18 @@
             // 
             // label24
             // 
-            this.label24.AutoSize = true;
-            this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label24.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(13, 195);
+            this.label24.Location = new System.Drawing.Point(373, 195);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(163, 37);
             this.label24.TabIndex = 22;
-            this.label24.Text = "CPR:";
+            this.label24.Text = "Sections:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtCPRT
             // 
-            this.txtCPRT.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtCPRT.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCPRT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPRT.Location = new System.Drawing.Point(182, 198);
             this.txtCPRT.Name = "txtCPRT";
@@ -851,25 +854,12 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.lblErrorT);
             this.panel2.Controls.Add(this.btnRegisterT);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 286);
+            this.panel2.Location = new System.Drawing.Point(0, 322);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(777, 130);
+            this.panel2.Size = new System.Drawing.Size(777, 94);
             this.panel2.TabIndex = 35;
-            // 
-            // lblErrorT
-            // 
-            this.lblErrorT.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblErrorT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorT.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorT.Location = new System.Drawing.Point(1, 9);
-            this.lblErrorT.Name = "lblErrorT";
-            this.lblErrorT.Size = new System.Drawing.Size(760, 28);
-            this.lblErrorT.TabIndex = 12;
-            this.lblErrorT.Text = "Error";
-            this.lblErrorT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnRegisterT
             // 
@@ -878,7 +868,7 @@
             this.btnRegisterT.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRegisterT.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegisterT.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegisterT.Location = new System.Drawing.Point(195, 56);
+            this.btnRegisterT.Location = new System.Drawing.Point(195, 20);
             this.btnRegisterT.Name = "btnRegisterT";
             this.btnRegisterT.Size = new System.Drawing.Size(383, 54);
             this.btnRegisterT.TabIndex = 11;
@@ -922,6 +912,30 @@
             this.label27.TabIndex = 1;
             this.label27.Text = "Register Teacher";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(13, 195);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(163, 37);
+            this.label25.TabIndex = 35;
+            this.label25.Text = "CPR:";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "Section 1 | Systems Analysis and Design",
+            "Section 2 | Systems Analysis and Design",
+            "Section 3 | Systems Analysis and Design",
+            "Section 1 | Human Rights"});
+            this.checkedListBox1.Location = new System.Drawing.Point(542, 198);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(209, 94);
+            this.checkedListBox1.TabIndex = 36;
             // 
             // RegisterForm
             // 
@@ -1020,10 +1034,11 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtCPRT;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label lblErrorT;
         private System.Windows.Forms.Button btnRegisterT;
         private System.Windows.Forms.Panel panelHeaderTeacher;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

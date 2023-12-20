@@ -132,6 +132,11 @@ namespace OOD_Project
             // move to login page with autofill ?
             MessageBox.Show(newUser.ToString(), "New User");
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 }
