@@ -81,34 +81,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\AdminPanel.cs">
+    <Compile Include="AdminFolder\AdminPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\AdminPanel.Designer.cs">
+    <Compile Include="AdminFolder\AdminPanel.Designer.cs">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AddCourseForm.cs">
+    <Compile Include="AdminFolder\AddCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\AddCourseForm.Designer.cs">
+    <Compile Include="AdminFolder\AddCourseForm.Designer.cs">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\EditCourseForm.cs">
+    <Compile Include="AdminFolder\EditCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\EditCourseForm.Designer.cs">
+    <Compile Include="AdminFolder\EditCourseForm.Designer.cs">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ManageCoursesForm.cs">
+    <Compile Include="AdminFolder\ManageCoursesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\ManageCoursesForm.Designer.cs">
+    <Compile Include="AdminFolder\ManageCoursesForm.Designer.cs">
       <DependentUpon>ManageCoursesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ManageBranchesForm.cs">
+    <Compile Include="AdminFolder\ManageBranchesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\ManageBranchesForm.Designer.cs">
+    <Compile Include="AdminFolder\ManageBranchesForm.Designer.cs">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Branch.cs" />
@@ -122,29 +122,35 @@
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Section.cs" />
-    <Compile Include="Student\StudentPanel.cs">
+    <Compile Include="StudentFolder\StudentPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student\StudentPanel.Designer.cs">
+    <Compile Include="StudentFolder\StudentPanel.Designer.cs">
       <DependentUpon>StudentPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student\ViewCoursesForm.cs">
+    <Compile Include="StudentFolder\ViewCoursesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student\ViewCoursesForm.Designer.cs">
+    <Compile Include="StudentFolder\ViewCoursesForm.Designer.cs">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Teacher\TeacherPanel.cs">
+    <Compile Include="TeacherFolder\ManageContentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Teacher\TeacherPanel.Designer.cs">
+    <Compile Include="TeacherFolder\ManageContentForm.Designer.cs">
+      <DependentUpon>ManageContentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherFolder\TeacherPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherFolder\TeacherPanel.Designer.cs">
       <DependentUpon>TeacherPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
-    <Compile Include="Admin\usersListForms.cs">
+    <Compile Include="AdminFolder\usersListForms.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\usersListForms.Designer.cs">
+    <Compile Include="AdminFolder\usersListForms.Designer.cs">
       <DependentUpon>usersListForms.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
@@ -155,28 +161,28 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Admin\AdminPanel.resx">
+    <EmbeddedResource Include="AdminFolder\AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\AddCourseForm.resx">
+    <EmbeddedResource Include="AdminFolder\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\EditCourseForm.resx">
+    <EmbeddedResource Include="AdminFolder\EditCourseForm.resx">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\ManageCoursesForm.resx">
+    <EmbeddedResource Include="AdminFolder\ManageCoursesForm.resx">
       <DependentUpon>ManageCoursesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\ManageBranchesForm.resx">
+    <EmbeddedResource Include="AdminFolder\ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student\StudentPanel.resx">
+    <EmbeddedResource Include="StudentFolder\StudentPanel.resx">
       <DependentUpon>StudentPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\usersListForms.resx">
+    <EmbeddedResource Include="AdminFolder\usersListForms.resx">
       <DependentUpon>usersListForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
@@ -191,10 +197,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Student\ViewCoursesForm.resx">
+    <EmbeddedResource Include="StudentFolder\ViewCoursesForm.resx">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Teacher\TeacherPanel.resx">
+    <EmbeddedResource Include="TeacherFolder\ManageContentForm.resx">
+      <DependentUpon>ManageContentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherFolder\TeacherPanel.resx">
       <DependentUpon>TeacherPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

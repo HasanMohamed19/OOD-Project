@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OOD_Project
+namespace OOD_Project.TeacherFolder
 {
-    public partial class TeacherPanel : Form
+    public partial class ManageContentForm : Form
     {
-        public TeacherPanel()
+        public ManageContentForm()
         {
             InitializeComponent();
         }
