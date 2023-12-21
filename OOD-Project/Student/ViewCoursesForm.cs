@@ -15,9 +15,11 @@ namespace OOD_Project
     public partial class ViewCoursesForm : Form
     {
         List<Course> courses = new List<Course>();
+        //List<Section> sections = new List<Section>();
         public ViewCoursesForm()
         {
             InitializeComponent();
+            //sections.Add(new Section)
             courses.Add(new Course(1, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
             courses.Add(new Course(2, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
             courses.Add(new Course(3, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
@@ -33,9 +35,11 @@ namespace OOD_Project
             }
         }
 
-        private void coursesListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void feedbackBtn_Click(object sender, EventArgs e)
         {
-
+            //Course selectedCourse = courses[coursesListView.SelectedIndices[0]];
+            FeedbackForm FeedbackForm = new FeedbackForm();
+            FeedbackForm.Show();
         }
     }
 

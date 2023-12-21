@@ -15,7 +15,7 @@ namespace OOD_Project
         private string programme;
         private int credits;
         private List<Section> sections;
-
+        private Feedback courseFeedback = null;
         public Course()
         {
             sections = new List<Section>();
@@ -39,5 +39,11 @@ namespace OOD_Project
         public string Programme { get => programme; set => programme = value; }
         public List<Section> Sections { get => sections; set => sections = value; }
         public int Credits { get => credits; set => credits = value; }
+
+        public Feedback CourseFeedback
+        {
+            get => courseFeedback;
+            set => courseFeedback = value;
+        }
     }
 }
