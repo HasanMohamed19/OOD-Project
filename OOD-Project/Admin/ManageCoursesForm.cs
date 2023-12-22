@@ -18,18 +18,19 @@ namespace OOD_Project.Admin
         public ManageCourseForm(AdminPanel adminPanel)
         {
             InitializeComponent();
-            courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
-            courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
-            courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
-            courses.Add(new Course(1, 15, 5, "OOD", "This is a description", "ICT"));
+            courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
+            courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
+            courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
+            courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
             foreach (var course in courses)
             {
-                ListViewItem item = new ListViewItem(course.CourseID.ToString());
+                ListViewItem item = new ListViewItem(course.Id.ToString());
                 item.Tag = course;
-                item.SubItems.Add(course.CourseName);
+                item.SubItems.Add(course.Name);
+                item.SubItems.Add(course.Code);
                 item.SubItems.Add(course.Credits.ToString());
                 item.SubItems.Add(course.Programme);
-                item.SubItems.Add(course.SectionCount.ToString());
+                item.SubItems.Add(course.Sections.Count.ToString());
                 item.SubItems.Add(course.Description);
                 courseListView.Items.Add(item);
             }
@@ -37,39 +38,8 @@ namespace OOD_Project.Admin
             this.adminPanel = adminPanel;
         }
 
-        private void ManageCourse_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        public class Course
-        {
-            private int courseID;
-            private int credits;
-            private int sectionCount;
-            private string courseName;
-            private string description;
-            private string programme;
-            
-
-            public int CourseID { get { return courseID; } set { courseID = value; } }
-            public int Credits { get { return credits; } set { credits = value; } }
-            public int SectionCount { get { return sectionCount; } set { sectionCount = value; } }
-
-            public string CourseName { get { return courseName; } set { courseName = value; } }
-            public string Description { get { return description; } set { description = value; } }
-            public string Programme { get { return programme; } set { programme = value; } }
-
-            public Course(int courseID, int credits, int sectionCount, string courseName, string description, string programme)
-            {
-                this.courseID = courseID;
-                this.credits = credits;
-                this.courseName = courseName;
-                this.description = description;
-                this.programme = programme;
-                this.sectionCount = sectionCount;
-            }
-        }
+  
 
         private void deleteCourseBtn_Click(object sender, EventArgs e)
         {
@@ -118,6 +88,11 @@ namespace OOD_Project.Admin
         public List<Course> getCourses()
         {
             return courses;
+        }
+
+        private void courseListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

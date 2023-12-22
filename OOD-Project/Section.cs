@@ -20,6 +20,8 @@ namespace OOD_Project
         private Teacher assignedTeacher;
         private Course assignedCourse;
 
+
+
         public Section()
         {
 

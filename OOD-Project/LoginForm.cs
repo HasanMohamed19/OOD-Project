@@ -17,7 +17,7 @@ namespace OOD_Project
         {
             string givenUsername = txtUsername.Text;
             string givenPassword = txtPassword.Text;
-            int userRole = 3;
+            int userRole = 1;
             // role ids
             // admin = 1
             /* role ids:

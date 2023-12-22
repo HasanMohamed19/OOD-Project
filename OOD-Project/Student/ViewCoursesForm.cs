@@ -19,7 +19,7 @@ namespace OOD_Project
         public ViewCoursesForm()
         {
             InitializeComponent();
-            //sections.Add(new Section)
+            //sections.Add(new Section())
             courses.Add(new Course(1, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
             courses.Add(new Course(2, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
             courses.Add(new Course(3, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));

@@ -29,16 +29,23 @@ namespace OOD_Project.Admin
                 int courseID = int.Parse(txtCourseID.Text);
                 int credits = int.Parse(txtCredits.Text);
                 int sectionCount = int.Parse(txtSectionCount.Text);
+                string courseCode = txtCode.Text;
                 string courseName = txtCourseName.Text;
                 string programme = txtProgramme.Text;
                 string description = txtDescription.Text;
-                ManageCourseForm.Course course = new ManageCourseForm.Course(courseID, credits, sectionCount, courseName, description, programme);
-                ListViewItem item = new ListViewItem(new string[] { course.CourseID.ToString(), course.CourseName, course.Credits.ToString(),
-                   course.Programme, course.SectionCount.ToString(), course.Description });
+                Course course = new Course(courseID, courseName,courseCode, description, programme, credits);
+                ListViewItem item = new ListViewItem(new string[]
+                {course.Id.ToString(),
+                 course.Name,
+                 course.Code,
+                 course.Credits.ToString(),
+                 course.Programme,
+                 course.Sections.Count.ToString(),
+                 course.Description });
                 item.Tag = course;
                 courseListView.Items.Add(item);
                 manageCourse.getCourses().Add(course);
-                MessageBox.Show("New Course Added\nCourse ID:" + course.CourseID + "\nCourse Name: " + course.CourseName, "Course Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("New Course Added\nCourse ID:" + course.Id + "\nCourse Name: " + course.Name, "Course Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }catch (Exception ex)
             {
                 MessageBox.Show("An error has occured", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
