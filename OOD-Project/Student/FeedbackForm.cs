@@ -12,13 +12,78 @@ namespace OOD_Project
 {
     public partial class FeedbackForm : Form
     {
-        public FeedbackForm()
+        Course selectedCourse;
+        public FeedbackForm(Course course)
         {
-         //if (selectedCourse.CourseFeedback != null) {}
+            selectedCourse = course;
             InitializeComponent();
+            
+            if (selectedCourse.CourseFeedback != null)
+            {
+            //Loop to initialize radiobuttons in the feedback form
+            int[] ratings = new int[]
+            {
+            selectedCourse.CourseFeedback.RatingQuestion1,
+            selectedCourse.CourseFeedback.RatingQuestion2,
+            selectedCourse.CourseFeedback.RatingQuestion3,
+            selectedCourse.CourseFeedback.RatingQuestion4,
+            selectedCourse.CourseFeedback.RatingQuestion5
+            };
+         
+            for(int i = 1; i < 6; i++)
+                {
+                    
+                    TableLayoutPanel tlp = this.Controls.Find("tlpQuestion" + (i), true).FirstOrDefault() as TableLayoutPanel;
+                    int rating = ratings[i-1];
+                    RadioButton rb;
+                    switch (rating)
+                    {
+                        case 1:
+                            rb = tlp.Controls.Find("RbVeryUnsatisfied" + (i), true).FirstOrDefault() as RadioButton;
+                            break;
+                        case 2:
+                            rb = tlp.Controls.Find("RbUnsatisfied" + (i), true).FirstOrDefault() as RadioButton;
+                            break;
+                        case 3:
+                            rb = tlp.Controls.Find("RbNeutral" + (i), true).FirstOrDefault() as RadioButton;
+                            break;
+                        case 4:
+                            rb = tlp.Controls.Find("RbSatisfied" + (i), true).FirstOrDefault() as RadioButton;
+                            break;
+                        case 5:
+                            rb = tlp.Controls.Find("RbVerySatisfied" + (i), true).FirstOrDefault() as RadioButton;
+                            break;
+                        default:
+                            continue;
+                    }
+                    if (rb != null)
+                    {
+                        rb.Checked = true;
+                    }
+                }
+                txtQuestion6.Text = selectedCourse.CourseFeedback.OpenQuestion;
+                // Call the method to disable controls on the form
+                DisableControls(this);
+                btnSendFeedback.Text = "Form submitted";
+                btnSendFeedback.Enabled = false;
+            }
         }
 
-
+        //Method to check and disable radio buttons and textboxes inside the form
+        public void DisableControls(Control control)
+        {
+            foreach (Control childControl in control.Controls)
+            {
+                if (childControl is RadioButton || childControl is TextBox)
+                {
+                    childControl.Enabled = false;
+                }
+                else
+                {
+                    DisableControls(childControl); 
+                }
+            }
+        }
 
         //Method to check if a radio button is selected within a layout panel.
         private bool RadioButtonSelected(TableLayoutPanel tableLayoutPanel)
@@ -41,10 +106,10 @@ namespace OOD_Project
 
             foreach (Control control in tableLayoutPanel.Controls)
             {
-                if (control is RadioButton radioButton && radioButton.Checked)
-                {
-                    string radioButtonName = radioButton.Name.Substring(0, radioButton.Name.Length - 1);
-                    switch (radioButtonName)
+                if (control is RadioButton radioButton&&radioButton.Checked)
+                {   
+                    string radioButtonName = radioButton.Name.Substring(0, radioButton.Name.Length-1); //Get radiobutton name without last digit
+                    switch (radioButtonName) //Return result based on name
                     {
                         case "RbVeryUnsatisfied":
                             result = 1;
@@ -64,13 +129,14 @@ namespace OOD_Project
                         default:
                             break;
                     }
+     
                 }
-                break;
+
             }
             return result;
         }
 
-        private void btnSendFeedback_Click_1(object sender, EventArgs e)
+        private void btnSendFeedback_Click(object sender, EventArgs e)
         {
             //Check if a button is selected in each question
             bool question1Checked = RadioButtonSelected(tlpQuestion1);
@@ -89,6 +155,7 @@ namespace OOD_Project
                 int q5Result = GetRadioButtonResult(tlpQuestion5);
                 Feedback feedback = new Feedback(q1Result,q2Result,q3Result,q4Result,q5Result);
                 feedback.OpenQuestion = txtQuestion6.Text;
+                selectedCourse.CourseFeedback = feedback;
                 MessageBox.Show("Course feedback has been sent", "Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
             }

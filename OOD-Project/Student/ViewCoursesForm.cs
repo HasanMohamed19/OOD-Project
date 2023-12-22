@@ -19,7 +19,8 @@ namespace OOD_Project
         public ViewCoursesForm()
         {
             InitializeComponent();
-            //sections.Add(new Section())
+            //Teacher tempTeacher = Teacher();
+            //sections.Add(new Section());
             courses.Add(new Course(1, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
             courses.Add(new Course(2, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
             courses.Add(new Course(3, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
@@ -37,9 +38,19 @@ namespace OOD_Project
 
         private void feedbackBtn_Click(object sender, EventArgs e)
         {
-            //Course selectedCourse = courses[coursesListView.SelectedIndices[0]];
-            FeedbackForm FeedbackForm = new FeedbackForm();
-            FeedbackForm.Show();
+            Course selectedCourse = null;
+            if (coursesListView.SelectedIndices.Count > 0)
+            {
+                selectedCourse = courses[coursesListView.SelectedIndices[0]];
+                FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
+                FeedbackForm.Show();
+            }
+            else
+            {
+                selectedCourse = (Course)coursesListView.Items[0].Tag;
+               FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
+               FeedbackForm.Show();
+            }
         }
     }
 

@@ -484,7 +484,7 @@ namespace OOD_Project
             this.btnSendFeedback.TabIndex = 42;
             this.btnSendFeedback.Text = "Send Feedback";
             this.btnSendFeedback.UseVisualStyleBackColor = false;
-            this.btnSendFeedback.Click += new System.EventHandler(this.btnSendFeedback_Click_1);
+            this.btnSendFeedback.Click += new System.EventHandler(this.btnSendFeedback_Click);
             // 
             // tableLayoutPanel1
             // 

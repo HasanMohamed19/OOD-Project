@@ -14,6 +14,7 @@ namespace OOD_Project
         private int ratingQuestion4;
         private int ratingQuestion5;
 
+
         public Feedback(int ratingQuestion1, int ratingQuestion2, int ratingQuestion3, int ratingQuestion4, int ratingQuestion5)
         {
             this.ratingQuestion1 = ratingQuestion1;
@@ -23,5 +24,35 @@ namespace OOD_Project
             this.ratingQuestion5 = ratingQuestion5;
         }
         public String OpenQuestion { get; set; }
+        public int RatingQuestion1
+        {
+            get { return ratingQuestion1; }
+            set { ratingQuestion1 = value; }
+        }
+
+        public int RatingQuestion2
+        {
+            get { return ratingQuestion2; }
+            set { ratingQuestion2 = value; }
+        }
+
+        public int RatingQuestion3
+        {
+            get { return ratingQuestion3; }
+            set { ratingQuestion3 = value; }
+        }
+
+        public int RatingQuestion4
+        {
+            get { return ratingQuestion4; }
+            set { ratingQuestion4 = value; }
+        }
+
+        public int RatingQuestion5
+        {
+            get { return ratingQuestion5; }
+            set { ratingQuestion5 = value; }
+        }
+
     }
 }

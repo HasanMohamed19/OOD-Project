@@ -115,6 +115,7 @@ namespace OOD_Project
         private string dept;
         private List<Section> assignedSections;
 
+
         public string Dept { get => dept; set => dept = value; }
         public List<Section> AssignedSections { get => assignedSections; set => assignedSections = value; }
         public List<Course> AssignedCourses
