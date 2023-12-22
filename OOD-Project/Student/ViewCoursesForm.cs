@@ -40,7 +40,10 @@ namespace OOD_Project
 
         private void emailBtn_Click(object sender, EventArgs e)
         {
-            EmailTutor emailTutorForm = new EmailTutor();
+            //Get teacher from selected section to send email
+            Teacher selectedTeacher = new Teacher();
+            selectedTeacher.Email = "202102145@student.polytechnic.bh"; //Appears in JunkEmail if you try.
+            EmailTutorForm emailTutorForm = new EmailTutorForm(selectedTeacher);
             emailTutorForm.Show();
         }
     }
