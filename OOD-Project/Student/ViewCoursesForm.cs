@@ -37,6 +37,12 @@ namespace OOD_Project
         {
 
         }
+
+        private void emailBtn_Click(object sender, EventArgs e)
+        {
+            EmailTutor emailTutorForm = new EmailTutor();
+            emailTutorForm.Show();
+        }
     }
 
 }

@@ -185,7 +185,7 @@
             this.CourseDetailsPanelTable.ColumnCount = 3;
             this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.63158F));
             this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
-            this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
+            this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
             this.CourseDetailsPanelTable.Controls.Add(this.courseDescription, 0, 2);
             this.CourseDetailsPanelTable.Controls.Add(this.courseProgrammeLabel, 2, 1);
             this.CourseDetailsPanelTable.Controls.Add(this.courseCreditsLabel, 1, 1);
@@ -222,10 +222,10 @@
             // 
             this.courseProgrammeLabel.AutoSize = true;
             this.courseProgrammeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseProgrammeLabel.Location = new System.Drawing.Point(386, 82);
+            this.courseProgrammeLabel.Location = new System.Drawing.Point(384, 82);
             this.courseProgrammeLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
             this.courseProgrammeLabel.Name = "courseProgrammeLabel";
-            this.courseProgrammeLabel.Size = new System.Drawing.Size(99, 40);
+            this.courseProgrammeLabel.Size = new System.Drawing.Size(176, 20);
             this.courseProgrammeLabel.TabIndex = 2;
             this.courseProgrammeLabel.Text = "Programme: Samboosa";
             this.courseProgrammeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -234,7 +234,7 @@
             // 
             this.courseCreditsLabel.AutoSize = true;
             this.courseCreditsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseCreditsLabel.Location = new System.Drawing.Point(206, 82);
+            this.courseCreditsLabel.Location = new System.Drawing.Point(205, 82);
             this.courseCreditsLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
             this.courseCreditsLabel.Name = "courseCreditsLabel";
             this.courseCreditsLabel.Size = new System.Drawing.Size(85, 20);
@@ -258,7 +258,7 @@
             // 
             this.courseCRNLabel.AutoSize = true;
             this.courseCRNLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseCRNLabel.Location = new System.Drawing.Point(386, 10);
+            this.courseCRNLabel.Location = new System.Drawing.Point(384, 10);
             this.courseCRNLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
             this.courseCRNLabel.Name = "courseCRNLabel";
             this.courseCRNLabel.Size = new System.Drawing.Size(96, 20);
@@ -270,7 +270,7 @@
             // 
             this.courseSectionLabel.AutoSize = true;
             this.courseSectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseSectionLabel.Location = new System.Drawing.Point(206, 10);
+            this.courseSectionLabel.Location = new System.Drawing.Point(205, 10);
             this.courseSectionLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
             this.courseSectionLabel.Name = "courseSectionLabel";
             this.courseSectionLabel.Size = new System.Drawing.Size(80, 20);
@@ -358,6 +358,7 @@
             this.emailBtn.TabIndex = 1;
             this.emailBtn.Text = "Email Tutor";
             this.emailBtn.UseVisualStyleBackColor = false;
+            this.emailBtn.Click += new System.EventHandler(this.emailBtn_Click);
             // 
             // ViewCoursesForm
             // 
