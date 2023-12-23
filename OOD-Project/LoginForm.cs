@@ -47,7 +47,9 @@ namespace OOD_Project
                         this.Hide();
                         break;
                     case 2:
-                        Console.WriteLine("teacher");
+                        TeacherPanel teacherPanel = new TeacherPanel();
+                        teacherPanel.Show();
+                        this.Hide();
                         break;
                     case 3:
                         StudentPanel studentPanel = new StudentPanel();

@@ -99,6 +99,7 @@
     <Compile Include="Admin\EditCourseForm.Designer.cs">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EmailController.cs" />
     <Compile Include="Admin\ManageCoursesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +123,12 @@
       <DependentUpon>dbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Department.cs" />
+    <Compile Include="RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Section.cs" />
     <Compile Include="Student\StudentPanel.cs">
       <SubType>Form</SubType>
@@ -134,6 +141,12 @@
     </Compile>
     <Compile Include="Student\ViewCoursesForm.Designer.cs">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\TeacherPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\TeacherPanel.Designer.cs">
+      <DependentUpon>TeacherPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Admin\usersListForms.cs">
@@ -165,6 +178,9 @@
     <EmbeddedResource Include="Admin\ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student\StudentPanel.resx">
       <DependentUpon>StudentPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +201,9 @@
     </Compile>
     <EmbeddedResource Include="Student\ViewCoursesForm.resx">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\TeacherPanel.resx">
+      <DependentUpon>TeacherPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dbDataSet.xsc">
       <DependentUpon>dbDataSet.xsd</DependentUpon>
