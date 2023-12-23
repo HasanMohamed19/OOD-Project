@@ -99,6 +99,7 @@
     <Compile Include="Admin\EditCourseForm.Designer.cs">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EmailController.cs" />
     <Compile Include="Admin\ManageCoursesForm.cs">
       <SubType>Form</SubType>
     </Compile>
