@@ -127,7 +127,9 @@ namespace OOD_Project
             newUser.FirstName = inFName; newUser.LastName = inLName; newUser.Email = inEmail;
             newUser.Password = inPassword; newUser.Cpr = inCPR; newUser.Gender = inGender;
             newUser.Dob = inDOB; newUser.Phone = inPhone; newUser.Username = inUsername;
-            newUser.Dept = inDept; newUser.StatusId = UserStatus.pending;
+            //newUser.Dept = inDept;
+            newUser.Dept.DeptName = inDept;
+            newUser.StatusId = UserStatus.pending;
             Console.WriteLine(newUser.LastName);
             // move to login page with autofill ?
             MessageBox.Show(newUser.ToString(), "New User");

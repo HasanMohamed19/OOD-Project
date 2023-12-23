@@ -104,14 +104,6 @@ namespace OOD_Project
         public List<Class> Classes { get => classes; set => classes = value; }
         public Course AssignedCourse { get => assignedCourse; set => assignedCourse = value; }
         }//end Section
-    }//end Section
-    }//end Section
-    }//end Section
-    }//end Section
-    }//end Section
-    }//end Section
-    }//end Section
-    }//end Section
 
 }
 
