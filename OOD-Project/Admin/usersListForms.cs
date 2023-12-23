@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,23 +17,23 @@ namespace OOD_Project
     {
 
         // fake data from db
-        User[] currentUsers = { new User("Hasan", "Ali", "student@gmail.com", UserRole.student),
-        new User("Yousif", "Ali", "student@gmail.com", UserRole.teacher),
-        new User("Ahmed", "Ali", "student@gmail.com", UserRole.admin),
-        new User("Mahmood", "Ali", "student@gmail.com", UserRole.student),
-        new User("Osama", "Ali", "student@gmail.com", UserRole.student),
-        new User("test1", "Ali", "student@gmail.com", UserRole.admin),
-        new User("test2", "Ali", "student@gmail.com", UserRole.teacher),
-        new User("test3", "Ali", "student@gmail.com", UserRole.student),
-        new User("human4", "Ali", "student@gmail.com", UserRole.teacher),
-        new User("Yousif", "Ali", "student@gmail.com", UserRole.teacher),
-        new User("Ahmed", "Ali", "student@gmail.com", UserRole.teacher),
-        new User("Mahmood", "Ali", "student@gmail.com", UserRole.student),
-        new User("Osama", "Ali", "student@gmail.com", UserRole.student),
-        new User("test1", "Ali", "student@gmail.com", UserRole.admin),
-        new User("test2", "Ali", "student@gmail.com", UserRole.teacher),
-        new User("test3", "Ali", "student@gmail.com", UserRole.student),
-        new User("human4", "Ali", "student@gmail.com", UserRole.teacher)};
+        //User[] currentUsers = { new User("Hasan", "Ali", "student@gmail.com", UserRole.student),
+        //new User("Yousif", "Ali", "student@gmail.com", UserRole.teacher),
+        //new User("Ahmed", "Ali", "student@gmail.com", UserRole.admin),
+        //new User("Mahmood", "Ali", "student@gmail.com", UserRole.student),
+        //new User("Osama", "Ali", "student@gmail.com", UserRole.student),
+        //new User("test1", "Ali", "student@gmail.com", UserRole.admin),
+        //new User("test2", "Ali", "student@gmail.com", UserRole.teacher),
+        //new User("test3", "Ali", "student@gmail.com", UserRole.student),
+        //new User("human4", "Ali", "student@gmail.com", UserRole.teacher),
+        //new User("Yousif", "Ali", "student@gmail.com", UserRole.teacher),
+        //new User("Ahmed", "Ali", "student@gmail.com", UserRole.teacher),
+        //new User("Mahmood", "Ali", "student@gmail.com", UserRole.student),
+        //new User("Osama", "Ali", "student@gmail.com", UserRole.student),
+        //new User("test1", "Ali", "student@gmail.com", UserRole.admin),
+        //new User("test2", "Ali", "student@gmail.com", UserRole.teacher),
+        //new User("test3", "Ali", "student@gmail.com", UserRole.student),
+        //new User("human4", "Ali", "student@gmail.com", UserRole.teacher)};
 
         User[] pendingUsers = { new User("pending", "user", "elms3dmin@gmail.com", UserRole.student),
         new User("pending", "user", "elms3dmin@gmail.com", UserRole.teacher)};
@@ -40,18 +41,18 @@ namespace OOD_Project
         public usersListForms()
         {
             InitializeComponent();
-            foreach (var user in currentUsers)
-            {
-                user.StatusId = UserStatus.accepted;
-                ListViewItem item = new ListViewItem(user.FirstName);
-                item.SubItems.Add(user.LastName);
-                item.SubItems.Add(user.Email);
-                item.SubItems.Add(user.RoleId.ToString());
-                item.SubItems.Add(user.StatusId.ToString());
-                currentUsersListView.Items.Add(item);
-            }
+            //foreach (var user in currentUsers)
+            //{
+            //    user.StatusId = UserStatus.accepted;
+            //    ListViewItem item = new ListViewItem(user.FirstName);
+            //    item.SubItems.Add(user.LastName);
+            //    item.SubItems.Add(user.Email);
+            //    item.SubItems.Add(user.RoleId.ToString());
+            //    item.SubItems.Add(user.StatusId.ToString());
+            //    //currentUsersListView.Items.Add(item);
+            //}
             
-
+            populateDGV();
             // currentUsersListBox.Items.AddRange(currentUsers);
             pendingUsersListBox.Items.AddRange(pendingUsers);
 
@@ -62,6 +63,28 @@ namespace OOD_Project
 
         }
 
+        private void populateDGV()
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[User]";
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(dbm.Command);
+                BindingSource bs = new BindingSource();
+
+                da.Fill(dt);
+                bs.DataSource = dt;
+                currentUsersDG.DataSource = bs;
+                currentUsersDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                currentUsersDG.RowTemplate.MinimumHeight = 30;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void deleteUserBtn_Click(object sender, EventArgs e)
         {
             DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected user?", "Delete Confirmation", MessageBoxButtons.YesNo);
@@ -70,9 +93,30 @@ namespace OOD_Project
 
             if (deleteConfirmation == DialogResult.Yes)
             {
-                while (currentUsersListView.SelectedItems.Count > 0)
+                if (currentUsersDG.SelectedRows.Count > 0)
                 {
-                    currentUsersListView.Items.Remove(currentUsersListView.SelectedItems[0]);
+                    int selectedID = Convert.ToInt32(currentUsersDG.SelectedRows[0].Cells[0].Value);
+                    MessageBox.Show(selectedID.ToString());
+                    // this should be in a method
+                    DatabaseManager dbm = DatabaseManager.Instance();
+                    dbm.Connection.Open();
+                    dbm.Command.Parameters.AddWithValue("@user_id", selectedID);
+                    dbm.Command.CommandText = "DELETE FROM [dbo].[user] WHERE user_id = @user_id";
+                    
+                    try
+                    {
+                        dbm.Command.ExecuteNonQuery();
+                        currentUsersDG.Update();
+                        populateDGV();
+                    } catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    } finally
+                    {
+                        dbm.Connection.Close();
+                    }
+                    
+                    
                 }
 
             }

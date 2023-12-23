@@ -105,10 +105,10 @@ namespace OOD_Project
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            //////    Console.WriteLine("Working Now?? Why??");
-            //////    RegisterForm registerForm = new RegisterForm();
-            //////    registerForm.Show();
-            //////    this.Hide();
+            Console.WriteLine("Working Now?? Why??");
+            RegisterForm registerForm = new RegisterForm();
+            registerForm.Show();
+            this.Hide();
         }
     }
 }

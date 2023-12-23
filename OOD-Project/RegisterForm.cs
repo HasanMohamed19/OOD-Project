@@ -17,10 +17,6 @@ namespace OOD_Project
             InitializeComponent();
         }
 
-
-
-
-
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -91,6 +87,36 @@ namespace OOD_Project
             Console.WriteLine(newUser.LastName);
             // move to login page with autofill ?
             MessageBox.Show(newUser.ToString(), "New User");
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@first_name", inFName);
+            dbm.Command.Parameters.AddWithValue("@last_name", inLName);
+            dbm.Command.Parameters.AddWithValue("@phone", inPhone);
+            dbm.Command.Parameters.AddWithValue("@cpr", inCPR);
+            dbm.Command.Parameters.AddWithValue("@username", inUsername);
+            dbm.Command.Parameters.AddWithValue("@password", inPassword);
+            dbm.Command.Parameters.AddWithValue("@email", inEmail);
+            dbm.Command.Parameters.AddWithValue("@gender", inGender);
+            dbm.Command.Parameters.AddWithValue("@dob", inDOB);
+            dbm.Command.Parameters.AddWithValue("@role_id", 2);
+            dbm.Command.Parameters.AddWithValue("@status_id", 2);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[User] (user_id, first_name, last_name, phone, cpr, username, password, email, gender, dob, role_id, status_id)" +
+                " VALUES(NEXT VALUE FOR [dbo].[userIDSequence], @first_name, @last_name, @phone, @cpr, @username, @password, @email, @gender, @dob, @role_id, @status_id)";
+
+            try
+            {
+                MessageBox.Show(dbm.ToString());
+                dbm.Command.ExecuteNonQuery();
+                MessageBox.Show("User added successfully");
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message.ToString());
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
         }
 
         // For TEACHER
