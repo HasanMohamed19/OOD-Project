@@ -15,7 +15,11 @@ namespace OOD_Project
         private SqlDataReader reader;
         private DatabaseManager() 
         { 
-            connection = new SqlConnection(Properties.Settings.Default.dbConnectionString);
+            connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;
+                                AttachDbFilename=C:\Users\Hassan\source\repos\OOD-Project\OOD-Project\db.mdf;
+                                Integrated Security=True");
+            // not sure why this doesnt work with insert and delete!
+            //connection = new SqlConnection(Properties.Settings.Default.dbConnectionString);
         }
 
         public SqlCommand Command { get => command; set => command = value; }

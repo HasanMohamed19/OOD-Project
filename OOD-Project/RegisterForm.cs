@@ -107,8 +107,8 @@ namespace OOD_Project
             try
             {
                 MessageBox.Show(dbm.ToString());
-                dbm.Command.ExecuteNonQuery();
-                MessageBox.Show("User added successfully");
+                int rows = dbm.Command.ExecuteNonQuery();
+                MessageBox.Show($"User added successfully {rows}");
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message.ToString());
             } finally

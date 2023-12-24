@@ -68,7 +68,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -112,6 +114,7 @@
     <Compile Include="Admin\ManageBranchesForm.Designer.cs">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Announcement.cs" />
     <Compile Include="Branch.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Content.cs" />
@@ -123,13 +126,18 @@
       <DependentUpon>dbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Department.cs" />
+    <Compile Include="Feedback.cs" />
+    <Compile Include="Major.cs" />
+    <Compile Include="Notification.cs" />
     <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registration.cs" />
     <Compile Include="Section.cs" />
+    <Compile Include="Student.cs" />
     <Compile Include="Student\StudentPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +150,7 @@
     <Compile Include="Student\ViewCoursesForm.Designer.cs">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teacher.cs" />
     <Compile Include="Teacher\TeacherPanel.cs">
       <SubType>Form</SubType>
     </Compile>

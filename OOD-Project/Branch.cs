@@ -16,19 +16,19 @@ namespace OOD_Project
     public class Branch
     {
 
-        private string area;
+        //private string area;
         private int branchId;
-        private string city;
-        private string name;
+        //private string city;
+        //private string name;
         private string phoneNumber;
-        private Department department;
+        //private Department department;
 
         public Branch(string area, int branchId, string city, string name, string phoneNumber)
         {
-            this.area = area;
+            //this.area = area;
             this.branchId = branchId;
-            this.city = city;
-            this.name = name;
+            //this.city = city;
+            //this.name = name;
             this.phoneNumber = phoneNumber;
         }
 
@@ -37,17 +37,6 @@ namespace OOD_Project
 
         }
 
-        public string Area
-        {
-            get
-            {
-                return area;
-            }
-            set
-            {
-                area = value;
-            }
-        }
 
         public int BranchId
         {
@@ -61,29 +50,7 @@ namespace OOD_Project
             }
         }
 
-        public string City
-        {
-            get
-            {
-                return city;
-            }
-            set
-            {
-                city = value;
-            }
-        }
 
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
-        }
 
         public string PhoneNumber
         {
@@ -97,7 +64,7 @@ namespace OOD_Project
             }
         }
 
-        public Department Department { get => department; set => department = value; }
+        //public Department Department { get => department; set => department = value; }
     }//end Branch
 }
 
