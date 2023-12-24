@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace OOD_Project
 {
@@ -29,19 +30,55 @@ namespace OOD_Project
             //    item.SubItems.Add(branch.PhoneNumber);
             //    branchesListView.Items.Add(item);
             //}
+            populateBranches();
+        }
+
+        private void populateBranches()
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[Branch]";
+            dbm.Reader = dbm.Command.ExecuteReader();
+            while (dbm.Reader.Read())
+            {
+                var item = new ListViewItem(dbm.Reader["branch_id"].ToString());
+                item.SubItems.Add(dbm.Reader["name"].ToString());
+                item.SubItems.Add(dbm.Reader["phone_number"].ToString());
+
+                branchesListView.Items.Add(item);
+            }
+            dbm.Connection.Close();
+
         }
 
         private void deleteBranchBtn_Click(object sender, EventArgs e)
         {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
             DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected branch?", "Delete Confirmation", MessageBoxButtons.YesNo);
-
-
 
             if (deleteConfirmation == DialogResult.Yes)
             {
-                while (branchesListView.SelectedItems.Count > 0)
+                if (branchesListView.SelectedItems.Count > 0)
                 {
-                    branchesListView.SelectedItems[0].Remove();                    
+                    int branch_id = Convert.ToInt32(branchesListView.SelectedItems[0].Text);
+                    dbm.Command.Parameters.AddWithValue("@branch_id", branch_id);
+                    dbm.Command.CommandText = "DELETE FROM [dbo].[Branch] WHERE branch_id = @branch_id";
+                    try
+                    {
+                        dbm.Command.ExecuteNonQuery();
+                        branchesListView.SelectedItems[0].Remove();
+                        MessageBox.Show("Branch deleted sucessfully", "Branch Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        dbm.Connection.Close();
+                    }
+                                       
                     
                 }
 
