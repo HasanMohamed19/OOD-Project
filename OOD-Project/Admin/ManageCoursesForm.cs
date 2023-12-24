@@ -18,28 +18,47 @@ namespace OOD_Project.Admin
         public ManageCourseForm(AdminPanel adminPanel)
         {
             InitializeComponent();
-            courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
-            courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
-            courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
-            courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
-            foreach (var course in courses)
-            {
-                ListViewItem item = new ListViewItem(course.Id.ToString());
-                item.Tag = course;
-                item.SubItems.Add(course.Name);
-                item.SubItems.Add(course.Code);
-                item.SubItems.Add(course.Credits.ToString());
-                item.SubItems.Add(course.Programme);
-                item.SubItems.Add(course.Sections.Count.ToString());
-                item.SubItems.Add(course.Description);
-                courseListView.Items.Add(item);
-            }
-
+            //courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
+            //courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
+            //courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
+            //courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
+            //foreach (var course in courses)
+            //{
+            //    ListViewItem item = new ListViewItem(course.Id.ToString());
+            //    item.Tag = course;
+            //    item.SubItems.Add(course.Name);
+            //    item.SubItems.Add(course.Code);
+            //    item.SubItems.Add(course.Credits.ToString());
+            //    item.SubItems.Add(course.Programme);
+            //    item.SubItems.Add(course.Sections.Count.ToString());
+            //    item.SubItems.Add(course.Description);
+            //    courseListView.Items.Add(item);
+            //}
+            populateCourses();
             this.adminPanel = adminPanel;
         }
 
 
-  
+        private void populateCourses()
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[course]";
+            dbm.Reader = dbm.Command.ExecuteReader();
+            while (dbm.Reader.Read())
+            {
+                var item = new ListViewItem(dbm.Reader["course_id"].ToString());
+                item.SubItems.Add(dbm.Reader["name"].ToString());
+                item.SubItems.Add(dbm.Reader["code"].ToString());
+                item.SubItems.Add(dbm.Reader["description"].ToString());
+                item.SubItems.Add(dbm.Reader["programme"].ToString());
+                item.SubItems.Add(dbm.Reader["credits"].ToString());
+                
+                courseListView.Items.Add(item);
+            }
+            dbm.Connection.Close();
+
+        }
 
         private void deleteCourseBtn_Click(object sender, EventArgs e)
         {
