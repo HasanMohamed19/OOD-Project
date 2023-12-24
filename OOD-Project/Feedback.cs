@@ -13,8 +13,10 @@ namespace OOD_Project
         private int ratingQuestion3;
         private int ratingQuestion4;
         private int ratingQuestion5;
+        private string openQuestion;
+        private Student byStudent;
 
-
+        public Feedback() { }
         public Feedback(int ratingQuestion1, int ratingQuestion2, int ratingQuestion3, int ratingQuestion4, int ratingQuestion5)
         {
             this.ratingQuestion1 = ratingQuestion1;
@@ -23,7 +25,6 @@ namespace OOD_Project
             this.ratingQuestion4 = ratingQuestion4;
             this.ratingQuestion5 = ratingQuestion5;
         }
-        public String OpenQuestion { get; set; }
         public int RatingQuestion1
         {
             get { return ratingQuestion1; }
@@ -54,5 +55,7 @@ namespace OOD_Project
             set { ratingQuestion5 = value; }
         }
 
+        public string OpenQuestion { get => openQuestion; set => openQuestion = value; }
+        public Student ByStudent { get => byStudent; set => byStudent = value; }
     }
 }

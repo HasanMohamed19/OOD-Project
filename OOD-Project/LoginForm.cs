@@ -38,6 +38,9 @@ namespace OOD_Project
             {
 
                 int rid = dbm.Reader.GetOrdinal("role_id");
+                int uid = dbm.Reader.GetOrdinal("user_id");
+                int user_id = dbm.Reader.GetInt32(uid);
+                Global.user_id = user_id;
                 int roleId = dbm.Reader.GetInt32(rid);
                 switch (roleId)
                 {

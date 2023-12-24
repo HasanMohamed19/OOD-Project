@@ -38,7 +38,7 @@ namespace OOD_Project
 
         private void feedbackBtn_Click(object sender, EventArgs e)
         {
-            Course selectedCourse = null;
+            Course selectedCourse;
             if (coursesListView.SelectedIndices.Count > 0)
             {
                 selectedCourse = courses[coursesListView.SelectedIndices[0]];
@@ -47,10 +47,15 @@ namespace OOD_Project
             }
             else
             {
-                selectedCourse = (Course)coursesListView.Items[0].Tag;
+               selectedCourse = (Course)coursesListView.Items[0].Tag;
                FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
                FeedbackForm.Show();
             }
+        }
+
+        private void coursesListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            feedbackBtn.Enabled = coursesListView.SelectedIndices.Count > 0;
         }
     }
 

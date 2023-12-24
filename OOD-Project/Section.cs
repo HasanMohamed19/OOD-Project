@@ -14,6 +14,7 @@ namespace OOD_Project
         private string crn;
         private int sectionId;
         private int number;
+        private string name;
         private List<Class> classes;
         private List<Student> registeredStudents;
         private Teacher assignedTeacher;
@@ -24,7 +25,7 @@ namespace OOD_Project
             this.capacity = capacity;
             this.crn = crn;
             this.sectionId = sectionId;
-            this.name = name;
+            this.Name = name;
             this.number = number;
             this.classes = classes;
             this.registeredStudents = registeredStudents;
@@ -102,6 +103,8 @@ namespace OOD_Project
             }
         }
 
+        
+
         public List<Student> RegisteredStudents
         {
             get
@@ -116,7 +119,8 @@ namespace OOD_Project
 
         public List<Class> Classes { get => classes; set => classes = value; }
         public Course AssignedCourse { get => assignedCourse; set => assignedCourse = value; }
-        }//end Section
+        public string Name { get => name; set => name = value; }
+    }//end Section
 
 }
 

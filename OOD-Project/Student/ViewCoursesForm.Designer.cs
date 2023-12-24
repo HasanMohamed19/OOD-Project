@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "ITCode | Course with very long name",
             "Tutor Name thats also long"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
             "Wednesday",
             "10:00 AM - 11:50 AM",
             "36.203"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
             "Thursday",
             "8:00 AM - 9:50 AM",
             "36.206"}, -1);
@@ -83,7 +83,7 @@
             this.coursesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.coursesListView.HideSelection = false;
             this.coursesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem10});
+            listViewItem1});
             this.coursesListView.Location = new System.Drawing.Point(0, 0);
             this.coursesListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.coursesListView.MultiSelect = false;
@@ -93,6 +93,7 @@
             this.coursesListView.TileSize = new System.Drawing.Size(200, 90);
             this.coursesListView.UseCompatibleStateImageBehavior = false;
             this.coursesListView.View = System.Windows.Forms.View.Tile;
+            this.coursesListView.SelectedIndexChanged += new System.EventHandler(this.coursesListView_SelectedIndexChanged);
             // 
             // courseName
             // 
@@ -108,7 +109,7 @@
             this.viewCoursesMainPanel.Controls.Add(this.coursesListView);
             this.viewCoursesMainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.viewCoursesMainPanel.Location = new System.Drawing.Point(0, 0);
-            this.viewCoursesMainPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.viewCoursesMainPanel.Margin = new System.Windows.Forms.Padding(4);
             this.viewCoursesMainPanel.Name = "viewCoursesMainPanel";
             this.viewCoursesMainPanel.Size = new System.Drawing.Size(1045, 602);
             this.viewCoursesMainPanel.TabIndex = 7;
@@ -120,7 +121,7 @@
             this.courseDetailedPanel.Controls.Add(this.buttonPanel);
             this.courseDetailedPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.courseDetailedPanel.Location = new System.Drawing.Point(297, 0);
-            this.courseDetailedPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.courseDetailedPanel.Margin = new System.Windows.Forms.Padding(4);
             this.courseDetailedPanel.Name = "courseDetailedPanel";
             this.courseDetailedPanel.Size = new System.Drawing.Size(748, 602);
             this.courseDetailedPanel.TabIndex = 7;
@@ -130,7 +131,7 @@
             this.classDetailsPanel.Controls.Add(this.classesListView);
             this.classDetailsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.classDetailsPanel.Location = new System.Drawing.Point(0, 370);
-            this.classDetailsPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.classDetailsPanel.Margin = new System.Windows.Forms.Padding(4);
             this.classDetailsPanel.Name = "classDetailsPanel";
             this.classDetailsPanel.Size = new System.Drawing.Size(748, 147);
             this.classDetailsPanel.TabIndex = 2;
@@ -147,10 +148,10 @@
             this.classesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.classesListView.HideSelection = false;
             this.classesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem11,
-            listViewItem12});
+            listViewItem2,
+            listViewItem3});
             this.classesListView.Location = new System.Drawing.Point(0, 0);
-            this.classesListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.classesListView.Margin = new System.Windows.Forms.Padding(4);
             this.classesListView.MultiSelect = false;
             this.classesListView.Name = "classesListView";
             this.classesListView.Size = new System.Drawing.Size(748, 147);
@@ -179,7 +180,7 @@
             this.courseDetailedTablePanel.Controls.Add(this.courseTitleLabel);
             this.courseDetailedTablePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.courseDetailedTablePanel.Location = new System.Drawing.Point(0, 0);
-            this.courseDetailedTablePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.courseDetailedTablePanel.Margin = new System.Windows.Forms.Padding(4);
             this.courseDetailedTablePanel.Name = "courseDetailedTablePanel";
             this.courseDetailedTablePanel.Size = new System.Drawing.Size(748, 370);
             this.courseDetailedTablePanel.TabIndex = 0;
@@ -189,7 +190,7 @@
             this.CourseDetailsPanelTable.ColumnCount = 3;
             this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.63158F));
             this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
-            this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 241F));
+            this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 243F));
             this.CourseDetailsPanelTable.Controls.Add(this.courseDescription, 0, 2);
             this.CourseDetailsPanelTable.Controls.Add(this.courseProgrammeLabel, 2, 1);
             this.CourseDetailsPanelTable.Controls.Add(this.courseCreditsLabel, 1, 1);
@@ -199,7 +200,7 @@
             this.CourseDetailsPanelTable.Controls.Add(this.courseCodeLabel, 0, 0);
             this.CourseDetailsPanelTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CourseDetailsPanelTable.Location = new System.Drawing.Point(0, 75);
-            this.CourseDetailsPanelTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.CourseDetailsPanelTable.Margin = new System.Windows.Forms.Padding(4);
             this.CourseDetailsPanelTable.Name = "CourseDetailsPanelTable";
             this.CourseDetailsPanelTable.RowCount = 3;
             this.CourseDetailsPanelTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
@@ -227,7 +228,7 @@
             // 
             this.courseProgrammeLabel.AutoSize = true;
             this.courseProgrammeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseProgrammeLabel.Location = new System.Drawing.Point(514, 100);
+            this.courseProgrammeLabel.Location = new System.Drawing.Point(512, 100);
             this.courseProgrammeLabel.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
             this.courseProgrammeLabel.Name = "courseProgrammeLabel";
             this.courseProgrammeLabel.Size = new System.Drawing.Size(219, 25);
@@ -239,7 +240,7 @@
             // 
             this.courseCreditsLabel.AutoSize = true;
             this.courseCreditsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseCreditsLabel.Location = new System.Drawing.Point(274, 100);
+            this.courseCreditsLabel.Location = new System.Drawing.Point(273, 100);
             this.courseCreditsLabel.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
             this.courseCreditsLabel.Name = "courseCreditsLabel";
             this.courseCreditsLabel.Size = new System.Drawing.Size(107, 25);
@@ -263,7 +264,7 @@
             // 
             this.courseCRNLabel.AutoSize = true;
             this.courseCRNLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseCRNLabel.Location = new System.Drawing.Point(514, 12);
+            this.courseCRNLabel.Location = new System.Drawing.Point(512, 12);
             this.courseCRNLabel.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
             this.courseCRNLabel.Name = "courseCRNLabel";
             this.courseCRNLabel.Size = new System.Drawing.Size(120, 25);
@@ -275,7 +276,7 @@
             // 
             this.courseSectionLabel.AutoSize = true;
             this.courseSectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseSectionLabel.Location = new System.Drawing.Point(274, 12);
+            this.courseSectionLabel.Location = new System.Drawing.Point(273, 12);
             this.courseSectionLabel.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
             this.courseSectionLabel.Name = "courseSectionLabel";
             this.courseSectionLabel.Size = new System.Drawing.Size(100, 25);
@@ -316,7 +317,7 @@
             this.buttonPanel.Controls.Add(this.emailBtn);
             this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonPanel.Location = new System.Drawing.Point(0, 517);
-            this.buttonPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonPanel.Margin = new System.Windows.Forms.Padding(4);
             this.buttonPanel.Name = "buttonPanel";
             this.buttonPanel.Size = new System.Drawing.Size(748, 85);
             this.buttonPanel.TabIndex = 0;
@@ -324,13 +325,14 @@
             // feedbackBtn
             // 
             this.feedbackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.feedbackBtn.Enabled = false;
             this.feedbackBtn.FlatAppearance.BorderSize = 0;
             this.feedbackBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(247)))));
             this.feedbackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.feedbackBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.feedbackBtn.ForeColor = System.Drawing.Color.White;
             this.feedbackBtn.Location = new System.Drawing.Point(4, 4);
-            this.feedbackBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.feedbackBtn.Margin = new System.Windows.Forms.Padding(4);
             this.feedbackBtn.Name = "feedbackBtn";
             this.feedbackBtn.Size = new System.Drawing.Size(231, 78);
             this.feedbackBtn.TabIndex = 0;
@@ -347,7 +349,7 @@
             this.downloadBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downloadBtn.ForeColor = System.Drawing.Color.White;
             this.downloadBtn.Location = new System.Drawing.Point(243, 4);
-            this.downloadBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.downloadBtn.Margin = new System.Windows.Forms.Padding(4);
             this.downloadBtn.Name = "downloadBtn";
             this.downloadBtn.Size = new System.Drawing.Size(249, 78);
             this.downloadBtn.TabIndex = 2;
@@ -363,7 +365,7 @@
             this.emailBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailBtn.ForeColor = System.Drawing.Color.White;
             this.emailBtn.Location = new System.Drawing.Point(500, 4);
-            this.emailBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.emailBtn.Margin = new System.Windows.Forms.Padding(4);
             this.emailBtn.Name = "emailBtn";
             this.emailBtn.Size = new System.Drawing.Size(243, 78);
             this.emailBtn.TabIndex = 1;
@@ -377,7 +379,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(1045, 602);
             this.Controls.Add(this.viewCoursesMainPanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewCoursesForm";
             this.Text = "ViewCoursesForm";
             this.viewCoursesMainPanel.ResumeLayout(false);

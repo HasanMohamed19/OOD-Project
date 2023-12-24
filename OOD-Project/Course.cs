@@ -16,6 +16,7 @@ namespace OOD_Project
         private int credits;
         private List<Section> sections;
         private List<Content> content;
+        private List<Feedback> courseFeedback;
 
         public Course()
         {
@@ -32,6 +33,7 @@ namespace OOD_Project
             this.credits = credits;
             sections = new List<Section>();
             content = new List<Content>();
+            courseFeedback = new List<Feedback>();
         }
 
         public string Name { get => name; set => name = value; }
@@ -42,5 +44,6 @@ namespace OOD_Project
         public List<Section> Sections { get => sections; set => sections = value; }
         public int Credits { get => credits; set => credits = value; }
         public List<Content> Content { get => content; set => content = value; }
+        public List<Feedback> CourseFeedback { get => courseFeedback; set => courseFeedback = value; }
     }
 }

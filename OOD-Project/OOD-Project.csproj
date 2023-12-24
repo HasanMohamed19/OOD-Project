@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="Department.cs" />
     <Compile Include="Feedback.cs" />
+    <Compile Include="Global.cs" />
     <Compile Include="Major.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="Student\FeedbackForm.cs">

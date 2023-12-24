@@ -13,28 +13,31 @@ namespace OOD_Project
     public partial class FeedbackForm : Form
     {
         Course selectedCourse;
+        Feedback feedback = new Feedback();
         public FeedbackForm(Course course)
         {
             selectedCourse = course;
             InitializeComponent();
-            
-            if (selectedCourse.CourseFeedback != null)
+
+            if (IsFeedbackSubmitted())
             {
-            //Loop to initialize radiobuttons in the feedback form
-            int[] ratings = new int[]
-            {
-            selectedCourse.CourseFeedback.RatingQuestion1,
-            selectedCourse.CourseFeedback.RatingQuestion2,
-            selectedCourse.CourseFeedback.RatingQuestion3,
-            selectedCourse.CourseFeedback.RatingQuestion4,
-            selectedCourse.CourseFeedback.RatingQuestion5
-            };
-         
-            for(int i = 1; i < 6; i++)
+                //Loop to initialize radiobuttons in the feedback form
+                //int[] ratings = new int[]
+                int[] answers = new int[]
+                {
+                feedback.RatingQuestion1,
+                feedback.RatingQuestion2,
+                feedback.RatingQuestion3,
+                feedback.RatingQuestion4,
+                feedback.RatingQuestion5
+                };
+
+            //}
+            for (int i = 1; i < 6; i++)
                 {
                     
                     TableLayoutPanel tlp = this.Controls.Find("tlpQuestion" + (i), true).FirstOrDefault() as TableLayoutPanel;
-                    int rating = ratings[i-1];
+                    int rating = answers[i-1];
                     RadioButton rb;
                     switch (rating)
                     {
@@ -61,12 +64,28 @@ namespace OOD_Project
                         rb.Checked = true;
                     }
                 }
-                txtQuestion6.Text = selectedCourse.CourseFeedback.OpenQuestion;
+                txtQuestion6.Text = feedback.OpenQuestion;
                 // Call the method to disable controls on the form
                 DisableControls(this);
                 btnSendFeedback.Text = "Form submitted";
                 btnSendFeedback.Enabled = false;
             }
+        }
+
+        private bool IsFeedbackSubmitted()
+        {
+            Console.WriteLine(selectedCourse.CourseFeedback != null);
+            if (selectedCourse.CourseFeedback.Count > 0) {
+                foreach (var feedback in selectedCourse.CourseFeedback)
+                {
+                    if (feedback.ByStudent.Id == "10")
+                    {
+                        return true;
+                    }
+                }
+            }
+            
+            return false;
         }
 
         //Method to check and disable radio buttons and textboxes inside the form
@@ -153,11 +172,37 @@ namespace OOD_Project
                 int q3Result = GetRadioButtonResult(tlpQuestion3);
                 int q4Result = GetRadioButtonResult(tlpQuestion4);
                 int q5Result = GetRadioButtonResult(tlpQuestion5);
-                Feedback feedback = new Feedback(q1Result,q2Result,q3Result,q4Result,q5Result);
+                feedback = new Feedback(q1Result,q2Result,q3Result,q4Result,q5Result);
                 feedback.OpenQuestion = txtQuestion6.Text;
-                selectedCourse.CourseFeedback = feedback;
-                MessageBox.Show("Course feedback has been sent", "Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
+                selectedCourse.CourseFeedback.Add(feedback);
+                DatabaseManager dbm = DatabaseManager.Instance();
+                dbm.Connection.Open();
+                dbm.Command = dbm.Connection.CreateCommand();
+
+                dbm.Command.Parameters.AddWithValue("@by_student", Global.user_id);
+                dbm.Command.Parameters.AddWithValue("@rating_question_1", q1Result);
+                dbm.Command.Parameters.AddWithValue("@rating_question_2", q2Result);
+                dbm.Command.Parameters.AddWithValue("@rating_question_3", q3Result);
+                dbm.Command.Parameters.AddWithValue("@rating_question_4", q4Result);
+                dbm.Command.Parameters.AddWithValue("@rating_question_5", q5Result);
+                dbm.Command.Parameters.AddWithValue("@open_question", txtQuestion6.Text);
+                dbm.Command.CommandText = "INSERT INTO [dbo].[Feedback] (feedback_id, by_student, rating_question_1, rating_question_2, rating_question_3, rating_question_4, rating_question_5, open_question)" +
+                    "VALUES (NEXT VALUE FOR [dbo].[feedbackIDSequence], @by_student, @rating_question_1, @rating_question_2, @rating_question_3, @rating_question_4, @rating_question_5, @open_question)";
+                try
+                {
+                    dbm.Command.ExecuteNonQuery();
+                    MessageBox.Show("Course feedback has been sent", "Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Hide();
+                } catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                } finally
+                {
+                    dbm.Command.Parameters.Clear();
+                    dbm.Connection.Close();
+                }
+
+                
             }
             else
             {
