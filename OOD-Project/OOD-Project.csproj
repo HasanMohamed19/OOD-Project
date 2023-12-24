@@ -118,6 +118,7 @@
     <Compile Include="Branch.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Content.cs" />
+    <Compile Include="Feedback.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="dbDataSet.Designer.cs">
@@ -129,6 +130,12 @@
     <Compile Include="Feedback.cs" />
     <Compile Include="Major.cs" />
     <Compile Include="Notification.cs" />
+    <Compile Include="Student\FeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\FeedbackForm.Designer.cs">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\FeedbackForm.resx">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>

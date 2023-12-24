@@ -13,10 +13,10 @@ namespace OOD_Project.Admin
     public partial class EditCourseForm : Form
     {
         private ManageCourseForm manageCourse;
-        private ManageCourseForm.Course selectedCourse;
+        private Course selectedCourse;
         private ListView courseListView;
         private int itemIdx;
-        public EditCourseForm(ManageCourseForm manageCourseForm, ManageCourseForm.Course course,int itemIdx)
+        public EditCourseForm(ManageCourseForm manageCourseForm, Course course,int itemIdx)
         {
             InitializeComponent();
             this.selectedCourse = course;
@@ -24,12 +24,12 @@ namespace OOD_Project.Admin
             this.courseListView = manageCourse.GetCourseListView();
             this.manageCourse = manageCourseForm;
             this.itemIdx = itemIdx;
-            txtCourseID.Text = course.CourseID.ToString();
-            txtCourseName.Text = course.CourseName;
+            txtCourseID.Text = course.Id.ToString();
+            txtCourseName.Text = course.Name;
             txtCredits.Text = course.Credits.ToString();
             txtDescription.Text = course.Description;
             txtProgramme.Text = course.Programme;
-            txtSectionCount.Text = course.SectionCount.ToString();
+            txtCode.Text = course.Code;
         }
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
@@ -40,18 +40,18 @@ namespace OOD_Project.Admin
                 if(result == DialogResult.Yes) 
                 { 
                     ListViewItem selectedItem = courseListView.Items[itemIdx];
-                    selectedCourse.CourseID = int.Parse(txtCourseID.Text);
+                    selectedCourse.Id = int.Parse(txtCourseID.Text);
                     selectedCourse.Credits = int.Parse(txtCredits.Text);
-                    selectedCourse.SectionCount = int.Parse(txtSectionCount.Text);
-                    selectedCourse.CourseName = txtCourseName.Text;
+                    selectedCourse.Name = txtCourseName.Text;
                     selectedCourse.Programme = txtProgramme.Text;
                     selectedCourse.Description = txtDescription.Text;
+                    selectedCourse.Code = txtCode.Text;
                     selectedItem.SubItems[0].Text = txtCourseID.Text;
                     selectedItem.SubItems[1].Text = txtCourseName.Text;
-                    selectedItem.SubItems[2].Text = txtCredits.Text;
-                    selectedItem.SubItems[3].Text = txtProgramme.Text;
-                    selectedItem.SubItems[4].Text = txtSectionCount.Text;
-                    selectedItem.SubItems[5].Text = txtDescription.Text;
+                    selectedItem.SubItems[2].Text = txtCode.Text;
+                    selectedItem.SubItems[3].Text = txtCredits.Text;
+                    selectedItem.SubItems[4].Text = txtProgramme.Text;
+                    selectedItem.SubItems[6].Text = txtDescription.Text;
                     this.Close();
                     manageCourse.adminPanel.Show();
                 }

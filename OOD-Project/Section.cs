@@ -19,6 +19,19 @@ namespace OOD_Project
         private Teacher assignedTeacher;
         private Course assignedCourse;
 
+        public Section(int capacity, string crn, int sectionId, string name, int number, List<Class> classes, List<Student> registeredStudents, Teacher assignedTeacher, Course assignedCourse)
+        {
+            this.capacity = capacity;
+            this.crn = crn;
+            this.sectionId = sectionId;
+            this.name = name;
+            this.number = number;
+            this.classes = classes;
+            this.registeredStudents = registeredStudents;
+            this.assignedTeacher = assignedTeacher;
+            this.assignedCourse = assignedCourse;
+        }
+
         public Section()
         {
 

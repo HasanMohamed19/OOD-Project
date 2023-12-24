@@ -8,24 +8,51 @@ namespace OOD_Project
 {
     public class Feedback
     {
-        private int feedbackId;
-        private Student byStudent;
-        private Course forCourse;
-        private List<int> answers;
-        private string suggestion;
+        private int ratingQuestion1;
+        private int ratingQuestion2;
+        private int ratingQuestion3;
+        private int ratingQuestion4;
+        private int ratingQuestion5;
 
-        public Feedback(int feedbackId, Student byStudent, Course forCourse, List<int> answers, string suggestion)
+
+        public Feedback(int ratingQuestion1, int ratingQuestion2, int ratingQuestion3, int ratingQuestion4, int ratingQuestion5)
         {
-            this.FeedbackId = feedbackId;
-            this.ByStudent = byStudent;
-            this.ForCourse = forCourse;
-            this.Answers = answers;
-            this.Suggestion = suggestion;
+            this.ratingQuestion1 = ratingQuestion1;
+            this.ratingQuestion2 = ratingQuestion2;
+            this.ratingQuestion3 = ratingQuestion3;
+            this.ratingQuestion4 = ratingQuestion4;
+            this.ratingQuestion5 = ratingQuestion5;
         }
-        public int FeedbackId { get => feedbackId; set => feedbackId = value; }
-        public Student ByStudent { get => byStudent; set => byStudent = value; }
-        public Course ForCourse { get => forCourse; set => forCourse = value; }
-        public List<int> Answers { get => answers; set => answers = value; }
-        public string Suggestion { get => suggestion; set => suggestion = value; }
+        public String OpenQuestion { get; set; }
+        public int RatingQuestion1
+        {
+            get { return ratingQuestion1; }
+            set { ratingQuestion1 = value; }
+        }
+
+        public int RatingQuestion2
+        {
+            get { return ratingQuestion2; }
+            set { ratingQuestion2 = value; }
+        }
+
+        public int RatingQuestion3
+        {
+            get { return ratingQuestion3; }
+            set { ratingQuestion3 = value; }
+        }
+
+        public int RatingQuestion4
+        {
+            get { return ratingQuestion4; }
+            set { ratingQuestion4 = value; }
+        }
+
+        public int RatingQuestion5
+        {
+            get { return ratingQuestion5; }
+            set { ratingQuestion5 = value; }
+        }
+
     }
 }
