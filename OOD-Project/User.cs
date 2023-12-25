@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -144,7 +145,7 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@body", content);
             dbm.Command.Parameters.AddWithValue("@recipient_user_id", recipient_id);
             dbm.Command.CommandText = "INSERT INTO [dbo].[email] (email_id, body, subject, sender_user_id, recipient_user_id)" +
-                " VALUES (1, @body, @subject, 2, 3)";
+                " VALUES(NEXT VALUE FOR [dbo].[userIDSequence], @body, @subject, 2, 3)";
 
             try
             {
@@ -153,6 +154,34 @@ namespace OOD_Project
             {
                 MessageBox.Show(ex.Message);
             } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+        }
+
+        public static void SendAttachments(string path)
+        {
+            string fileName = Path.GetFileName(path);
+            string folderPath = Path.GetDirectoryName(path);
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@file_name", fileName);
+            dbm.Command.Parameters.AddWithValue("@folder_path", folderPath);
+            dbm.Command.Parameters.AddWithValue("@email_id", 32);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[email_attachment] (email_attachment_id, filename, folder_path, email_id)" +
+                " VALUES(NEXT VALUE FOR [dbo].[emaiAttachmentIDSequence], @file_name, @folder_path, @email_id)";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
             {
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();
