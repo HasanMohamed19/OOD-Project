@@ -15,22 +15,22 @@ namespace OOD_Project
         private SqlCommand command;
         private SqlConnection connection;
         private SqlDataReader reader;
-        private static string resolvedPath = ResolveDirectory(Directory.GetCurrentDirectory());
-        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + "\"" + resolvedPath + "\"" +";Integrated Security=True";
+        //private static string resolvedPath = ResolveDirectory(Directory.GetCurrentDirectory());
+        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\db.mdf;Integrated Security=True";
         
 
-        private static string ResolveDirectory(string path)
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                path = Path.GetDirectoryName(path);
-                if (path == null)
-                {
-                    return "Invalid Path";
-                }
-            }
-            return path + "\\db.mdf";
-        }
+        //private static string ResolveDirectory(string path)
+        //{
+        //    for (int i = 0; i < 2; i++)
+        //    {
+        //        path = Path.GetDirectoryName(path);
+        //        if (path == null)
+        //        {
+        //            return "Invalid Path";
+        //        }
+        //    }
+        //    return path + "\\db.mdf";
+        //}
         private DatabaseManager() 
         {
             connection = new SqlConnection(connectionString);
