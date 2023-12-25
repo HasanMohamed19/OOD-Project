@@ -16,19 +16,14 @@ namespace OOD_Project
     public class Branch
     {
 
-        //private string area;
         private int branchId;
-        //private string city;
-        //private string name;
+        private string branchName;
         private string phoneNumber;
-        //private Department department;
 
-        public Branch(string area, int branchId, string city, string name, string phoneNumber)
+        public Branch(int branchId, string branchName, string phoneNumber)
         {
-            //this.area = area;
             this.branchId = branchId;
-            //this.city = city;
-            //this.name = name;
+            this.BranchName = branchName;
             this.phoneNumber = phoneNumber;
         }
 
@@ -64,7 +59,8 @@ namespace OOD_Project
             }
         }
 
-        //public Department Department { get => department; set => department = value; }
+        public string BranchName { get => branchName; set => branchName = value; }
+
     }//end Branch
 }
 

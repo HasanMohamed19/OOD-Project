@@ -13,24 +13,16 @@ namespace OOD_Project
         private int capacity;
         private string crn;
         private int sectionId;
-        private int number;
-        private string name;
-        private List<Class> classes;
-        private List<Student> registeredStudents;
         private Teacher assignedTeacher;
-        private Course assignedCourse;
+        private Course forCourse;
 
-        public Section(int capacity, string crn, int sectionId, string name, int number, List<Class> classes, List<Student> registeredStudents, Teacher assignedTeacher, Course assignedCourse)
+        public Section(int capacity, string crn, int sectionId, Teacher assignedTeacher, Course assignedCourse)
         {
             this.capacity = capacity;
             this.crn = crn;
             this.sectionId = sectionId;
-            this.Name = name;
-            this.number = number;
-            this.classes = classes;
-            this.registeredStudents = registeredStudents;
             this.assignedTeacher = assignedTeacher;
-            this.assignedCourse = assignedCourse;
+            this.forCourse = assignedCourse;
         }
 
         public Section()
@@ -91,35 +83,7 @@ namespace OOD_Project
             }
         }
 
-        public int Number
-        {
-            get
-            {
-                return number;
-            }
-            set
-            {
-                number = value;
-            }
-        }
-
-        
-
-        public List<Student> RegisteredStudents
-        {
-            get
-            {
-                return registeredStudents;
-            }
-            set
-            {
-                registeredStudents = value;
-            }
-        }
-
-        public List<Class> Classes { get => classes; set => classes = value; }
-        public Course AssignedCourse { get => assignedCourse; set => assignedCourse = value; }
-        public string Name { get => name; set => name = value; }
+        public Course AssignedCourse { get => forCourse; set => forCourse = value; }
     }//end Section
 
 }

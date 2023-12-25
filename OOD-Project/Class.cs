@@ -39,11 +39,17 @@ namespace OOD_Project
         private DateTime startTime;
         private Section section;
 
-
-
-        public Class()
+        public Class(DateTime beginDate, string building, int classId, WeekDays dayOfTheWeek, DateTime endTime, DateTime finishDate, string roomNumber, DateTime startTime, Section section)
         {
-
+            this.beginDate = beginDate;
+            this.building = building;
+            this.classId = classId;
+            this.dayOfTheWeek = dayOfTheWeek;
+            this.endTime = endTime;
+            this.finishDate = finishDate;
+            this.roomNumber = roomNumber;
+            this.startTime = startTime;
+            this.section = section;
         }
 
         ~Class()

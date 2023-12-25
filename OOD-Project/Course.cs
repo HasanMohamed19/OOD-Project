@@ -9,41 +9,32 @@ namespace OOD_Project
     public class Course
     {
         private int id;
-        private string name;
+        private string courseName;
         private string code;
         private string description;
-        private string programme;
+        private Programme forProgramme;
         private int credits;
-        private List<Section> sections;
-        private List<Content> content;
-        private List<Feedback> courseFeedback;
 
         public Course()
         {
-            sections = new List<Section>();
+
         }
 
-        public Course(int id, string name, string code, string description, string programme, int credits)
+        public Course(int id, string name, string code, string description, Programme programme, int credits)
         {
             this.id = id;
-            this.name = name;
+            this.courseName = name;
             this.code = code;
             this.description = description;
-            this.programme = programme;
+            this.forProgramme = programme;
             this.credits = credits;
-            sections = new List<Section>();
-            content = new List<Content>();
-            courseFeedback = new List<Feedback>();
         }
 
-        public string Name { get => name; set => name = value; }
+        public string Name { get => courseName; set => courseName = value; }
         public string Code { get => code; set => code = value; }
         public int Id { get => id; set => id = value; }
         public string Description { get => description; set => description = value; }
-        public string Programme { get => programme; set => programme = value; }
-        public List<Section> Sections { get => sections; set => sections = value; }
+        public Programme ForProgramme { get => forProgramme; set => forProgramme = value; }
         public int Credits { get => credits; set => credits = value; }
-        public List<Content> Content { get => content; set => content = value; }
-        public List<Feedback> CourseFeedback { get => courseFeedback; set => courseFeedback = value; }
     }
 }
