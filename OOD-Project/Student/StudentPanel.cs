@@ -39,5 +39,10 @@ namespace OOD_Project
         {
             OpenChildForm(new ViewCoursesForm(), sender);
         }
+
+        private void viewEmailBtn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ViewEmails(), sender);
+        }
     }
 }
