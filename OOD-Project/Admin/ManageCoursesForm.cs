@@ -51,11 +51,12 @@ namespace OOD_Project.Admin
                 item.SubItems.Add(dbm.Reader["name"].ToString());
                 item.SubItems.Add(dbm.Reader["code"].ToString());
                 item.SubItems.Add(dbm.Reader["description"].ToString());
-                item.SubItems.Add(dbm.Reader["programme"].ToString());
+                item.SubItems.Add("1");
                 item.SubItems.Add(dbm.Reader["credits"].ToString());
                 
                 courseListView.Items.Add(item);
             }
+            MessageBox.Show(courseListView.Items.Count.ToString());
             dbm.Connection.Close();
 
         }
@@ -87,6 +88,7 @@ namespace OOD_Project.Admin
 
             ListViewItem selectedItem = courseListView.SelectedItems[0];
             Course selectedCourse = (Course) selectedItem.Tag;
+            MessageBox.Show((selectedCourse == null).ToString());
             EditCourseForm editCourse = new EditCourseForm(this,selectedCourse,selectedItem.Index);
             editCourse.Show();
             adminPanel.Hide();

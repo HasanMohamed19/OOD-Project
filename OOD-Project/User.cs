@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OOD_Project
@@ -53,6 +54,85 @@ namespace OOD_Project
             this.roleId = roleId;
             this.statusId = statusId;
             this.hasNotification = hasNotification;
+        }
+
+        public static void AddUser(User user)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            
+            dbm.Command.Parameters.AddWithValue("@username", user.username);
+            dbm.Command.Parameters.AddWithValue("@password", user.password);
+            dbm.Command.Parameters.AddWithValue("@email", user.email);
+            dbm.Command.Parameters.AddWithValue("@role_id", user.roleId);
+            dbm.Command.Parameters.AddWithValue("@status_id", 1);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[User] (user_id, username, password, email, role_id, status_id)" +
+                " VALUES ([(NEXT VALUE FOR [dbo].[userIDSequence], @username, @password, @email, @role_id, @status_id)";
+
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
+
+        public static bool DeleteUser(int user_id)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+            dbm.Command.CommandText = "DELETE FROM [dbo].[User] WHERE user_id = @user_id";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+        }
+
+        public static bool EditUser(User user)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+
+            dbm.Command.Parameters.AddWithValue("@username", user.username);
+            dbm.Command.Parameters.AddWithValue("@password", user.password);
+            dbm.Command.Parameters.AddWithValue("@email", user.email);
+            dbm.Command.Parameters.AddWithValue("@role_id", user.roleId);
+
+            dbm.Command.CommandText = "UPDATE [dbo].[User] SET username = @username, password = @password, email = @email, role_id = @role_id, WHERE user_id = @user_id";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
         }
 
 

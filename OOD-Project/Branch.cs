@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
 
 namespace OOD_Project
 {
@@ -60,6 +61,68 @@ namespace OOD_Project
         }
 
         public string BranchName { get => branchName; set => branchName = value; }
+
+        public static bool DeleteBranch(int branch_id)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command.Parameters.AddWithValue("@branch_id", branch_id);
+            dbm.Command.CommandText = "DELETE FROM [dbo].[Branch] WHERE branch_id = @branch_id";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
+
+        public static void AddBranch(Branch branch)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command.Parameters.AddWithValue("@branch_id", branch.branchId);
+            dbm.Command.Parameters.AddWithValue("@name", branch.branchName);
+            dbm.Command.Parameters.AddWithValue("@phone_number", branch.phoneNumber);
+
+            dbm.Command.CommandText = "INSERT INTO [dbo].[Branch] (branch_id, name, phone_number) VALUES (@branch_id, @name, @phone_number)";
+            
+
+        }
+
+        public static bool EditBranch(Branch branch)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+
+            dbm.Command.Parameters.AddWithValue("@branch_id", branch.branchId);
+            dbm.Command.Parameters.AddWithValue("@name", branch.branchName);
+            dbm.Command.Parameters.AddWithValue("@phone_number", branch.phoneNumber);
+
+            dbm.Command.CommandText = "UPDATE [dbo].[Branch] SET name = @name, phone_number = @phone_number WHERE branch_id = @branch_id";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
 
     }//end Branch
 }
