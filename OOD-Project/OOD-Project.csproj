@@ -126,6 +126,7 @@
       <DependentUpon>dbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Email.cs" />
+    <Compile Include="EmailAttachment.cs" />
     <Compile Include="Feedback.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Major.cs" />
