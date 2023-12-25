@@ -31,16 +31,16 @@ namespace OOD_Project.Admin
                 int sectionCount = int.Parse(txtSectionCount.Text);
                 string courseCode = txtCode.Text;
                 string courseName = txtCourseName.Text;
-                string programme = txtProgramme.Text;
+                //string programme = txtProgramme.Text;
                 string description = txtDescription.Text;
-                Course course = new Course(courseID, courseName,courseCode, description, programme, credits);
+                Course course = new Course(courseID, courseName,courseCode, description, Programme.ict, credits);
                 ListViewItem item = new ListViewItem(new string[]
                 {course.Id.ToString(),
                  course.Name,
                  course.Code,
                  course.Credits.ToString(),
-                 course.Programme,
-                 course.Sections.Count.ToString(),
+                 Programme.ict.ToString(),
+                 "12",
                  course.Description });
                 item.Tag = course;
                 courseListView.Items.Add(item);

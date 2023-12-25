@@ -21,12 +21,12 @@ namespace OOD_Project
             InitializeComponent();
             //Teacher tempTeacher = Teacher();
             //sections.Add(new Section());
-            courses.Add(new Course(1, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
-            courses.Add(new Course(2, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
-            courses.Add(new Course(3, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
-            courses.Add(new Course(4, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
-            courses.Add(new Course(5, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
-            courses.Add(new Course(6, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", "ICT", 15));
+            courses.Add(new Course(1, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", Programme.ict, 15));
+            courses.Add(new Course(2, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", Programme.ict, 15));
+            courses.Add(new Course(3, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", Programme.ict, 15));
+            courses.Add(new Course(4, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", Programme.ict, 15));
+            courses.Add(new Course(5, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", Programme.ict, 15));
+            courses.Add(new Course(6, "Systems Analysis and Design", "IT7005","very fun good course diagrams yese yes", Programme.ict, 15));
             foreach (var course in courses)
             {
                 ListViewItem item = new ListViewItem(course.Code + " | " + course.Name);

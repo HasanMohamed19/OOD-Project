@@ -28,7 +28,7 @@ namespace OOD_Project.Admin
             txtCourseName.Text = course.Name;
             txtCredits.Text = course.Credits.ToString();
             txtDescription.Text = course.Description;
-            txtProgramme.Text = course.Programme;
+            txtProgramme.Text = Programme.ict.ToString();
             txtCode.Text = course.Code;
         }
 
@@ -43,7 +43,7 @@ namespace OOD_Project.Admin
                     selectedCourse.Id = int.Parse(txtCourseID.Text);
                     selectedCourse.Credits = int.Parse(txtCredits.Text);
                     selectedCourse.Name = txtCourseName.Text;
-                    selectedCourse.Programme = txtProgramme.Text;
+                    //selectedCourse.Programme = txtProgramme.Text;
                     selectedCourse.Description = txtDescription.Text;
                     selectedCourse.Code = txtCode.Text;
                     selectedItem.SubItems[0].Text = txtCourseID.Text;

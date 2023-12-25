@@ -35,8 +35,8 @@ namespace OOD_Project
         //new User("test3", "Ali", "student@gmail.com", UserRole.student),
         //new User("human4", "Ali", "student@gmail.com", UserRole.teacher)};
 
-        User[] pendingUsers = { new User("pending", "user", "elms3dmin@gmail.com", UserRole.student),
-        new User("pending", "user", "elms3dmin@gmail.com", UserRole.teacher)};
+        //User[] pendingUsers = { new User("pending", "user", "elms3dmin@gmail.com", UserRole.student),
+        //new User("pending", "user", "elms3dmin@gmail.com", UserRole.teacher)};
 
         public usersListForms()
         {
@@ -54,7 +54,7 @@ namespace OOD_Project
             
             populateDGV();
             // currentUsersListBox.Items.AddRange(currentUsers);
-            pendingUsersListBox.Items.AddRange(pendingUsers);
+            //pendingUsersListBox.Items.AddRange(pendingUsers);
 
         }
          
@@ -131,7 +131,7 @@ namespace OOD_Project
             //currentUsersListBox.Update();
             pendingUsersListBox.Items.Remove(pendingUser);
             pendingUsersListBox.Update();
-            EmailController.Instance().SendAcceptEmail(pendingUser.Email, pendingUser.FirstName, pendingUser.LastName, pendingUser.Cpr);
+            //EmailController.Instance().SendAcceptEmail(pendingUser.Email, pendingUser.FirstName, pendingUser.LastName, pendingUser.Cpr);
             MessageBox.Show("User Request Accepted Successfully", "User Added");
         }
 
@@ -142,7 +142,7 @@ namespace OOD_Project
             // just remove the user? or also something else? add list also for rejected user?
             pendingUsersListBox.Items.Remove(pendingUser);
             pendingUsersListBox.Update();
-            EmailController.Instance().SendRejectEmail(pendingUser.FirstName, pendingUser.LastName, pendingUser.Email);
+            //EmailController.Instance().SendRejectEmail(pendingUser.FirstName, pendingUser.LastName, pendingUser.Email);
             MessageBox.Show("User Request Rejected Successfully", "User Rejected");
         }
     }

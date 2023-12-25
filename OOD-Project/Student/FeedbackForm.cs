@@ -19,73 +19,75 @@ namespace OOD_Project
             selectedCourse = course;
             InitializeComponent();
 
-            if (IsFeedbackSubmitted())
+            if (!IsFeedbackSubmitted())
             {
-                //Loop to initialize radiobuttons in the feedback form
-                //int[] ratings = new int[]
-                int[] answers = new int[]
-                {
-                feedback.RatingQuestion1,
-                feedback.RatingQuestion2,
-                feedback.RatingQuestion3,
-                feedback.RatingQuestion4,
-                feedback.RatingQuestion5
-                };
-
-            //}
-            for (int i = 1; i < 6; i++)
-                {
-                    
-                    TableLayoutPanel tlp = this.Controls.Find("tlpQuestion" + (i), true).FirstOrDefault() as TableLayoutPanel;
-                    int rating = answers[i-1];
-                    RadioButton rb;
-                    switch (rating)
-                    {
-                        case 1:
-                            rb = tlp.Controls.Find("RbVeryUnsatisfied" + (i), true).FirstOrDefault() as RadioButton;
-                            break;
-                        case 2:
-                            rb = tlp.Controls.Find("RbUnsatisfied" + (i), true).FirstOrDefault() as RadioButton;
-                            break;
-                        case 3:
-                            rb = tlp.Controls.Find("RbNeutral" + (i), true).FirstOrDefault() as RadioButton;
-                            break;
-                        case 4:
-                            rb = tlp.Controls.Find("RbSatisfied" + (i), true).FirstOrDefault() as RadioButton;
-                            break;
-                        case 5:
-                            rb = tlp.Controls.Find("RbVerySatisfied" + (i), true).FirstOrDefault() as RadioButton;
-                            break;
-                        default:
-                            continue;
-                    }
-                    if (rb != null)
-                    {
-                        rb.Checked = true;
-                    }
-                }
-                txtQuestion6.Text = feedback.OpenQuestion;
-                // Call the method to disable controls on the form
-                DisableControls(this);
-                btnSendFeedback.Text = "Form submitted";
-                btnSendFeedback.Enabled = false;
+                MessageBox.Show("Feedback added");
+                AddFeedback();
+            } else
+            {
+                MessageBox.Show("Feedback already submitted");
+                this.Hide();
             }
+
+            
         }
 
-        private bool IsFeedbackSubmitted()
+        private void AddFeedback()
         {
-            Console.WriteLine(selectedCourse.CourseFeedback != null);
-            if (selectedCourse.CourseFeedback.Count > 0) {
-                foreach (var feedback in selectedCourse.CourseFeedback)
+            if (IsFeedbackSubmitted() == false)
+            {
+                DatabaseManager dbm = DatabaseManager.Instance();
+                dbm.Connection.Open();
+                dbm.Command.Parameters.AddWithValue("@student_id", Global.Student_id);
+                dbm.Command.Parameters.AddWithValue("@course_id", selectedCourse.Id);
+                dbm.Command.CommandText = "INSERT INTO [dbo].[Feedback] (feedback_id, student_id, course_id)" +
+                    "VALUES (NEXT VALUE FOR [dbo].[feedbackIDSequence], @student_id, @course_id";
+
+                try
                 {
-                    if (feedback.ByStudent.Id == "10")
-                    {
-                        return true;
-                    }
+                    dbm.Command.ExecuteNonQuery();
+                    MessageBox.Show("added");
+                } catch (Exception ex) {
+
+                
+                } finally
+                {
+                    dbm.Command.Parameters.Clear();
+                    dbm.Connection.Close();
                 }
+
+            } else
+            {
+                MessageBox.Show("not added");
             }
             
-            return false;
+        }
+
+        // returns false nothing found, true otherwise
+        private bool IsFeedbackSubmitted()
+        {
+
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command.Parameters.AddWithValue("@student_id", Global.Student_id);
+            dbm.Command.Parameters.AddWithValue("@course_id", selectedCourse.Id);
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[Feedback] WHERE student_id = @student_id AND course_id = @course_id";
+            dbm.Reader = dbm.Command.ExecuteReader();
+
+            if (!dbm.Reader.HasRows)
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+                return false;
+            } else
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+                return true;
+            }
+
+
+            
         }
 
         //Method to check and disable radio buttons and textboxes inside the form
@@ -155,6 +157,21 @@ namespace OOD_Project
             return result;
         }
 
+        private int getNewFeedbackId()
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            //dbm.Connection.Open();
+            dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@student_id", Global.Student_id);
+            dbm.Command.Parameters.AddWithValue("@course_id", selectedCourse.Id);
+            dbm.Command.CommandText = "SELECT feedback_id FROM [dbo].[Feedback] WHERE student_id = @student_id AND course_id = @course_id";
+            object result = dbm.Command.ExecuteScalar();
+            int id = Convert.ToInt32(result);
+            dbm.Command.Parameters.Clear();
+            dbm.Connection.Close();
+            return id;
+        }
+
         private void btnSendFeedback_Click(object sender, EventArgs e)
         {
             //Check if a button is selected in each question
@@ -172,35 +189,44 @@ namespace OOD_Project
                 int q3Result = GetRadioButtonResult(tlpQuestion3);
                 int q4Result = GetRadioButtonResult(tlpQuestion4);
                 int q5Result = GetRadioButtonResult(tlpQuestion5);
-                feedback = new Feedback(q1Result,q2Result,q3Result,q4Result,q5Result);
-                feedback.OpenQuestion = txtQuestion6.Text;
-                selectedCourse.CourseFeedback.Add(feedback);
+                List<int> answers = new List<int> {q1Result, q2Result, q3Result, q4Result, q5Result};
+                feedback.Answers = answers;
+                feedback.Suggestions = txtQuestion6.Text;
                 DatabaseManager dbm = DatabaseManager.Instance();
                 dbm.Connection.Open();
+                int id = getNewFeedbackId();
+                MessageBox.Show(id.ToString());
+                dbm.Connection.Open();
                 dbm.Command = dbm.Connection.CreateCommand();
+                
 
-                dbm.Command.Parameters.AddWithValue("@by_student", Global.user_id);
-                dbm.Command.Parameters.AddWithValue("@rating_question_1", q1Result);
-                dbm.Command.Parameters.AddWithValue("@rating_question_2", q2Result);
-                dbm.Command.Parameters.AddWithValue("@rating_question_3", q3Result);
-                dbm.Command.Parameters.AddWithValue("@rating_question_4", q4Result);
-                dbm.Command.Parameters.AddWithValue("@rating_question_5", q5Result);
-                dbm.Command.Parameters.AddWithValue("@open_question", txtQuestion6.Text);
-                dbm.Command.CommandText = "INSERT INTO [dbo].[Feedback] (feedback_id, by_student, rating_question_1, rating_question_2, rating_question_3, rating_question_4, rating_question_5, open_question)" +
-                    "VALUES (NEXT VALUE FOR [dbo].[feedbackIDSequence], @by_student, @rating_question_1, @rating_question_2, @rating_question_3, @rating_question_4, @rating_question_5, @open_question)";
-                try
+                for (int i = 1; i < 6; i++)
                 {
-                    dbm.Command.ExecuteNonQuery();
-                    MessageBox.Show("Course feedback has been sent", "Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Hide();
-                } catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                } finally
-                {
-                    dbm.Command.Parameters.Clear();
-                    dbm.Connection.Close();
+                    dbm.Command.Parameters.AddWithValue("@feedback_id", id);
+                    dbm.Command.Parameters.AddWithValue("@question_number", i);
+                    dbm.Command.Parameters.AddWithValue("@answer_rating", answers[i - 1]);
+                    dbm.Command.CommandText = "INSERT INTO [dbo].[Feedback_Answer] (feedback_asnwer_id, answer_rating, question_number, feedback_id)" +
+                        "VALUES (NEXT VALUE FOR [dbo].[FeedbackAnswerIDSequence], @answer_rating, @question_number, @feedback_id)";
+                    
+                    try
+                    {
+                        dbm.Command.ExecuteNonQuery();
+                        MessageBox.Show("Course feedback has been sent", "Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Hide();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("here " + ex.Message);
+                    }
+                    finally
+                    {
+                        dbm.Command.Parameters.Clear();
+                    }
+
+
                 }
+
+                
 
                 
             }

@@ -77,16 +77,9 @@ namespace OOD_Project
             }
             DateTime inDOB = dateDOB.Value.Date;
 
-            // create user based on data received
-            Student newUser = new Student();
-            newUser.RoleId = UserRole.student;
-            newUser.FirstName = inFName; newUser.LastName = inLName; newUser.Email = inEmail;
-            newUser.Password = inPassword; newUser.Cpr = inCPR; newUser.Gender = inGender;
-            newUser.Dob = inDOB; newUser.Phone = inPhone; newUser.Username = inUsername;
-            newUser.Id = inStudentID; newUser.StatusId = UserStatus.pending;
-            Console.WriteLine(newUser.LastName);
+            
             // move to login page with autofill ?
-            MessageBox.Show(newUser.ToString(), "New User");
+            //MessageBox.Show(newUser.ToString(), "New User");
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
@@ -99,8 +92,9 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@email", inEmail);
             dbm.Command.Parameters.AddWithValue("@gender", inGender);
             dbm.Command.Parameters.AddWithValue("@dob", inDOB);
-            dbm.Command.Parameters.AddWithValue("@role_id", 2);
-            dbm.Command.Parameters.AddWithValue("@status_id", 2);
+            dbm.Command.Parameters.AddWithValue("@major_id", inDOB);
+            //dbm.Command.Parameters.AddWithValue("@role_id", 2);
+            //dbm.Command.Parameters.AddWithValue("@status_id", 2);
             dbm.Command.CommandText = "INSERT INTO [dbo].[User] (user_id, first_name, last_name, phone, cpr, username, password, email, gender, dob, role_id, status_id)" +
                 " VALUES(NEXT VALUE FOR [dbo].[userIDSequence], @first_name, @last_name, @phone, @cpr, @username, @password, @email, @gender, @dob, @role_id, @status_id)";
 
@@ -148,17 +142,32 @@ namespace OOD_Project
             DateTime inDOB = dateDOBT.Value.Date;
 
             // create user based on data received
-            Teacher newUser = new Teacher();
-            newUser.RoleId = UserRole.teacher;
-            newUser.FirstName = inFName; newUser.LastName = inLName; newUser.Email = inEmail;
-            newUser.Password = inPassword; newUser.Cpr = inCPR; newUser.Gender = inGender;
-            newUser.Dob = inDOB; newUser.Phone = inPhone; newUser.Username = inUsername;
-            //newUser.Dept = inDept;
-            newUser.Dept.DeptName = inDept;
-            newUser.StatusId = UserStatus.pending;
-            Console.WriteLine(newUser.LastName);
-            // move to login page with autofill ?
-            MessageBox.Show(newUser.ToString(), "New User");
+            //Teacher newUser = new Teacher();
+            //newUser.RoleId = UserRole.teacher;
+            //newUser.FirstName = inFName; newUser.LastName = inLName; newUser.Email = inEmail;
+            //newUser.Password = inPassword; newUser.Cpr = inCPR; newUser.Gender = inGender;
+            //newUser.Dob = inDOB; newUser.Phone = inPhone; newUser.Username = inUsername;
+            ////newUser.Dept = inDept;
+            //newUser.Dept.DeptName = inDept;
+            //newUser.StatusId = UserStatus.pending;
+            //Console.WriteLine(newUser.LastName);
+            //// move to login page with autofill ?
+            //MessageBox.Show(newUser.ToString(), "New User");
+
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@first_name", inFName);
+            dbm.Command.Parameters.AddWithValue("@last_name", inLName);
+            dbm.Command.Parameters.AddWithValue("@phone", inPhone);
+            dbm.Command.Parameters.AddWithValue("@cpr", inCPR);
+            dbm.Command.Parameters.AddWithValue("@username", inUsername);
+            dbm.Command.Parameters.AddWithValue("@password", inPassword);
+            dbm.Command.Parameters.AddWithValue("@email", inEmail);
+            dbm.Command.Parameters.AddWithValue("@gender", inGender);
+            dbm.Command.Parameters.AddWithValue("@dob", inDOB);
+            dbm.Command.Parameters.AddWithValue("@major_id", inDOB);
+
         }
     }
 
