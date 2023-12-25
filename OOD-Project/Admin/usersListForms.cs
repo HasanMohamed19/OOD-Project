@@ -138,7 +138,7 @@ namespace OOD_Project
         private void btnReject_Click(object sender, EventArgs e)
         {
             User pendingUser = (User)pendingUsersListBox.SelectedItem;
-            pendingUser.StatusId = UserStatus.rejected;
+            pendingUser.StatusId = UserStatus.inactive;
             // just remove the user? or also something else? add list also for rejected user?
             pendingUsersListBox.Items.Remove(pendingUser);
             pendingUsersListBox.Update();

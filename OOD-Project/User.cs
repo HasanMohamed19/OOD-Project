@@ -10,16 +10,16 @@ namespace OOD_Project
 {
     public enum UserRole
     {
-        admin,
-        teacher,
-        student
+        admin = 1,
+        teacher = 2,
+        student = 3
     }
 
     public enum UserStatus
     {
-        pending,
-        accepted,
-        rejected
+        pending = 1,
+        accepted = 2,
+        inactive = 3
     }
     public class User
     {

@@ -131,6 +131,12 @@
     <Compile Include="Global.cs" />
     <Compile Include="Major.cs" />
     <Compile Include="Notification.cs" />
+    <Compile Include="StudentRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentRegisterForm.Designer.cs">
+      <DependentUpon>StudentRegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student\FeedbackForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,12 @@
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Teacher.cs" />
+    <Compile Include="TeacherRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherRegisterForm.Designer.cs">
+      <DependentUpon>TeacherRegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teacher\TeacherPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +207,9 @@
     <EmbeddedResource Include="Admin\ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudentRegisterForm.resx">
+      <DependentUpon>StudentRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student\FeedbackForm.resx">
       <DependentUpon>FeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +236,9 @@
     </Compile>
     <EmbeddedResource Include="Student\ViewCoursesForm.resx">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherRegisterForm.resx">
+      <DependentUpon>TeacherRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teacher\TeacherPanel.resx">
       <DependentUpon>TeacherPanel.cs</DependentUpon>
