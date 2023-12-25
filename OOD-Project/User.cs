@@ -135,6 +135,31 @@ namespace OOD_Project
             }
         }
 
+        public static void SendEmail(string subject, string content, int recipient_id)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@subject", subject);
+            dbm.Command.Parameters.AddWithValue("@body", content);
+            dbm.Command.Parameters.AddWithValue("@recipient_user_id", recipient_id);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[email] (email_id, body, subject, sender_user_id, recipient_user_id)" +
+                " VALUES (1, @body, @subject, 2, 3)";
+
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+        }
+
 
         //public override string ToString()
         //{

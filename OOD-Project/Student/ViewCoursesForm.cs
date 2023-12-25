@@ -49,13 +49,21 @@ namespace OOD_Project
             {
                selectedCourse = (Course)coursesListView.Items[0].Tag;
                FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
-               FeedbackForm.Show();
+                FeedbackForm.Show();
             }
         }
 
         private void coursesListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             feedbackBtn.Enabled = coursesListView.SelectedIndices.Count > 0;
+        }
+
+        private void emailBtn_Click(object sender, EventArgs e)
+        {
+            EmailForm emailForm = new EmailForm();
+            
+            emailForm.Show();
+            
         }
     }
 

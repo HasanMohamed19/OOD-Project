@@ -127,6 +127,12 @@
     </Compile>
     <Compile Include="Email.cs" />
     <Compile Include="EmailAttachment.cs" />
+    <Compile Include="EmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmailForm.Designer.cs">
+      <DependentUpon>EmailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Feedback.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Major.cs" />
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmailForm.resx">
+      <DependentUpon>EmailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\FeedbackForm.resx">
       <DependentUpon>FeedbackForm.cs</DependentUpon>

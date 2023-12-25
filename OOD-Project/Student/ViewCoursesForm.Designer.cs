@@ -190,7 +190,7 @@
             this.CourseDetailsPanelTable.ColumnCount = 3;
             this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.63158F));
             this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
-            this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 243F));
+            this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
             this.CourseDetailsPanelTable.Controls.Add(this.courseDescription, 0, 2);
             this.CourseDetailsPanelTable.Controls.Add(this.courseProgrammeLabel, 2, 1);
             this.CourseDetailsPanelTable.Controls.Add(this.courseCreditsLabel, 1, 1);
@@ -228,7 +228,7 @@
             // 
             this.courseProgrammeLabel.AutoSize = true;
             this.courseProgrammeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseProgrammeLabel.Location = new System.Drawing.Point(512, 100);
+            this.courseProgrammeLabel.Location = new System.Drawing.Point(511, 100);
             this.courseProgrammeLabel.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
             this.courseProgrammeLabel.Name = "courseProgrammeLabel";
             this.courseProgrammeLabel.Size = new System.Drawing.Size(219, 25);
@@ -264,7 +264,7 @@
             // 
             this.courseCRNLabel.AutoSize = true;
             this.courseCRNLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseCRNLabel.Location = new System.Drawing.Point(512, 12);
+            this.courseCRNLabel.Location = new System.Drawing.Point(511, 12);
             this.courseCRNLabel.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
             this.courseCRNLabel.Name = "courseCRNLabel";
             this.courseCRNLabel.Size = new System.Drawing.Size(120, 25);
@@ -371,6 +371,7 @@
             this.emailBtn.TabIndex = 1;
             this.emailBtn.Text = "Email Tutor";
             this.emailBtn.UseVisualStyleBackColor = false;
+            this.emailBtn.Click += new System.EventHandler(this.emailBtn_Click);
             // 
             // ViewCoursesForm
             // 
