@@ -30,6 +30,11 @@
         {
             this.panelRegisterFormTeacher = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBranch = new System.Windows.Forms.ComboBox();
+            this.comboProgramme = new System.Windows.Forms.ComboBox();
+            this.txtTeacherId = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -49,11 +54,6 @@
             this.txtCPRT = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnRegisterT = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTeacherId = new System.Windows.Forms.TextBox();
-            this.comboBranch = new System.Windows.Forms.ComboBox();
-            this.comboProgramme = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panelRegisterFormTeacher.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -67,7 +67,7 @@
             this.panelRegisterFormTeacher.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRegisterFormTeacher.Location = new System.Drawing.Point(0, 0);
             this.panelRegisterFormTeacher.Name = "panelRegisterFormTeacher";
-            this.panelRegisterFormTeacher.Size = new System.Drawing.Size(784, 448);
+            this.panelRegisterFormTeacher.Size = new System.Drawing.Size(784, 348);
             this.panelRegisterFormTeacher.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -112,6 +112,59 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(784, 210);
             this.tableLayoutPanel2.TabIndex = 34;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 162);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(146, 38);
+            this.label2.TabIndex = 39;
+            this.label2.Text = "Programme:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBranch
+            // 
+            this.comboBranch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBranch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBranch.FormattingEnabled = true;
+            this.comboBranch.Location = new System.Drawing.Point(566, 165);
+            this.comboBranch.Name = "comboBranch";
+            this.comboBranch.Size = new System.Drawing.Size(185, 32);
+            this.comboBranch.TabIndex = 37;
+            // 
+            // comboProgramme
+            // 
+            this.comboProgramme.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboProgramme.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboProgramme.FormattingEnabled = true;
+            this.comboProgramme.Location = new System.Drawing.Point(184, 165);
+            this.comboProgramme.Name = "comboProgramme";
+            this.comboProgramme.Size = new System.Drawing.Size(185, 32);
+            this.comboProgramme.TabIndex = 38;
+            // 
+            // txtTeacherId
+            // 
+            this.txtTeacherId.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTeacherId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTeacherId.Location = new System.Drawing.Point(566, 13);
+            this.txtTeacherId.Name = "txtTeacherId";
+            this.txtTeacherId.Size = new System.Drawing.Size(185, 31);
+            this.txtTeacherId.TabIndex = 36;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(394, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 38);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Teacher ID:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
@@ -300,7 +353,7 @@
             // 
             this.panel2.Controls.Add(this.btnRegisterT);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 354);
+            this.panel2.Location = new System.Drawing.Point(0, 254);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(784, 94);
             this.panel2.TabIndex = 35;
@@ -320,64 +373,11 @@
             this.btnRegisterT.UseVisualStyleBackColor = false;
             this.btnRegisterT.Click += new System.EventHandler(this.btnRegisterT_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(394, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 38);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Teacher ID:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtTeacherId
-            // 
-            this.txtTeacherId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTeacherId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTeacherId.Location = new System.Drawing.Point(566, 13);
-            this.txtTeacherId.Name = "txtTeacherId";
-            this.txtTeacherId.Size = new System.Drawing.Size(185, 31);
-            this.txtTeacherId.TabIndex = 36;
-            // 
-            // comboBranch
-            // 
-            this.comboBranch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBranch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBranch.FormattingEnabled = true;
-            this.comboBranch.Location = new System.Drawing.Point(566, 165);
-            this.comboBranch.Name = "comboBranch";
-            this.comboBranch.Size = new System.Drawing.Size(185, 32);
-            this.comboBranch.TabIndex = 37;
-            // 
-            // comboProgramme
-            // 
-            this.comboProgramme.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboProgramme.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboProgramme.FormattingEnabled = true;
-            this.comboProgramme.Location = new System.Drawing.Point(184, 165);
-            this.comboProgramme.Name = "comboProgramme";
-            this.comboProgramme.Size = new System.Drawing.Size(185, 32);
-            this.comboProgramme.TabIndex = 38;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 162);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 38);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "Programme:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // TeacherRegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 448);
+            this.ClientSize = new System.Drawing.Size(784, 348);
             this.Controls.Add(this.panelRegisterFormTeacher);
             this.Name = "TeacherRegisterForm";
             this.Text = "TeacherRegisterForm";

@@ -33,6 +33,7 @@
             this.currentUsersDG = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.usersListControls = new System.Windows.Forms.FlowLayoutPanel();
+            this.addUserBtn = new System.Windows.Forms.Button();
             this.editUserBtn = new System.Windows.Forms.Button();
             this.deleteUserBtn = new System.Windows.Forms.Button();
             this.pendingUsersTab = new System.Windows.Forms.TabPage();
@@ -40,7 +41,6 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnReject = new System.Windows.Forms.Button();
-            this.addUserBtn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.currentUsersTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentUsersDG)).BeginInit();
@@ -58,7 +58,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(784, 489);
+            this.tabControl1.Size = new System.Drawing.Size(1008, 529);
             this.tabControl1.TabIndex = 0;
             // 
             // currentUsersTab
@@ -68,8 +68,8 @@
             this.currentUsersTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.currentUsersTab.Location = new System.Drawing.Point(4, 22);
             this.currentUsersTab.Name = "currentUsersTab";
-            this.currentUsersTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.currentUsersTab.Size = new System.Drawing.Size(776, 463);
+            this.currentUsersTab.Padding = new System.Windows.Forms.Padding(3);
+            this.currentUsersTab.Size = new System.Drawing.Size(1000, 503);
             this.currentUsersTab.TabIndex = 0;
             this.currentUsersTab.Text = "Current Users";
             this.currentUsersTab.UseVisualStyleBackColor = true;
@@ -81,12 +81,12 @@
             this.currentUsersDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.currentUsersDG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.currentUsersDG.Location = new System.Drawing.Point(3, 36);
-            this.currentUsersDG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.currentUsersDG.Margin = new System.Windows.Forms.Padding(2);
             this.currentUsersDG.Name = "currentUsersDG";
             this.currentUsersDG.ReadOnly = true;
             this.currentUsersDG.RowHeadersWidth = 51;
             this.currentUsersDG.RowTemplate.Height = 24;
-            this.currentUsersDG.Size = new System.Drawing.Size(770, 424);
+            this.currentUsersDG.Size = new System.Drawing.Size(994, 464);
             this.currentUsersDG.TabIndex = 6;
             // 
             // panel1
@@ -96,7 +96,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(770, 33);
+            this.panel1.Size = new System.Drawing.Size(994, 33);
             this.panel1.TabIndex = 5;
             // 
             // usersListControls
@@ -108,8 +108,24 @@
             this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersListControls.Location = new System.Drawing.Point(0, 0);
             this.usersListControls.Name = "usersListControls";
-            this.usersListControls.Size = new System.Drawing.Size(770, 33);
+            this.usersListControls.Size = new System.Drawing.Size(994, 33);
             this.usersListControls.TabIndex = 3;
+            // 
+            // addUserBtn
+            // 
+            this.addUserBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.addUserBtn.FlatAppearance.BorderSize = 0;
+            this.addUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addUserBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.addUserBtn.Location = new System.Drawing.Point(3, 3);
+            this.addUserBtn.Name = "addUserBtn";
+            this.addUserBtn.Size = new System.Drawing.Size(75, 27);
+            this.addUserBtn.TabIndex = 2;
+            this.addUserBtn.TabStop = false;
+            this.addUserBtn.Text = "Add";
+            this.addUserBtn.UseVisualStyleBackColor = false;
+            this.addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
             // 
             // editUserBtn
             // 
@@ -149,7 +165,7 @@
             this.pendingUsersTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingUsersTab.Location = new System.Drawing.Point(4, 22);
             this.pendingUsersTab.Name = "pendingUsersTab";
-            this.pendingUsersTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.pendingUsersTab.Padding = new System.Windows.Forms.Padding(3);
             this.pendingUsersTab.Size = new System.Drawing.Size(776, 463);
             this.pendingUsersTab.TabIndex = 1;
             this.pendingUsersTab.Text = "Pending Users";
@@ -205,28 +221,12 @@
             this.btnReject.UseVisualStyleBackColor = false;
             this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
             // 
-            // addUserBtn
-            // 
-            this.addUserBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.addUserBtn.FlatAppearance.BorderSize = 0;
-            this.addUserBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addUserBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUserBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.addUserBtn.Location = new System.Drawing.Point(3, 3);
-            this.addUserBtn.Name = "addUserBtn";
-            this.addUserBtn.Size = new System.Drawing.Size(75, 27);
-            this.addUserBtn.TabIndex = 2;
-            this.addUserBtn.TabStop = false;
-            this.addUserBtn.Text = "Add";
-            this.addUserBtn.UseVisualStyleBackColor = false;
-            this.addUserBtn.Click += new System.EventHandler(this.addUserBtn_Click);
-            // 
             // usersListForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(784, 489);
+            this.ClientSize = new System.Drawing.Size(1008, 529);
             this.Controls.Add(this.tabControl1);
             this.Name = "usersListForms";
             this.Text = "Form1";

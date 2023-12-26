@@ -51,10 +51,9 @@ namespace OOD_Project.Admin
             this.addCourseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addCourseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addCourseBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.addCourseBtn.Location = new System.Drawing.Point(4, 4);
-            this.addCourseBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.addCourseBtn.Location = new System.Drawing.Point(3, 3);
             this.addCourseBtn.Name = "addCourseBtn";
-            this.addCourseBtn.Size = new System.Drawing.Size(100, 33);
+            this.addCourseBtn.Size = new System.Drawing.Size(75, 27);
             this.addCourseBtn.TabIndex = 0;
             this.addCourseBtn.TabStop = false;
             this.addCourseBtn.Text = "Add";
@@ -68,10 +67,9 @@ namespace OOD_Project.Admin
             this.editCourseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editCourseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editCourseBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.editCourseBtn.Location = new System.Drawing.Point(112, 4);
-            this.editCourseBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.editCourseBtn.Location = new System.Drawing.Point(84, 3);
             this.editCourseBtn.Name = "editCourseBtn";
-            this.editCourseBtn.Size = new System.Drawing.Size(100, 33);
+            this.editCourseBtn.Size = new System.Drawing.Size(75, 27);
             this.editCourseBtn.TabIndex = 1;
             this.editCourseBtn.Text = "Edit";
             this.editCourseBtn.UseVisualStyleBackColor = false;
@@ -84,9 +82,8 @@ namespace OOD_Project.Admin
             this.usersListControls.Controls.Add(this.deleteCourseBtn);
             this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersListControls.Location = new System.Drawing.Point(0, 0);
-            this.usersListControls.Margin = new System.Windows.Forms.Padding(4);
             this.usersListControls.Name = "usersListControls";
-            this.usersListControls.Size = new System.Drawing.Size(1045, 41);
+            this.usersListControls.Size = new System.Drawing.Size(1008, 33);
             this.usersListControls.TabIndex = 5;
             // 
             // deleteCourseBtn
@@ -96,10 +93,9 @@ namespace OOD_Project.Admin
             this.deleteCourseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteCourseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteCourseBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.deleteCourseBtn.Location = new System.Drawing.Point(220, 4);
-            this.deleteCourseBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteCourseBtn.Location = new System.Drawing.Point(165, 3);
             this.deleteCourseBtn.Name = "deleteCourseBtn";
-            this.deleteCourseBtn.Size = new System.Drawing.Size(100, 33);
+            this.deleteCourseBtn.Size = new System.Drawing.Size(75, 27);
             this.deleteCourseBtn.TabIndex = 2;
             this.deleteCourseBtn.Text = "Delete";
             this.deleteCourseBtn.UseVisualStyleBackColor = false;
@@ -123,11 +119,11 @@ namespace OOD_Project.Admin
             this.courseListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.courseListView.HideSelection = false;
             this.courseListView.HoverSelection = true;
-            this.courseListView.Location = new System.Drawing.Point(0, 41);
-            this.courseListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.courseListView.Location = new System.Drawing.Point(0, 33);
+            this.courseListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.courseListView.MultiSelect = false;
             this.courseListView.Name = "courseListView";
-            this.courseListView.Size = new System.Drawing.Size(1045, 561);
+            this.courseListView.Size = new System.Drawing.Size(1008, 496);
             this.courseListView.TabIndex = 6;
             this.courseListView.UseCompatibleStateImageBehavior = false;
             this.courseListView.View = System.Windows.Forms.View.Details;
@@ -175,12 +171,12 @@ namespace OOD_Project.Admin
             // 
             // ManageCourseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 602);
+            this.ClientSize = new System.Drawing.Size(1008, 529);
             this.Controls.Add(this.courseListView);
             this.Controls.Add(this.usersListControls);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ManageCourseForm";
             this.Text = "Manage Courses";
             this.usersListControls.ResumeLayout(false);

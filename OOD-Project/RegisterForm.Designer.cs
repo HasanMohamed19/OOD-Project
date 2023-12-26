@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRegisterAsTeacher = new System.Windows.Forms.Button();
+            this.btnRegisterAsStudent = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.RegisterContainer = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnRegisterAsStudent = new System.Windows.Forms.Button();
-            this.btnRegisterAsTeacher = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -49,27 +49,6 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(784, 113);
             this.panelHeader.TabIndex = 4;
-            // 
-            // Title
-            // 
-            this.Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Title.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(247)))));
-            this.Title.Location = new System.Drawing.Point(0, 0);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(784, 63);
-            this.Title.TabIndex = 0;
-            this.Title.Text = "eLMS System";
-            this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Title.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // RegisterContainer
-            // 
-            this.RegisterContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RegisterContainer.Location = new System.Drawing.Point(0, 113);
-            this.RegisterContainer.Name = "RegisterContainer";
-            this.RegisterContainer.Size = new System.Drawing.Size(784, 448);
-            this.RegisterContainer.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -88,22 +67,22 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 50);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // btnBack
+            // btnRegisterAsTeacher
             // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBack.Location = new System.Drawing.Point(20, 4);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(20, 4, 20, 4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(221, 42);
-            this.btnBack.TabIndex = 0;
-            this.btnBack.Text = "Back to Login";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnRegisterAsTeacher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.btnRegisterAsTeacher.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRegisterAsTeacher.FlatAppearance.BorderSize = 0;
+            this.btnRegisterAsTeacher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegisterAsTeacher.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterAsTeacher.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRegisterAsTeacher.Location = new System.Drawing.Point(542, 4);
+            this.btnRegisterAsTeacher.Margin = new System.Windows.Forms.Padding(20, 4, 20, 4);
+            this.btnRegisterAsTeacher.Name = "btnRegisterAsTeacher";
+            this.btnRegisterAsTeacher.Size = new System.Drawing.Size(222, 42);
+            this.btnRegisterAsTeacher.TabIndex = 2;
+            this.btnRegisterAsTeacher.Text = "Register as Teacher";
+            this.btnRegisterAsTeacher.UseVisualStyleBackColor = false;
+            this.btnRegisterAsTeacher.Click += new System.EventHandler(this.btnRegisterAsTeacher_Click);
             // 
             // btnRegisterAsStudent
             // 
@@ -122,32 +101,55 @@
             this.btnRegisterAsStudent.UseVisualStyleBackColor = false;
             this.btnRegisterAsStudent.Click += new System.EventHandler(this.btnRegisterAsStudent_Click);
             // 
-            // btnRegisterAsTeacher
+            // btnBack
             // 
-            this.btnRegisterAsTeacher.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.btnRegisterAsTeacher.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRegisterAsTeacher.FlatAppearance.BorderSize = 0;
-            this.btnRegisterAsTeacher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegisterAsTeacher.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisterAsTeacher.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegisterAsTeacher.Location = new System.Drawing.Point(542, 4);
-            this.btnRegisterAsTeacher.Margin = new System.Windows.Forms.Padding(20, 4, 20, 4);
-            this.btnRegisterAsTeacher.Name = "btnRegisterAsTeacher";
-            this.btnRegisterAsTeacher.Size = new System.Drawing.Size(222, 42);
-            this.btnRegisterAsTeacher.TabIndex = 2;
-            this.btnRegisterAsTeacher.Text = "Register as Teacher";
-            this.btnRegisterAsTeacher.UseVisualStyleBackColor = false;
-            this.btnRegisterAsTeacher.Click += new System.EventHandler(this.btnRegisterAsTeacher_Click);
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBack.Location = new System.Drawing.Point(20, 4);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(20, 4, 20, 4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(221, 42);
+            this.btnBack.TabIndex = 0;
+            this.btnBack.Text = "Back to Login";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // Title
+            // 
+            this.Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Title.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Title.Location = new System.Drawing.Point(0, 0);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(784, 63);
+            this.Title.TabIndex = 0;
+            this.Title.Text = "eLMS System";
+            this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Title.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // RegisterContainer
+            // 
+            this.RegisterContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.RegisterContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RegisterContainer.Location = new System.Drawing.Point(0, 113);
+            this.RegisterContainer.Name = "RegisterContainer";
+            this.RegisterContainer.Size = new System.Drawing.Size(784, 348);
+            this.RegisterContainer.TabIndex = 2;
             // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.RegisterContainer);
             this.Controls.Add(this.panelHeader);
-            this.MaximumSize = new System.Drawing.Size(800, 600);
-            this.MinimumSize = new System.Drawing.Size(800, 600);
+            this.MaximumSize = new System.Drawing.Size(800, 500);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForm";

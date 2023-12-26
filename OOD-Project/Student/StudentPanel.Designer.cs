@@ -45,18 +45,18 @@
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(784, 72);
+            this.panelHeader.Size = new System.Drawing.Size(1008, 72);
             this.panelHeader.TabIndex = 2;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.viewCoursesBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(284, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(128, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 12, 8, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(500, 72);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(880, 72);
             this.flowLayoutPanel1.TabIndex = 4;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -70,7 +70,7 @@
             this.viewCoursesBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.viewCoursesBtn.Location = new System.Drawing.Point(3, 15);
             this.viewCoursesBtn.Name = "viewCoursesBtn";
-            this.viewCoursesBtn.Size = new System.Drawing.Size(116, 42);
+            this.viewCoursesBtn.Size = new System.Drawing.Size(108, 42);
             this.viewCoursesBtn.TabIndex = 6;
             this.viewCoursesBtn.Text = "View Courses";
             this.viewCoursesBtn.UseVisualStyleBackColor = false;
@@ -83,9 +83,9 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(247)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(284, 72);
+            this.label2.Size = new System.Drawing.Size(128, 72);
             this.label2.TabIndex = 0;
-            this.label2.Text = "eLMS System";
+            this.label2.Text = "eLMS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // studentMainContent
@@ -95,19 +95,20 @@
             this.studentMainContent.Location = new System.Drawing.Point(0, 72);
             this.studentMainContent.Margin = new System.Windows.Forms.Padding(2);
             this.studentMainContent.Name = "studentMainContent";
-            this.studentMainContent.Size = new System.Drawing.Size(784, 489);
+            this.studentMainContent.Size = new System.Drawing.Size(1008, 529);
             this.studentMainContent.TabIndex = 3;
             // 
             // StudentPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1008, 601);
             this.Controls.Add(this.studentMainContent);
             this.Controls.Add(this.panelHeader);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(800, 600);
-            this.MinimumSize = new System.Drawing.Size(800, 600);
+            this.MaximumSize = new System.Drawing.Size(1024, 640);
+            this.MinimumSize = new System.Drawing.Size(1024, 640);
             this.Name = "StudentPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentPanel";

@@ -65,7 +65,7 @@
             this.panelRegisterFormStudent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRegisterFormStudent.Location = new System.Drawing.Point(0, 0);
             this.panelRegisterFormStudent.Name = "panelRegisterFormStudent";
-            this.panelRegisterFormStudent.Size = new System.Drawing.Size(784, 448);
+            this.panelRegisterFormStudent.Size = new System.Drawing.Size(784, 348);
             this.panelRegisterFormStudent.TabIndex = 4;
             // 
             // tableLayoutPanel1
@@ -327,7 +327,7 @@
             // 
             this.panelBottom.Controls.Add(this.btnRegister);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 354);
+            this.panelBottom.Location = new System.Drawing.Point(0, 254);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(784, 94);
             this.panelBottom.TabIndex = 35;
@@ -351,7 +351,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 448);
+            this.ClientSize = new System.Drawing.Size(784, 348);
             this.Controls.Add(this.panelRegisterFormStudent);
             this.Name = "StudentRegisterForm";
             this.Text = "StudentRegisterForm";
