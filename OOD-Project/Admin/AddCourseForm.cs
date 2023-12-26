@@ -47,5 +47,96 @@ namespace OOD_Project.Admin
             manageCourse.adminPanel.Show();
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            manageCourse.adminPanel.Show();
+        }
+
+        private void panelHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void courseIDLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCourseID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void creditsLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void programmeLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sectionCountLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProgramme_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSectionCount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void descriptionLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void courseNameLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCourseName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCredits_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

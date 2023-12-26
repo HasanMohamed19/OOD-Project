@@ -34,8 +34,8 @@ namespace OOD_Project
         new User("test3", "Ali", "student@gmail.com", UserRole.student),
         new User("human4", "Ali", "student@gmail.com", UserRole.teacher)};
 
-        User[] pendingUsers = { new Student("pending", "user", "elms3dmin@gmail.com", UserRole.student),
-        new User("pending", "user", "elms3dmin@gmail.com", UserRole.teacher)};
+ //       User[] pendingUsers = { new Student("pending", "user", "elms3dmin@gmail.com", UserRole.student),
+ //       new User("pending", "user", "elms3dmin@gmail.com", UserRole.teacher)};
 
         public usersListForms()
         {
@@ -53,7 +53,7 @@ namespace OOD_Project
             
 
             // currentUsersListBox.Items.AddRange(currentUsers);
-            pendingUsersListBox.Items.AddRange(pendingUsers);
+            // pendingUsersListBox.Items.AddRange(pendingUsers);
 
         }
          

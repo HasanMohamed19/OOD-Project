@@ -62,5 +62,11 @@ namespace OOD_Project.Admin
             }
          
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            manageCourse.adminPanel.Show();
+        }
     }
 }
