@@ -12,7 +12,7 @@ namespace OOD_Project
 {
     public partial class EmailForm : Form
     {
-        private string[] files;
+        private string[] files = {};
         public EmailForm()
         {
             InitializeComponent();

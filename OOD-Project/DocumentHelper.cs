@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OOD_Project
+{
+    public static class DocumentHelper
+    {
+        public static string parentDirectory = "C:\\Users\\Hassan\\source\\repos\\OOD-Project\\AppFiles";
+        public static void MakeDirectory(string path)
+        {
+            try
+            {
+                Directory.CreateDirectory(path);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+        }
+        public static void CopyFile(string source, string destination)
+        {
+            try
+            {
+                //File.Copy(sourceFilePath, destinationFilePath, true);  // Copy the file
+                File.Copy(source, destination);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        public static bool IsDirectoryExists(string path)
+        {
+            return Directory.Exists(path);
+        }
+    }
+}
