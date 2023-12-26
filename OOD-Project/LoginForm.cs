@@ -34,6 +34,7 @@ namespace OOD_Project
 
             dbm.Command.CommandText = "SELECT * FROM [dbo].[User] WHERE username = @username AND password = @password";
             dbm.Reader = dbm.Command.ExecuteReader();
+            int roleId = 0;
             if (dbm.Reader.Read())
             {
 
@@ -41,33 +42,34 @@ namespace OOD_Project
                 int uid = dbm.Reader.GetOrdinal("user_id");
                 int user_id = dbm.Reader.GetInt32(uid);
                 Global.User_id = user_id;
-                int roleId = dbm.Reader.GetInt32(rid);
-                switch (roleId)
-                {
-                    case 1:
-                        AdminPanel adminPanel = new AdminPanel();
-                        adminPanel.Show();
-                        this.Hide();
-                        break;
-                    case 2:
-                        TeacherPanel teacherPanel = new TeacherPanel();
-                        teacherPanel.Show();
-                        this.Hide();
-                        break;
-                    case 3:
-                        StudentPanel studentPanel = new StudentPanel();
-                        studentPanel.Show();
-                        this.Hide();
-                        break;
-                }
-
+                roleId = dbm.Reader.GetInt32(rid);
             }
             else
             {
                 MessageBox.Show(dbm.Reader.Read().ToString());
-
             }
             dbm.Connection.Close();
+            switch (roleId)
+            {
+                case 1:
+                    AdminPanel adminPanel = new AdminPanel();
+                    adminPanel.Show();
+                    this.Hide();
+                    break;
+                case 2:
+                    TeacherPanel teacherPanel = new TeacherPanel();
+                    teacherPanel.Show();
+                    this.Hide();
+                    break;
+                case 3:
+                    StudentPanel studentPanel = new StudentPanel();
+                    studentPanel.Show();
+                    this.Hide();
+                    break;
+                default:
+                    MessageBox.Show("Login unsuccessful. Invalid user type", "Login Failed");
+                    break;
+            }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

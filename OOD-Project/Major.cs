@@ -33,6 +33,33 @@ namespace OOD_Project
         public string Name { get { return name; } set { name = value; } }
 
 
+        public static Major GetMajor(int major_id)
+        {
+            Major major;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@major_id", major_id);
+            dbm.Command.CommandText = "SELECT major_id, major_name, programme_id FROM [dbo].[major] " +
+                "WHERE major_id = @major_id";
+
+            dbm.Reader = dbm.Command.ExecuteReader();
+            if (dbm.Reader.Read())
+            {
+                int majorId = dbm.Reader.GetInt32(0);
+                string majorName = dbm.Reader.GetString(1);
+                Programme programme = (Programme)dbm.Reader.GetInt32(2);
+                major = new Major(programme, majorId, majorName);
+            } else
+            {
+                return null;
+            }
+            dbm.Reader.Close();
+            dbm.Connection.Close();
+            return major;
+        }
+
         public static List<Major> GetMajors()
         {
             List<Major> majors = new List<Major>();
@@ -50,6 +77,7 @@ namespace OOD_Project
                 Programme programme = (Programme)dbm.Reader.GetInt32(2);
                 majors.Add(new Major(programme,majorId,majorName));
             }
+            dbm.Reader.Close();
             dbm.Connection.Close();
             return majors;
         }

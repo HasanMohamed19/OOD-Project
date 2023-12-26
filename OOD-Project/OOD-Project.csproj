@@ -153,8 +153,21 @@
     </Compile>
     <Compile Include="Feedback.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Helpers\NotificationCell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Helpers\NotificationCell.Designer.cs">
+      <DependentUpon>NotificationCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\NotificationMenuContainer.cs" />
     <Compile Include="Major.cs" />
     <Compile Include="Notification.cs" />
+    <Compile Include="NotificationMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NotificationMenu.Designer.cs">
+      <DependentUpon>NotificationMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudentRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +256,12 @@
     <EmbeddedResource Include="EmailForm.resx">
       <DependentUpon>EmailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Helpers\NotificationCell.resx">
+      <DependentUpon>NotificationCell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotificationMenu.resx">
+      <DependentUpon>NotificationMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudentRegisterForm.resx">
       <DependentUpon>StudentRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,6 +288,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Student\ViewCoursesForm.resx">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
@@ -323,6 +343,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>db.mdf</DependentUpon>
     </Content>
+    <None Include="images\bell_icon_active.png" />
+    <None Include="images\userIcon.png" />
+    <None Include="images\bell_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

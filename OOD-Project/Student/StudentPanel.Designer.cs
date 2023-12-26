@@ -32,9 +32,13 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.viewCoursesBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.notificationPnl = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnNotificationBell = new System.Windows.Forms.Button();
             this.studentMainContent = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.notificationPnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -42,6 +46,7 @@
             this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(213)))), ((int)(((byte)(221)))));
             this.panelHeader.Controls.Add(this.flowLayoutPanel1);
             this.panelHeader.Controls.Add(this.label2);
+            this.panelHeader.Controls.Add(this.notificationPnl);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
@@ -56,7 +61,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 12, 8, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(880, 72);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(824, 72);
             this.flowLayoutPanel1.TabIndex = 4;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -88,6 +93,45 @@
             this.label2.Text = "eLMS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // notificationPnl
+            // 
+            this.notificationPnl.Controls.Add(this.button1);
+            this.notificationPnl.Controls.Add(this.btnNotificationBell);
+            this.notificationPnl.Dock = System.Windows.Forms.DockStyle.Right;
+            this.notificationPnl.Location = new System.Drawing.Point(952, 0);
+            this.notificationPnl.Name = "notificationPnl";
+            this.notificationPnl.Padding = new System.Windows.Forms.Padding(3);
+            this.notificationPnl.Size = new System.Drawing.Size(56, 72);
+            this.notificationPnl.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::OOD_Project.Properties.Resources.userIcon;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(3, 39);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(3);
+            this.button1.Size = new System.Drawing.Size(50, 30);
+            this.button1.TabIndex = 1;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnNotificationBell
+            // 
+            this.btnNotificationBell.BackgroundImage = global::OOD_Project.Properties.Resources.bell_icon;
+            this.btnNotificationBell.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnNotificationBell.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotificationBell.FlatAppearance.BorderSize = 0;
+            this.btnNotificationBell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificationBell.Location = new System.Drawing.Point(3, 3);
+            this.btnNotificationBell.Name = "btnNotificationBell";
+            this.btnNotificationBell.Size = new System.Drawing.Size(50, 30);
+            this.btnNotificationBell.TabIndex = 0;
+            this.btnNotificationBell.UseVisualStyleBackColor = true;
+            this.btnNotificationBell.Click += new System.EventHandler(this.btnNotificationBell_Click);
+            // 
             // studentMainContent
             // 
             this.studentMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
@@ -114,6 +158,7 @@
             this.Text = "StudentPanel";
             this.panelHeader.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.notificationPnl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -125,5 +170,8 @@
         private System.Windows.Forms.Panel studentMainContent;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button viewCoursesBtn;
+        private System.Windows.Forms.Panel notificationPnl;
+        private System.Windows.Forms.Button btnNotificationBell;
+        private System.Windows.Forms.Button button1;
     }
 }

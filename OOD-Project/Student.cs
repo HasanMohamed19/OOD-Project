@@ -61,6 +61,7 @@ namespace OOD_Project
                 int status_id = dbm.Reader.GetInt32(0);
                 status.Add(status_id);
             }
+            dbm.Reader.Close();
             dbm.Connection.Close();
 
             if (status.Count <= 0)
@@ -105,6 +106,7 @@ namespace OOD_Project
                 ids.Add(user_id);
                 status.Add(status_id);
             }
+            dbm.Reader.Close();
             dbm.Connection.Close();
 
             // if there is more than one row returned or zero, dont continue
@@ -121,6 +123,52 @@ namespace OOD_Project
 
             return ids[0];
         }
+
+
+        public static Student GetStudent(int user_id)
+        {
+            Student student;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+            dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification," +
+                "s.first_name, s.last_name, s.dob, s.cpr, s.gender, s.phone_number, s.major_id, s.student_university_id" +
+                " FROM [dbo].[student] s, [dbo].[User] u " +
+                " WHERE s.user_id = u.user_id " +
+                " AND u.user_id = @user_id";
+
+            dbm.Reader = dbm.Command.ExecuteReader();
+
+            if (!dbm.Reader.Read())
+            {
+                return null;   
+            } 
+            int id = dbm.Reader.GetInt32(0);
+            string username = dbm.Reader.GetString(1);
+            string password = dbm.Reader.GetString(2);
+            string email = dbm.Reader.GetString(3);
+            UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
+            UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
+            bool hasNotification = dbm.Reader.GetBoolean(6);
+            string firstName = dbm.Reader.GetString(7);
+            string lastName = dbm.Reader.GetString(8);
+            DateTime dob = dbm.Reader.GetDateTime(9);
+            string cpr = dbm.Reader.GetString(10);
+            string phoneNumber = dbm.Reader.GetString(11);
+            char gender = dbm.Reader.GetString(12)[0];
+            int major_id = dbm.Reader.GetInt32(13);
+            string universityId = dbm.Reader.GetString(14);
+            dbm.Reader.Close();
+            dbm.Connection.Close();
+
+            Major major = Major.GetMajor(major_id);
+            student = new Student(id, username, password, email, roleId, statusId, hasNotification,
+                firstName, lastName, dob, cpr, gender, phoneNumber, major, universityId);
+            return student;
+        }
+
 
         public static void AddStudent(Student student)
         {

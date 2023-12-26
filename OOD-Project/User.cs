@@ -56,6 +56,34 @@ namespace OOD_Project
             this.hasNotification = hasNotification;
         }
 
+
+        public static int UnreadNotificationsForUser(User user)
+        {
+            int unreadCount;
+
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@user_id", user.UserId);
+            dbm.Command.CommandText = "SELECT COUNT(n.has_read)" +
+                " FROM [dbo].[User] u, [dbo].[notification] n " +
+                " WHERE n.user_id = u.user_id " +
+                " AND u.user_id = @user_id " +
+                " AND has_read = 0";
+
+            dbm.Reader = dbm.Command.ExecuteReader();
+
+            if (!dbm.Reader.Read())
+            {
+                return 0;
+            }
+            unreadCount = dbm.Reader.GetInt32(0);
+            dbm.Reader.Close();
+            dbm.Connection.Close();
+
+            return unreadCount;
+        }
         public static void AddUser(User user)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
