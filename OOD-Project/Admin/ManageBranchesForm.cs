@@ -14,9 +14,9 @@ namespace OOD_Project
     {
 
         List<Branch> branches= new List<Branch>();
-        
+        public AdminPanel adminPanel;
 
-        public ManageBranchesForm()
+        public ManageBranchesForm(AdminPanel adminPanel)
         {
             InitializeComponent();
             branches.Add(new Branch("10Km^2", 1, "Manama", "BTI", "12345678"));
@@ -24,11 +24,18 @@ namespace OOD_Project
             foreach (var branch in branches)
             {
                 ListViewItem item = new ListViewItem(branch.BranchId.ToString());
+                item.SubItems.Add(branch.Name);
                 item.SubItems.Add(branch.Area);
                 item.SubItems.Add(branch.City);
                 item.SubItems.Add(branch.PhoneNumber);
                 branchesListView.Items.Add(item);
             }
+            this.adminPanel = adminPanel;
+        }
+
+        public List<Branch> getBranches()
+        {
+            return branches;
         }
 
         private void deleteBranchBtn_Click(object sender, EventArgs e)
@@ -48,11 +55,21 @@ namespace OOD_Project
             }
         }
 
-        private void editBranchBtn_Click(object sender, EventArgs e)
+        public ListView GetBranchListView()
         {
-
+            return branchesListView;
         }
 
- 
+        private void editBranchBtn_Click(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void addBranchBtn_Click(object sender, EventArgs e)
+        {
+            AddBranchForm addBranchForm= new AddBranchForm(this);
+            adminPanel.Hide();
+            addBranchForm.Show();        
+        }
     }
 }
