@@ -83,6 +83,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddStudentForm.Designer.cs">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddTeacherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddTeacherForm.Designer.cs">
+      <DependentUpon>AddTeacherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddUserForm.Designer.cs">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +210,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\AddStudentForm.resx">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddTeacherForm.resx">
+      <DependentUpon>AddTeacherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>

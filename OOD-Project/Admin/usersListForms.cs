@@ -63,6 +63,12 @@ namespace OOD_Project
 
         }
 
+        // called from child views to update after editing fields
+        public void RefreshView()
+        {
+            populateDGV();
+        }
+
         private void populateDGV()
         {
             DatabaseManager dbm = DatabaseManager.Instance();
@@ -144,6 +150,12 @@ namespace OOD_Project
             pendingUsersListBox.Update();
             //EmailController.Instance().SendRejectEmail(pendingUser.FirstName, pendingUser.LastName, pendingUser.Email);
             MessageBox.Show("User Request Rejected Successfully", "User Rejected");
+        }
+
+        private void addUserBtn_Click(object sender, EventArgs e)
+        {
+            AddUserForm form = new AddUserForm(this);
+            form.Show();
         }
     }
 

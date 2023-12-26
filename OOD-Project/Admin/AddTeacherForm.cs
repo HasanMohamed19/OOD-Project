@@ -8,16 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OOD_Project
+namespace OOD_Project.Admin
 {
-    public partial class TeacherRegisterForm : Form
+    public partial class AddTeacherForm : Form
     {
-        public TeacherRegisterForm()
+        private AddUserForm parentForm;
+        public AddTeacherForm(AddUserForm parentForm)
         {
+            this.parentForm = parentForm;
             InitializeComponent();
             InitializeComboBoxes();
+            this.parentForm = parentForm;
         }
-
         List<Branch> branches = Branch.GetBranches();
 
         private void InitializeComboBoxes()
@@ -33,12 +35,11 @@ namespace OOD_Project
             comboProgramme.Items.Add("Logistics");
             comboProgramme.Items.Add("Foundation");
         }
-
-        private void btnRegisterT_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             string inEmail = txtEmailT.Text;
             Branch inBranch = branches[comboBranch.SelectedIndex];
-            Programme inProgramme = (Programme)(comboProgramme.SelectedIndex+1);
+            Programme inProgramme = (Programme)(comboProgramme.SelectedIndex + 1);
             string inCPR = txtCPRT.Text;
             string inFName = txtFNameT.Text;
             string inLName = txtLNameT.Text;
@@ -62,21 +63,18 @@ namespace OOD_Project
             string inTeacherId = txtTeacherId.Text;
 
             // create user based on data received
-            Teacher teacher = new Teacher(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, UserStatus.pending, false,
-                inFName, inLName,inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
+            Teacher teacher = new Teacher(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, UserStatus.inactive, false,
+                inFName, inLName, inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
 
-            try
+            // if there is teacher with universityId already, dont add
+            if (Teacher.InactiveTeacherExistsWithId(teacher.TeacherUniversityId))
             {
-                Teacher.IsTeacherIdValid(teacher.TeacherUniversityId);
-            }
-            catch 
-            {
-                MessageBox.Show("ID could not be found in the system or there is already a user with this id.", "Could not register");
+                MessageBox.Show("There is already a teacher with the same Teacher ID in the system. Please add a teacher with a different ID or delete the existing one.", "Teacher Already Exists");
                 return;
             }
 
             Teacher.AddTeacher(teacher);
-
+            parentForm.CloseAndRefresh();
         }
     }
 }

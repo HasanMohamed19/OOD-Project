@@ -39,8 +39,49 @@ namespace OOD_Project
             this.studentUniversityId = studentUniversityId;
         }
 
+        // check if an inactive student account exists with this id
+        // used to prevent admin from duplicating universityIds, they must be unique
+        public static bool InactiveStudentExistsWithId(string universityId)
+        {
+            List<int> status = new List<int>();
 
-        public static int IsStudentIdValid(string id)
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@student_university_id", universityId);
+            dbm.Command.CommandText = "SELECT u.status_id FROM [dbo].[student] s, [dbo].[User] u " +
+                "WHERE s.user_id = u.user_id " +
+                "AND s.student_university_id = @student_university_id";
+
+            dbm.Reader = dbm.Command.ExecuteReader();
+
+            while (dbm.Reader.Read())
+            {
+                int status_id = dbm.Reader.GetInt32(0);
+                status.Add(status_id);
+            }
+            dbm.Connection.Close();
+
+            if (status.Count <= 0)
+            {
+                // nothing found, no inactive user exists
+                return false;
+            }
+
+            if (status[0] == 3 || status[0] == 2)
+            {
+                // inactve student exists 
+                return true;
+            }
+            // pending student exists, can consider to not exist
+            return false;
+        }
+
+        // returns user_id of inactive user with the same universityId
+        // used to check if a student can register with this universityId
+        // also used to activate student account
+        public static int IsStudentIdValid(string universityId)
         {
             // check if this id exists for inactive user
             List<int> ids = new List<int>();
@@ -50,7 +91,7 @@ namespace OOD_Project
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
 
-            dbm.Command.Parameters.AddWithValue("@student_university_id", id);
+            dbm.Command.Parameters.AddWithValue("@student_university_id", universityId);
             dbm.Command.CommandText = "SELECT u.user_id, u.status_id FROM [dbo].[student] s, [dbo].[User] u " +
                 "WHERE s.user_id = u.user_id " +
                 "AND s.student_university_id = @student_university_id";
@@ -68,13 +109,13 @@ namespace OOD_Project
 
             // if there is more than one row returned or zero, dont continue
             if (ids.Count != 1) {
-                throw new Exception("Too many or zero records found for students with id " + id);
+                throw new Exception("Too many or zero records found for students with id " + universityId);
             }
 
             // if status_id is  not 3 (inactive) then a new user cannot be made with this id
             if (status[0] != 3)
             {
-                throw new Exception("There is already an active account for id " + id);
+                throw new Exception("There is already an active account for id " + universityId);
             }
 
 
