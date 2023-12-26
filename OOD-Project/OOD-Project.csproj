@@ -112,6 +112,18 @@
     <Compile Include="Admin\ManageBranchesForm.Designer.cs">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AnnouncementsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AnnouncementsForm.Designer.cs">
+      <DependentUpon>AnnouncementsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AnnouncementsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AnnouncementsList.Designer.cs">
+      <DependentUpon>AnnouncementsList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Branch.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Course.cs" />
@@ -161,6 +173,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AnnouncementsForm.resx">
+      <DependentUpon>AnnouncementsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AnnouncementsList.resx">
+      <DependentUpon>AnnouncementsList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditCourseForm.resx">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
