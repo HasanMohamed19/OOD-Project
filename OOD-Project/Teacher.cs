@@ -36,6 +36,48 @@ namespace OOD_Project
             this.teacherUniversityId = teacherUniversityId;
         }
 
+
+        public static int IsTeacherIdValid(string id)
+        {
+            // check if this id exists for inactive user
+            List<int> ids = new List<int>();
+            List<int> status = new List<int>();
+
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@teacher_university_id", id);
+            dbm.Command.CommandText = "SELECT u.user_id, u.status_id FROM [dbo].[teacher] t, [dbo].[User] u " +
+                "WHERE t.user_id = u.user_id " +
+                "AND t.teacher_university_id = @teacher_university_id";
+
+            dbm.Reader = dbm.Command.ExecuteReader();
+
+            while (dbm.Reader.Read())
+            {
+                int user_id = dbm.Reader.GetInt32(0);
+                int status_id = dbm.Reader.GetInt32(1);
+                ids.Add(user_id);
+                status.Add(status_id);
+            }
+            dbm.Connection.Close();
+
+            // if there is more than one row returned or zero, dont continue
+            if (ids.Count != 1)
+            {
+                throw new Exception("Too many or zero records found for teachers with id " + id);
+            }
+
+            // if status_id is  not 3 (inactive) then a new user cannot be made with this id
+            if (status[0] != 3)
+            {
+                throw new Exception("There is already an active account for id " + id);
+            }
+
+
+            return ids[0];
+        }
         public static void AddTeacher(Teacher teacher)
         {
             // ADD USER ROW

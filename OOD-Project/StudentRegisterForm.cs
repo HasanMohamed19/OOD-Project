@@ -37,7 +37,7 @@ namespace OOD_Project
             string inPhone = txtPhone.Text;
             Major inMajor = majors[comboMajor.SelectedIndex]; // get major from combo box
             // get gender from radio buttons and store as char 'M' or 'F'
-            char inGender = 'X';
+            char inGender;
             if (radioMale.Checked)
             {
                 inGender = 'M';
@@ -56,6 +56,15 @@ namespace OOD_Project
             // TODO: implement validation
             Student student = new Student(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, UserStatus.pending, false
                 , inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
+
+            try
+            {
+                Student.IsStudentIdValid(student.StudentUniversityId);
+            } catch {
+                MessageBox.Show("ID could not be found in the system or there is already a user with this id.","Could not register");
+                return;
+            }
+
             Student.AddStudent(student);
 
             //MessageBox.Show(newUser.ToString(), "New User");

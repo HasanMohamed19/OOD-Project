@@ -63,6 +63,17 @@ namespace OOD_Project
             // create user based on data received
             Teacher teacher = new Teacher(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, UserStatus.pending, false,
                 inFName, inLName,inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
+
+            try
+            {
+                Student.IsStudentIdValid(teacher.TeacherUniversityId);
+            }
+            catch 
+            {
+                MessageBox.Show("ID could not be found in the system or there is already a user with this id.", "Could not register");
+                return;
+            }
+
             Teacher.AddTeacher(teacher);
 
         }
