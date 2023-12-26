@@ -8,11 +8,11 @@ namespace OOD_Project
 {
     public enum Programme
     {
-        ict,
-        business,
-        creativeMedia,
-        enginerring,
-        logistics
+        ict = 1,
+        business = 2,
+        creativeMedia = 3,
+        enginerring = 4,
+        logistics = 5
     }
     public class Major
     {

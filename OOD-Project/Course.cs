@@ -112,5 +112,36 @@ namespace OOD_Project
             }
         }
 
+        public static string getCourseIdByCourseCode(string courseCode)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@course_code", courseCode);
+            dbm.Command.CommandText = "SELECT course.course_id FROM [dbo].[course] WHERE code = @course_code";
+
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+
+                if (dbm.Reader.Read())
+                {
+                    
+                    return dbm.Reader["course_id"].ToString();
+                }
+                
+                return "";
+            } catch (Exception ex)
+            {
+                return "";
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+           
+
+        }
+
     }
 }

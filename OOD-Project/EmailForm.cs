@@ -22,7 +22,7 @@ namespace OOD_Project
         {
             string subject = subjectTxt.Text;
             string content = bodyText.Text;
-            User.SendEmail(subject, content, 2);
+            User.SendEmail(subject, content, 3);
             if (files.Length > 0)
             {
                 foreach (var file in files)

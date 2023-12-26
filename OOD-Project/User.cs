@@ -170,7 +170,7 @@ namespace OOD_Project
             dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@file_name", fileName);
             dbm.Command.Parameters.AddWithValue("@folder_path", folderPath);
-            dbm.Command.Parameters.AddWithValue("@email_id", 32);
+            dbm.Command.Parameters.AddWithValue("@email_id", 17);
             dbm.Command.CommandText = "INSERT INTO [dbo].[email_attachment] (email_attachment_id, filename, folder_path, email_id)" +
                 " VALUES(NEXT VALUE FOR [dbo].[emaiAttachmentIDSequence], @file_name, @folder_path, @email_id)";
             try
