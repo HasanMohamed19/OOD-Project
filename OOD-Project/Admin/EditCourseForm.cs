@@ -22,7 +22,6 @@ namespace OOD_Project.Admin
             this.selectedCourse = course;
             this.manageCourse = manageCourseForm;
             this.courseListView = manageCourse.GetCourseListView();
-            this.manageCourse = manageCourseForm;
             this.itemIdx = itemIdx;
             txtCourseID.Text = course.CourseID.ToString();
             txtCourseName.Text = course.CourseName;

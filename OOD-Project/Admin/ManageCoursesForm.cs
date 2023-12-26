@@ -75,8 +75,6 @@ namespace OOD_Project.Admin
         {
             DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected course?", "Delete Confirmation", MessageBoxButtons.YesNo);
 
-
-
             if (deleteConfirmation == DialogResult.Yes)
             {
                 while (courseListView.SelectedItems.Count > 0)
@@ -84,7 +82,6 @@ namespace OOD_Project.Admin
                     courseListView.SelectedItems[0].Remove();
 
                 }
-
             }
         }
 
@@ -101,7 +98,6 @@ namespace OOD_Project.Admin
             EditCourseForm editCourse = new EditCourseForm(this,selectedCourse,selectedItem.Index);
             editCourse.Show();
             adminPanel.Hide();
-
         }
 
         private void addCourseBtn_Click(object sender, EventArgs e)

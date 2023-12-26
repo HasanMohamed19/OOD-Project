@@ -124,6 +124,7 @@
     <Compile Include="Admin\AnnouncementsList.Designer.cs">
       <DependentUpon>AnnouncementsList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Announcement.cs" />
     <Compile Include="Branch.cs" />
     <Compile Include="Class.cs" />
     <Compile Include="Course.cs" />
