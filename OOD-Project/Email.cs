@@ -23,6 +23,10 @@ namespace OOD_Project
             this.subject = subject;
         }
 
+        
+
+        public Email() { }
+
         public string Body { get { return body; } set => body = value; }
         public int EmailId { get {  return emailId; } set => emailId = value; }
         public User Recipent { get { return recipient; } set => recipient = value; }
