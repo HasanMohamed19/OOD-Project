@@ -83,6 +83,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddStudentForm.Designer.cs">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddTeacherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddTeacherForm.Designer.cs">
+      <DependentUpon>AddTeacherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddUserForm.Designer.cs">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AdminPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +155,12 @@
     <Compile Include="Global.cs" />
     <Compile Include="Major.cs" />
     <Compile Include="Notification.cs" />
+    <Compile Include="StudentRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentRegisterForm.Designer.cs">
+      <DependentUpon>StudentRegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student\FeedbackForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +189,12 @@
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Teacher.cs" />
+    <Compile Include="TeacherRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherRegisterForm.Designer.cs">
+      <DependentUpon>TeacherRegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teacher\TeacherPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +216,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Admin\AddStudentForm.resx">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddTeacherForm.resx">
+      <DependentUpon>AddTeacherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmailForm.resx">
       <DependentUpon>EmailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentRegisterForm.resx">
+      <DependentUpon>StudentRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\FeedbackForm.resx">
       <DependentUpon>FeedbackForm.cs</DependentUpon>
@@ -230,6 +272,9 @@
     </Compile>
     <EmbeddedResource Include="Student\ViewCoursesForm.resx">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherRegisterForm.resx">
+      <DependentUpon>TeacherRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teacher\TeacherPanel.resx">
       <DependentUpon>TeacherPanel.cs</DependentUpon>
@@ -272,10 +317,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="db.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="db_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>db.mdf</DependentUpon>
     </Content>
   </ItemGroup>

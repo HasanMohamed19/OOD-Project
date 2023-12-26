@@ -62,6 +62,27 @@ namespace OOD_Project
 
         public string BranchName { get => branchName; set => branchName = value; }
 
+        // returns all branches
+        public static List<Branch> GetBranches()
+        {
+            var branches = new List<Branch>();
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[branch]";
+
+            dbm.Reader = dbm.Command.ExecuteReader();
+            while (dbm.Reader.Read())
+            {
+                int branchId = dbm.Reader.GetInt32(0);
+                string branchName = dbm.Reader.GetString(1);
+                string branchPhone = dbm.Reader.GetString(2);
+                branches.Add(new Branch(branchId, branchName, branchPhone));
+            }
+            dbm.Connection.Close();
+            return branches;
+        }
         public static bool DeleteBranch(int branch_id)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
