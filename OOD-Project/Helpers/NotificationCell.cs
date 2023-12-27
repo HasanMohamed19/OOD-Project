@@ -13,10 +13,12 @@ namespace OOD_Project.Helpers
     public partial class NotificationCell : UserControl
     {
         private Notification notification;
+        private NotificationMenu parentMenu;
 
         public NotificationCell(Notification notification, NotificationMenu parentMenu)
         {
             InitializeComponent();
+            this.parentMenu = parentMenu;
             this.notification = notification;
             SetLabels();
         }
@@ -32,8 +34,10 @@ namespace OOD_Project.Helpers
             }
         }
 
-        private void NotificationCell_Click(object sender, EventArgs e)
+
+        private void lblBody_Click(object sender, EventArgs e)
         {
+            parentMenu.PerformNotificationAction(notification.Type);
 
         }
     }

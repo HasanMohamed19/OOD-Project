@@ -50,24 +50,31 @@ namespace OOD_Project
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@recipient_user_id", Global.User_id);
-            MessageBox.Show(Global.User_id.ToString());
             dbm.Command.CommandText = "SELECT * FROM [dbo].[email] WHERE recipient_user_id = @recipient_user_id";
-
-            dbm.Reader = dbm.Command.ExecuteReader();
-            while (dbm.Reader.Read())
+            try
             {
-                int emailId = Convert.ToInt32(dbm.Reader["email_id"].ToString());
-                emailIds.Add(emailId);
-                string body = dbm.Reader["body"].ToString();
-                string subject = dbm.Reader["subject"].ToString();
-                
-                ListViewItem emailItem = new ListViewItem(dbm.Reader["sender_user_id"].ToString());
-                emailItem.SubItems.Add(dbm.Reader["recipient_user_id"].ToString());
-                emailsListView.Items.Add(emailItem);
+                dbm.Reader = dbm.Command.ExecuteReader();
+                while (dbm.Reader.Read())
+                {
+                    int emailId = Convert.ToInt32(dbm.Reader["email_id"].ToString());
+                    emailIds.Add(emailId);
+                    string body = dbm.Reader["body"].ToString();
+                    string subject = dbm.Reader["subject"].ToString();
 
+                    ListViewItem emailItem = new ListViewItem(dbm.Reader["sender_user_id"].ToString());
+                    emailItem.SubItems.Add(dbm.Reader["recipient_user_id"].ToString());
+                    emailsListView.Items.Add(emailItem);
+
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
             }
-            dbm.Command.Parameters.Clear();
-            dbm.Connection.Close();
+            
 
         }
 

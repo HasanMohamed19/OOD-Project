@@ -94,20 +94,27 @@ namespace OOD_Project
             dbm.Command.CommandText = "SELECT notification_id, title, body, notification_type_id, has_read FROM [dbo].[notification] " +
                 "WHERE user_id = @user_id " +
                 "ORDER BY notification_id DESC";
-
-            dbm.Reader = dbm.Command.ExecuteReader();
-            while (dbm.Reader.Read())
+            try
             {
-                int notificationId = dbm.Reader.GetInt32(0);
-                string title = dbm.Reader.GetString(1);
-                string body = dbm.Reader.GetString(2);
-                NotificationType type = (NotificationType)dbm.Reader.GetInt32(3);
-                bool read = dbm.Reader.GetBoolean(4);
-                notifications.Add(new Notification(body, user, notificationId, title, type, read));
+                dbm.Reader = dbm.Command.ExecuteReader();
+                while (dbm.Reader.Read())
+                {
+                    int notificationId = dbm.Reader.GetInt32(0);
+                    string title = dbm.Reader.GetString(1);
+                    string body = dbm.Reader.GetString(2);
+                    NotificationType type = (NotificationType)dbm.Reader.GetInt32(3);
+                    bool read = dbm.Reader.GetBoolean(4);
+                    notifications.Add(new Notification(body, user, notificationId, title, type, read));
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            } finally
+            {
+                dbm.Reader.Close();
+                dbm.Connection.Close();
             }
-            dbm.Reader.Close();
-            dbm.Connection.Close();
-
+            
             return notifications;
         }
 

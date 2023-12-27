@@ -21,18 +21,19 @@ namespace OOD_Project
             Process.Start(url);
          */
         private Student loggedInStudent;
+        private User loggedInUser;
         private bool notificationMenuOpened;
         public StudentPanel()
         {
             InitializeComponent();
-            loggedInStudent = Student.GetStudent(Global.User_id);
+            loggedInUser = User.GetUser(Global.User_id);
             notificationMenuOpened = false;
             CheckUnreadNotifications();
         }
 
         private void CheckUnreadNotifications()
         {
-            if (User.UnreadNotificationsForUser(loggedInStudent) <= 0)
+            if (User.UnreadNotificationsForUser(loggedInUser) <= 0)
             {
                 // no unread notifications
                 UpdateBell(false);
@@ -52,13 +53,13 @@ namespace OOD_Project
             }
         }
 
-        private void OpenNotificationMenu(Student student, StudentPanel parentForm)
+        private void OpenNotificationMenu(User user, StudentPanel parentForm)
         {
             if (notificationMenuOpened)
             { 
                 return;
             }
-            List<Notification> notificationList = Notification.GetNotificationsForUser(student);
+            List<Notification> notificationList = Notification.GetNotificationsForUser(user);
             NotificationMenu menu = new NotificationMenu(notificationList, parentForm);
             // place under notification bell
             Point menuLocation = btnNotificationBell.PointToScreen(Point.Empty);
@@ -72,7 +73,7 @@ namespace OOD_Project
         public void NotificationMenuClosed()
         {
             // TODO: mark all notifications as read and save to db
-            Notification.MarkAllReadForUser(loggedInStudent);
+            Notification.MarkAllReadForUser(loggedInUser);
             CheckUnreadNotifications();
             notificationMenuOpened = false;
         }
@@ -86,11 +87,12 @@ namespace OOD_Project
                     break;
                 case NotificationType.email:
                     // go to email tab
+                    OpenChildForm(new ViewEmails());
                     break;
             }
         }
 
-        private void OpenChildForm(Form childForm, object senderBtn)
+        private void OpenChildForm(Form childForm)
         {
 
             childForm.TopLevel = false;
@@ -104,17 +106,17 @@ namespace OOD_Project
 
         private void viewCoursesBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ViewCoursesForm(), sender);
+            OpenChildForm(new ViewCoursesForm());
         }
 
         private void btnNotificationBell_Click(object sender, EventArgs e)
         {
-            OpenNotificationMenu(loggedInStudent, this);
+            OpenNotificationMenu(loggedInUser, this);
         }
 
         private void viewEmailBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ViewEmails(), sender);
+            OpenChildForm(new ViewEmails());
         }
     }
 }

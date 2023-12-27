@@ -52,7 +52,9 @@ namespace OOD_Project
 
         public void PerformNotificationAction(NotificationType type)
         {
+            parentForm.NotificationMenuClosed();
             parentForm.PerformNotificationAction(type);
+            this.Close();
         }
 
         private void NotificationMenu_Deactivate(object sender, EventArgs e)

@@ -63,7 +63,7 @@ namespace OOD_Project
 
         public static int UnreadNotificationsForUser(User user)
         {
-            int unreadCount;
+            int unreadCount = 0;
 
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
@@ -75,23 +75,31 @@ namespace OOD_Project
                 " WHERE n.user_id = u.user_id " +
                 " AND u.user_id = @user_id " +
                 " AND has_read = 0";
-
-            dbm.Reader = dbm.Command.ExecuteReader();
-
-            if (!dbm.Reader.Read())
+            try
             {
-                return 0;
+                dbm.Reader = dbm.Command.ExecuteReader();
+
+                if (!dbm.Reader.Read())
+                {
+                    return 0;
+                }
+                unreadCount = dbm.Reader.GetInt32(0);
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Reader.Close();
+                dbm.Connection.Close();
             }
-            unreadCount = dbm.Reader.GetInt32(0);
-            dbm.Reader.Close();
-            dbm.Connection.Close();
 
             return unreadCount;
         }
 
         public static User GetUser(int user_id)
         {
-            User user;
+            User user = null;
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
@@ -100,24 +108,32 @@ namespace OOD_Project
             dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification " +
                 " FROM  [dbo].[User] u " +
                 " WHERE  u.user_id = @user_id";
-
-            dbm.Reader = dbm.Command.ExecuteReader();
-
-            if (!dbm.Reader.Read())
+            try
             {
-                return null;
-            }
-            int id = dbm.Reader.GetInt32(0);
-            string username = dbm.Reader.GetString(1);
-            string password = dbm.Reader.GetString(2);
-            string email = dbm.Reader.GetString(3);
-            UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
-            UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
-            bool hasNotification = dbm.Reader.GetBoolean(6);
-            dbm.Reader.Close();
-            dbm.Connection.Close();
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (!dbm.Reader.Read())
+                {
+                    return null;
+                }
+                int id = dbm.Reader.GetInt32(0);
+                string username = dbm.Reader.GetString(1);
+                string password = dbm.Reader.GetString(2);
+                string email = dbm.Reader.GetString(3);
+                UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
+                UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
+                bool hasNotification = dbm.Reader.GetBoolean(6);
 
-            user = new User(id, username, password, email, roleId, statusId, hasNotification);
+                user = new User(id, username, password, email, roleId, statusId, hasNotification);
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+            }
+
+            
             return user;
         }
         public static void AddUser(User user)
@@ -139,7 +155,7 @@ namespace OOD_Project
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show (ex.Message);
             }
             finally
             {
@@ -157,7 +173,6 @@ namespace OOD_Project
             try
             {
                 dbm.Command.ExecuteNonQuery();
-                return true;
             }
             catch (Exception ex)
             {
@@ -168,6 +183,7 @@ namespace OOD_Project
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();
             }
+            return true;
 
         }
 
@@ -265,13 +281,23 @@ namespace OOD_Project
             dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@email_id", 20);
             dbm.Command.CommandText = "SELECT recipient_user_id FROM [dbo].[email] WHERE email_id = @email_id";
-            dbm.Reader = dbm.Command.ExecuteReader();
-            if (dbm.Reader.Read())
+
+            try
             {
-                rid = Convert.ToInt32(dbm.Reader["recipient_user_id"].ToString());
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    rid = Convert.ToInt32(dbm.Reader["recipient_user_id"].ToString());
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
             }
-            dbm.Command.Parameters.Clear();
-            dbm.Connection.Close();
+            
             return rid;
         }
 

@@ -51,6 +51,7 @@
             this.lblBody.Size = new System.Drawing.Size(212, 52);
             this.lblBody.TabIndex = 1;
             this.lblBody.Text = "Notification Body\r\nIt can contain multiple lines\r\nUp to three lines!";
+            this.lblBody.Click += new System.EventHandler(this.lblBody_Click);
             // 
             // NotificationCell
             // 
@@ -61,7 +62,6 @@
             this.Name = "NotificationCell";
             this.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.Size = new System.Drawing.Size(212, 78);
-            this.Click += new System.EventHandler(this.NotificationCell_Click);
             this.ResumeLayout(false);
 
         }
