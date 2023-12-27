@@ -211,7 +211,7 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@body", email.Body);
             dbm.Command.Parameters.AddWithValue("@recipient_user_id", email.Recipent.UserId);
             dbm.Command.CommandText = "INSERT INTO [dbo].[email] (email_id, body, subject, sender_user_id, recipient_user_id)" +
-                " VALUES(NEXT VALUE FOR [dbo].[emailIDSequence], @body, @subject, 2, 2)";
+                " VALUES(NEXT VALUE FOR [dbo].[emailIDSequence], @body, @subject, 2, 3)";
 
             try
             {

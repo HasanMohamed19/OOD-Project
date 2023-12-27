@@ -35,10 +35,10 @@
             this.manageUsersBtn = new System.Windows.Forms.Button();
             this.manageCoursesBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.teacherMainContent = new System.Windows.Forms.Panel();
             this.notificationPnl = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnNotificationBell = new System.Windows.Forms.Button();
+            this.teacherMainContent = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.notificationPnl.SuspendLayout();
@@ -139,16 +139,6 @@
             this.label1.Text = "eLMS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // teacherMainContent
-            // 
-            this.teacherMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.teacherMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.teacherMainContent.Location = new System.Drawing.Point(0, 0);
-            this.teacherMainContent.Margin = new System.Windows.Forms.Padding(2);
-            this.teacherMainContent.Name = "teacherMainContent";
-            this.teacherMainContent.Size = new System.Drawing.Size(1008, 601);
-            this.teacherMainContent.TabIndex = 4;
-            // 
             // notificationPnl
             // 
             this.notificationPnl.Controls.Add(this.button1);
@@ -189,6 +179,17 @@
             this.btnNotificationBell.Size = new System.Drawing.Size(56, 30);
             this.btnNotificationBell.TabIndex = 0;
             this.btnNotificationBell.UseVisualStyleBackColor = true;
+            this.btnNotificationBell.Click += new System.EventHandler(this.btnNotificationBell_Click);
+            // 
+            // teacherMainContent
+            // 
+            this.teacherMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.teacherMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.teacherMainContent.Location = new System.Drawing.Point(0, 0);
+            this.teacherMainContent.Margin = new System.Windows.Forms.Padding(2);
+            this.teacherMainContent.Name = "teacherMainContent";
+            this.teacherMainContent.Size = new System.Drawing.Size(1008, 601);
+            this.teacherMainContent.TabIndex = 4;
             // 
             // TeacherPanel
             // 
