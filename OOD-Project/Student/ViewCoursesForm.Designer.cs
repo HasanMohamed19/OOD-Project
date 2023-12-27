@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "ITCode | Course with very long name",
-            "Tutor Name thats also long"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "Wednesday",
             "10:00 AM - 11:50 AM",
             "36.203"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "Thursday",
             "8:00 AM - 9:50 AM",
             "36.206"}, -1);
@@ -56,13 +53,13 @@
             this.courseCreditsLabel = new System.Windows.Forms.Label();
             this.courseTutorLabel = new System.Windows.Forms.Label();
             this.courseCRNLabel = new System.Windows.Forms.Label();
-            this.courseSectionLabel = new System.Windows.Forms.Label();
             this.courseCodeLabel = new System.Windows.Forms.Label();
             this.courseTitleLabel = new System.Windows.Forms.Label();
             this.buttonPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.feedbackBtn = new System.Windows.Forms.Button();
             this.downloadBtn = new System.Windows.Forms.Button();
             this.emailBtn = new System.Windows.Forms.Button();
+            this.courseSectionLabel = new System.Windows.Forms.Label();
             this.viewCoursesMainPanel.SuspendLayout();
             this.courseDetailedPanel.SuspendLayout();
             this.classDetailsPanel.SuspendLayout();
@@ -82,8 +79,6 @@
             this.coursesListView.FullRowSelect = true;
             this.coursesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.coursesListView.HideSelection = false;
-            this.coursesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
             this.coursesListView.Location = new System.Drawing.Point(0, 0);
             this.coursesListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.coursesListView.MultiSelect = false;
@@ -147,8 +142,8 @@
             this.classesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.classesListView.HideSelection = false;
             this.classesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2,
-            listViewItem3});
+            listViewItem5,
+            listViewItem6});
             this.classesListView.Location = new System.Drawing.Point(0, 0);
             this.classesListView.MultiSelect = false;
             this.classesListView.Name = "classesListView";
@@ -187,7 +182,7 @@
             this.CourseDetailsPanelTable.ColumnCount = 3;
             this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.63158F));
             this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
-            this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 184F));
+            this.CourseDetailsPanelTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 245F));
             this.CourseDetailsPanelTable.Controls.Add(this.courseDescription, 0, 2);
             this.CourseDetailsPanelTable.Controls.Add(this.courseProgrammeLabel, 2, 1);
             this.CourseDetailsPanelTable.Controls.Add(this.courseCreditsLabel, 1, 1);
@@ -224,8 +219,8 @@
             // 
             this.courseProgrammeLabel.AutoSize = true;
             this.courseProgrammeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseProgrammeLabel.Location = new System.Drawing.Point(595, 82);
-            this.courseProgrammeLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
+            this.courseProgrammeLabel.Location = new System.Drawing.Point(510, 100);
+            this.courseProgrammeLabel.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
             this.courseProgrammeLabel.Name = "courseProgrammeLabel";
             this.courseProgrammeLabel.Size = new System.Drawing.Size(176, 20);
             this.courseProgrammeLabel.TabIndex = 2;
@@ -236,8 +231,8 @@
             // 
             this.courseCreditsLabel.AutoSize = true;
             this.courseCreditsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseCreditsLabel.Location = new System.Drawing.Point(316, 82);
-            this.courseCreditsLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
+            this.courseCreditsLabel.Location = new System.Drawing.Point(272, 100);
+            this.courseCreditsLabel.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
             this.courseCreditsLabel.Name = "courseCreditsLabel";
             this.courseCreditsLabel.Size = new System.Drawing.Size(85, 20);
             this.courseCreditsLabel.TabIndex = 1;
@@ -260,25 +255,13 @@
             // 
             this.courseCRNLabel.AutoSize = true;
             this.courseCRNLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseCRNLabel.Location = new System.Drawing.Point(595, 10);
-            this.courseCRNLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
+            this.courseCRNLabel.Location = new System.Drawing.Point(510, 12);
+            this.courseCRNLabel.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
             this.courseCRNLabel.Name = "courseCRNLabel";
             this.courseCRNLabel.Size = new System.Drawing.Size(96, 20);
             this.courseCRNLabel.TabIndex = 2;
             this.courseCRNLabel.Text = "CRN: 43789";
             this.courseCRNLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // courseSectionLabel
-            // 
-            this.courseSectionLabel.AutoSize = true;
-            this.courseSectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseSectionLabel.Location = new System.Drawing.Point(316, 10);
-            this.courseSectionLabel.Margin = new System.Windows.Forms.Padding(6, 10, 0, 0);
-            this.courseSectionLabel.Name = "courseSectionLabel";
-            this.courseSectionLabel.Size = new System.Drawing.Size(80, 20);
-            this.courseSectionLabel.TabIndex = 1;
-            this.courseSectionLabel.Text = "Section: 0";
-            this.courseSectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // courseCodeLabel
             // 
@@ -364,6 +347,18 @@
             this.emailBtn.UseVisualStyleBackColor = false;
             this.emailBtn.Click += new System.EventHandler(this.emailBtn_Click);
             // 
+            // courseSectionLabel
+            // 
+            this.courseSectionLabel.AutoSize = true;
+            this.courseSectionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseSectionLabel.Location = new System.Drawing.Point(272, 12);
+            this.courseSectionLabel.Margin = new System.Windows.Forms.Padding(8, 12, 0, 0);
+            this.courseSectionLabel.Name = "courseSectionLabel";
+            this.courseSectionLabel.Size = new System.Drawing.Size(100, 25);
+            this.courseSectionLabel.TabIndex = 1;
+            this.courseSectionLabel.Text = "Section: 0";
+            this.courseSectionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ViewCoursesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,7 +388,6 @@
         private System.Windows.Forms.Panel classDetailsPanel;
         private System.Windows.Forms.Label courseTitleLabel;
         private System.Windows.Forms.Label courseCodeLabel;
-        private System.Windows.Forms.Label courseSectionLabel;
         private System.Windows.Forms.Label courseCRNLabel;
         private System.Windows.Forms.Label courseTutorLabel;
         private System.Windows.Forms.Label courseCreditsLabel;
@@ -410,5 +404,6 @@
         private System.Windows.Forms.Button feedbackBtn;
         private System.Windows.Forms.Button downloadBtn;
         private System.Windows.Forms.Button emailBtn;
+        private System.Windows.Forms.Label courseSectionLabel;
     }
 }

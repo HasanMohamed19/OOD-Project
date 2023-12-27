@@ -1,6 +1,8 @@
 ﻿using OOD_Project.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -165,8 +167,9 @@ namespace OOD_Project
             }
         }
 
-        public static void SendEmail(string subject, string content, int recipient_id)
+        public static int SendEmail(string subject, string content, int recipient_id)
         {
+            int emailId = 0;
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
@@ -174,7 +177,7 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@body", content);
             dbm.Command.Parameters.AddWithValue("@recipient_user_id", recipient_id);
             dbm.Command.CommandText = "INSERT INTO [dbo].[email] (email_id, body, subject, sender_user_id, recipient_user_id)" +
-                " VALUES (1, @body, @subject, 2, 3)";
+                " VALUES(NEXT VALUE FOR [dbo].[emailIDSequence], @body, @subject, 2, 2)";
 
             try
             {
@@ -183,6 +186,88 @@ namespace OOD_Project
             {
                 MessageBox.Show(ex.Message);
             } finally
+            {
+                dbm.Command.Parameters.Clear();
+                
+            }
+
+            
+            dbm.Command.CommandText = "SELECT CAST(CURRENT_VALUE AS INT) FROM SYS.SEQUENCES WHERE NAME='emailIDSequence'";
+            
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    emailId = dbm.Reader.GetInt32(0);
+                }
+                
+                MessageBox.Show(emailId.ToString());
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Reader.Close();
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+            
+
+
+            return emailId;
+
+        }
+
+        private static int getRecipientId(int eid)
+        {
+            int rid = 0;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@email_id", 20);
+            dbm.Command.CommandText = "SELECT recipient_user_id FROM [dbo].[email] WHERE email_id = @email_id";
+            dbm.Reader = dbm.Command.ExecuteReader();
+            if (dbm.Reader.Read())
+            {
+                rid = Convert.ToInt32(dbm.Reader["recipient_user_id"].ToString());
+            }
+            dbm.Command.Parameters.Clear();
+            dbm.Connection.Close();
+            return rid;
+        }
+
+        public static void SendAttachments(string path)
+        {
+            int recId = getRecipientId(20);
+            string fileName = Path.GetFileName(path);
+            string folderPath = Path.GetDirectoryName(path);
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@file_name", fileName);
+            dbm.Command.Parameters.AddWithValue("@folder_path", folderPath);
+            dbm.Command.Parameters.AddWithValue("@email_id", 20);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[email_attachment] (email_attachment_id, filename, folder_path, email_id)" +
+                " VALUES(NEXT VALUE FOR [dbo].[emaiAttachmentIDSequence], @file_name, @folder_path, @email_id)";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+                // format: sender_receiver
+                string dest = Path.Combine(DocumentHelper.parentDirectory, (Global.User_id.ToString() + "_" + recId.ToString()));
+                if (!DocumentHelper.IsDirectoryExists(dest))
+                {
+                    DocumentHelper.MakeDirectory(Path.Combine(DocumentHelper.parentDirectory, (Global.User_id.ToString() + "_" + recId.ToString())));
+                   
+                }
+                DocumentHelper.CopyFile(path, Path.Combine(dest, fileName));
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
             {
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();

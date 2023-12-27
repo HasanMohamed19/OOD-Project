@@ -28,138 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.ContentLbl = new System.Windows.Forms.Label();
-            this.txtContent = new System.Windows.Forms.TextBox();
-            this.toLbl = new System.Windows.Forms.Label();
-            this.subjectLbl = new System.Windows.Forms.Label();
-            this.txtSubject = new System.Windows.Forms.TextBox();
-            this.txtTo = new System.Windows.Forms.TextBox();
+            this.recipientTxt = new System.Windows.Forms.TextBox();
+            this.subjectTxt = new System.Windows.Forms.TextBox();
+            this.bodyText = new System.Windows.Forms.RichTextBox();
+            this.attachmentsTxt = new System.Windows.Forms.TextBox();
             this.btnSendEmail = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.btnAttach = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel2
+            // recipientTxt
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.5F));
-            this.tableLayoutPanel2.Controls.Add(this.ContentLbl, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.txtContent, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.toLbl, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.subjectLbl, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.txtSubject, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.txtTo, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(46, 13);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(913, 356);
-            this.tableLayoutPanel2.TabIndex = 45;
+            this.recipientTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recipientTxt.Location = new System.Drawing.Point(39, 26);
+            this.recipientTxt.Name = "recipientTxt";
+            this.recipientTxt.Size = new System.Drawing.Size(613, 27);
+            this.recipientTxt.TabIndex = 0;
+            this.recipientTxt.Text = "To";
             // 
-            // ContentLbl
+            // subjectTxt
             // 
-            this.ContentLbl.AutoSize = true;
-            this.ContentLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ContentLbl.Location = new System.Drawing.Point(7, 68);
-            this.ContentLbl.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.ContentLbl.Name = "ContentLbl";
-            this.ContentLbl.Size = new System.Drawing.Size(87, 25);
-            this.ContentLbl.TabIndex = 2;
-            this.ContentLbl.Text = "Content:";
+            this.subjectTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subjectTxt.Location = new System.Drawing.Point(39, 66);
+            this.subjectTxt.Name = "subjectTxt";
+            this.subjectTxt.Size = new System.Drawing.Size(613, 27);
+            this.subjectTxt.TabIndex = 1;
+            this.subjectTxt.Text = "Subject";
             // 
-            // txtContent
+            // bodyText
             // 
-            this.txtContent.Location = new System.Drawing.Point(118, 66);
-            this.txtContent.Margin = new System.Windows.Forms.Padding(4);
-            this.txtContent.Multiline = true;
-            this.txtContent.Name = "txtContent";
-            this.txtContent.Size = new System.Drawing.Size(791, 286);
-            this.txtContent.TabIndex = 4;
+            this.bodyText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bodyText.Location = new System.Drawing.Point(39, 106);
+            this.bodyText.Name = "bodyText";
+            this.bodyText.Size = new System.Drawing.Size(613, 399);
+            this.bodyText.TabIndex = 2;
+            this.bodyText.Text = "";
             // 
-            // toLbl
+            // attachmentsTxt
             // 
-            this.toLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.toLbl.AutoSize = true;
-            this.toLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toLbl.Location = new System.Drawing.Point(4, 3);
-            this.toLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.toLbl.Name = "toLbl";
-            this.toLbl.Size = new System.Drawing.Size(42, 25);
-            this.toLbl.TabIndex = 5;
-            this.toLbl.Text = "To:";
-            // 
-            // subjectLbl
-            // 
-            this.subjectLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.subjectLbl.AutoSize = true;
-            this.subjectLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subjectLbl.Location = new System.Drawing.Point(4, 34);
-            this.subjectLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.subjectLbl.Name = "subjectLbl";
-            this.subjectLbl.Size = new System.Drawing.Size(84, 25);
-            this.subjectLbl.TabIndex = 1;
-            this.subjectLbl.Text = "Subject:";
-            // 
-            // txtSubject
-            // 
-            this.txtSubject.Location = new System.Drawing.Point(118, 35);
-            this.txtSubject.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSubject.Name = "txtSubject";
-            this.txtSubject.Size = new System.Drawing.Size(791, 22);
-            this.txtSubject.TabIndex = 3;
-            // 
-            // txtTo
-            // 
-            this.txtTo.Location = new System.Drawing.Point(118, 4);
-            this.txtTo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(791, 22);
-            this.txtTo.TabIndex = 6;
+            this.attachmentsTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.attachmentsTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attachmentsTxt.Location = new System.Drawing.Point(39, 518);
+            this.attachmentsTxt.Multiline = true;
+            this.attachmentsTxt.Name = "attachmentsTxt";
+            this.attachmentsTxt.ReadOnly = true;
+            this.attachmentsTxt.Size = new System.Drawing.Size(613, 22);
+            this.attachmentsTxt.TabIndex = 3;
             // 
             // btnSendEmail
             // 
-            this.btnSendEmail.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSendEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.btnSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSendEmail.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendEmail.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSendEmail.Location = new System.Drawing.Point(263, 383);
-            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSendEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendEmail.ForeColor = System.Drawing.Color.White;
+            this.btnSendEmail.Location = new System.Drawing.Point(39, 551);
             this.btnSendEmail.Name = "btnSendEmail";
-            this.btnSendEmail.Size = new System.Drawing.Size(511, 66);
-            this.btnSendEmail.TabIndex = 46;
-            this.btnSendEmail.Text = "Send Email";
+            this.btnSendEmail.Size = new System.Drawing.Size(141, 45);
+            this.btnSendEmail.TabIndex = 4;
+            this.btnSendEmail.Text = "Send";
             this.btnSendEmail.UseVisualStyleBackColor = false;
             this.btnSendEmail.Click += new System.EventHandler(this.btnSendEmail_Click);
+            // 
+            // btnAttach
+            // 
+            this.btnAttach.Location = new System.Drawing.Point(186, 551);
+            this.btnAttach.Name = "btnAttach";
+            this.btnAttach.Size = new System.Drawing.Size(127, 45);
+            this.btnAttach.TabIndex = 5;
+            this.btnAttach.Text = "Attach";
+            this.btnAttach.UseVisualStyleBackColor = true;
+            this.btnAttach.Click += new System.EventHandler(this.btnAttach_Click);
             // 
             // EmailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1059, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(664, 613);
+            this.Controls.Add(this.btnAttach);
             this.Controls.Add(this.btnSendEmail);
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.attachmentsTxt);
+            this.Controls.Add(this.bodyText);
+            this.Controls.Add(this.recipientTxt);
+            this.Controls.Add(this.subjectTxt);
             this.Name = "EmailForm";
             this.Text = "EmailForm";
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label ContentLbl;
-        private System.Windows.Forms.TextBox txtContent;
-        private System.Windows.Forms.Label toLbl;
-        private System.Windows.Forms.Label subjectLbl;
-        private System.Windows.Forms.TextBox txtSubject;
-        private System.Windows.Forms.TextBox txtTo;
+        private System.Windows.Forms.TextBox recipientTxt;
+        private System.Windows.Forms.TextBox subjectTxt;
+        private System.Windows.Forms.RichTextBox bodyText;
+        private System.Windows.Forms.TextBox attachmentsTxt;
         private System.Windows.Forms.Button btnSendEmail;
+        private System.Windows.Forms.Button btnAttach;
     }
 }

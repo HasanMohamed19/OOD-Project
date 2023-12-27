@@ -111,5 +111,10 @@ namespace OOD_Project
         {
             OpenNotificationMenu(loggedInStudent, this);
         }
+
+        private void viewEmailBtn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ViewEmails(), sender);
+        }
     }
 }

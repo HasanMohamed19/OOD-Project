@@ -143,6 +143,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DocumentHelper.cs" />
     <Compile Include="Email.cs" />
     <Compile Include="EmailAttachment.cs" />
     <Compile Include="EmailForm.cs">
@@ -240,6 +241,12 @@
     <EmbeddedResource Include="Admin\AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="ViewEmails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewEmails.Designer.cs">
+      <DependentUpon>ViewEmails.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Teacher\TeacherPanel.resx">
       <DependentUpon>TeacherPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewEmails.resx">
+      <DependentUpon>ViewEmails.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dbDataSet.xsc">
       <DependentUpon>dbDataSet.xsd</DependentUpon>

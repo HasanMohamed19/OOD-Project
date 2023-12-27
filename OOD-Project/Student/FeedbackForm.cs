@@ -165,8 +165,15 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@student_id", Global.Student_id);
             dbm.Command.Parameters.AddWithValue("@course_id", selectedCourse.Id);
             dbm.Command.CommandText = "SELECT feedback_id FROM [dbo].[Feedback] WHERE student_id = @student_id AND course_id = @course_id";
-            object result = dbm.Command.ExecuteScalar();
-            int id = Convert.ToInt32(result);
+            dbm.Reader = dbm.Command.ExecuteReader();
+            int id = 0;
+            if (dbm.Reader.Read())
+            {
+                int fid = dbm.Reader.GetOrdinal("feedback_id");
+                id = dbm.Reader.GetInt32(fid);
+                MessageBox.Show(id.ToString());
+            }
+            
             dbm.Command.Parameters.Clear();
             dbm.Connection.Close();
             return id;
@@ -195,7 +202,7 @@ namespace OOD_Project
                 DatabaseManager dbm = DatabaseManager.Instance();
                 dbm.Connection.Open();
                 int id = getNewFeedbackId();
-                MessageBox.Show(id.ToString());
+                MessageBox.Show("here" + id.ToString());
                 dbm.Connection.Open();
                 dbm.Command = dbm.Connection.CreateCommand();
                 
@@ -205,7 +212,7 @@ namespace OOD_Project
                     dbm.Command.Parameters.AddWithValue("@feedback_id", id);
                     dbm.Command.Parameters.AddWithValue("@question_number", i);
                     dbm.Command.Parameters.AddWithValue("@answer_rating", answers[i - 1]);
-                    dbm.Command.CommandText = "INSERT INTO [dbo].[Feedback_Answer] (feedback_asnwer_id, answer_rating, question_number, feedback_id)" +
+                    dbm.Command.CommandText = "INSERT INTO [dbo].[Feedback_Answer] (feedback_answer_id, answer_rating, question_number, feedback_id)" +
                         "VALUES (NEXT VALUE FOR [dbo].[FeedbackAnswerIDSequence], @answer_rating, @question_number, @feedback_id)";
                     
                     try
