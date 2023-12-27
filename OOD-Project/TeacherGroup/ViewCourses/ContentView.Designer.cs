@@ -58,10 +58,11 @@
             this.classesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2});
-            this.classesListView.Location = new System.Drawing.Point(0, 33);
+            this.classesListView.Location = new System.Drawing.Point(0, 41);
+            this.classesListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.classesListView.MultiSelect = false;
             this.classesListView.Name = "classesListView";
-            this.classesListView.Size = new System.Drawing.Size(773, 427);
+            this.classesListView.Size = new System.Drawing.Size(1031, 525);
             this.classesListView.TabIndex = 3;
             this.classesListView.UseCompatibleStateImageBehavior = false;
             this.classesListView.View = System.Windows.Forms.View.Details;
@@ -83,8 +84,9 @@
             this.usersListControls.Controls.Add(this.deleteContentBtn);
             this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersListControls.Location = new System.Drawing.Point(0, 0);
+            this.usersListControls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usersListControls.Name = "usersListControls";
-            this.usersListControls.Size = new System.Drawing.Size(773, 33);
+            this.usersListControls.Size = new System.Drawing.Size(1031, 41);
             this.usersListControls.TabIndex = 6;
             // 
             // uploadContentBtn
@@ -94,13 +96,15 @@
             this.uploadContentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadContentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uploadContentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.uploadContentBtn.Location = new System.Drawing.Point(3, 3);
+            this.uploadContentBtn.Location = new System.Drawing.Point(4, 4);
+            this.uploadContentBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uploadContentBtn.Name = "uploadContentBtn";
-            this.uploadContentBtn.Size = new System.Drawing.Size(95, 27);
+            this.uploadContentBtn.Size = new System.Drawing.Size(127, 33);
             this.uploadContentBtn.TabIndex = 0;
             this.uploadContentBtn.TabStop = false;
             this.uploadContentBtn.Text = "Upload";
             this.uploadContentBtn.UseVisualStyleBackColor = false;
+            this.uploadContentBtn.Click += new System.EventHandler(this.uploadContentBtn_Click);
             // 
             // downloadContentBtn
             // 
@@ -109,9 +113,10 @@
             this.downloadContentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.downloadContentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.downloadContentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.downloadContentBtn.Location = new System.Drawing.Point(104, 3);
+            this.downloadContentBtn.Location = new System.Drawing.Point(139, 4);
+            this.downloadContentBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.downloadContentBtn.Name = "downloadContentBtn";
-            this.downloadContentBtn.Size = new System.Drawing.Size(95, 27);
+            this.downloadContentBtn.Size = new System.Drawing.Size(127, 33);
             this.downloadContentBtn.TabIndex = 3;
             this.downloadContentBtn.TabStop = false;
             this.downloadContentBtn.Text = "Download";
@@ -124,22 +129,24 @@
             this.deleteContentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteContentBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteContentBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.deleteContentBtn.Location = new System.Drawing.Point(205, 3);
+            this.deleteContentBtn.Location = new System.Drawing.Point(274, 4);
+            this.deleteContentBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.deleteContentBtn.Name = "deleteContentBtn";
-            this.deleteContentBtn.Size = new System.Drawing.Size(95, 27);
+            this.deleteContentBtn.Size = new System.Drawing.Size(127, 33);
             this.deleteContentBtn.TabIndex = 2;
             this.deleteContentBtn.Text = "Delete";
             this.deleteContentBtn.UseVisualStyleBackColor = false;
             // 
             // ContentView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(773, 460);
+            this.ClientSize = new System.Drawing.Size(1031, 566);
             this.Controls.Add(this.classesListView);
             this.Controls.Add(this.usersListControls);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ContentView";
             this.Text = "ClassesView";
             this.usersListControls.ResumeLayout(false);

@@ -9,7 +9,7 @@ namespace OOD_Project
 {
     public static class DocumentHelper
     {
-        public static string parentDirectory = "C:\\Users\\Hassan\\source\\repos\\OOD-Project\\AppFiles";
+        public static string parentDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppFiles");
         public static void MakeDirectory(string path)
         {
             try

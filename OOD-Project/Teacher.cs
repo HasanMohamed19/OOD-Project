@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -247,6 +248,39 @@ namespace OOD_Project
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();
             }
+        }
+
+        public static void UploadContent(string path, int courseId)
+        {
+            string fileName = Path.GetFileName(path);
+            string folderPath = Path.GetDirectoryName(path);
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@file_name", fileName);
+            dbm.Command.Parameters.AddWithValue("@folder_path", folderPath);
+            dbm.Command.Parameters.AddWithValue("@course_id", courseId);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[Content] (content_id, filename, folder_path, course_id)" +
+                " VALUES (NEXT VALUE FOR [dbo].[contentIDSequence], @file_name, @folder_path, @course_id)";
+
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+                string dest = Path.Combine(DocumentHelper.parentDirectory, courseId.ToString());
+                if (!DocumentHelper.IsDirectoryExists(dest))
+                {
+                    DocumentHelper.MakeDirectory(dest);
+                }
+                DocumentHelper.CopyFile(fileName, dest);
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
         }
 
         public string FirstName { get => firstName; set => firstName = value; }
