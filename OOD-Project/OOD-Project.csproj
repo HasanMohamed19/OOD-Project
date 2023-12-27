@@ -250,6 +250,12 @@
     <EmbeddedResource Include="Admin\AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="ViewAnnouncementsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewAnnouncementsForm.Designer.cs">
+      <DependentUpon>ViewAnnouncementsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewEmails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Teacher\TeacherPanel.resx">
       <DependentUpon>TeacherPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewAnnouncementsForm.resx">
+      <DependentUpon>ViewAnnouncementsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewEmails.resx">
       <DependentUpon>ViewEmails.cs</DependentUpon>

@@ -118,5 +118,10 @@ namespace OOD_Project
         {
             OpenChildForm(new ViewEmails());
         }
+
+        private void viewAnnouncementBtn_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ViewAnnouncementsForm());
+        }
     }
 }
