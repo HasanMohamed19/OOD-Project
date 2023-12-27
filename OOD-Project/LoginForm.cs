@@ -41,12 +41,14 @@ namespace OOD_Project
                 int rid = dbm.Reader.GetOrdinal("role_id");
                 int uid = dbm.Reader.GetOrdinal("user_id");
                 int user_id = dbm.Reader.GetInt32(uid);
-                Global.User_id = user_id;
+                Global.UserId = user_id;
                 roleId = dbm.Reader.GetInt32(rid);
             }
             else
             {
-                MessageBox.Show(dbm.Reader.Read().ToString());
+                MessageBox.Show("Incorrect username or password. Please try again.");
+                dbm.Connection.Close();
+                return;
             }
             dbm.Connection.Close();
             switch (roleId)

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace OOD_Project
 {
     public partial class TeacherPanel : Form, NotificationMenuContainer
@@ -19,9 +20,11 @@ namespace OOD_Project
         public TeacherPanel()
         {
             InitializeComponent();
-            loggedInUser = User.GetUser(Global.User_id);
+            loggedInUser = User.GetUser(Global.UserId);
+            loggedInTeacher = Teacher.GetTeacher(loggedInUser.UserId);
             notificationMenuOpened = false;
             CheckUnreadNotifications();
+            Helper.OpenChildForm(new TeacherGroup.TeacherViewCoursesForm(loggedInTeacher), teacherMainContent);
         }
 
         private void CheckUnreadNotifications()
@@ -87,6 +90,11 @@ namespace OOD_Project
         private void btnNotificationBell_Click(object sender, EventArgs e)
         {
             OpenNotificationMenu(loggedInUser, this);
+        }
+
+        private void viewCoursesBtn_Click(object sender, EventArgs e)
+        {
+            Helper.OpenChildForm(new TeacherGroup.TeacherViewCoursesForm(loggedInTeacher), teacherMainContent);
         }
     }
 }

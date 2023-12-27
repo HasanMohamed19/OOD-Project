@@ -38,7 +38,7 @@ namespace OOD_Project
             {
                 DatabaseManager dbm = DatabaseManager.Instance();
                 dbm.Connection.Open();
-                dbm.Command.Parameters.AddWithValue("@student_id", Global.Student_id);
+                dbm.Command.Parameters.AddWithValue("@student_id", Global.StudentId);
                 dbm.Command.Parameters.AddWithValue("@course_id", selectedCourse.Id);
                 dbm.Command.CommandText = "INSERT INTO [dbo].[Feedback] (feedback_id, student_id, course_id)" +
                     "VALUES (NEXT VALUE FOR [dbo].[feedbackIDSequence], @student_id, @course_id";
@@ -69,7 +69,7 @@ namespace OOD_Project
 
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
-            dbm.Command.Parameters.AddWithValue("@student_id", Global.Student_id);
+            dbm.Command.Parameters.AddWithValue("@student_id", Global.StudentId);
             dbm.Command.Parameters.AddWithValue("@course_id", selectedCourse.Id);
             dbm.Command.CommandText = "SELECT * FROM [dbo].[Feedback] WHERE student_id = @student_id AND course_id = @course_id";
             dbm.Reader = dbm.Command.ExecuteReader();
@@ -162,7 +162,7 @@ namespace OOD_Project
             DatabaseManager dbm = DatabaseManager.Instance();
             //dbm.Connection.Open();
             dbm.Connection.CreateCommand();
-            dbm.Command.Parameters.AddWithValue("@student_id", Global.Student_id);
+            dbm.Command.Parameters.AddWithValue("@student_id", Global.StudentId);
             dbm.Command.Parameters.AddWithValue("@course_id", selectedCourse.Id);
             dbm.Command.CommandText = "SELECT feedback_id FROM [dbo].[Feedback] WHERE student_id = @student_id AND course_id = @course_id";
             dbm.Reader = dbm.Command.ExecuteReader();

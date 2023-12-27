@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using OOD_Project.Helpers;
+using System.Text.RegularExpressions;
 
 namespace OOD_Project
 {
@@ -54,7 +55,7 @@ namespace OOD_Project
             this.userId = userId;
             this.username = username;
             this.password = password;
-            this.email = email;
+            Email = email;
             this.roleId = roleId;
             this.statusId = statusId;
             this.hasNotification = hasNotification;
@@ -318,10 +319,10 @@ namespace OOD_Project
             {
                 dbm.Command.ExecuteNonQuery();
                 // format: sender_receiver
-                string dest = Path.Combine(DocumentHelper.parentDirectory, (Global.User_id.ToString() + "_" + recId.ToString()));
+                string dest = Path.Combine(DocumentHelper.parentDirectory, (Global.UserId.ToString() + "_" + recId.ToString()));
                 if (!DocumentHelper.IsDirectoryExists(dest))
                 {
-                    DocumentHelper.MakeDirectory(Path.Combine(DocumentHelper.parentDirectory, (Global.User_id.ToString() + "_" + recId.ToString())));
+                    DocumentHelper.MakeDirectory(Path.Combine(DocumentHelper.parentDirectory, (Global.UserId.ToString() + "_" + recId.ToString())));
                    
                 }
                 DocumentHelper.CopyFile(path, Path.Combine(dest, fileName));

@@ -36,6 +36,59 @@ namespace OOD_Project
             this.teacherUniversityId = teacherUniversityId;
         }
 
+        public static Teacher GetTeacher(int user_id)
+        {
+            Teacher teacher = null;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+            dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification," +
+                "t.first_name, t.last_name, t.dob, t.cpr, t.gender, t.phone_number, t.programme_id, t.teacher_university_id, branch_id " +
+                " FROM [dbo].[teacher] t, [dbo].[User] u " +
+                " WHERE t.user_id = u.user_id " +
+                " AND u.user_id = @user_id";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+
+                if (!dbm.Reader.Read())
+                {
+                    return null;
+                }
+                int id = dbm.Reader.GetInt32(0);
+                string username = dbm.Reader.GetString(1);
+                string password = dbm.Reader.GetString(2);
+                string email = dbm.Reader.GetString(3);
+                UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
+                UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
+                bool hasNotification = dbm.Reader.GetBoolean(6);
+                string firstName = dbm.Reader.GetString(7);
+                string lastName = dbm.Reader.GetString(8);
+                DateTime dob = dbm.Reader.GetDateTime(9);
+                string cpr = dbm.Reader.GetString(10);
+                string phoneNumber = dbm.Reader.GetString(11);
+                char gender = dbm.Reader.GetString(12)[0];
+                Programme programme = (Programme)dbm.Reader.GetInt32(13);
+                string universityId = dbm.Reader.GetString(14);
+                int branchId = dbm.Reader.GetInt32(15);
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+
+                Branch branch = Branch.GetBranch(branchId);
+                teacher = new Teacher(id, username, password, email, roleId, statusId, hasNotification,
+                    firstName, lastName, dob, cpr, gender, phoneNumber, branch, programme, universityId);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return teacher;
+        }
+
         // check if an inactive teacher account exists with this id
         // used to prevent admin from duplicating universityIds, they must be unique
         public static bool InactiveTeacherExistsWithId(string universityId)

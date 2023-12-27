@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace OOD_Project
 {
@@ -61,6 +62,35 @@ namespace OOD_Project
         }
 
         public string BranchName { get => branchName; set => branchName = value; }
+
+
+        public static Branch GetBranch(int branch_id)
+        {
+            Branch branch = null;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@branch_id", branch_id);
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[branch] " +
+                "WHERE branch_id = @branch_id";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    int branchId = dbm.Reader.GetInt32(0);
+                    string branchName = dbm.Reader.GetString(1);
+                    string branchPhone = dbm.Reader.GetString(2);
+                    branch = new Branch(branchId, branchName, branchPhone);
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally { dbm.Reader.Close(); dbm.Connection.Close(); }
+            
+            return branch;
+        }
 
         // returns all branches
         public static List<Branch> GetBranches()

@@ -49,7 +49,7 @@ namespace OOD_Project
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
-            dbm.Command.Parameters.AddWithValue("@recipient_user_id", Global.User_id);
+            dbm.Command.Parameters.AddWithValue("@recipient_user_id", Global.UserId);
             dbm.Command.CommandText = "SELECT * FROM [dbo].[email] WHERE recipient_user_id = @recipient_user_id";
             try
             {
