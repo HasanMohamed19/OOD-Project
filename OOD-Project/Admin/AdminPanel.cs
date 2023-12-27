@@ -52,5 +52,10 @@ namespace OOD_Project
         {
             OpenChildForm(new ManageCourseForm(this), sender);
         }
+
+        private void btnAddAnouncement_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new AddAnouncementForm(), sender);
+        }
     }
 }

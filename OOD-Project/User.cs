@@ -339,6 +339,33 @@ namespace OOD_Project
 
         }
 
+        public static List<User> GetAllUsers()
+        {
+            List<User> users = new List<User>();
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[User]";
+            dbm.Reader = dbm.Command.ExecuteReader();
+
+            while (dbm.Reader.Read())
+            {
+                int userId = dbm.Reader.GetInt32(0);
+                string username = dbm.Reader["username"].ToString();
+                string password = dbm.Reader["password"].ToString();
+                string email = dbm.Reader["email"].ToString();
+                int roleId = dbm.Reader.GetInt32(4);
+                int statusId = dbm.Reader.GetInt32(5);
+                bool hasNotification = dbm.Reader.GetBoolean(6);
+                User user = new User(userId, username, password, email, (UserRole)roleId, (UserStatus)statusId, hasNotification);
+                users.Add(user);
+            }
+            dbm.Reader.Close();
+            dbm.Command.Parameters.Clear();
+            dbm.Connection.Close();
+            return users;
+        }
+
         public void Update(INotificationSubject subject)
         {
             // create new notification based on subject type and save to db
