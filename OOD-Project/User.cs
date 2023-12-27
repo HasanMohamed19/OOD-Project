@@ -141,7 +141,8 @@ namespace OOD_Project
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
-            
+            dbm.Command = dbm.Connection.CreateCommand();
+
             dbm.Command.Parameters.AddWithValue("@username", user.username);
             dbm.Command.Parameters.AddWithValue("@password", user.password);
             dbm.Command.Parameters.AddWithValue("@email", user.email);
@@ -169,6 +170,7 @@ namespace OOD_Project
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@user_id", user_id);
             dbm.Command.CommandText = "DELETE FROM [dbo].[User] WHERE user_id = @user_id";
             try
@@ -192,17 +194,18 @@ namespace OOD_Project
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
 
+            dbm.Command.Parameters.AddWithValue("@user_id", user.UserId);
             dbm.Command.Parameters.AddWithValue("@username", user.username);
             dbm.Command.Parameters.AddWithValue("@password", user.password);
             dbm.Command.Parameters.AddWithValue("@email", user.email);
             dbm.Command.Parameters.AddWithValue("@role_id", user.roleId);
 
-            dbm.Command.CommandText = "UPDATE [dbo].[User] SET username = @username, password = @password, email = @email, role_id = @role_id, WHERE user_id = @user_id";
+            dbm.Command.CommandText = "UPDATE [dbo].[User] SET username = @username, password = @password, email = @email, role_id = @role_id WHERE user_id = @user_id";
             try
             {
                 dbm.Command.ExecuteNonQuery();
-                return true;
             }
             catch (Exception ex)
             {
@@ -214,6 +217,7 @@ namespace OOD_Project
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();
             }
+            return true;
         }
 
         public static int SendEmail(Email email)

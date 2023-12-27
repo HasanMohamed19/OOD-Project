@@ -119,6 +119,18 @@
     <Compile Include="Admin\EditCourseForm.Designer.cs">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditStudentForm.Designer.cs">
+      <DependentUpon>EditStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditTeacherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditTeacherForm.Designer.cs">
+      <DependentUpon>EditTeacherForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EmailController.cs" />
     <Compile Include="Admin\ManageCoursesForm.cs">
       <SubType>Form</SubType>
@@ -280,6 +292,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditCourseForm.resx">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditStudentForm.resx">
+      <DependentUpon>EditStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditTeacherForm.resx">
+      <DependentUpon>EditTeacherForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageCoursesForm.resx">
       <DependentUpon>ManageCoursesForm.cs</DependentUpon>

@@ -134,7 +134,7 @@ namespace OOD_Project
             
             dbm.Command.Parameters.AddWithValue("@user_id", user_id);
             dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification," +
-                "s.first_name, s.last_name, s.dob, s.cpr, s.gender, s.phone_number, s.major_id, s.student_university_id" +
+                "s.first_name, s.last_name, s.dob, s.cpr, s.phone_number, s.gender, s.major_id, s.student_university_id" +
                 " FROM [dbo].[student] s, [dbo].[User] u " +
                 " WHERE s.user_id = u.user_id " +
                 " AND u.user_id = @user_id";
@@ -177,6 +177,47 @@ namespace OOD_Project
         }
 
 
+        public static void UpdateStudent(Student student)
+        {
+            // update user table for student in db
+            if (!EditUser(student))
+            {
+                return;
+            }
+
+            // update student table
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+
+            // ADD STUDENT ROW
+            dbm.Command.Parameters.AddWithValue("@user_id", student.UserId);
+            dbm.Command.Parameters.AddWithValue("@first_name", student.firstName);
+            dbm.Command.Parameters.AddWithValue("@last_name", student.lastName);
+            dbm.Command.Parameters.AddWithValue("@phone", student.phoneNumber);
+            dbm.Command.Parameters.AddWithValue("@cpr", student.cpr);
+            dbm.Command.Parameters.AddWithValue("@gender", student.gender);
+            dbm.Command.Parameters.AddWithValue("@dob", student.dob);
+            dbm.Command.Parameters.AddWithValue("@major_id", student.InMajor.MajorId);
+            dbm.Command.Parameters.AddWithValue("@student_university_id", student.studentUniversityId);
+            dbm.Command.CommandText = "UPDATE [dbo].[student] SET first_name = @first_name, last_name = @last_name, phone_number = @phone" +
+                ", cpr = @cpr, gender = @gender, dob = @dob, major_id = @major_id, student_university_id = @student_university_id " +
+                " WHERE user_id = @user_id";
+
+            try
+            {
+                int rows = dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
+
         public static void AddStudent(Student student)
         {
             // ADD USER ROW
@@ -205,6 +246,7 @@ namespace OOD_Project
             {
                 dbm.Command.Parameters.Clear();
                 dbm.Reader.Close();
+                dbm.Connection.Close();
             }
 
             dbm.Connection.Open();

@@ -45,7 +45,7 @@ namespace OOD_Project
 
             dbm.Command.Parameters.AddWithValue("@user_id", user_id);
             dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification," +
-                "t.first_name, t.last_name, t.dob, t.cpr, t.gender, t.phone_number, t.programme_id, t.teacher_university_id, branch_id " +
+                "t.first_name, t.last_name, t.dob, t.cpr, t.phone_number, t.gender, t.programme_id, t.teacher_university_id, branch_id " +
                 " FROM [dbo].[teacher] t, [dbo].[User] u " +
                 " WHERE t.user_id = u.user_id " +
                 " AND u.user_id = @user_id";
@@ -172,6 +172,49 @@ namespace OOD_Project
 
             return ids[0];
         }
+
+        public static void UpdateTeacher(Teacher teacher)
+        {
+            // update user table for student in db
+            if (!EditUser(teacher))
+            {
+                return;
+            }
+
+            // update student table
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+
+            // UPDATE STUDENT ROW
+            dbm.Command.Parameters.AddWithValue("@user_id", teacher.UserId);
+            dbm.Command.Parameters.AddWithValue("@first_name", teacher.firstName);
+            dbm.Command.Parameters.AddWithValue("@last_name", teacher.lastName);
+            dbm.Command.Parameters.AddWithValue("@phone", teacher.phoneNumber);
+            dbm.Command.Parameters.AddWithValue("@cpr", teacher.cpr);
+            dbm.Command.Parameters.AddWithValue("@gender", teacher.gender);
+            dbm.Command.Parameters.AddWithValue("@dob", teacher.dob);
+            dbm.Command.Parameters.AddWithValue("@branch_id", teacher.forBranch.BranchId);
+            dbm.Command.Parameters.AddWithValue("@programme_id", (int)teacher.InProgramme);
+            dbm.Command.Parameters.AddWithValue("@teacher_university_id", teacher.teacherUniversityId);
+            dbm.Command.CommandText = "UPDATE [dbo].[teacher] SET first_name = @first_name, last_name = @last_name, phone_number = @phone" +
+                ", cpr = @cpr, gender = @gender, dob = @dob, branch_id = @branch_id, programme_id = @programme_id, teacher_university_id = @teacher_university_id " +
+                " WHERE user_id = @user_id";
+
+            try
+            {
+                int rows = dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
+
         public static void AddTeacher(Teacher teacher)
         {
             // ADD USER ROW

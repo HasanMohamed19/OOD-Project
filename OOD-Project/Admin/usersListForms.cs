@@ -60,7 +60,22 @@ namespace OOD_Project
          
         private void editUserBtn_Click(object sender, EventArgs e)
         {
-
+            if (currentUsersDG.SelectedRows.Count > 0)
+            {
+                int selectedID = Convert.ToInt32(currentUsersDG.SelectedRows[0].Cells[0].Value);
+                UserRole roleID = (UserRole)Convert.ToInt32(currentUsersDG.SelectedRows[0].Cells[4].Value);
+                switch (roleID)
+                {
+                    case UserRole.student:
+                        EditStudentForm studentForm = new EditStudentForm(Student.GetStudent(selectedID), this);
+                        studentForm.Show();
+                        break;
+                    case UserRole.teacher:
+                        EditTeacherForm teacherForm = new EditTeacherForm(Teacher.GetTeacher(selectedID), this);
+                        teacherForm.Show();
+                        break;
+                }
+            }
         }
 
         // called from child views to update after editing fields
@@ -102,27 +117,8 @@ namespace OOD_Project
                 if (currentUsersDG.SelectedRows.Count > 0)
                 {
                     int selectedID = Convert.ToInt32(currentUsersDG.SelectedRows[0].Cells[0].Value);
-                    MessageBox.Show(selectedID.ToString());
-                    // this should be in a method
-                    DatabaseManager dbm = DatabaseManager.Instance();
-                    dbm.Connection.Open();
-                    dbm.Command.Parameters.AddWithValue("@user_id", selectedID);
-                    dbm.Command.CommandText = "DELETE FROM [dbo].[user] WHERE user_id = @user_id";
-                    
-                    try
-                    {
-                        dbm.Command.ExecuteNonQuery();
-                        currentUsersDG.Update();
-                        populateDGV();
-                    } catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    } finally
-                    {
-                        dbm.Connection.Close();
-                    }
-                    
-                    
+
+                    User.DeleteUser(selectedID);
                 }
 
             }

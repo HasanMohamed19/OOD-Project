@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOD_Project.Helpers;
 
 namespace OOD_Project.Admin
 {
@@ -17,18 +18,7 @@ namespace OOD_Project.Admin
         {
             this.parentForm = parentForm;
             InitializeComponent();
-            OpenChildForm(new AddStudentForm(this));
-        }
-
-        private void OpenChildForm(Form childForm)
-        {
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.addUserContainer.Controls.Add(childForm);
-            this.addUserContainer.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            Helper.OpenChildForm(new AddStudentForm(this), addUserContainer);
         }
 
         public void CloseAndRefresh()
@@ -39,12 +29,12 @@ namespace OOD_Project.Admin
 
         private void btnRegisterAsStudent_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AddStudentForm(this));
+            Helper.OpenChildForm(new AddStudentForm(this), addUserContainer);
         }
 
         private void btnRegisterAsTeacher_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AddTeacherForm(this));
+            Helper.OpenChildForm(new AddTeacherForm(this), addUserContainer);
         }
     }
 }
