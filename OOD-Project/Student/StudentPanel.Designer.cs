@@ -63,7 +63,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 12, 6, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(838, 72);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(818, 72);
             this.flowLayoutPanel1.TabIndex = 4;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -116,11 +116,11 @@
             this.notificationPnl.Controls.Add(this.button1);
             this.notificationPnl.Controls.Add(this.btnNotificationBell);
             this.notificationPnl.Dock = System.Windows.Forms.DockStyle.Right;
-            this.notificationPnl.Location = new System.Drawing.Point(966, 0);
-            this.notificationPnl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.notificationPnl.Location = new System.Drawing.Point(946, 0);
+            this.notificationPnl.Margin = new System.Windows.Forms.Padding(2);
             this.notificationPnl.Name = "notificationPnl";
-            this.notificationPnl.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.notificationPnl.Size = new System.Drawing.Size(42, 72);
+            this.notificationPnl.Padding = new System.Windows.Forms.Padding(3);
+            this.notificationPnl.Size = new System.Drawing.Size(62, 72);
             this.notificationPnl.TabIndex = 7;
             // 
             // button1
@@ -130,11 +130,11 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(2, 46);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(3, 39);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Size = new System.Drawing.Size(38, 24);
+            this.button1.Padding = new System.Windows.Forms.Padding(2);
+            this.button1.Size = new System.Drawing.Size(56, 30);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -145,10 +145,10 @@
             this.btnNotificationBell.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnNotificationBell.FlatAppearance.BorderSize = 0;
             this.btnNotificationBell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotificationBell.Location = new System.Drawing.Point(2, 2);
-            this.btnNotificationBell.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNotificationBell.Location = new System.Drawing.Point(3, 3);
+            this.btnNotificationBell.Margin = new System.Windows.Forms.Padding(2);
             this.btnNotificationBell.Name = "btnNotificationBell";
-            this.btnNotificationBell.Size = new System.Drawing.Size(38, 24);
+            this.btnNotificationBell.Size = new System.Drawing.Size(56, 30);
             this.btnNotificationBell.TabIndex = 0;
             this.btnNotificationBell.UseVisualStyleBackColor = true;
             this.btnNotificationBell.Click += new System.EventHandler(this.btnNotificationBell_Click);
@@ -158,7 +158,7 @@
             this.studentMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.studentMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentMainContent.Location = new System.Drawing.Point(0, 72);
-            this.studentMainContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.studentMainContent.Margin = new System.Windows.Forms.Padding(2);
             this.studentMainContent.Name = "studentMainContent";
             this.studentMainContent.Size = new System.Drawing.Size(1008, 529);
             this.studentMainContent.TabIndex = 3;
