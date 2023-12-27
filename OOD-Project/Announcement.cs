@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OOD_Project.Helpers;
 
 namespace OOD_Project
 {
-    public class Announcement
+    public class Announcement: INotificationSubject
     {
         public enum AnnouncementType
         {
@@ -21,10 +22,13 @@ namespace OOD_Project
         private bool isGlobal;
         private string title;
         private AnnouncementType type;
-        // observers later
+        // observer list
+        private List<INotificationObserver> observers;
+
 
         public Announcement(int announcementId, string body, DateTime date, List<User> forUsers, bool isGlobal, string title, AnnouncementType type)
         {
+            observers = new List<INotificationObserver>();
             this.AnnouncementId = announcementId;
             this.Body = body;
             this.Date = date;
@@ -41,5 +45,24 @@ namespace OOD_Project
         public bool IsGlobal { get => isGlobal; set => isGlobal = value; }
         public string Title { get => title; set => title = value; }
         public AnnouncementType Type { get => type; set => type = value; }
+        public List<INotificationObserver> Observers { get => observers; set => observers = value; }
+
+        public void Attach(INotificationObserver observer)
+        {
+            observers.Add(observer);
+        }
+
+        public void Detach(INotificationObserver observer)
+        {
+            observers.Remove(observer);
+        }
+
+        public void Notify()
+        {
+            foreach (INotificationObserver observer in observers)
+            {
+                observer.Update(this);
+            }
+        }
     }
 }

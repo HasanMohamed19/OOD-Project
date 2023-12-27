@@ -153,6 +153,8 @@
     </Compile>
     <Compile Include="Feedback.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Helpers\INotificationObserver.cs" />
+    <Compile Include="Helpers\INotificationSubject.cs" />
     <Compile Include="Helpers\NotificationCell.cs">
       <SubType>UserControl</SubType>
     </Compile>

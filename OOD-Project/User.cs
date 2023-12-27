@@ -1,10 +1,12 @@
-﻿using System;
+﻿using OOD_Project.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using OOD_Project.Helpers;
 
 namespace OOD_Project
 {
@@ -21,7 +23,7 @@ namespace OOD_Project
         accepted = 2,
         inactive = 3
     }
-    public class User
+    public class User: INotificationObserver
     {
         private int userId;
         private string username;
@@ -186,6 +188,22 @@ namespace OOD_Project
                 dbm.Connection.Close();
             }
 
+        }
+
+        public void Update(INotificationSubject subject)
+        {
+            // create new notification based on subject type and save to db
+            if (subject is Announcement)
+            {
+                Announcement announcement = (Announcement)subject;
+                Notification notif = new Notification(announcement.Body, this, 0, announcement.Title, NotificationType.announcement, false);
+                Notification.AddNotification(notif);
+            } else if (subject is Email)
+            {
+                Email email = (Email)subject;
+                Notification notif = new Notification(email.Body, this, 0, email.Subject, NotificationType.email, false);
+                Notification.AddNotification(notif);
+            }
         }
 
 

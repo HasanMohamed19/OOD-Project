@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OOD_Project
 {
@@ -32,6 +33,34 @@ namespace OOD_Project
             this.read = read;
         }
 
+
+        public static void AddNotification(Notification notification)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+
+            dbm.Command.Parameters.AddWithValue("@title", notification.title);
+            dbm.Command.Parameters.AddWithValue("@body", notification.body);
+            dbm.Command.Parameters.AddWithValue("@notification_type_id", (int)notification.type);
+            dbm.Command.Parameters.AddWithValue("@user_id", notification.forUser.UserId);
+            dbm.Command.Parameters.AddWithValue("@has_read", notification.read);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[notification] (notification_id, title, body, notification_type_id, user_id, has_read)" +
+                " VALUES ([(NEXT VALUE FOR [dbo].[notificationIDSequence], @title, @body, @notification_type_id, @user_id, @has_read)";
+
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
 
         public static void MarkAllReadForUser(User user)
         {
