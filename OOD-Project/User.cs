@@ -279,7 +279,7 @@ namespace OOD_Project
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
-            dbm.Command.Parameters.AddWithValue("@email_id", 20);
+            dbm.Command.Parameters.AddWithValue("@email_id", 13);
             dbm.Command.CommandText = "SELECT recipient_user_id FROM [dbo].[email] WHERE email_id = @email_id";
 
             try
@@ -301,9 +301,9 @@ namespace OOD_Project
             return rid;
         }
 
-        public static void SendAttachments(string path)
+        public static void SendAttachments(string path, int emailId)
         {
-            int recId = getRecipientId(20);
+            int recId = getRecipientId(emailId);
             string fileName = Path.GetFileName(path);
             string folderPath = Path.GetDirectoryName(path);
             DatabaseManager dbm = DatabaseManager.Instance();
@@ -311,7 +311,7 @@ namespace OOD_Project
             dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@file_name", fileName);
             dbm.Command.Parameters.AddWithValue("@folder_path", folderPath);
-            dbm.Command.Parameters.AddWithValue("@email_id", 20);
+            dbm.Command.Parameters.AddWithValue("@email_id", emailId);
             dbm.Command.CommandText = "INSERT INTO [dbo].[email_attachment] (email_attachment_id, filename, folder_path, email_id)" +
                 " VALUES(NEXT VALUE FOR [dbo].[emaiAttachmentIDSequence], @file_name, @folder_path, @email_id)";
             try
