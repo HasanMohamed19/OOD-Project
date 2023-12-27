@@ -10,8 +10,8 @@ namespace OOD_Project
 
     public enum NotificationType
     {
-        email,
-        announcement
+        email = 1,
+        announcement = 2
     }
 
     public class Notification
@@ -45,7 +45,7 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@user_id", notification.forUser.UserId);
             dbm.Command.Parameters.AddWithValue("@has_read", notification.read);
             dbm.Command.CommandText = "INSERT INTO [dbo].[notification] (notification_id, title, body, notification_type_id, user_id, has_read)" +
-                " VALUES ([(NEXT VALUE FOR [dbo].[notificationIDSequence], @title, @body, @notification_type_id, @user_id, @has_read)";
+                " VALUES (NEXT VALUE FOR [dbo].[notificationIDSequence], @title, @body, @notification_type_id, @user_id, @has_read)";
 
             try
             {

@@ -20,9 +20,13 @@ namespace OOD_Project
 
         private void btnSendEmail_Click(object sender, EventArgs e)
         {
+
             string subject = subjectTxt.Text;
             string content = bodyText.Text;
-            User.SendEmail(subject, content, 3);
+            User recipient = User.GetUser(Global.User_id);
+            User emailSender = User.GetUser(Global.User_id);
+            Email email = new Email(content,0, recipient, emailSender, subject);
+            User.SendEmail(email);
             if (files.Length > 0)
             {
                 foreach (var file in files)

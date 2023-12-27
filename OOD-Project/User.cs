@@ -88,6 +88,38 @@ namespace OOD_Project
 
             return unreadCount;
         }
+
+        public static User GetUser(int user_id)
+        {
+            User user;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+            dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification " +
+                " FROM  [dbo].[User] u " +
+                " WHERE  u.user_id = @user_id";
+
+            dbm.Reader = dbm.Command.ExecuteReader();
+
+            if (!dbm.Reader.Read())
+            {
+                return null;
+            }
+            int id = dbm.Reader.GetInt32(0);
+            string username = dbm.Reader.GetString(1);
+            string password = dbm.Reader.GetString(2);
+            string email = dbm.Reader.GetString(3);
+            UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
+            UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
+            bool hasNotification = dbm.Reader.GetBoolean(6);
+            dbm.Reader.Close();
+            dbm.Connection.Close();
+
+            user = new User(id, username, password, email, roleId, statusId, hasNotification);
+            return user;
+        }
         public static void AddUser(User user)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
@@ -167,15 +199,17 @@ namespace OOD_Project
             }
         }
 
-        public static int SendEmail(string subject, string content, int recipient_id)
+        public static int SendEmail(Email email)
         {
+            email.Attach(email.Recipent);
+
             int emailId = 0;
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
-            dbm.Command.Parameters.AddWithValue("@subject", subject);
-            dbm.Command.Parameters.AddWithValue("@body", content);
-            dbm.Command.Parameters.AddWithValue("@recipient_user_id", recipient_id);
+            dbm.Command.Parameters.AddWithValue("@subject", email.Subject);
+            dbm.Command.Parameters.AddWithValue("@body", email.Body);
+            dbm.Command.Parameters.AddWithValue("@recipient_user_id", email.Recipent.UserId);
             dbm.Command.CommandText = "INSERT INTO [dbo].[email] (email_id, body, subject, sender_user_id, recipient_user_id)" +
                 " VALUES(NEXT VALUE FOR [dbo].[emailIDSequence], @body, @subject, 2, 2)";
 
@@ -188,10 +222,14 @@ namespace OOD_Project
             } finally
             {
                 dbm.Command.Parameters.Clear();
-                
-            }
+                dbm.Connection.Close();
 
-            
+            }
+            email.Notify();
+
+
+            dbm.Connection.Open();
+
             dbm.Command.CommandText = "SELECT CAST(CURRENT_VALUE AS INT) FROM SYS.SEQUENCES WHERE NAME='emailIDSequence'";
             
             try
@@ -278,14 +316,13 @@ namespace OOD_Project
         public void Update(INotificationSubject subject)
         {
             // create new notification based on subject type and save to db
-            if (subject is Announcement)
+            if (subject is Announcement announcement)
             {
-                Announcement announcement = (Announcement)subject;
                 Notification notif = new Notification(announcement.Body, this, 0, announcement.Title, NotificationType.announcement, false);
                 Notification.AddNotification(notif);
-            } else if (subject is Email)
+            }
+            else if (subject is Email email)
             {
-                Email email = (Email)subject;
                 Notification notif = new Notification(email.Body, this, 0, email.Subject, NotificationType.email, false);
                 Notification.AddNotification(notif);
             }

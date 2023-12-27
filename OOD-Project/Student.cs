@@ -197,7 +197,10 @@ namespace OOD_Project
             finally
             {
                 dbm.Command.Parameters.Clear();
+                dbm.Reader.Close();
             }
+
+            dbm.Connection.Open();
             // GET CURRENT SEQUENCE ID
             dbm.Command.CommandText = "SELECT CAST(current_value AS int) FROM sys.sequences WHERE name = 'userIDSequence'";
             try
@@ -215,8 +218,12 @@ namespace OOD_Project
             finally
             {
                 dbm.Reader.Close();
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
             }
 
+            dbm.Connection.Open();
+            
             // ADD STUDENT ROW
             dbm.Command.Parameters.AddWithValue("@user_id", student.UserId);
             dbm.Command.Parameters.AddWithValue("@first_name", student.firstName);
