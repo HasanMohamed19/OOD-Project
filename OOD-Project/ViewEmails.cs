@@ -17,12 +17,14 @@ namespace OOD_Project
 
         private List<int> emailIds = new List<int>();
         private string selectedAttachmentName;
-
+        static ImageList attachment = new ImageList();
+        
         public ViewEmails()
         {
             
             InitializeComponent();
-           
+            //attachment.Images.Add(Bitmap.FromFile("C:\\Users\\Hassan\\source\\repos\\OOD-Project\\attach.png"));
+            emailsListView.LargeImageList = attachment;
             hideElementsWhenLoadAndNothingSelected();
             populateEmails();
         }
@@ -46,6 +48,7 @@ namespace OOD_Project
 
         private void populateEmails()
         {
+            
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
@@ -63,6 +66,11 @@ namespace OOD_Project
 
                     ListViewItem emailItem = new ListViewItem(dbm.Reader["sender_user_id"].ToString());
                     emailItem.SubItems.Add(dbm.Reader["recipient_user_id"].ToString());
+                    //if (Convert.ToInt32(dbm.Reader["NumberOfAttachments"].ToString()) > 0)
+                    //{
+                    //    emailItem.ImageIndex = 0;
+                    //}
+                    
                     emailsListView.Items.Add(emailItem);
 
                 }

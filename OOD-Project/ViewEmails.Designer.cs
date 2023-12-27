@@ -158,12 +158,12 @@
             this.downloadMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.downloadToolStripMenuItem});
             this.downloadMenuStrip.Name = "downloadMenuStrip";
-            this.downloadMenuStrip.Size = new System.Drawing.Size(211, 56);
+            this.downloadMenuStrip.Size = new System.Drawing.Size(148, 28);
             // 
             // downloadToolStripMenuItem
             // 
             this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.downloadToolStripMenuItem.Text = "Download";
             this.downloadToolStripMenuItem.Click += new System.EventHandler(this.downloadToolStripMenuItem_Click);
             // 
