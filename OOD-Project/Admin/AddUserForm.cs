@@ -7,28 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOD_Project.Helpers;
 
 namespace OOD_Project.Admin
 {
     public partial class AddUserForm : Form
     {
         private usersListForms parentForm;
-        public AddUserForm(usersListForms parentForm)
+        private bool activateUser;
+        public AddUserForm(usersListForms parentForm, bool activateUser)
         {
             this.parentForm = parentForm;
             InitializeComponent();
-            OpenChildForm(new AddStudentForm(this));
-        }
-
-        private void OpenChildForm(Form childForm)
-        {
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.addUserContainer.Controls.Add(childForm);
-            this.addUserContainer.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
+            Helper.OpenChildForm(new AddStudentForm(this, activateUser), addUserContainer);
+            this.activateUser = activateUser;
         }
 
         public void CloseAndRefresh()
@@ -39,12 +31,12 @@ namespace OOD_Project.Admin
 
         private void btnRegisterAsStudent_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AddStudentForm(this));
+            Helper.OpenChildForm(new AddStudentForm(this, activateUser), addUserContainer);
         }
 
         private void btnRegisterAsTeacher_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AddTeacherForm(this));
+            Helper.OpenChildForm(new AddTeacherForm(this, activateUser), addUserContainer);
         }
     }
 }

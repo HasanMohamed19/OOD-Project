@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using OOD_Project.Helpers;
+using System.Text.RegularExpressions;
 
 namespace OOD_Project
 {
@@ -54,12 +55,80 @@ namespace OOD_Project
             this.userId = userId;
             this.username = username;
             this.password = password;
-            this.email = email;
+            Email = email;
             this.roleId = roleId;
             this.statusId = statusId;
             this.hasNotification = hasNotification;
         }
 
+
+        
+        public static void AcceptPendingUser(int user_id, UserRole role)
+        {
+            int inactive_id;
+            string university_id;
+            // check if pending user has the same university id as inactive user
+            switch (role)
+            {
+                // get university id and inactive user id
+                case UserRole.student:
+                    university_id = Student.GetStudent(user_id).StudentUniversityId;
+                    try
+                    {
+                        inactive_id = Student.IsStudentIdValid(university_id);
+                    } catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    break;
+                case UserRole.teacher:
+                    university_id = Teacher.GetTeacher(user_id).TeacherUniversityId;
+                    try
+                    {
+                        inactive_id = Teacher.IsTeacherIdValid(university_id);
+                    } catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    break;
+                default:
+                    return;
+            }
+
+            // update status of inactive user
+            ActivateUser(inactive_id);
+
+            // delete pending user
+            DeleteUser(user_id);
+        }
+
+
+        private static void ActivateUser(int user_id)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+
+            dbm.Command.CommandText = "UPDATE [dbo].[User] SET status_id = 2 WHERE user_id = @user_id";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
 
         public static int UnreadNotificationsForUser(User user)
         {
@@ -140,7 +209,8 @@ namespace OOD_Project
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
-            
+            dbm.Command = dbm.Connection.CreateCommand();
+
             dbm.Command.Parameters.AddWithValue("@username", user.username);
             dbm.Command.Parameters.AddWithValue("@password", user.password);
             dbm.Command.Parameters.AddWithValue("@email", user.email);
@@ -168,6 +238,7 @@ namespace OOD_Project
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@user_id", user_id);
             dbm.Command.CommandText = "DELETE FROM [dbo].[User] WHERE user_id = @user_id";
             try
@@ -176,6 +247,7 @@ namespace OOD_Project
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return false;
             }
             finally
@@ -191,17 +263,18 @@ namespace OOD_Project
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
 
+            dbm.Command.Parameters.AddWithValue("@user_id", user.UserId);
             dbm.Command.Parameters.AddWithValue("@username", user.username);
             dbm.Command.Parameters.AddWithValue("@password", user.password);
             dbm.Command.Parameters.AddWithValue("@email", user.email);
             dbm.Command.Parameters.AddWithValue("@role_id", user.roleId);
 
-            dbm.Command.CommandText = "UPDATE [dbo].[User] SET username = @username, password = @password, email = @email, role_id = @role_id, WHERE user_id = @user_id";
+            dbm.Command.CommandText = "UPDATE [dbo].[User] SET username = @username, password = @password, email = @email, role_id = @role_id WHERE user_id = @user_id";
             try
             {
                 dbm.Command.ExecuteNonQuery();
-                return true;
             }
             catch (Exception ex)
             {
@@ -213,6 +286,7 @@ namespace OOD_Project
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();
             }
+            return true;
         }
 
         public static int SendEmail(Email email)
@@ -318,10 +392,10 @@ namespace OOD_Project
             {
                 dbm.Command.ExecuteNonQuery();
                 // format: sender_receiver
-                string dest = Path.Combine(DocumentHelper.parentDirectory, (Global.User_id.ToString() + "_" + recId.ToString()));
+                string dest = Path.Combine(DocumentHelper.parentDirectory, (Global.UserId.ToString() + "_" + recId.ToString()));
                 if (!DocumentHelper.IsDirectoryExists(dest))
                 {
-                    DocumentHelper.MakeDirectory(Path.Combine(DocumentHelper.parentDirectory, (Global.User_id.ToString() + "_" + recId.ToString())));
+                    DocumentHelper.MakeDirectory(Path.Combine(DocumentHelper.parentDirectory, (Global.UserId.ToString() + "_" + recId.ToString())));
                    
                 }
                 DocumentHelper.CopyFile(path, Path.Combine(dest, fileName));

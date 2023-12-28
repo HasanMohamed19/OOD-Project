@@ -36,6 +36,59 @@ namespace OOD_Project
             this.teacherUniversityId = teacherUniversityId;
         }
 
+        public static Teacher GetTeacher(int user_id)
+        {
+            Teacher teacher = null;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+            dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification," +
+                "t.first_name, t.last_name, t.dob, t.cpr, t.phone_number, t.gender, t.programme_id, t.teacher_university_id, branch_id " +
+                " FROM [dbo].[teacher] t, [dbo].[User] u " +
+                " WHERE t.user_id = u.user_id " +
+                " AND u.user_id = @user_id";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+
+                if (!dbm.Reader.Read())
+                {
+                    return null;
+                }
+                int id = dbm.Reader.GetInt32(0);
+                string username = dbm.Reader.GetString(1);
+                string password = dbm.Reader.GetString(2);
+                string email = dbm.Reader.GetString(3);
+                UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
+                UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
+                bool hasNotification = dbm.Reader.GetBoolean(6);
+                string firstName = dbm.Reader.GetString(7);
+                string lastName = dbm.Reader.GetString(8);
+                DateTime dob = dbm.Reader.GetDateTime(9);
+                string cpr = dbm.Reader.GetString(10);
+                string phoneNumber = dbm.Reader.GetString(11);
+                char gender = dbm.Reader.GetString(12)[0];
+                Programme programme = (Programme)dbm.Reader.GetInt32(13);
+                string universityId = dbm.Reader.GetString(14);
+                int branchId = dbm.Reader.GetInt32(15);
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+
+                Branch branch = Branch.GetBranch(branchId);
+                teacher = new Teacher(id, username, password, email, roleId, statusId, hasNotification,
+                    firstName, lastName, dob, cpr, gender, phoneNumber, branch, programme, universityId);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return teacher;
+        }
+
         // check if an inactive teacher account exists with this id
         // used to prevent admin from duplicating universityIds, they must be unique
         public static bool InactiveTeacherExistsWithId(string universityId)
@@ -91,7 +144,8 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@teacher_university_id", universityId);
             dbm.Command.CommandText = "SELECT u.user_id, u.status_id FROM [dbo].[teacher] t, [dbo].[User] u " +
                 "WHERE t.user_id = u.user_id " +
-                "AND t.teacher_university_id = @teacher_university_id";
+                "AND t.teacher_university_id = @teacher_university_id " +
+                "AND NOT u.status_id = 1";
 
             dbm.Reader = dbm.Command.ExecuteReader();
 
@@ -105,9 +159,13 @@ namespace OOD_Project
             dbm.Connection.Close();
 
             // if there is more than one row returned or zero, dont continue
-            if (ids.Count != 1)
+            if (ids.Count > 1)
             {
-                throw new Exception("Too many or zero records found for teachers with id " + universityId);
+                throw new Exception("Too many teachers with id " + universityId);
+            }
+            else if (ids.Count < 1)
+            {
+                throw new Exception("No teachers with id " + universityId);
             }
 
             // if status_id is  not 3 (inactive) then a new user cannot be made with this id
@@ -119,6 +177,49 @@ namespace OOD_Project
 
             return ids[0];
         }
+
+        public static void UpdateTeacher(Teacher teacher)
+        {
+            // update user table for student in db
+            if (!EditUser(teacher))
+            {
+                return;
+            }
+
+            // update student table
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+
+            // UPDATE STUDENT ROW
+            dbm.Command.Parameters.AddWithValue("@user_id", teacher.UserId);
+            dbm.Command.Parameters.AddWithValue("@first_name", teacher.firstName);
+            dbm.Command.Parameters.AddWithValue("@last_name", teacher.lastName);
+            dbm.Command.Parameters.AddWithValue("@phone", teacher.phoneNumber);
+            dbm.Command.Parameters.AddWithValue("@cpr", teacher.cpr);
+            dbm.Command.Parameters.AddWithValue("@gender", teacher.gender);
+            dbm.Command.Parameters.AddWithValue("@dob", teacher.dob);
+            dbm.Command.Parameters.AddWithValue("@branch_id", teacher.forBranch.BranchId);
+            dbm.Command.Parameters.AddWithValue("@programme_id", (int)teacher.InProgramme);
+            dbm.Command.Parameters.AddWithValue("@teacher_university_id", teacher.teacherUniversityId);
+            dbm.Command.CommandText = "UPDATE [dbo].[teacher] SET first_name = @first_name, last_name = @last_name, phone_number = @phone" +
+                ", cpr = @cpr, gender = @gender, dob = @dob, branch_id = @branch_id, programme_id = @programme_id, teacher_university_id = @teacher_university_id " +
+                " WHERE user_id = @user_id";
+
+            try
+            {
+                int rows = dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
+
         public static void AddTeacher(Teacher teacher)
         {
             // ADD USER ROW

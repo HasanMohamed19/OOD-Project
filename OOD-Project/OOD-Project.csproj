@@ -125,6 +125,18 @@
     <Compile Include="Admin\EditCourseForm.Designer.cs">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EditStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditStudentForm.Designer.cs">
+      <DependentUpon>EditStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditTeacherForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditTeacherForm.Designer.cs">
+      <DependentUpon>EditTeacherForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\EmailController.cs" />
     <Compile Include="Admin\ManageCoursesForm.cs">
       <SubType>Form</SubType>
@@ -160,6 +172,7 @@
     </Compile>
     <Compile Include="Feedback.cs" />
     <Compile Include="Global.cs" />
+    <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Helpers\INotificationObserver.cs" />
     <Compile Include="Helpers\INotificationSubject.cs" />
     <Compile Include="Helpers\NotificationCell.cs">
@@ -211,17 +224,41 @@
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Teacher.cs" />
+    <Compile Include="TeacherGroup\ViewCourses\ViewStudentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherGroup\ViewCourses\ViewStudentsForm.Designer.cs">
+      <DependentUpon>ViewStudentsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeacherRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TeacherRegisterForm.Designer.cs">
       <DependentUpon>TeacherRegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Teacher\TeacherPanel.cs">
+    <Compile Include="TeacherGroup\TeacherPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Teacher\TeacherPanel.Designer.cs">
+    <Compile Include="TeacherGroup\TeacherPanel.Designer.cs">
       <DependentUpon>TeacherPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherGroup\TeacherViewCoursesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherGroup\TeacherViewCoursesForm.Designer.cs">
+      <DependentUpon>TeacherViewCoursesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherGroup\ViewCourses\ContentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherGroup\ViewCourses\ContentView.Designer.cs">
+      <DependentUpon>ContentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherGroup\ViewCourses\ViewCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherGroup\ViewCourses\ViewCourseForm.Designer.cs">
+      <DependentUpon>ViewCourseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="Admin\usersListForms.cs">
@@ -271,6 +308,12 @@
     <EmbeddedResource Include="Admin\EditCourseForm.resx">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditStudentForm.resx">
+      <DependentUpon>EditStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditTeacherForm.resx">
+      <DependentUpon>EditTeacherForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageCoursesForm.resx">
       <DependentUpon>ManageCoursesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,14 +360,26 @@
     <EmbeddedResource Include="Student\ViewCoursesForm.resx">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TeacherGroup\ViewCourses\ViewStudentsForm.resx">
+      <DependentUpon>ViewStudentsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TeacherRegisterForm.resx">
       <DependentUpon>TeacherRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Teacher\TeacherPanel.resx">
+    <EmbeddedResource Include="TeacherGroup\TeacherPanel.resx">
       <DependentUpon>TeacherPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewAnnouncementsForm.resx">
       <DependentUpon>ViewAnnouncementsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherGroup\TeacherViewCoursesForm.resx">
+      <DependentUpon>TeacherViewCoursesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherGroup\ViewCourses\ContentView.resx">
+      <DependentUpon>ContentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherGroup\ViewCourses\ViewCourseForm.resx">
+      <DependentUpon>ViewCourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewEmails.resx">
       <DependentUpon>ViewEmails.cs</DependentUpon>

@@ -36,10 +36,10 @@ namespace OOD_Project.Admin
             return instance;
         }
 
-        public void SendAcceptEmail(string email, string firstName, string lastName, string cpr)
+        public void SendAcceptEmail(string email, string first_name, string last_name, string university_id, string cpr)
         {
-            string body = $"Hello {firstName} {lastName}. \n Thank you for your registration. \n Your request is accepted, and a default account have been created for you. Please login and change the password.\n" +
-                $"Username: {firstName}.{lastName}. \n Password:{cpr}";
+            string body = $"Hello {first_name} {last_name}. \n Thank you for your registration. \n Your request is accepted, and a default account have been created for you. Please login and change the password.\n" +
+                $"Username: {university_id}. \n Password:{cpr}";
             MailMessage msgMail;
             msgMail = new MailMessage();
             msgMail.From = new MailAddress("elms3dmin@gmail.com", "elmsAdmin");
@@ -59,9 +59,9 @@ namespace OOD_Project.Admin
             msgMail.Dispose();
         }
 
-        public void SendRejectEmail(string firstName, string lastName, string email)
+        public void SendRejectEmail(string email, string firstName, string lastName)
         {
-            string body = $"Hello {firstName} {lastName}. \n Thank you for your registration. \n Your request is rejected." +
+            string body = $"Hello {firstName} {lastName}. \n Thank you for your registration. \n Your request has been rejected." +
                 $"No account with such details is found.";
             MailMessage msgMail;
             msgMail = new MailMessage();

@@ -30,9 +30,9 @@
         {
             this.panelHeader = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.manageBranchesBtn = new System.Windows.Forms.Button();
-            this.manageInformationBtn = new System.Windows.Forms.Button();
-            this.manageUsersBtn = new System.Windows.Forms.Button();
+            this.viewCoursesBtn = new System.Windows.Forms.Button();
+            this.viewEmailsBtn = new System.Windows.Forms.Button();
+            this.announcementsBtn = new System.Windows.Forms.Button();
             this.manageCoursesBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.notificationPnl = new System.Windows.Forms.Panel();
@@ -58,9 +58,9 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.manageBranchesBtn);
-            this.flowLayoutPanel1.Controls.Add(this.manageInformationBtn);
-            this.flowLayoutPanel1.Controls.Add(this.manageUsersBtn);
+            this.flowLayoutPanel1.Controls.Add(this.viewCoursesBtn);
+            this.flowLayoutPanel1.Controls.Add(this.viewEmailsBtn);
+            this.flowLayoutPanel1.Controls.Add(this.announcementsBtn);
             this.flowLayoutPanel1.Controls.Add(this.manageCoursesBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(128, 0);
@@ -71,47 +71,48 @@
             this.flowLayoutPanel1.TabIndex = 3;
             this.flowLayoutPanel1.WrapContents = false;
             // 
-            // manageBranchesBtn
+            // viewCoursesBtn
             // 
-            this.manageBranchesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.manageBranchesBtn.FlatAppearance.BorderSize = 0;
-            this.manageBranchesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.manageBranchesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageBranchesBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.manageBranchesBtn.Location = new System.Drawing.Point(3, 15);
-            this.manageBranchesBtn.Name = "manageBranchesBtn";
-            this.manageBranchesBtn.Size = new System.Drawing.Size(108, 42);
-            this.manageBranchesBtn.TabIndex = 6;
-            this.manageBranchesBtn.Text = "Manage Branches";
-            this.manageBranchesBtn.UseVisualStyleBackColor = false;
+            this.viewCoursesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.viewCoursesBtn.FlatAppearance.BorderSize = 0;
+            this.viewCoursesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewCoursesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewCoursesBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.viewCoursesBtn.Location = new System.Drawing.Point(3, 15);
+            this.viewCoursesBtn.Name = "viewCoursesBtn";
+            this.viewCoursesBtn.Size = new System.Drawing.Size(108, 42);
+            this.viewCoursesBtn.TabIndex = 6;
+            this.viewCoursesBtn.Text = "View Courses";
+            this.viewCoursesBtn.UseVisualStyleBackColor = false;
+            this.viewCoursesBtn.Click += new System.EventHandler(this.viewCoursesBtn_Click);
             // 
-            // manageInformationBtn
+            // viewEmailsBtn
             // 
-            this.manageInformationBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.manageInformationBtn.FlatAppearance.BorderSize = 0;
-            this.manageInformationBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.manageInformationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageInformationBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.manageInformationBtn.Location = new System.Drawing.Point(117, 15);
-            this.manageInformationBtn.Name = "manageInformationBtn";
-            this.manageInformationBtn.Size = new System.Drawing.Size(108, 42);
-            this.manageInformationBtn.TabIndex = 5;
-            this.manageInformationBtn.Text = "Upload Information";
-            this.manageInformationBtn.UseVisualStyleBackColor = false;
+            this.viewEmailsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.viewEmailsBtn.FlatAppearance.BorderSize = 0;
+            this.viewEmailsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewEmailsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewEmailsBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.viewEmailsBtn.Location = new System.Drawing.Point(117, 15);
+            this.viewEmailsBtn.Name = "viewEmailsBtn";
+            this.viewEmailsBtn.Size = new System.Drawing.Size(108, 42);
+            this.viewEmailsBtn.TabIndex = 5;
+            this.viewEmailsBtn.Text = "View Emails";
+            this.viewEmailsBtn.UseVisualStyleBackColor = false;
             // 
-            // manageUsersBtn
+            // announcementsBtn
             // 
-            this.manageUsersBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.manageUsersBtn.FlatAppearance.BorderSize = 0;
-            this.manageUsersBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.manageUsersBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.manageUsersBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.manageUsersBtn.Location = new System.Drawing.Point(231, 15);
-            this.manageUsersBtn.Name = "manageUsersBtn";
-            this.manageUsersBtn.Size = new System.Drawing.Size(108, 42);
-            this.manageUsersBtn.TabIndex = 4;
-            this.manageUsersBtn.Text = "Manage Users";
-            this.manageUsersBtn.UseVisualStyleBackColor = false;
+            this.announcementsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.announcementsBtn.FlatAppearance.BorderSize = 0;
+            this.announcementsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.announcementsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.announcementsBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.announcementsBtn.Location = new System.Drawing.Point(231, 15);
+            this.announcementsBtn.Name = "announcementsBtn";
+            this.announcementsBtn.Size = new System.Drawing.Size(108, 42);
+            this.announcementsBtn.TabIndex = 4;
+            this.announcementsBtn.Text = "Announcements";
+            this.announcementsBtn.UseVisualStyleBackColor = false;
             // 
             // manageCoursesBtn
             // 
@@ -124,7 +125,6 @@
             this.manageCoursesBtn.Name = "manageCoursesBtn";
             this.manageCoursesBtn.Size = new System.Drawing.Size(108, 42);
             this.manageCoursesBtn.TabIndex = 7;
-            this.manageCoursesBtn.Text = "Manage Courses";
             this.manageCoursesBtn.UseVisualStyleBackColor = false;
             // 
             // label1
@@ -185,10 +185,10 @@
             // 
             this.teacherMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.teacherMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.teacherMainContent.Location = new System.Drawing.Point(0, 0);
+            this.teacherMainContent.Location = new System.Drawing.Point(0, 72);
             this.teacherMainContent.Margin = new System.Windows.Forms.Padding(2);
             this.teacherMainContent.Name = "teacherMainContent";
-            this.teacherMainContent.Size = new System.Drawing.Size(1008, 601);
+            this.teacherMainContent.Size = new System.Drawing.Size(1008, 529);
             this.teacherMainContent.TabIndex = 4;
             // 
             // TeacherPanel
@@ -196,8 +196,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 601);
-            this.Controls.Add(this.panelHeader);
             this.Controls.Add(this.teacherMainContent);
+            this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(1024, 640);
@@ -216,9 +216,9 @@
 
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button manageBranchesBtn;
-        private System.Windows.Forms.Button manageInformationBtn;
-        private System.Windows.Forms.Button manageUsersBtn;
+        private System.Windows.Forms.Button viewCoursesBtn;
+        private System.Windows.Forms.Button viewEmailsBtn;
+        private System.Windows.Forms.Button announcementsBtn;
         private System.Windows.Forms.Button manageCoursesBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel teacherMainContent;

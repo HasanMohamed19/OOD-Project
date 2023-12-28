@@ -95,7 +95,8 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@student_university_id", universityId);
             dbm.Command.CommandText = "SELECT u.user_id, u.status_id FROM [dbo].[student] s, [dbo].[User] u " +
                 "WHERE s.user_id = u.user_id " +
-                "AND s.student_university_id = @student_university_id";
+                "AND s.student_university_id = @student_university_id " +
+                "AND NOT u.status_id = 1 ";
 
             dbm.Reader = dbm.Command.ExecuteReader();
 
@@ -110,8 +111,11 @@ namespace OOD_Project
             dbm.Connection.Close();
 
             // if there is more than one row returned or zero, dont continue
-            if (ids.Count != 1) {
-                throw new Exception("Too many or zero records found for students with id " + universityId);
+            if (ids.Count > 1) {
+                throw new Exception("Too many students with id " + universityId);
+            } else if (ids.Count < 1)
+            {
+                throw new Exception("No students with id " + universityId);
             }
 
             // if status_id is  not 3 (inactive) then a new user cannot be made with this id
@@ -127,48 +131,96 @@ namespace OOD_Project
 
         public static Student GetStudent(int user_id)
         {
-            Student student;
+            Student student = null;
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
-
+            
             dbm.Command.Parameters.AddWithValue("@user_id", user_id);
             dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification," +
-                "s.first_name, s.last_name, s.dob, s.cpr, s.gender, s.phone_number, s.major_id, s.student_university_id" +
+                "s.first_name, s.last_name, s.dob, s.cpr, s.phone_number, s.gender, s.major_id, s.student_university_id" +
                 " FROM [dbo].[student] s, [dbo].[User] u " +
                 " WHERE s.user_id = u.user_id " +
                 " AND u.user_id = @user_id";
-
-            dbm.Reader = dbm.Command.ExecuteReader();
-
-            if (!dbm.Reader.Read())
+            try
             {
-                return null;   
-            } 
-            int id = dbm.Reader.GetInt32(0);
-            string username = dbm.Reader.GetString(1);
-            string password = dbm.Reader.GetString(2);
-            string email = dbm.Reader.GetString(3);
-            UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
-            UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
-            bool hasNotification = dbm.Reader.GetBoolean(6);
-            string firstName = dbm.Reader.GetString(7);
-            string lastName = dbm.Reader.GetString(8);
-            DateTime dob = dbm.Reader.GetDateTime(9);
-            string cpr = dbm.Reader.GetString(10);
-            string phoneNumber = dbm.Reader.GetString(11);
-            char gender = dbm.Reader.GetString(12)[0];
-            int major_id = dbm.Reader.GetInt32(13);
-            string universityId = dbm.Reader.GetString(14);
-            dbm.Reader.Close();
-            dbm.Connection.Close();
+                dbm.Reader = dbm.Command.ExecuteReader();
 
-            Major major = Major.GetMajor(major_id);
-            student = new Student(id, username, password, email, roleId, statusId, hasNotification,
-                firstName, lastName, dob, cpr, gender, phoneNumber, major, universityId);
+                if (!dbm.Reader.Read())
+                {
+                    return null;
+                }
+                int id = dbm.Reader.GetInt32(0);
+                string username = dbm.Reader.GetString(1);
+                string password = dbm.Reader.GetString(2);
+                string email = dbm.Reader.GetString(3);
+                UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
+                UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
+                bool hasNotification = dbm.Reader.GetBoolean(6);
+                string firstName = dbm.Reader.GetString(7);
+                string lastName = dbm.Reader.GetString(8);
+                DateTime dob = dbm.Reader.GetDateTime(9);
+                string cpr = dbm.Reader.GetString(10);
+                string phoneNumber = dbm.Reader.GetString(11);
+                char gender = dbm.Reader.GetString(12)[0];
+                int major_id = dbm.Reader.GetInt32(13);
+                string universityId = dbm.Reader.GetString(14);
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+
+                Major major = Major.GetMajor(major_id);
+                student = new Student(id, username, password, email, roleId, statusId, hasNotification,
+                    firstName, lastName, dob, cpr, gender, phoneNumber, major, universityId);
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
             return student;
         }
 
+
+        public static void UpdateStudent(Student student)
+        {
+            // update user table for student in db
+            if (!EditUser(student))
+            {
+                return;
+            }
+
+            // update student table
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+
+            // ADD STUDENT ROW
+            dbm.Command.Parameters.AddWithValue("@user_id", student.UserId);
+            dbm.Command.Parameters.AddWithValue("@first_name", student.firstName);
+            dbm.Command.Parameters.AddWithValue("@last_name", student.lastName);
+            dbm.Command.Parameters.AddWithValue("@phone", student.phoneNumber);
+            dbm.Command.Parameters.AddWithValue("@cpr", student.cpr);
+            dbm.Command.Parameters.AddWithValue("@gender", student.gender);
+            dbm.Command.Parameters.AddWithValue("@dob", student.dob);
+            dbm.Command.Parameters.AddWithValue("@major_id", student.InMajor.MajorId);
+            dbm.Command.Parameters.AddWithValue("@student_university_id", student.studentUniversityId);
+            dbm.Command.CommandText = "UPDATE [dbo].[student] SET first_name = @first_name, last_name = @last_name, phone_number = @phone" +
+                ", cpr = @cpr, gender = @gender, dob = @dob, major_id = @major_id, student_university_id = @student_university_id " +
+                " WHERE user_id = @user_id";
+
+            try
+            {
+                int rows = dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
 
         public static void AddStudent(Student student)
         {
@@ -198,6 +250,7 @@ namespace OOD_Project
             {
                 dbm.Command.Parameters.Clear();
                 dbm.Reader.Close();
+                dbm.Connection.Close();
             }
 
             dbm.Connection.Open();

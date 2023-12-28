@@ -27,7 +27,7 @@ namespace OOD_Project
             string content = bodyText.Text;
             
             User recipient = User.GetUser(3);
-            User emailSender = User.GetUser(Global.User_id);
+            User emailSender = User.GetUser(Global.UserId);
             Email email = new Email(content,0, recipient, emailSender, subject);
             int newEmailId = User.SendEmail(email);
             if (files.Length > 0)

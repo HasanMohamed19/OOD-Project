@@ -26,7 +26,7 @@ namespace OOD_Project
         public StudentPanel()
         {
             InitializeComponent();
-            loggedInUser = User.GetUser(Global.User_id);
+            loggedInUser = User.GetUser(Global.UserId);
             notificationMenuOpened = false;
             CheckUnreadNotifications();
         }
