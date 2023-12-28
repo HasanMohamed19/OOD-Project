@@ -1,6 +1,6 @@
 ﻿namespace OOD_Project.Admin
 {
-    partial class AddTeacherForm
+    partial class EditTeacherForm
     {
         /// <summary>
         /// Required designer variable.
@@ -53,7 +53,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.txtCPRT = new System.Windows.Forms.TextBox();
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.containerPnl.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -68,7 +68,7 @@
             this.containerPnl.Location = new System.Drawing.Point(0, 0);
             this.containerPnl.Name = "containerPnl";
             this.containerPnl.Size = new System.Drawing.Size(684, 315);
-            this.containerPnl.TabIndex = 13;
+            this.containerPnl.TabIndex = 14;
             // 
             // tableLayoutPanel2
             // 
@@ -351,38 +351,39 @@
             // 
             // panelBottom
             // 
-            this.panelBottom.Controls.Add(this.btnAdd);
+            this.panelBottom.Controls.Add(this.btnSave);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBottom.Location = new System.Drawing.Point(0, 221);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(684, 94);
             this.panelBottom.TabIndex = 36;
             // 
-            // btnAdd
+            // btnSave
             // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAdd.Location = new System.Drawing.Point(149, 20);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(383, 54);
-            this.btnAdd.TabIndex = 11;
-            this.btnAdd.Text = "Add Teacher";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.Location = new System.Drawing.Point(149, 20);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(383, 54);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "Save Teacher";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // AddTeacherForm
+            // EditTeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(684, 315);
             this.Controls.Add(this.containerPnl);
-            this.Name = "AddTeacherForm";
-            this.Text = "AddTeacherForm";
+            this.Name = "EditTeacherForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit Teacher";
             this.containerPnl.ResumeLayout(false);
             this.containerPnl.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -397,8 +398,6 @@
         #endregion
 
         private System.Windows.Forms.Panel containerPnl;
-        private System.Windows.Forms.Panel panelBottom;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBranch;
@@ -422,5 +421,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtCPRT;
+        private System.Windows.Forms.Panel panelBottom;
+        private System.Windows.Forms.Button btnSave;
     }
 }

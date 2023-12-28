@@ -158,12 +158,12 @@
             this.downloadMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.downloadToolStripMenuItem});
             this.downloadMenuStrip.Name = "downloadMenuStrip";
-            this.downloadMenuStrip.Size = new System.Drawing.Size(211, 56);
+            this.downloadMenuStrip.Size = new System.Drawing.Size(148, 28);
             // 
             // downloadToolStripMenuItem
             // 
             this.downloadToolStripMenuItem.Name = "downloadToolStripMenuItem";
-            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.downloadToolStripMenuItem.Size = new System.Drawing.Size(147, 24);
             this.downloadToolStripMenuItem.Text = "Download";
             this.downloadToolStripMenuItem.Click += new System.EventHandler(this.downloadToolStripMenuItem_Click);
             // 
@@ -171,6 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(926, 555);
             this.Controls.Add(this.viewEmailPanel);
             this.Controls.Add(this.emailsListView);

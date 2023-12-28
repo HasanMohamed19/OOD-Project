@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace OOD_Project
     public partial class EmailForm : Form
     {
         private string[] files = {};
+        private string selectedAttachmentName = "";
         public EmailForm()
         {
             InitializeComponent();
@@ -23,21 +25,22 @@ namespace OOD_Project
 
             string subject = subjectTxt.Text;
             string content = bodyText.Text;
+            
             User recipient = User.GetUser(3);
             User emailSender = User.GetUser(Global.UserId);
             Email email = new Email(content,0, recipient, emailSender, subject);
-            User.SendEmail(email);
+            int newEmailId = User.SendEmail(email);
             if (files.Length > 0)
             {
                 foreach (var file in files)
                 {
-                    User.SendAttachments(file);
+                    User.SendAttachments(file, newEmailId);
                 }
             }
             // after sending clear attachments
             files = new string[0];
             recipientTxt.Text = "To";
-            attachmentsTxt.Text = "";
+            attachmentsListView.Items.Clear();
             subjectTxt.Text = "Subject";
             bodyText.Text = "";
 
@@ -58,10 +61,31 @@ namespace OOD_Project
                 files = filePicker.FileNames;
                 foreach (string file in filePicker.FileNames)
                 {
-                    attachmentsTxt.Text += file + Environment.NewLine;
+                    ListViewItem item = new ListViewItem(Path.GetFileName(file));
+                    attachmentsListView.Items.Add(item);
                 }
             }
 
+        }
+
+        private void attachmentsListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ListViewItem selected = attachmentsListView.GetItemAt(e.X, e.Y);
+                if (selected != null)
+                {
+                    selectedAttachmentName = selected.Text;
+                    deleteMenuStrip.Show(Cursor.Position);
+                }
+
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int selectedItemIndex = attachmentsListView.SelectedItems[0].Index;
+            attachmentsListView.Items.Remove(attachmentsListView.SelectedItems[0]);
         }
     }
 }

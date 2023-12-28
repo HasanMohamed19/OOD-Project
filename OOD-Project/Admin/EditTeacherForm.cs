@@ -10,20 +10,57 @@ using System.Windows.Forms;
 
 namespace OOD_Project.Admin
 {
-    public partial class AddTeacherForm : Form
+    public partial class EditTeacherForm : Form
     {
-        private AddUserForm parentForm;
-        private bool activateUser;
-        public AddTeacherForm(AddUserForm parentForm, bool activateUser)
+        Teacher oldTeacher;
+        usersListForms parentForm;
+        public EditTeacherForm(Teacher oldTeacher, usersListForms parentForm)
         {
-            this.parentForm = parentForm;
             InitializeComponent();
             InitializeComboBoxes();
+            this.oldTeacher = oldTeacher;
             this.parentForm = parentForm;
-            this.activateUser = activateUser;
+            UpdateView();
         }
         List<Branch> branches = Branch.GetBranches();
+        public void CloseAndRefresh()
+        {
+            parentForm.RefreshView();
+            this.Close();
+        }
 
+
+        private int GetIndexOfBranch(Branch branch)
+        {
+            foreach (Branch b in branches)
+            {
+                if (branch.BranchId == b.BranchId)
+                {
+                    return branches.IndexOf(b);
+                }
+            }
+            return -1;
+        }
+        private void UpdateView()
+        {
+            txtCPRT.Text = oldTeacher.Cpr;
+            txtEmailT.Text = oldTeacher.Email;
+            txtFNameT.Text = oldTeacher.FirstName;
+            txtLNameT.Text = oldTeacher.LastName;
+            txtPhoneT.Text = oldTeacher.PhoneNumber;
+            txtTeacherId.Text = oldTeacher.TeacherUniversityId;
+            comboBranch.SelectedIndex = GetIndexOfBranch(oldTeacher.ForBranch);
+            comboProgramme.SelectedIndex = (int)oldTeacher.InProgramme;
+            dateDOBT.Value = oldTeacher.Dob;
+            if (oldTeacher.Gender == 'M')
+            {
+                radioMaleT.Checked = true;
+            }
+            else if (oldTeacher.Gender == 'F')
+            {
+                radioFemaleT.Checked = true;
+            }
+        }
         private void InitializeComboBoxes()
         {
             foreach (Branch branch in branches)
@@ -37,10 +74,9 @@ namespace OOD_Project.Admin
             comboProgramme.Items.Add("Logistics");
             comboProgramme.Items.Add("Foundation");
         }
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            UserStatus status = activateUser ? UserStatus.accepted : UserStatus.inactive;
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
             string inEmail = txtEmailT.Text;
             Branch inBranch = branches[comboBranch.SelectedIndex];
             Programme inProgramme = (Programme)(comboProgramme.SelectedIndex + 1);
@@ -67,18 +103,18 @@ namespace OOD_Project.Admin
             string inTeacherId = txtTeacherId.Text;
 
             // create user based on data received
-            Teacher teacher = new Teacher(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, status, false,
+            Teacher teacher = new Teacher(oldTeacher.UserId, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, UserStatus.inactive, false,
                 inFName, inLName, inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
 
-            // if there is teacher with universityId already, dont add
+            // if there is teacher with universityId already, dont update
             if (Teacher.InactiveTeacherExistsWithId(teacher.TeacherUniversityId))
             {
                 MessageBox.Show("There is already a teacher with the same Teacher ID in the system. Please add a teacher with a different ID or delete the existing one.", "Teacher Already Exists");
                 return;
             }
 
-            Teacher.AddTeacher(teacher);
-            parentForm.CloseAndRefresh();
+            Teacher.UpdateTeacher(teacher);
+            CloseAndRefresh();
         }
     }
 }

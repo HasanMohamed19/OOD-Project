@@ -34,11 +34,11 @@
             this.manageInformationBtn = new System.Windows.Forms.Button();
             this.manageUsersBtn = new System.Windows.Forms.Button();
             this.manageCoursesBtn = new System.Windows.Forms.Button();
+            this.btnAddAnouncement = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.adminMainContent = new System.Windows.Forms.Panel();
             this.notificationPnl = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnNotificationBell = new System.Windows.Forms.Button();
+            this.adminMainContent = new System.Windows.Forms.Panel();
+            this.profileBar = new OOD_Project.ProfileBar();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.notificationPnl.SuspendLayout();
@@ -53,7 +53,7 @@
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1008, 72);
+            this.panelHeader.Size = new System.Drawing.Size(1007, 72);
             this.panelHeader.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -62,12 +62,13 @@
             this.flowLayoutPanel1.Controls.Add(this.manageInformationBtn);
             this.flowLayoutPanel1.Controls.Add(this.manageUsersBtn);
             this.flowLayoutPanel1.Controls.Add(this.manageCoursesBtn);
+            this.flowLayoutPanel1.Controls.Add(this.btnAddAnouncement);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(128, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 12, 8, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(818, 72);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(679, 72);
             this.flowLayoutPanel1.TabIndex = 3;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -131,6 +132,21 @@
             this.manageCoursesBtn.UseVisualStyleBackColor = false;
             this.manageCoursesBtn.Click += new System.EventHandler(this.manageCoursesBtn_Click_1);
             // 
+            // btnAddAnouncement
+            // 
+            this.btnAddAnouncement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.btnAddAnouncement.FlatAppearance.BorderSize = 0;
+            this.btnAddAnouncement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddAnouncement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAnouncement.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAddAnouncement.Location = new System.Drawing.Point(459, 15);
+            this.btnAddAnouncement.Name = "btnAddAnouncement";
+            this.btnAddAnouncement.Size = new System.Drawing.Size(108, 42);
+            this.btnAddAnouncement.TabIndex = 8;
+            this.btnAddAnouncement.Text = "Manage Announcement";
+            this.btnAddAnouncement.UseVisualStyleBackColor = false;
+            this.btnAddAnouncement.Click += new System.EventHandler(this.btnAddAnouncement_Click);
+            // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -143,66 +159,48 @@
             this.label1.Text = "eLMS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // notificationPnl
+            // 
+            this.notificationPnl.Controls.Add(this.profileBar);
+            this.notificationPnl.Dock = System.Windows.Forms.DockStyle.Right;
+            this.notificationPnl.Location = new System.Drawing.Point(807, 0);
+            this.notificationPnl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.notificationPnl.Name = "notificationPnl";
+            this.notificationPnl.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.notificationPnl.Size = new System.Drawing.Size(200, 72);
+            this.notificationPnl.TabIndex = 8;
+            // 
             // adminMainContent
             // 
             this.adminMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.adminMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.adminMainContent.Location = new System.Drawing.Point(0, 72);
             this.adminMainContent.Name = "adminMainContent";
-            this.adminMainContent.Size = new System.Drawing.Size(1008, 529);
+            this.adminMainContent.Size = new System.Drawing.Size(1007, 528);
             this.adminMainContent.TabIndex = 3;
             // 
-            // notificationPnl
+            // profileBar
             // 
-            this.notificationPnl.Controls.Add(this.button1);
-            this.notificationPnl.Controls.Add(this.btnNotificationBell);
-            this.notificationPnl.Dock = System.Windows.Forms.DockStyle.Right;
-            this.notificationPnl.Location = new System.Drawing.Point(946, 0);
-            this.notificationPnl.Margin = new System.Windows.Forms.Padding(2);
-            this.notificationPnl.Name = "notificationPnl";
-            this.notificationPnl.Padding = new System.Windows.Forms.Padding(3);
-            this.notificationPnl.Size = new System.Drawing.Size(62, 72);
-            this.notificationPnl.TabIndex = 8;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::OOD_Project.Properties.Resources.userIcon;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(3, 39);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(2);
-            this.button1.Size = new System.Drawing.Size(56, 30);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnNotificationBell
-            // 
-            this.btnNotificationBell.BackgroundImage = global::OOD_Project.Properties.Resources.bell_icon;
-            this.btnNotificationBell.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnNotificationBell.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNotificationBell.FlatAppearance.BorderSize = 0;
-            this.btnNotificationBell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotificationBell.Location = new System.Drawing.Point(3, 3);
-            this.btnNotificationBell.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNotificationBell.Name = "btnNotificationBell";
-            this.btnNotificationBell.Size = new System.Drawing.Size(56, 30);
-            this.btnNotificationBell.TabIndex = 0;
-            this.btnNotificationBell.UseVisualStyleBackColor = true;
+            this.profileBar.BackColor = System.Drawing.Color.Transparent;
+            this.profileBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.profileBar.Location = new System.Drawing.Point(3, 3);
+            this.profileBar.LoggedInUser = null;
+            this.profileBar.Name = "profileBar";
+            this.profileBar.NotificationList = null;
+            this.profileBar.ParentContainer = null;
+            this.profileBar.Size = new System.Drawing.Size(194, 66);
+            this.profileBar.TabIndex = 0;
             // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 601);
+            this.ClientSize = new System.Drawing.Size(1007, 600);
             this.Controls.Add(this.adminMainContent);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximumSize = new System.Drawing.Size(1024, 640);
-            this.MinimumSize = new System.Drawing.Size(1024, 640);
+            this.MaximumSize = new System.Drawing.Size(1023, 639);
+            this.MinimumSize = new System.Drawing.Size(1023, 639);
             this.Name = "AdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Panel";
@@ -224,7 +222,7 @@
         private System.Windows.Forms.Panel adminMainContent;
         private System.Windows.Forms.Button manageCoursesBtn;
         private System.Windows.Forms.Panel notificationPnl;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnNotificationBell;
+        private System.Windows.Forms.Button btnAddAnouncement;
+        private ProfileBar profileBar;
     }
 }

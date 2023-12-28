@@ -37,16 +37,28 @@
             this.editUserBtn = new System.Windows.Forms.Button();
             this.deleteUserBtn = new System.Windows.Forms.Button();
             this.pendingUsersTab = new System.Windows.Forms.TabPage();
-            this.pendingUsersListBox = new System.Windows.Forms.ListBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.inactiveDGV = new System.Windows.Forms.DataGridView();
+            this.pendingDGV = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.addInactive = new System.Windows.Forms.Button();
+            this.deleteInactive = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnReject = new System.Windows.Forms.Button();
+            this.editInactive = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.currentUsersTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentUsersDG)).BeginInit();
             this.panel1.SuspendLayout();
             this.usersListControls.SuspendLayout();
             this.pendingUsersTab.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.inactiveDGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pendingDGV)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,10 +94,12 @@
             this.currentUsersDG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.currentUsersDG.Location = new System.Drawing.Point(3, 36);
             this.currentUsersDG.Margin = new System.Windows.Forms.Padding(2);
+            this.currentUsersDG.MultiSelect = false;
             this.currentUsersDG.Name = "currentUsersDG";
             this.currentUsersDG.ReadOnly = true;
             this.currentUsersDG.RowHeadersWidth = 51;
             this.currentUsersDG.RowTemplate.Height = 24;
+            this.currentUsersDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.currentUsersDG.Size = new System.Drawing.Size(994, 464);
             this.currentUsersDG.TabIndex = 6;
             // 
@@ -160,35 +174,120 @@
             // 
             // pendingUsersTab
             // 
-            this.pendingUsersTab.Controls.Add(this.pendingUsersListBox);
-            this.pendingUsersTab.Controls.Add(this.flowLayoutPanel1);
+            this.pendingUsersTab.Controls.Add(this.tableLayoutPanel1);
             this.pendingUsersTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingUsersTab.Location = new System.Drawing.Point(4, 22);
             this.pendingUsersTab.Name = "pendingUsersTab";
             this.pendingUsersTab.Padding = new System.Windows.Forms.Padding(3);
-            this.pendingUsersTab.Size = new System.Drawing.Size(776, 463);
+            this.pendingUsersTab.Size = new System.Drawing.Size(1000, 503);
             this.pendingUsersTab.TabIndex = 1;
             this.pendingUsersTab.Text = "Pending Users";
             this.pendingUsersTab.UseVisualStyleBackColor = true;
             // 
-            // pendingUsersListBox
+            // tableLayoutPanel1
             // 
-            this.pendingUsersListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pendingUsersListBox.FormattingEnabled = true;
-            this.pendingUsersListBox.ItemHeight = 22;
-            this.pendingUsersListBox.Location = new System.Drawing.Point(3, 36);
-            this.pendingUsersListBox.Name = "pendingUsersListBox";
-            this.pendingUsersListBox.Size = new System.Drawing.Size(770, 424);
-            this.pendingUsersListBox.TabIndex = 7;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.inactiveDGV, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pendingDGV, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(994, 497);
+            this.tableLayoutPanel1.TabIndex = 8;
+            // 
+            // inactiveDGV
+            // 
+            this.inactiveDGV.AllowUserToAddRows = false;
+            this.inactiveDGV.AllowUserToDeleteRows = false;
+            this.inactiveDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.inactiveDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.inactiveDGV.Location = new System.Drawing.Point(2, 289);
+            this.inactiveDGV.Margin = new System.Windows.Forms.Padding(2);
+            this.inactiveDGV.MultiSelect = false;
+            this.inactiveDGV.Name = "inactiveDGV";
+            this.inactiveDGV.ReadOnly = true;
+            this.inactiveDGV.RowHeadersWidth = 51;
+            this.inactiveDGV.RowTemplate.Height = 24;
+            this.inactiveDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.inactiveDGV.Size = new System.Drawing.Size(990, 206);
+            this.inactiveDGV.TabIndex = 10;
+            // 
+            // pendingDGV
+            // 
+            this.pendingDGV.AllowUserToAddRows = false;
+            this.pendingDGV.AllowUserToDeleteRows = false;
+            this.pendingDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.pendingDGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pendingDGV.Location = new System.Drawing.Point(2, 41);
+            this.pendingDGV.Margin = new System.Windows.Forms.Padding(2);
+            this.pendingDGV.MultiSelect = false;
+            this.pendingDGV.Name = "pendingDGV";
+            this.pendingDGV.ReadOnly = true;
+            this.pendingDGV.RowHeadersWidth = 51;
+            this.pendingDGV.RowTemplate.Height = 24;
+            this.pendingDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.pendingDGV.Size = new System.Drawing.Size(990, 205);
+            this.pendingDGV.TabIndex = 9;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.addInactive);
+            this.flowLayoutPanel2.Controls.Add(this.editInactive);
+            this.flowLayoutPanel2.Controls.Add(this.deleteInactive);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 251);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(988, 33);
+            this.flowLayoutPanel2.TabIndex = 8;
+            // 
+            // addInactive
+            // 
+            this.addInactive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.addInactive.FlatAppearance.BorderSize = 0;
+            this.addInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addInactive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.addInactive.Location = new System.Drawing.Point(157, 3);
+            this.addInactive.Name = "addInactive";
+            this.addInactive.Size = new System.Drawing.Size(75, 27);
+            this.addInactive.TabIndex = 0;
+            this.addInactive.Text = "Add";
+            this.addInactive.UseVisualStyleBackColor = false;
+            this.addInactive.Click += new System.EventHandler(this.addInactive_Click);
+            // 
+            // deleteInactive
+            // 
+            this.deleteInactive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.deleteInactive.FlatAppearance.BorderSize = 0;
+            this.deleteInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteInactive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.deleteInactive.Location = new System.Drawing.Point(319, 3);
+            this.deleteInactive.Name = "deleteInactive";
+            this.deleteInactive.Size = new System.Drawing.Size(75, 27);
+            this.deleteInactive.TabIndex = 1;
+            this.deleteInactive.Text = "Delete";
+            this.deleteInactive.UseVisualStyleBackColor = false;
+            this.deleteInactive.Click += new System.EventHandler(this.deleteInactive_Click);
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.btnAccept);
             this.flowLayoutPanel1.Controls.Add(this.btnReject);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(770, 33);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 33);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // btnAccept
@@ -198,7 +297,7 @@
             this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccept.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.btnAccept.Location = new System.Drawing.Point(3, 3);
+            this.btnAccept.Location = new System.Drawing.Point(157, 3);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 27);
             this.btnAccept.TabIndex = 0;
@@ -213,13 +312,46 @@
             this.btnReject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReject.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.btnReject.Location = new System.Drawing.Point(84, 3);
+            this.btnReject.Location = new System.Drawing.Point(238, 3);
             this.btnReject.Name = "btnReject";
             this.btnReject.Size = new System.Drawing.Size(75, 27);
             this.btnReject.TabIndex = 1;
             this.btnReject.Text = "Reject";
             this.btnReject.UseVisualStyleBackColor = false;
             this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
+            // 
+            // editInactive
+            // 
+            this.editInactive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.editInactive.FlatAppearance.BorderSize = 0;
+            this.editInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editInactive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.editInactive.Location = new System.Drawing.Point(238, 3);
+            this.editInactive.Name = "editInactive";
+            this.editInactive.Size = new System.Drawing.Size(75, 27);
+            this.editInactive.TabIndex = 2;
+            this.editInactive.Text = "Edit";
+            this.editInactive.UseVisualStyleBackColor = false;
+            this.editInactive.Click += new System.EventHandler(this.editInactive_Click);
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 30);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Inactive Users:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 30);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Pending Users:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // usersListForms
             // 
@@ -236,6 +368,10 @@
             this.panel1.ResumeLayout(false);
             this.usersListControls.ResumeLayout(false);
             this.pendingUsersTab.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.inactiveDGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pendingDGV)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -253,8 +389,16 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.Button btnReject;
-        private System.Windows.Forms.ListBox pendingUsersListBox;
         private System.Windows.Forms.DataGridView currentUsersDG;
         private System.Windows.Forms.Button addUserBtn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button addInactive;
+        private System.Windows.Forms.Button deleteInactive;
+        private System.Windows.Forms.DataGridView inactiveDGV;
+        private System.Windows.Forms.DataGridView pendingDGV;
+        private System.Windows.Forms.Button editInactive;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

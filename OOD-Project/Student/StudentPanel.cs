@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace OOD_Project
 {
-    public partial class StudentPanel : Form, NotificationMenuContainer
+    public partial class StudentPanel : Form, ProfileBarContainer
     {
         /*
          * // https://www.ietf.org/rfc/rfc6068.txt
@@ -22,61 +22,14 @@ namespace OOD_Project
          */
         private Student loggedInStudent;
         private User loggedInUser;
-        private bool notificationMenuOpened;
         public StudentPanel()
         {
             InitializeComponent();
             loggedInUser = User.GetUser(Global.UserId);
-            notificationMenuOpened = false;
-            CheckUnreadNotifications();
+            profileBar.Initialize(loggedInUser, this);
+            Helper.OpenChildForm(new ViewCoursesForm(), studentMainContent);
         }
 
-        private void CheckUnreadNotifications()
-        {
-            if (User.UnreadNotificationsForUser(loggedInUser) <= 0)
-            {
-                // no unread notifications
-                UpdateBell(false);
-                return;
-            }
-            UpdateBell(true);
-        }
-
-        private void UpdateBell(bool enabled)
-        {
-            if (enabled)
-            {
-                btnNotificationBell.BackgroundImage = Properties.Resources.bell_icon_active;
-            } else
-            {
-                btnNotificationBell.BackgroundImage = Properties.Resources.bell_icon;
-            }
-        }
-
-        private void OpenNotificationMenu(User user, StudentPanel parentForm)
-        {
-            if (notificationMenuOpened)
-            { 
-                return;
-            }
-            List<Notification> notificationList = Notification.GetNotificationsForUser(user);
-            NotificationMenu menu = new NotificationMenu(notificationList, parentForm);
-            // place under notification bell
-            Point menuLocation = btnNotificationBell.PointToScreen(Point.Empty);
-            menuLocation.Offset(0, btnNotificationBell.Size.Height);
-            menu.Location = menuLocation;
-            menu.BringToFront();
-            menu.Show();
-            notificationMenuOpened = true;
-        }
-
-        public void NotificationMenuClosed()
-        {
-            // TODO: mark all notifications as read and save to db
-            Notification.MarkAllReadForUser(loggedInUser);
-            CheckUnreadNotifications();
-            notificationMenuOpened = false;
-        }
 
         public void PerformNotificationAction(NotificationType type)
         {
@@ -87,36 +40,37 @@ namespace OOD_Project
                     break;
                 case NotificationType.email:
                     // go to email tab
-                    OpenChildForm(new ViewEmails());
+                    Helper.OpenChildForm(new ViewEmails(), studentMainContent);
                     break;
             }
         }
 
-        private void OpenChildForm(Form childForm)
-        {
-
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.studentMainContent.Controls.Add(childForm);
-            this.studentMainContent.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
-
         private void viewCoursesBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ViewCoursesForm());
-        }
-
-        private void btnNotificationBell_Click(object sender, EventArgs e)
-        {
-            OpenNotificationMenu(loggedInUser, this);
+            Helper.OpenChildForm(new ViewCoursesForm(), studentMainContent);
         }
 
         private void viewEmailBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ViewEmails());
+            Helper.OpenChildForm(new ViewEmails(), studentMainContent);
+        }
+
+        private void viewAnnouncementBtn_Click(object sender, EventArgs e)
+        {
+            Helper.OpenChildForm(new ViewAnnouncementsForm(), studentMainContent);
+        }
+
+        public void GoToChangePassword()
+        {
+            Helper.OpenChildForm(new ChangePasswordForm(), studentMainContent);
+        }
+
+        public void SignOut()
+        {
+            LoginForm loginForm = new LoginForm();
+
+            loginForm.Show();
+            this.Close();
         }
     }
 }

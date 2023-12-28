@@ -14,8 +14,8 @@ namespace OOD_Project
     public partial class NotificationMenu : Form
     {
         private List<Notification> notificationList;
-        private NotificationMenuContainer parentForm;
-        public NotificationMenu(List<Notification> notificationList, NotificationMenuContainer parentForm)
+        private ProfileBar parentForm;
+        public NotificationMenu(List<Notification> notificationList, ProfileBar parentForm)
         {
             InitializeComponent();
             this.notificationList = notificationList;

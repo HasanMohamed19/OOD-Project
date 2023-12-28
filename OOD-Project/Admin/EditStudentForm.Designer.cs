@@ -1,6 +1,6 @@
 ﻿namespace OOD_Project.Admin
 {
-    partial class AddStudentForm
+    partial class EditStudentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.containerPnl = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -50,13 +51,22 @@
             this.txtCPR = new System.Windows.Forms.TextBox();
             this.comboMajor = new System.Windows.Forms.ComboBox();
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.btnRegister = new System.Windows.Forms.Button();
-            this.containerPnl = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.containerPnl.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panelBottom.SuspendLayout();
-            this.containerPnl.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // containerPnl
+            // 
+            this.containerPnl.Controls.Add(this.tableLayoutPanel1);
+            this.containerPnl.Controls.Add(this.panelBottom);
+            this.containerPnl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.containerPnl.Location = new System.Drawing.Point(0, 0);
+            this.containerPnl.Name = "containerPnl";
+            this.containerPnl.Size = new System.Drawing.Size(684, 315);
+            this.containerPnl.TabIndex = 13;
             // 
             // tableLayoutPanel1
             // 
@@ -315,61 +325,53 @@
             // 
             // panelBottom
             // 
-            this.panelBottom.Controls.Add(this.btnRegister);
+            this.panelBottom.Controls.Add(this.btnSave);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBottom.Location = new System.Drawing.Point(0, 221);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(684, 94);
             this.panelBottom.TabIndex = 36;
             // 
-            // btnRegister
+            // btnSave
             // 
-            this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.btnRegister.FlatAppearance.BorderSize = 0;
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRegister.Location = new System.Drawing.Point(149, 20);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(383, 54);
-            this.btnRegister.TabIndex = 11;
-            this.btnRegister.Text = "Add Student";
-            this.btnRegister.UseVisualStyleBackColor = false;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.Location = new System.Drawing.Point(149, 20);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(383, 54);
+            this.btnSave.TabIndex = 11;
+            this.btnSave.Text = "Save Student";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // containerPnl
-            // 
-            this.containerPnl.Controls.Add(this.tableLayoutPanel1);
-            this.containerPnl.Controls.Add(this.panelBottom);
-            this.containerPnl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.containerPnl.Location = new System.Drawing.Point(0, 0);
-            this.containerPnl.Name = "containerPnl";
-            this.containerPnl.Size = new System.Drawing.Size(684, 315);
-            this.containerPnl.TabIndex = 12;
-            // 
-            // AddStudentForm
+            // EditStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(684, 315);
             this.Controls.Add(this.containerPnl);
-            this.Name = "AddStudentForm";
-            this.Text = "AddStudentForm";
+            this.Name = "EditStudentForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit Student";
+            this.containerPnl.ResumeLayout(false);
+            this.containerPnl.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panelBottom.ResumeLayout(false);
-            this.containerPnl.ResumeLayout(false);
-            this.containerPnl.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel containerPnl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
@@ -392,7 +394,6 @@
         private System.Windows.Forms.TextBox txtCPR;
         private System.Windows.Forms.ComboBox comboMajor;
         private System.Windows.Forms.Panel panelBottom;
-        private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.Panel containerPnl;
+        private System.Windows.Forms.Button btnSave;
     }
 }
