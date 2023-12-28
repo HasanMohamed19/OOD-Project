@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using OOD_Project.Helpers;
 using System.Text.RegularExpressions;
+using OOD_Project.Admin;
 
 namespace OOD_Project
 {
@@ -228,7 +229,7 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@body", email.Body);
             dbm.Command.Parameters.AddWithValue("@recipient_user_id", email.Recipent.UserId);
             dbm.Command.CommandText = "INSERT INTO [dbo].[email] (email_id, body, subject, sender_user_id, recipient_user_id)" +
-                " VALUES(NEXT VALUE FOR [dbo].[emailIDSequence], @body, @subject, 2, 3)";
+                " VALUES(NEXT VALUE FOR [dbo].[emailIDSequence], @body, @subject, 2, 2)";
 
             try
             {
@@ -352,6 +353,7 @@ namespace OOD_Project
             {
                 Notification notif = new Notification(email.Body, this, 0, email.Subject, NotificationType.email, false);
                 Notification.AddNotification(notif);
+                EmailController.Instance().SendNotificationEmail("202100937@student.polytechnic.bh");
             }
         }
 

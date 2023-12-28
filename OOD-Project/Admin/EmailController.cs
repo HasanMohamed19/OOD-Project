@@ -82,5 +82,30 @@ namespace OOD_Project.Admin
             msgMail.Dispose();
         }
 
+        public void SendNotificationEmail(string recipientEmail)
+        {
+            string body = "You have a new Notification. Please check the system";
+            MailMessage msgMail;
+            msgMail = new MailMessage();
+            // email can be changed later
+            msgMail.From = new MailAddress("elms3dmin@gmail.com", "elmsAdmin");
+            msgMail.To.Add(recipientEmail);
+
+            msgMail.Subject = "New Notification";
+            msgMail.Body = body;
+            try
+            {
+                smtpClient.Send(msgMail);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                msgMail.Dispose();
+            }
+
+        }
+
     }
 }
