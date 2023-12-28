@@ -27,7 +27,7 @@ namespace OOD_Project
 
         public void GoToChangePassword()
         {
-            throw new NotImplementedException();
+            Helper.OpenChildForm(new ChangePasswordForm(), teacherMainContent);
         }
 
         public void PerformNotificationAction(NotificationType type)
@@ -45,7 +45,9 @@ namespace OOD_Project
 
         public void SignOut()
         {
-            throw new NotImplementedException();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
         }
 
         private void viewCoursesBtn_Click(object sender, EventArgs e)

@@ -16,5 +16,10 @@ namespace OOD_Project
         {
             InitializeComponent();
         }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

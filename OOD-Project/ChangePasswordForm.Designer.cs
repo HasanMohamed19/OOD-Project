@@ -80,19 +80,21 @@
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnChangePassword.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
             this.tableLayoutPanel1.SetColumnSpan(this.btnChangePassword, 2);
             this.btnChangePassword.FlatAppearance.BorderSize = 0;
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChangePassword.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnChangePassword.Location = new System.Drawing.Point(411, 405);
+            this.btnChangePassword.Location = new System.Drawing.Point(411, 389);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.Size = new System.Drawing.Size(186, 50);
             this.btnChangePassword.TabIndex = 0;
             this.btnChangePassword.Text = "Change Password";
             this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // label1
             // 
