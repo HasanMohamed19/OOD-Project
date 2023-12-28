@@ -28,9 +28,13 @@ namespace OOD_Project.TeacherGroup
             this.loggedInTeacher = loggedInTeacher;
             InitializeComponent();
             PopulateCoursesListView();
+            // set the first item to be selected
+            
             if (courseIds.Count > 0 )
             {
+                
                 Helper.OpenChildForm(new ViewCourses.ViewCourseForm(courseIds[selectedIndex]), detailContainer);
+                coursesListView.Items[0].Selected = true;
             }
         }
 

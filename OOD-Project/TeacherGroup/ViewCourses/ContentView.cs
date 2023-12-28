@@ -43,9 +43,10 @@ namespace OOD_Project.TeacherGroup.ViewCourses
                     string fileSize = $"{fileSizeInBytes / 1024} KB";
                     contentFile.SubItems.Add(fileSize);
                     classesListView.Items.Add(contentFile);
-                    Teacher.UploadContent(file, courseId);
+                    string newPath = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), Path.GetFileName(file));
+                    Teacher.UploadContent(newPath, courseId);
                     //MessageBox.Show(Path.Combine(DocumentHelper.parentDirectory, courseId.ToString()));
-                    DocumentHelper.CopyFile(file, Path.Combine(Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString()), Path.GetFileName(file)));
+                    DocumentHelper.CopyFile(file, newPath);
                 }
             }
         }
@@ -62,11 +63,63 @@ namespace OOD_Project.TeacherGroup.ViewCourses
                 savePicker.FileName = selectedContent;
                 if (savePicker.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show(selectedContent);
                     DocumentHelper.CopyFile(Path.Combine(Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString()), selectedContent), savePicker.FileName);
-
                 }
             }
+        }
+
+        
+
+        private void PopulateCourseContent(int courseId)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@course_id", courseId);
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[content] WHERE course_id = @course_id";
+            dbm.Reader = dbm.Command.ExecuteReader();
+            while (dbm.Reader.Read())
+            {
+                string fullPath = Path.Combine(dbm.Reader["folder_path"].ToString(), dbm.Reader["filename"].ToString());
+                ListViewItem courseContent = new ListViewItem(dbm.Reader["filename"].ToString());
+                long fileSizeInBytes = new FileInfo(fullPath).Length;
+                // rename the view later
+                string fileSize = $"{fileSizeInBytes / 1024} KB";
+                courseContent.SubItems.Add(fileSize);
+                classesListView.Items.Add(courseContent);
+            }
+            dbm.Command.Parameters.Clear();
+            dbm.Reader.Close();
+            dbm.Connection.Close();
+        }
+
+        private void ContentView_Load(object sender, EventArgs e)
+        {
+            PopulateCourseContent(courseId);
+        }
+
+        private void deleteContentBtn_Click(object sender, EventArgs e)
+        {
+            //DatabaseManager dbm = DatabaseManager.Instance();
+            //dbm.Connection.Open();
+            //dbm.Command = dbm.Connection.CreateCommand();
+            //dbm.Command.Parameters.AddWithValue("@course_id", courseId);
+            //dbm.Command.CommandText = "DELETE FROM [dbo].[content] WHERE course_id = @course_id AND ";
+            //try
+            //{
+            //    int numberOfFileDeleted = dbm.Command.ExecuteNonQuery();
+            //    classesListView.Items.Remove(classesListView.SelectedItems[0]);
+            //    MessageBox.Show($"{numberOfFileDeleted} has been deleted.");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+            //finally
+            //{
+            //    dbm.Command.Parameters.Clear();
+            //    dbm.Connection.Close();
+            //}
         }
     }
 }
