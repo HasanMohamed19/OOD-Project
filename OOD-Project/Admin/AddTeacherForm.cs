@@ -13,12 +13,14 @@ namespace OOD_Project.Admin
     public partial class AddTeacherForm : Form
     {
         private AddUserForm parentForm;
-        public AddTeacherForm(AddUserForm parentForm)
+        private bool activateUser;
+        public AddTeacherForm(AddUserForm parentForm, bool activateUser)
         {
             this.parentForm = parentForm;
             InitializeComponent();
             InitializeComboBoxes();
             this.parentForm = parentForm;
+            this.activateUser = activateUser;
         }
         List<Branch> branches = Branch.GetBranches();
 
@@ -37,6 +39,8 @@ namespace OOD_Project.Admin
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            UserStatus status = activateUser ? UserStatus.accepted : UserStatus.inactive;
+
             string inEmail = txtEmailT.Text;
             Branch inBranch = branches[comboBranch.SelectedIndex];
             Programme inProgramme = (Programme)(comboProgramme.SelectedIndex + 1);
@@ -63,7 +67,7 @@ namespace OOD_Project.Admin
             string inTeacherId = txtTeacherId.Text;
 
             // create user based on data received
-            Teacher teacher = new Teacher(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, UserStatus.inactive, false,
+            Teacher teacher = new Teacher(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, status, false,
                 inFName, inLName, inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
 
             // if there is teacher with universityId already, dont add

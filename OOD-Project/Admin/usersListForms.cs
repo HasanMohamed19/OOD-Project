@@ -52,25 +52,27 @@ namespace OOD_Project
             //    //currentUsersListView.Items.Add(item);
             //}
             
-            populateDGV();
+            PopulateCurrentDGV();
+            PopulatePendingDGV();
+            PopulateInactiveDGV();
             // currentUsersListBox.Items.AddRange(currentUsers);
             //pendingUsersListBox.Items.AddRange(pendingUsers);
 
         }
          
-        private void editUserBtn_Click(object sender, EventArgs e)
+        private void EditUserFromDGV(DataGridView dgv)
         {
-            if (currentUsersDG.SelectedRows.Count > 0)
+            if (dgv.SelectedRows.Count > 0)
             {
-                int selectedID = Convert.ToInt32(currentUsersDG.SelectedRows[0].Cells[0].Value);
-                UserRole roleID = (UserRole)Convert.ToInt32(currentUsersDG.SelectedRows[0].Cells[4].Value);
-                switch (roleID)
+                int selectedID = Convert.ToInt32(dgv.SelectedRows[0].Cells[8].Value);
+                string roleName = Convert.ToString(dgv.SelectedRows[0].Cells[0].Value);
+                switch (roleName)
                 {
-                    case UserRole.student:
+                    case "student":
                         EditStudentForm studentForm = new EditStudentForm(Student.GetStudent(selectedID), this);
                         studentForm.Show();
                         break;
-                    case UserRole.teacher:
+                    case "teacher":
                         EditTeacherForm teacherForm = new EditTeacherForm(Teacher.GetTeacher(selectedID), this);
                         teacherForm.Show();
                         break;
@@ -78,16 +80,26 @@ namespace OOD_Project
             }
         }
 
-        // called from child views to update after editing fields
-        public void RefreshView()
+        private void DeleteUserFromDGV(DataGridView dgv)
         {
-            populateDGV();
+            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected user?", "Delete Confirmation", MessageBoxButtons.YesNo);
+
+            if (deleteConfirmation == DialogResult.Yes)
+            {
+                if (dgv.SelectedRows.Count > 0)
+                {
+                    int selectedID = Convert.ToInt32(dgv.SelectedRows[0].Cells[8].Value);
+
+                    User.DeleteUser(selectedID);
+                }
+            }
         }
 
-        private void populateDGV()
+        private void PopulateDataGrid(DataGridView dgv, String sqlCommand)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
-            dbm.Command.CommandText = "SELECT * FROM [dbo].[User]";
+            // get all active students and teachers
+            dbm.Command.CommandText = sqlCommand;
 
             try
             {
@@ -97,61 +109,134 @@ namespace OOD_Project
 
                 da.Fill(dt);
                 bs.DataSource = dt;
-                currentUsersDG.DataSource = bs;
-                currentUsersDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                currentUsersDG.RowTemplate.MinimumHeight = 30;
-            } catch (Exception ex)
+                dgv.DataSource = bs;
+                dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                dgv.RowTemplate.MinimumHeight = 30;
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
+        private void editUserBtn_Click(object sender, EventArgs e)
+        {
+            EditUserFromDGV(currentUsersDG);
+        }
+
+        // called from child views to update after editing fields
+        public void RefreshView()
+        {
+            PopulateGrids();
+
+        }
+
+        private void PopulateGrids()
+        {
+            PopulateCurrentDGV();
+            PopulatePendingDGV();
+            PopulateInactiveDGV();
+        }
+
+        private void PopulateCurrentDGV()
+        {
+            String sqlCommand = "SELECT  r.role_name AS Role, s.student_university_id AS 'University ID', s.first_name +' '+ s.last_name AS Name, s.phone_number AS Phone, s.cpr AS CPR, u.email AS Email, s.dob AS Birthdate, s.gender AS Gender, u.user_id AS ID " +
+                "FROM [dbo].[User] u " +
+                "JOIN [dbo].[student] s ON u.user_id = s.user_id " +
+                "JOIN [dbo].[role] r ON u.role_id = r.role_id " +
+                "WHERE status_id = 2 " +
+                "UNION ALL " +
+                "SELECT r.role_name, t.teacher_university_id, t.first_name +' '+ t.last_name, t.phone_number, t.cpr, u.email, t.dob, t.gender, u.user_id AS ID " +
+                "FROM [dbo].[User] u " +
+                "JOIN [dbo].[teacher] t ON u.user_id = t.user_id " +
+                "JOIN [dbo].[role] r ON u.role_id = r.role_id " +
+                "WHERE status_id = 2 ";
+            PopulateDataGrid(currentUsersDG, sqlCommand);
+        }
+        private void PopulatePendingDGV()
+        {
+            // get all pending students and teachers
+            String sqlCommand = "SELECT  r.role_name AS Role, s.student_university_id AS 'University ID', s.first_name +' '+ s.last_name AS Name, s.phone_number AS Phone, s.cpr AS CPR, u.email AS Email, s.dob AS Birthdate, s.gender AS Gender, u.user_id AS ID " +
+                "FROM [dbo].[User] u " +
+                "JOIN [dbo].[student] s ON u.user_id = s.user_id " +
+                "JOIN [dbo].[role] r ON u.role_id = r.role_id " +
+                "WHERE status_id = 1 " +
+                "UNION ALL " +
+                "SELECT r.role_name, t.teacher_university_id, t.first_name +' '+ t.last_name, t.phone_number, t.cpr, u.email, t.dob, t.gender, u.user_id AS ID " +
+                "FROM [dbo].[User] u " +
+                "JOIN [dbo].[teacher] t ON u.user_id = t.user_id " +
+                "JOIN [dbo].[role] r ON u.role_id = r.role_id " +
+                "WHERE status_id = 1 ";
+
+            PopulateDataGrid(pendingDGV, sqlCommand);
+        }
+        private void PopulateInactiveDGV()
+        {
+            // get all inactive students and teachers
+            String sqlCommand = "SELECT  r.role_name AS Role, s.student_university_id AS 'University ID', s.first_name +' '+ s.last_name AS Name, s.phone_number AS Phone, s.cpr AS CPR, u.email AS Email, s.dob AS Birthdate, s.gender AS Gender, u.user_id AS ID " +
+                "FROM [dbo].[User] u " +
+                "JOIN [dbo].[student] s ON u.user_id = s.user_id " +
+                "JOIN [dbo].[role] r ON u.role_id = r.role_id " +
+                "WHERE status_id = 3 " +
+                "UNION ALL " +
+                "SELECT r.role_name, t.teacher_university_id, t.first_name +' '+ t.last_name, t.phone_number, t.cpr, u.email, t.dob, t.gender, u.user_id AS ID " +
+                "FROM [dbo].[User] u " +
+                "JOIN [dbo].[teacher] t ON u.user_id = t.user_id " +
+                "JOIN [dbo].[role] r ON u.role_id = r.role_id " +
+                "WHERE status_id = 3 ";
+            PopulateDataGrid(inactiveDGV, sqlCommand);
+        }
+
         private void deleteUserBtn_Click(object sender, EventArgs e)
         {
-            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected user?", "Delete Confirmation", MessageBoxButtons.YesNo);
-
-            
-
-            if (deleteConfirmation == DialogResult.Yes)
-            {
-                if (currentUsersDG.SelectedRows.Count > 0)
-                {
-                    int selectedID = Convert.ToInt32(currentUsersDG.SelectedRows[0].Cells[0].Value);
-
-                    User.DeleteUser(selectedID);
-                }
-
-            }
-
+            DeleteUserFromDGV(currentUsersDG);
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            User pendingUser = (User) pendingUsersListBox.SelectedItem;
-            pendingUser.StatusId = UserStatus.accepted;
-            //currentUsersListBox.Items.Add(pendingUser);
-            //currentUsersListBox.Update();
-            pendingUsersListBox.Items.Remove(pendingUser);
-            pendingUsersListBox.Update();
-            //EmailController.Instance().SendAcceptEmail(pendingUser.Email, pendingUser.FirstName, pendingUser.LastName, pendingUser.Cpr);
-            MessageBox.Show("User Request Accepted Successfully", "User Added");
+            //User pendingUser = (User) pendingUsersListBox.SelectedItem;
+            //pendingUser.StatusId = UserStatus.accepted;
+            ////currentUsersListBox.Items.Add(pendingUser);
+            ////currentUsersListBox.Update();
+            //pendingUsersListBox.Items.Remove(pendingUser);
+            //pendingUsersListBox.Update();
+            ////EmailController.Instance().SendAcceptEmail(pendingUser.Email, pendingUser.FirstName, pendingUser.LastName, pendingUser.Cpr);
+            //MessageBox.Show("User Request Accepted Successfully", "User Added");
         }
 
         private void btnReject_Click(object sender, EventArgs e)
         {
-            User pendingUser = (User)pendingUsersListBox.SelectedItem;
-            pendingUser.StatusId = UserStatus.inactive;
-            // just remove the user? or also something else? add list also for rejected user?
-            pendingUsersListBox.Items.Remove(pendingUser);
-            pendingUsersListBox.Update();
-            //EmailController.Instance().SendRejectEmail(pendingUser.FirstName, pendingUser.LastName, pendingUser.Email);
-            MessageBox.Show("User Request Rejected Successfully", "User Rejected");
+            //User pendingUser = (User)pendingUsersListBox.SelectedItem;
+            //pendingUser.StatusId = UserStatus.inactive;
+            //// just remove the user? or also something else? add list also for rejected user?
+            //pendingUsersListBox.Items.Remove(pendingUser);
+            //pendingUsersListBox.Update();
+            ////EmailController.Instance().SendRejectEmail(pendingUser.FirstName, pendingUser.LastName, pendingUser.Email);
+            //MessageBox.Show("User Request Rejected Successfully", "User Rejected");
         }
 
         private void addUserBtn_Click(object sender, EventArgs e)
         {
-            AddUserForm form = new AddUserForm(this);
+            // add active user
+            AddUserForm form = new AddUserForm(this, true);
             form.Show();
+        }
+
+        private void addInactive_Click(object sender, EventArgs e)
+        {
+            // add inactive user
+            AddUserForm form = new AddUserForm(this, false);
+            form.Show();
+        }
+
+        private void editInactive_Click(object sender, EventArgs e)
+        {
+            EditUserFromDGV(inactiveDGV);
+        }
+
+        private void deleteInactive_Click(object sender, EventArgs e)
+        {
+            DeleteUserFromDGV(inactiveDGV);
         }
     }
 

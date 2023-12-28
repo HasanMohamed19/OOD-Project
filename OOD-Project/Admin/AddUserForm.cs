@@ -14,11 +14,13 @@ namespace OOD_Project.Admin
     public partial class AddUserForm : Form
     {
         private usersListForms parentForm;
-        public AddUserForm(usersListForms parentForm)
+        private bool activateUser;
+        public AddUserForm(usersListForms parentForm, bool activateUser)
         {
             this.parentForm = parentForm;
             InitializeComponent();
-            Helper.OpenChildForm(new AddStudentForm(this), addUserContainer);
+            Helper.OpenChildForm(new AddStudentForm(this, activateUser), addUserContainer);
+            this.activateUser = activateUser;
         }
 
         public void CloseAndRefresh()
@@ -29,12 +31,12 @@ namespace OOD_Project.Admin
 
         private void btnRegisterAsStudent_Click(object sender, EventArgs e)
         {
-            Helper.OpenChildForm(new AddStudentForm(this), addUserContainer);
+            Helper.OpenChildForm(new AddStudentForm(this, activateUser), addUserContainer);
         }
 
         private void btnRegisterAsTeacher_Click(object sender, EventArgs e)
         {
-            Helper.OpenChildForm(new AddTeacherForm(this), addUserContainer);
+            Helper.OpenChildForm(new AddTeacherForm(this, activateUser), addUserContainer);
         }
     }
 }

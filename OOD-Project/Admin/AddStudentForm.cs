@@ -13,9 +13,11 @@ namespace OOD_Project.Admin
     public partial class AddStudentForm : Form
     {
         private AddUserForm parentForm;
-        public AddStudentForm(AddUserForm parentForm)
+        private bool activateUser;
+        public AddStudentForm(AddUserForm parentForm, bool activateUser)
         {
             this.parentForm = parentForm;
+            this.activateUser = activateUser;
             InitializeComponent();
             InitializeComboBox();
         }
@@ -31,6 +33,8 @@ namespace OOD_Project.Admin
         }
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            UserStatus status = activateUser ? UserStatus.accepted : UserStatus.inactive;
+
             string inEmail = txtEmail.Text;
             string inStudentID = txtStudentID.Text;
             string inCPR = txtCPR.Text;
@@ -55,8 +59,10 @@ namespace OOD_Project.Admin
             }
             DateTime inDOB = dateDOB.Value.Date;
 
+
+
             // TODO: implement validation
-            Student student = new Student(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, UserStatus.pending, false
+            Student student = new Student(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, status, false
                 , inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
 
             // if there is student with universityId already, dont add
