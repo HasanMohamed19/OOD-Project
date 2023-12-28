@@ -353,7 +353,7 @@ namespace OOD_Project
             {
                 Notification notif = new Notification(email.Body, this, 0, email.Subject, NotificationType.email, false);
                 Notification.AddNotification(notif);
-                EmailController.Instance().SendNotificationEmail("202100937@student.polytechnic.bh");
+                //EmailController.Instance().SendNotificationEmail("202100937@student.polytechnic.bh");
             }
         }
 

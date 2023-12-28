@@ -266,7 +266,7 @@ namespace OOD_Project
             try
             {
                 dbm.Command.ExecuteNonQuery();
-                string dest = Path.Combine(DocumentHelper.parentDirectory, courseId.ToString());
+                string dest = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString());
                 if (!DocumentHelper.IsDirectoryExists(dest))
                 {
                     DocumentHelper.MakeDirectory(dest);
@@ -281,6 +281,11 @@ namespace OOD_Project
                 dbm.Connection.Close();
             }
 
+        }
+
+        public static void DownloadContent(Content content)
+        {
+            
         }
 
         public string FirstName { get => firstName; set => firstName = value; }
