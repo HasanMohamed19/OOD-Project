@@ -29,19 +29,26 @@ namespace OOD_Project.Admin
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.addCourseBtn = new System.Windows.Forms.Button();
             this.editCourseBtn = new System.Windows.Forms.Button();
-            this.usersListControls = new System.Windows.Forms.FlowLayoutPanel();
+            this.courseControls = new System.Windows.Forms.FlowLayoutPanel();
             this.deleteCourseBtn = new System.Windows.Forms.Button();
-            this.courseListView = new System.Windows.Forms.ListView();
-            this.courseIDCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.courseNameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.courseCodeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.creditsColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.programmeColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.sectionCountCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.descriptionColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.usersListControls.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.classDG = new System.Windows.Forms.DataGridView();
+            this.classControls = new System.Windows.Forms.FlowLayoutPanel();
+            this.addClass = new System.Windows.Forms.Button();
+            this.editClass = new System.Windows.Forms.Button();
+            this.deleteClass = new System.Windows.Forms.Button();
+            this.courseDG = new System.Windows.Forms.DataGridView();
+            this.courseControls.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classDG)).BeginInit();
+            this.classControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.courseDG)).BeginInit();
             this.SuspendLayout();
             // 
             // addCourseBtn
@@ -75,16 +82,16 @@ namespace OOD_Project.Admin
             this.editCourseBtn.UseVisualStyleBackColor = false;
             this.editCourseBtn.Click += new System.EventHandler(this.editCourseBtn_Click);
             // 
-            // usersListControls
+            // courseControls
             // 
-            this.usersListControls.Controls.Add(this.addCourseBtn);
-            this.usersListControls.Controls.Add(this.editCourseBtn);
-            this.usersListControls.Controls.Add(this.deleteCourseBtn);
-            this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
-            this.usersListControls.Location = new System.Drawing.Point(0, 0);
-            this.usersListControls.Name = "usersListControls";
-            this.usersListControls.Size = new System.Drawing.Size(1008, 33);
-            this.usersListControls.TabIndex = 5;
+            this.courseControls.Controls.Add(this.addCourseBtn);
+            this.courseControls.Controls.Add(this.editCourseBtn);
+            this.courseControls.Controls.Add(this.deleteCourseBtn);
+            this.courseControls.Dock = System.Windows.Forms.DockStyle.Top;
+            this.courseControls.Location = new System.Drawing.Point(3, 3);
+            this.courseControls.Name = "courseControls";
+            this.courseControls.Size = new System.Drawing.Size(1002, 33);
+            this.courseControls.TabIndex = 5;
             // 
             // deleteCourseBtn
             // 
@@ -101,85 +108,152 @@ namespace OOD_Project.Admin
             this.deleteCourseBtn.UseVisualStyleBackColor = false;
             this.deleteCourseBtn.Click += new System.EventHandler(this.deleteCourseBtn_Click);
             // 
-            // courseListView
+            // tableLayoutPanel1
             // 
-            this.courseListView.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.courseListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.courseIDCol,
-            this.courseNameCol,
-            this.courseCodeCol,
-            this.creditsColumn,
-            this.programmeColumn,
-            this.sectionCountCol,
-            this.descriptionColumn});
-            this.courseListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.courseListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseListView.FullRowSelect = true;
-            this.courseListView.GridLines = true;
-            this.courseListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.courseListView.HideSelection = false;
-            this.courseListView.HoverSelection = true;
-            this.courseListView.Location = new System.Drawing.Point(0, 33);
-            this.courseListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.courseListView.MultiSelect = false;
-            this.courseListView.Name = "courseListView";
-            this.courseListView.Size = new System.Drawing.Size(1008, 496);
-            this.courseListView.TabIndex = 6;
-            this.courseListView.UseCompatibleStateImageBehavior = false;
-            this.courseListView.View = System.Windows.Forms.View.Details;
-            this.courseListView.SelectedIndexChanged += new System.EventHandler(this.courseListView_SelectedIndexChanged);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.classDG, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.classControls, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.courseDG, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.courseControls, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1008, 529);
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // courseIDCol
+            // classDG
             // 
-            this.courseIDCol.Text = "Course ID";
-            this.courseIDCol.Width = 131;
+            this.classDG.AllowUserToAddRows = false;
+            this.classDG.AllowUserToDeleteRows = false;
+            this.classDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.classDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.classDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.classDG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.classDG.Location = new System.Drawing.Point(2, 305);
+            this.classDG.Margin = new System.Windows.Forms.Padding(2);
+            this.classDG.MultiSelect = false;
+            this.classDG.Name = "classDG";
+            this.classDG.ReadOnly = true;
+            this.classDG.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classDG.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.classDG.RowTemplate.Height = 24;
+            this.classDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.classDG.Size = new System.Drawing.Size(1004, 222);
+            this.classDG.TabIndex = 11;
             // 
-            // courseNameCol
+            // classControls
             // 
-            this.courseNameCol.Text = "Course Name";
-            this.courseNameCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.courseNameCol.Width = 175;
+            this.classControls.Controls.Add(this.addClass);
+            this.classControls.Controls.Add(this.editClass);
+            this.classControls.Controls.Add(this.deleteClass);
+            this.classControls.Dock = System.Windows.Forms.DockStyle.Top;
+            this.classControls.Location = new System.Drawing.Point(3, 267);
+            this.classControls.Name = "classControls";
+            this.classControls.Size = new System.Drawing.Size(1002, 33);
+            this.classControls.TabIndex = 10;
             // 
-            // courseCodeCol
+            // addClass
             // 
-            this.courseCodeCol.Text = "Course Code";
-            this.courseCodeCol.Width = 155;
+            this.addClass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.addClass.FlatAppearance.BorderSize = 0;
+            this.addClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.addClass.Location = new System.Drawing.Point(3, 3);
+            this.addClass.Name = "addClass";
+            this.addClass.Size = new System.Drawing.Size(75, 27);
+            this.addClass.TabIndex = 0;
+            this.addClass.TabStop = false;
+            this.addClass.Text = "Add";
+            this.addClass.UseVisualStyleBackColor = false;
             // 
-            // creditsColumn
+            // editClass
             // 
-            this.creditsColumn.Text = "Credits";
-            this.creditsColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.creditsColumn.Width = 101;
+            this.editClass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.editClass.FlatAppearance.BorderSize = 0;
+            this.editClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.editClass.Location = new System.Drawing.Point(84, 3);
+            this.editClass.Name = "editClass";
+            this.editClass.Size = new System.Drawing.Size(75, 27);
+            this.editClass.TabIndex = 1;
+            this.editClass.Text = "Edit";
+            this.editClass.UseVisualStyleBackColor = false;
             // 
-            // programmeColumn
+            // deleteClass
             // 
-            this.programmeColumn.Text = "Programme";
-            this.programmeColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.programmeColumn.Width = 141;
+            this.deleteClass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.deleteClass.FlatAppearance.BorderSize = 0;
+            this.deleteClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.deleteClass.Location = new System.Drawing.Point(165, 3);
+            this.deleteClass.Name = "deleteClass";
+            this.deleteClass.Size = new System.Drawing.Size(75, 27);
+            this.deleteClass.TabIndex = 2;
+            this.deleteClass.Text = "Delete";
+            this.deleteClass.UseVisualStyleBackColor = false;
             // 
-            // sectionCountCol
+            // courseDG
             // 
-            this.sectionCountCol.Text = "Section Count";
-            this.sectionCountCol.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.sectionCountCol.Width = 195;
-            // 
-            // descriptionColumn
-            // 
-            this.descriptionColumn.Text = "Description";
-            this.descriptionColumn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.descriptionColumn.Width = 200;
+            this.courseDG.AllowUserToAddRows = false;
+            this.courseDG.AllowUserToDeleteRows = false;
+            this.courseDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.courseDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.courseDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.courseDG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.courseDG.Location = new System.Drawing.Point(2, 41);
+            this.courseDG.Margin = new System.Windows.Forms.Padding(2);
+            this.courseDG.MultiSelect = false;
+            this.courseDG.Name = "courseDG";
+            this.courseDG.ReadOnly = true;
+            this.courseDG.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseDG.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.courseDG.RowTemplate.Height = 24;
+            this.courseDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.courseDG.Size = new System.Drawing.Size(1004, 221);
+            this.courseDG.TabIndex = 9;
+            this.courseDG.SelectionChanged += new System.EventHandler(this.courseDG_SelectionChanged);
             // 
             // ManageCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(1008, 529);
-            this.Controls.Add(this.courseListView);
-            this.Controls.Add(this.usersListControls);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageCourseForm";
             this.Text = "Manage Courses";
-            this.usersListControls.ResumeLayout(false);
+            this.courseControls.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.classDG)).EndInit();
+            this.classControls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.courseDG)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -188,15 +262,14 @@ namespace OOD_Project.Admin
 
         private System.Windows.Forms.Button addCourseBtn;
         private System.Windows.Forms.Button editCourseBtn;
-        private System.Windows.Forms.FlowLayoutPanel usersListControls;
+        private System.Windows.Forms.FlowLayoutPanel courseControls;
         private System.Windows.Forms.Button deleteCourseBtn;
-        private System.Windows.Forms.ListView courseListView;
-        private System.Windows.Forms.ColumnHeader courseIDCol;
-        private System.Windows.Forms.ColumnHeader courseNameCol;
-        private System.Windows.Forms.ColumnHeader creditsColumn;
-        private System.Windows.Forms.ColumnHeader programmeColumn;
-        private System.Windows.Forms.ColumnHeader descriptionColumn;
-        private System.Windows.Forms.ColumnHeader sectionCountCol;
-        private System.Windows.Forms.ColumnHeader courseCodeCol;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView courseDG;
+        private System.Windows.Forms.FlowLayoutPanel classControls;
+        private System.Windows.Forms.Button addClass;
+        private System.Windows.Forms.Button editClass;
+        private System.Windows.Forms.Button deleteClass;
+        private System.Windows.Forms.DataGridView classDG;
     }
 }

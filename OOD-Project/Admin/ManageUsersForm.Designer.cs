@@ -1,6 +1,6 @@
 ﻿namespace OOD_Project
 {
-    partial class usersListForms
+    partial class ManageUsersForm
     {
         /// <summary>
         /// Required designer variable.
@@ -356,14 +356,15 @@
             this.btnReject.UseVisualStyleBackColor = false;
             this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
             // 
-            // usersListForms
+            // ManageUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(1008, 529);
             this.Controls.Add(this.tabControl1);
-            this.Name = "usersListForms";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "ManageUsersForm";
             this.Text = "Form1";
             this.tabControl1.ResumeLayout(false);
             this.currentUsersTab.ResumeLayout(false);

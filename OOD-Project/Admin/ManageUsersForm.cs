@@ -13,50 +13,14 @@ using System.Windows.Forms;
 
 namespace OOD_Project
 {
-    public partial class usersListForms : Form
+    public partial class ManageUsersForm : Form
     {
-
-        // fake data from db
-        //User[] currentUsers = { new User("Hasan", "Ali", "student@gmail.com", UserRole.student),
-        //new User("Yousif", "Ali", "student@gmail.com", UserRole.teacher),
-        //new User("Ahmed", "Ali", "student@gmail.com", UserRole.admin),
-        //new User("Mahmood", "Ali", "student@gmail.com", UserRole.student),
-        //new User("Osama", "Ali", "student@gmail.com", UserRole.student),
-        //new User("test1", "Ali", "student@gmail.com", UserRole.admin),
-        //new User("test2", "Ali", "student@gmail.com", UserRole.teacher),
-        //new User("test3", "Ali", "student@gmail.com", UserRole.student),
-        //new User("human4", "Ali", "student@gmail.com", UserRole.teacher),
-        //new User("Yousif", "Ali", "student@gmail.com", UserRole.teacher),
-        //new User("Ahmed", "Ali", "student@gmail.com", UserRole.teacher),
-        //new User("Mahmood", "Ali", "student@gmail.com", UserRole.student),
-        //new User("Osama", "Ali", "student@gmail.com", UserRole.student),
-        //new User("test1", "Ali", "student@gmail.com", UserRole.admin),
-        //new User("test2", "Ali", "student@gmail.com", UserRole.teacher),
-        //new User("test3", "Ali", "student@gmail.com", UserRole.student),
-        //new User("human4", "Ali", "student@gmail.com", UserRole.teacher)};
-
-        //User[] pendingUsers = { new User("pending", "user", "elms3dmin@gmail.com", UserRole.student),
-        //new User("pending", "user", "elms3dmin@gmail.com", UserRole.teacher)};
-
-        public usersListForms()
+        public ManageUsersForm()
         {
             InitializeComponent();
-            //foreach (var user in currentUsers)
-            //{
-            //    user.StatusId = UserStatus.accepted;
-            //    ListViewItem item = new ListViewItem(user.FirstName);
-            //    item.SubItems.Add(user.LastName);
-            //    item.SubItems.Add(user.Email);
-            //    item.SubItems.Add(user.RoleId.ToString());
-            //    item.SubItems.Add(user.StatusId.ToString());
-            //    //currentUsersListView.Items.Add(item);
-            //}
-            
             PopulateCurrentDGV();
             PopulatePendingDGV();
             PopulateInactiveDGV();
-            // currentUsersListBox.Items.AddRange(currentUsers);
-            //pendingUsersListBox.Items.AddRange(pendingUsers);
 
         }
          

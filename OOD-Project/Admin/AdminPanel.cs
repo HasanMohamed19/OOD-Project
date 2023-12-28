@@ -20,7 +20,7 @@ namespace OOD_Project
             InitializeComponent();
             loggedInUser = User.GetUser(Global.UserId);
             profileBar.Initialize(loggedInUser, this);
-            Helper.OpenChildForm(new usersListForms(), adminMainContent);
+            Helper.OpenChildForm(new ManageUsersForm(), adminMainContent);
 
         }
 
@@ -37,14 +37,14 @@ namespace OOD_Project
 
         private void manageUsersBtn_Click(object sender, EventArgs e)
         {
-            Helper.OpenChildForm(new usersListForms(), adminMainContent);
+            Helper.OpenChildForm(new ManageUsersForm(), adminMainContent);
         }
 
  
 
         private void manageCoursesBtn_Click_1(object sender, EventArgs e)
         {
-            Helper.OpenChildForm(new ManageCourseForm(this), adminMainContent);
+            Helper.OpenChildForm(new ManageCourseForm(), adminMainContent);
         }
 
         private void btnAddAnouncement_Click(object sender, EventArgs e)

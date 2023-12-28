@@ -13,9 +13,9 @@ namespace OOD_Project.Admin
 {
     public partial class AddUserForm : Form
     {
-        private usersListForms parentForm;
+        private ManageUsersForm parentForm;
         private bool activateUser;
-        public AddUserForm(usersListForms parentForm, bool activateUser)
+        public AddUserForm(ManageUsersForm parentForm, bool activateUser)
         {
             this.parentForm = parentForm;
             InitializeComponent();

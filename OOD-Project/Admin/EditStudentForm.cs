@@ -12,10 +12,10 @@ namespace OOD_Project.Admin
 {
     public partial class EditStudentForm : Form
     {
-        private usersListForms parentForm;
+        private ManageUsersForm parentForm;
         private Student oldStudent;
         List<Major> majors;
-        public EditStudentForm(Student oldStudent, usersListForms parentForm)
+        public EditStudentForm(Student oldStudent, ManageUsersForm parentForm)
         {
             majors = Major.GetMajors();
             InitializeComponent();

@@ -13,8 +13,8 @@ namespace OOD_Project.Admin
     public partial class EditTeacherForm : Form
     {
         Teacher oldTeacher;
-        usersListForms parentForm;
-        public EditTeacherForm(Teacher oldTeacher, usersListForms parentForm)
+        ManageUsersForm parentForm;
+        public EditTeacherForm(Teacher oldTeacher, ManageUsersForm parentForm)
         {
             InitializeComponent();
             InitializeComboBoxes();

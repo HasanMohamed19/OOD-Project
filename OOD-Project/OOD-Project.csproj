@@ -119,12 +119,6 @@
     <Compile Include="Admin\AddCourseForm.Designer.cs">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Admin\EditCourseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Admin\EditCourseForm.Designer.cs">
-      <DependentUpon>EditCourseForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Admin\EditStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,11 +273,11 @@
       <DependentUpon>ViewCourseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
-    <Compile Include="Admin\usersListForms.cs">
+    <Compile Include="Admin\ManageUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\usersListForms.Designer.cs">
-      <DependentUpon>usersListForms.cs</DependentUpon>
+    <Compile Include="Admin\ManageUsersForm.Designer.cs">
+      <DependentUpon>ManageUsersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -322,9 +316,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Admin\EditCourseForm.resx">
-      <DependentUpon>EditCourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditStudentForm.resx">
       <DependentUpon>EditStudentForm.cs</DependentUpon>
@@ -368,8 +359,8 @@
     <EmbeddedResource Include="Student\StudentPanel.resx">
       <DependentUpon>StudentPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\usersListForms.resx">
-      <DependentUpon>usersListForms.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\ManageUsersForm.resx">
+      <DependentUpon>ManageUsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
