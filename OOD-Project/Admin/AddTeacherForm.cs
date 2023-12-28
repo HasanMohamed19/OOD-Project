@@ -68,7 +68,7 @@ namespace OOD_Project.Admin
 
             // create user based on data received
             Teacher teacher = new Teacher(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, status, false,
-                inFName, inLName, inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
+                0, inFName, inLName, inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
 
             // if there is teacher with universityId already, dont add
             if (Teacher.InactiveTeacherExistsWithId(teacher.TeacherUniversityId))

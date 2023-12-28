@@ -21,7 +21,7 @@ namespace OOD_Project.TeacherGroup
         Teacher loggedInTeacher;
         List<Course> courses = new List<Course>();
         List<int> courseIds = new List<int>();
-        SelectedMenu selectedMenu = SelectedMenu.course;
+        SelectedMenu selectedMenu = SelectedMenu.course; // this will keep track of which menu is currently open
         int selectedIndex = 0;
         public TeacherViewCoursesForm(Teacher loggedInTeacher)
         {
@@ -92,6 +92,10 @@ namespace OOD_Project.TeacherGroup
                     }
                     break;
                 case SelectedMenu.students:
+                    if (courseIds.Count > 0)
+                    {
+                        Helper.OpenChildForm(new ViewCourses.ViewStudentsForm(courseIds[selectedIndex]), detailContainer);
+                    }
                     break;
                 default:
                     break;
@@ -118,7 +122,11 @@ namespace OOD_Project.TeacherGroup
 
         private void studentsBtn_Click(object sender, EventArgs e)
         {
-
+            if (courseIds.Count > 0)
+            {
+                selectedMenu = SelectedMenu.students;
+                Helper.OpenChildForm(new ViewCourses.ViewStudentsForm(courseIds[selectedIndex]), detailContainer);
+            }
         }
 
         private void coursesListView_SelectedIndexChanged(object sender, EventArgs e)

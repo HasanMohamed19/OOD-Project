@@ -95,7 +95,7 @@ namespace OOD_Project.TeacherGroup.ViewCourses
 
         private void ContentView_Load(object sender, EventArgs e)
         {
-            PopulateCourseContent(courseId);
+            //PopulateCourseContent(courseId);
         }
 
         private void deleteContentBtn_Click(object sender, EventArgs e)

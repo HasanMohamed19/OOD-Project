@@ -10,6 +10,7 @@ namespace OOD_Project
 {
     public class Teacher : User
     {
+        private int teacherId;
         private string firstName;
         private string lastName;
         private DateTime dob;
@@ -23,9 +24,10 @@ namespace OOD_Project
         
 
         public Teacher(int userId, string username, string password, string email, UserRole roleId, UserStatus statusId, bool hasNotification, 
-            string firstName, string lastName, DateTime dob, string cpr, char gender, string phoneNumber, Branch forBranch, Programme inProgramme, string teacherUniversityId) : 
+            int teacherId, string firstName, string lastName, DateTime dob, string cpr, char gender, string phoneNumber, Branch forBranch, Programme inProgramme, string teacherUniversityId) : 
             base(userId,username,password,email,roleId,statusId,hasNotification)
         {
+            this.teacherId = teacherId;
             this.firstName = firstName;
             this.lastName = lastName;
             this.dob = dob;
@@ -46,7 +48,7 @@ namespace OOD_Project
 
             dbm.Command.Parameters.AddWithValue("@user_id", user_id);
             dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification," +
-                "t.first_name, t.last_name, t.dob, t.cpr, t.phone_number, t.gender, t.programme_id, t.teacher_university_id, branch_id " +
+                "t.first_name, t.last_name, t.dob, t.cpr, t.phone_number, t.gender, t.programme_id, t.teacher_university_id, branch_id, teacher_id " +
                 " FROM [dbo].[teacher] t, [dbo].[User] u " +
                 " WHERE t.user_id = u.user_id " +
                 " AND u.user_id = @user_id";
@@ -56,6 +58,8 @@ namespace OOD_Project
 
                 if (!dbm.Reader.Read())
                 {
+                    dbm.Reader.Close();
+                    dbm.Connection.Close();
                     return null;
                 }
                 int id = dbm.Reader.GetInt32(0);
@@ -74,12 +78,13 @@ namespace OOD_Project
                 Programme programme = (Programme)dbm.Reader.GetInt32(13);
                 string universityId = dbm.Reader.GetString(14);
                 int branchId = dbm.Reader.GetInt32(15);
+                int teacherId = dbm.Reader.GetInt32(15);
                 dbm.Reader.Close();
                 dbm.Connection.Close();
 
                 Branch branch = Branch.GetBranch(branchId);
                 teacher = new Teacher(id, username, password, email, roleId, statusId, hasNotification,
-                    firstName, lastName, dob, cpr, gender, phoneNumber, branch, programme, universityId);
+                    teacherId, firstName, lastName, dob, cpr, gender, phoneNumber, branch, programme, universityId);
 
             }
             catch (Exception ex)
@@ -345,6 +350,7 @@ namespace OOD_Project
         public Branch ForBranch { get => forBranch; set => forBranch = value; }
         public Programme InProgramme { get => inProgramme; set => inProgramme = value; }
         public string TeacherUniversityId { get => teacherUniversityId; set => teacherUniversityId = value; }
+        public int TeacherId { get => teacherId; set => teacherId = value; }
 
         public override string ToString()
         {

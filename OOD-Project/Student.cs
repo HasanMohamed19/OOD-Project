@@ -10,6 +10,7 @@ namespace OOD_Project
 {
     public class Student : User
     {
+        private int studentId;
         private string firstName;
         private string lastName;
         private DateTime dob;
@@ -26,9 +27,10 @@ namespace OOD_Project
         }
 
         public Student(int userId, string username, string password, string email, UserRole roleId, UserStatus statusId, bool hasNotification, 
-            string firstName, string lastName, DateTime dob, string cpr, char gender, string phoneNumber, Major inMajor, string studentUniversityId)
+            int studentId, string firstName, string lastName, DateTime dob, string cpr, char gender, string phoneNumber, Major inMajor, string studentUniversityId)
             : base(userId, username, password, email, roleId, statusId, hasNotification)
         {
+            this.studentId = studentId;
             this.firstName = firstName;
             this.lastName = lastName;
             this.dob = dob;
@@ -128,26 +130,28 @@ namespace OOD_Project
             return ids[0];
         }
 
-
-        public static Student GetStudent(int user_id)
+        public static Student GetStudentFromUniId(int university_id)
         {
             Student student = null;
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
-            
-            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+
+            dbm.Command.Parameters.AddWithValue("@student_university_id", university_id);
             dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification," +
-                "s.first_name, s.last_name, s.dob, s.cpr, s.phone_number, s.gender, s.major_id, s.student_university_id" +
+                "s.first_name, s.last_name, s.dob, s.cpr, s.phone_number, s.gender, s.major_id, s.student_university_id, s.student_id " +
                 " FROM [dbo].[student] s, [dbo].[User] u " +
                 " WHERE s.user_id = u.user_id " +
-                " AND u.user_id = @user_id";
+                " AND s.student_university_id = @student_university_id " +
+                " AND u.status_id = 2 ";
             try
             {
                 dbm.Reader = dbm.Command.ExecuteReader();
 
                 if (!dbm.Reader.Read())
                 {
+                    dbm.Reader.Close();
+                    dbm.Connection.Close();
                     return null;
                 }
                 int id = dbm.Reader.GetInt32(0);
@@ -165,12 +169,67 @@ namespace OOD_Project
                 char gender = dbm.Reader.GetString(12)[0];
                 int major_id = dbm.Reader.GetInt32(13);
                 string universityId = dbm.Reader.GetString(14);
+                int studentId = dbm.Reader.GetInt32(15);
                 dbm.Reader.Close();
                 dbm.Connection.Close();
 
                 Major major = Major.GetMajor(major_id);
                 student = new Student(id, username, password, email, roleId, statusId, hasNotification,
-                    firstName, lastName, dob, cpr, gender, phoneNumber, major, universityId);
+                    studentId, firstName, lastName, dob, cpr, gender, phoneNumber, major, universityId);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return student;
+        }
+        public static Student GetStudent(int user_id)
+        {
+            Student student = null;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            
+            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+            dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification," +
+                "s.first_name, s.last_name, s.dob, s.cpr, s.phone_number, s.gender, s.major_id, s.student_university_id, s.student_id " +
+                " FROM [dbo].[student] s, [dbo].[User] u " +
+                " WHERE s.user_id = u.user_id " +
+                " AND u.user_id = @user_id";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+
+                if (!dbm.Reader.Read())
+                {
+                    dbm.Reader.Close();
+                    dbm.Connection.Close();
+                    return null;
+                }
+                int id = dbm.Reader.GetInt32(0);
+                string username = dbm.Reader.GetString(1);
+                string password = dbm.Reader.GetString(2);
+                string email = dbm.Reader.GetString(3);
+                UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
+                UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
+                bool hasNotification = dbm.Reader.GetBoolean(6);
+                string firstName = dbm.Reader.GetString(7);
+                string lastName = dbm.Reader.GetString(8);
+                DateTime dob = dbm.Reader.GetDateTime(9);
+                string cpr = dbm.Reader.GetString(10);
+                string phoneNumber = dbm.Reader.GetString(11);
+                char gender = dbm.Reader.GetString(12)[0];
+                int major_id = dbm.Reader.GetInt32(13);
+                string universityId = dbm.Reader.GetString(14);
+                int studentId = dbm.Reader.GetInt32(15);
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+
+                Major major = Major.GetMajor(major_id);
+                student = new Student(id, username, password, email, roleId, statusId, hasNotification,
+                    studentId, firstName, lastName, dob, cpr, gender, phoneNumber, major, universityId);
 
             } catch (Exception ex)
             {
@@ -314,11 +373,12 @@ namespace OOD_Project
         public char Gender { get => gender; set => gender = value; }
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public Major InMajor { get => inMajor; set => inMajor = value; }
+        public int StudentId { get => studentId; set => studentId = value; }
 
         //public override string ToString()
         //{
         //    return base.ToString() + " Student ID: " + Id;
-            
+
         //}
     }
 }

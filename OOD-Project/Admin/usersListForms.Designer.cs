@@ -41,14 +41,14 @@
             this.inactiveDGV = new System.Windows.Forms.DataGridView();
             this.pendingDGV = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.addInactive = new System.Windows.Forms.Button();
+            this.editInactive = new System.Windows.Forms.Button();
             this.deleteInactive = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnAccept = new System.Windows.Forms.Button();
             this.btnReject = new System.Windows.Forms.Button();
-            this.editInactive = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.currentUsersTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.currentUsersDG)).BeginInit();
@@ -90,6 +90,7 @@
             // 
             this.currentUsersDG.AllowUserToAddRows = false;
             this.currentUsersDG.AllowUserToDeleteRows = false;
+            this.currentUsersDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.currentUsersDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.currentUsersDG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.currentUsersDG.Location = new System.Drawing.Point(3, 36);
@@ -207,6 +208,7 @@
             // 
             this.inactiveDGV.AllowUserToAddRows = false;
             this.inactiveDGV.AllowUserToDeleteRows = false;
+            this.inactiveDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inactiveDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inactiveDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.inactiveDGV.Location = new System.Drawing.Point(2, 289);
@@ -224,6 +226,7 @@
             // 
             this.pendingDGV.AllowUserToAddRows = false;
             this.pendingDGV.AllowUserToDeleteRows = false;
+            this.pendingDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pendingDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.pendingDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pendingDGV.Location = new System.Drawing.Point(2, 41);
@@ -249,6 +252,15 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(988, 33);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 30);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Inactive Users:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // addInactive
             // 
             this.addInactive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
@@ -263,6 +275,21 @@
             this.addInactive.Text = "Add";
             this.addInactive.UseVisualStyleBackColor = false;
             this.addInactive.Click += new System.EventHandler(this.addInactive_Click);
+            // 
+            // editInactive
+            // 
+            this.editInactive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.editInactive.FlatAppearance.BorderSize = 0;
+            this.editInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editInactive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.editInactive.Location = new System.Drawing.Point(238, 3);
+            this.editInactive.Name = "editInactive";
+            this.editInactive.Size = new System.Drawing.Size(75, 27);
+            this.editInactive.TabIndex = 2;
+            this.editInactive.Text = "Edit";
+            this.editInactive.UseVisualStyleBackColor = false;
+            this.editInactive.Click += new System.EventHandler(this.editInactive_Click);
             // 
             // deleteInactive
             // 
@@ -289,6 +316,15 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 33);
             this.flowLayoutPanel1.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(148, 30);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Pending Users:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAccept
             // 
@@ -319,39 +355,6 @@
             this.btnReject.Text = "Reject";
             this.btnReject.UseVisualStyleBackColor = false;
             this.btnReject.Click += new System.EventHandler(this.btnReject_Click);
-            // 
-            // editInactive
-            // 
-            this.editInactive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.editInactive.FlatAppearance.BorderSize = 0;
-            this.editInactive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editInactive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editInactive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.editInactive.Location = new System.Drawing.Point(238, 3);
-            this.editInactive.Name = "editInactive";
-            this.editInactive.Size = new System.Drawing.Size(75, 27);
-            this.editInactive.TabIndex = 2;
-            this.editInactive.Text = "Edit";
-            this.editInactive.UseVisualStyleBackColor = false;
-            this.editInactive.Click += new System.EventHandler(this.editInactive_Click);
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 30);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Inactive Users:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 30);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Pending Users:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // usersListForms
             // 

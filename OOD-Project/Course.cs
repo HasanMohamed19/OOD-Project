@@ -38,7 +38,41 @@ namespace OOD_Project
         public Programme ForProgramme { get => forProgramme; set => forProgramme = value; }
         public int Credits { get => credits; set => credits = value; }
 
+        public static Course GetCourse(int course_id)
+        {
+            Course course = null;
 
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@course_id", course_id);
+            dbm.Command.CommandText = "SELECT name, code, description, programme_id, credits FROM [dbo].[course] " +
+                "WHERE course_id = @course_id";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (!dbm.Reader.Read())
+                {
+                    throw new Exception("Course not found with id " + course_id);
+                }
+                string name = dbm.Reader.GetString(0);
+                string code = dbm.Reader.GetString(1);
+                string description = dbm.Reader.GetString(2);
+                Programme programme = (Programme)dbm.Reader.GetInt32(3);
+                int credits= dbm.Reader.GetInt32(4);
+                course = new Course(course_id, name, code, description, programme, credits);
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+            }
+
+            return course;
+        }
         public static void AddCourse(Course course)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
