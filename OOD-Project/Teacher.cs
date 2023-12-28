@@ -144,7 +144,8 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@teacher_university_id", universityId);
             dbm.Command.CommandText = "SELECT u.user_id, u.status_id FROM [dbo].[teacher] t, [dbo].[User] u " +
                 "WHERE t.user_id = u.user_id " +
-                "AND t.teacher_university_id = @teacher_university_id";
+                "AND t.teacher_university_id = @teacher_university_id " +
+                "AND NOT u.status_id = 1";
 
             dbm.Reader = dbm.Command.ExecuteReader();
 
