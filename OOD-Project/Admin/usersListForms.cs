@@ -93,6 +93,7 @@ namespace OOD_Project
                     User.DeleteUser(selectedID);
                 }
             }
+            PopulateGrids();
         }
 
         private void PopulateDataGrid(DataGridView dgv, String sqlCommand)
@@ -116,6 +117,20 @@ namespace OOD_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private UserRole GetUserRoleFromDGV(DataGridView dgv)
+        {
+            string roleName = Convert.ToString(dgv.SelectedRows[0].Cells[0].Value);
+            switch (roleName)
+            {
+                case "student":
+                    return UserRole.student;
+                case "teacher":
+                    return UserRole.teacher;
+                default:
+                    throw new Exception("Invalid user role. Is the spelling correct?");
             }
         }
 
@@ -187,6 +202,7 @@ namespace OOD_Project
             PopulateDataGrid(inactiveDGV, sqlCommand);
         }
 
+
         private void deleteUserBtn_Click(object sender, EventArgs e)
         {
             DeleteUserFromDGV(currentUsersDG);
@@ -194,25 +210,68 @@ namespace OOD_Project
 
         private void btnAccept_Click(object sender, EventArgs e)
         {
-            //User pendingUser = (User) pendingUsersListBox.SelectedItem;
-            //pendingUser.StatusId = UserStatus.accepted;
-            ////currentUsersListBox.Items.Add(pendingUser);
-            ////currentUsersListBox.Update();
-            //pendingUsersListBox.Items.Remove(pendingUser);
-            //pendingUsersListBox.Update();
-            ////EmailController.Instance().SendAcceptEmail(pendingUser.Email, pendingUser.FirstName, pendingUser.LastName, pendingUser.Cpr);
-            //MessageBox.Show("User Request Accepted Successfully", "User Added");
+            if (pendingDGV.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("Please select a user first.", "No user selected");
+                return;
+            }
+            int selectedId = Convert.ToInt32(pendingDGV.SelectedRows[0].Cells[8].Value);
+            UserRole role = GetUserRoleFromDGV(pendingDGV);
+
+            // send accept email
+            EmailController ec = EmailController.Instance();
+            switch (role)
+            {
+                case UserRole.student:
+                    Student student = Student.GetStudent(selectedId);
+                    ec.SendAcceptEmail(student.Email, student.FirstName, student.LastName, student.StudentUniversityId, student.Cpr);
+                    break;
+                case UserRole.teacher:
+                    Teacher teacher = Teacher.GetTeacher(selectedId);
+                    ec.SendAcceptEmail(teacher.Email, teacher.FirstName, teacher.LastName, teacher.TeacherUniversityId, teacher.Cpr);
+                    break;
+                default:
+                    return;
+            }
+            User.AcceptPendingUser(selectedId, role);
+            PopulateGrids();
         }
 
         private void btnReject_Click(object sender, EventArgs e)
         {
-            //User pendingUser = (User)pendingUsersListBox.SelectedItem;
-            //pendingUser.StatusId = UserStatus.inactive;
-            //// just remove the user? or also something else? add list also for rejected user?
-            //pendingUsersListBox.Items.Remove(pendingUser);
-            //pendingUsersListBox.Update();
-            ////EmailController.Instance().SendRejectEmail(pendingUser.FirstName, pendingUser.LastName, pendingUser.Email);
-            //MessageBox.Show("User Request Rejected Successfully", "User Rejected");
+            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to reject selected user?\nTheir request will be deleted.", "Delete Confirmation", MessageBoxButtons.YesNo);
+
+            if (deleteConfirmation != DialogResult.Yes)
+            {
+                return;
+            }
+            if (pendingDGV.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("Please select a user first.", "No user selected");
+                return;
+            }
+            int selectedId = Convert.ToInt32(pendingDGV.SelectedRows[0].Cells[8].Value);
+            UserRole role = GetUserRoleFromDGV(pendingDGV);
+
+            // send rejection email
+            EmailController ec = EmailController.Instance();
+            switch (role)
+            {
+                case UserRole.student:
+                    Student student = Student.GetStudent(selectedId);
+                    ec.SendRejectEmail(student.Email, student.FirstName, student.LastName);
+                    break;
+                case UserRole.teacher:
+                    Teacher teacher = Teacher.GetTeacher(selectedId);
+                    ec.SendRejectEmail(teacher.Email, teacher.FirstName, teacher.LastName);
+                    break;
+                default:
+                    return;
+            }
+            User.DeleteUser(selectedId);
+
+            PopulateGrids();
+
         }
 
         private void addUserBtn_Click(object sender, EventArgs e)

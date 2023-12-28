@@ -158,9 +158,13 @@ namespace OOD_Project
             dbm.Connection.Close();
 
             // if there is more than one row returned or zero, dont continue
-            if (ids.Count != 1)
+            if (ids.Count > 1)
             {
-                throw new Exception("Too many or zero records found for teachers with id " + universityId);
+                throw new Exception("Too many teachers with id " + universityId);
+            }
+            else if (ids.Count < 1)
+            {
+                throw new Exception("No teachers with id " + universityId);
             }
 
             // if status_id is  not 3 (inactive) then a new user cannot be made with this id

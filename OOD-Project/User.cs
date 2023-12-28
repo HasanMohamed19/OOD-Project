@@ -62,6 +62,74 @@ namespace OOD_Project
         }
 
 
+        
+        public static void AcceptPendingUser(int user_id, UserRole role)
+        {
+            int inactive_id;
+            string university_id;
+            // check if pending user has the same university id as inactive user
+            switch (role)
+            {
+                // get university id and inactive user id
+                case UserRole.student:
+                    university_id = Student.GetStudent(user_id).StudentUniversityId;
+                    try
+                    {
+                        inactive_id = Student.IsStudentIdValid(university_id);
+                    } catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    break;
+                case UserRole.teacher:
+                    university_id = Teacher.GetTeacher(user_id).TeacherUniversityId;
+                    try
+                    {
+                        inactive_id = Teacher.IsTeacherIdValid(university_id);
+                    } catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    break;
+                default:
+                    return;
+            }
+
+            // update status of inactive user
+            ActivateUser(inactive_id);
+
+            // delete pending user
+            DeleteUser(user_id);
+        }
+
+
+        private static void ActivateUser(int user_id)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+
+            dbm.Command.CommandText = "UPDATE [dbo].[User] SET status_id = 2 WHERE user_id = @user_id";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
+
         public static int UnreadNotificationsForUser(User user)
         {
             int unreadCount = 0;
@@ -179,6 +247,7 @@ namespace OOD_Project
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return false;
             }
             finally

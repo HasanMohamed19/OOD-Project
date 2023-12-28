@@ -95,7 +95,8 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@student_university_id", universityId);
             dbm.Command.CommandText = "SELECT u.user_id, u.status_id FROM [dbo].[student] s, [dbo].[User] u " +
                 "WHERE s.user_id = u.user_id " +
-                "AND s.student_university_id = @student_university_id";
+                "AND s.student_university_id = @student_university_id " +
+                "AND NOT u.status_id = 1 ";
 
             dbm.Reader = dbm.Command.ExecuteReader();
 
@@ -110,8 +111,11 @@ namespace OOD_Project
             dbm.Connection.Close();
 
             // if there is more than one row returned or zero, dont continue
-            if (ids.Count != 1) {
-                throw new Exception("Too many or zero records found for students with id " + universityId);
+            if (ids.Count > 1) {
+                throw new Exception("Too many students with id " + universityId);
+            } else if (ids.Count < 1)
+            {
+                throw new Exception("No students with id " + universityId);
             }
 
             // if status_id is  not 3 (inactive) then a new user cannot be made with this id
