@@ -13,11 +13,13 @@ namespace OOD_Project
 {
     public partial class EmailForm : Form
     {
+        private Dictionary<int, string> emails = new Dictionary<int, string>();
         private List<string> files = new List<string>();
         private string selectedAttachmentName = "";
         public EmailForm()
         {
             InitializeComponent();
+            GetEmails();
         }
 
         private void btnSendEmail_Click(object sender, EventArgs e)
@@ -87,5 +89,32 @@ namespace OOD_Project
             int selectedItemIndex = attachmentsListView.SelectedItems[0].Index;
             attachmentsListView.Items.Remove(attachmentsListView.SelectedItems[0]);
         }
+
+        private void recipientTxt_TextChanged(object sender, EventArgs e)
+        {
+            // since gmail and outlook allow an email to have empty body and no attachments we'll do the same
+            // the only thing required is the recipient email
+            bool allEmpty = recipientTxt.Text.Length == 0;
+            btnSendEmail.Enabled = !allEmpty;
+            
+        }
+
+        // later where to put this code?
+        public void GetEmails()
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command.CommandText = "SELECT user_id, email FROM [dbo].[User]";
+            dbm.Reader = dbm.Command.ExecuteReader();
+
+            while (dbm.Reader.Read())
+            {
+                emails.Add(dbm.Reader.GetInt32(0), dbm.Reader.GetString(1));
+            }
+            dbm.Reader.Close();
+            MessageBox.Show(emails.Count.ToString());
+
+        }
+
     }
 }

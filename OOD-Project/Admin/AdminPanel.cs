@@ -57,5 +57,15 @@ namespace OOD_Project
         {
             OpenChildForm(new AddAnouncementForm(), sender);
         }
+
+        private void email_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new ViewEmailForm(), sender);
+        }
+
+        private void sendEmailBtn_Click(object sender, EventArgs e)
+        {
+            new EmailForm().ShowDialog();
+        }
     }
 }

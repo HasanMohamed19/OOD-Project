@@ -49,6 +49,7 @@
             this.recipientTxt.Size = new System.Drawing.Size(613, 27);
             this.recipientTxt.TabIndex = 0;
             this.recipientTxt.Text = "To";
+            this.recipientTxt.TextChanged += new System.EventHandler(this.recipientTxt_TextChanged);
             // 
             // subjectTxt
             // 
@@ -111,12 +112,12 @@
             this.deleteMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteToolStripMenuItem});
             this.deleteMenuStrip.Name = "deleteMenuStrip";
-            this.deleteMenuStrip.Size = new System.Drawing.Size(211, 56);
+            this.deleteMenuStrip.Size = new System.Drawing.Size(123, 28);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
