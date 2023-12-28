@@ -126,6 +126,7 @@ namespace OOD_Project
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return false;
             }
             finally
@@ -135,16 +136,27 @@ namespace OOD_Project
             }
         }
 
-        public static void AddBranch(Branch branch)
+        public static bool AddBranch(Branch branch)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
-            dbm.Command.Parameters.AddWithValue("@branch_id", branch.branchId);
             dbm.Command.Parameters.AddWithValue("@name", branch.branchName);
             dbm.Command.Parameters.AddWithValue("@phone_number", branch.phoneNumber);
 
-            dbm.Command.CommandText = "INSERT INTO [dbo].[Branch] (branch_id, name, phone_number) VALUES (@branch_id, @name, @phone_number)";
-            
+            dbm.Command.CommandText = "INSERT INTO [dbo].[Branch] (branch_id, name, phone_number) VALUES (NEXT VALUE FOR [dbo].[branchIDSequence], @name, @phone_number)";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+                return true;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
 
         }
 

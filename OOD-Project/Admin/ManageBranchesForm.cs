@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OOD_Project.Admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,12 @@ namespace OOD_Project
             //    item.SubItems.Add(branch.PhoneNumber);
             //    branchesListView.Items.Add(item);
             //}
+            
+        }
+
+        public void UpdateTable()
+        {
+            branchesListView.Items.Clear();
             populateBranches();
         }
 
@@ -52,44 +59,59 @@ namespace OOD_Project
         }
 
         private void deleteBranchBtn_Click(object sender, EventArgs e)
-        {
-            DatabaseManager dbm = DatabaseManager.Instance();
-            dbm.Connection.Open();
-            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected branch?", "Delete Confirmation", MessageBoxButtons.YesNo);
+        {   
+            
 
-            if (deleteConfirmation == DialogResult.Yes)
+            if (branchesListView.SelectedItems.Count > 0)
             {
-                if (branchesListView.SelectedItems.Count > 0)
+                DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected branch?", "Delete Confirmation", MessageBoxButtons.YesNo);
+                if (deleteConfirmation == DialogResult.Yes) 
                 {
                     int branch_id = Convert.ToInt32(branchesListView.SelectedItems[0].Text);
-                    dbm.Command.Parameters.AddWithValue("@branch_id", branch_id);
-                    dbm.Command.CommandText = "DELETE FROM [dbo].[Branch] WHERE branch_id = @branch_id";
-                    try
+                    bool hasDeleted = Branch.DeleteBranch(branch_id); 
+                    if (hasDeleted)
                     {
-                        dbm.Command.ExecuteNonQuery();
-                        branchesListView.SelectedItems[0].Remove();
-                        MessageBox.Show("Branch deleted sucessfully", "Branch Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        UpdateTable();
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    finally
-                    {
-                        dbm.Connection.Close();
-                    }
-                                       
-                    
                 }
 
+            } else
+            {
+                MessageBox.Show("Please select a branch to delete first");
             }
         }
 
         private void editBranchBtn_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (branchesListView.SelectedItems[0] != null)
+                {
+                    ListViewItem selctedItem = branchesListView.SelectedItems[0];
+                    int id = Convert.ToInt32(selctedItem.Text);
+                    string name = selctedItem.SubItems[1].Text;
+                    string phoneNumber = selctedItem.SubItems[2].Text;
+                    Branch branch = new Branch(id, name, phoneNumber);
+                    AddBranchForm editForm = new AddBranchForm(this, branch);
+                    editForm.ShowDialog();
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Please choose a branch to edit first");
+            }
+            
+            
         }
 
- 
+        private void addBranchBtn_Click(object sender, EventArgs e)
+        {
+            AddBranchForm form = new AddBranchForm(this, null);
+            form.Show();
+        }
+
+        private void ManageBranchesForm_Load(object sender, EventArgs e)
+        {
+            UpdateTable();
+        }
     }
 }
