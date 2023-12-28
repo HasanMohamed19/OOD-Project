@@ -17,9 +17,44 @@ namespace OOD_Project
             InitializeComponent();
         }
 
+        private void ClearForm()
+        {
+            txtCurrent.Text = string.Empty;
+            txtNew.Text = string.Empty;
+            txtConfirm.Text = string.Empty;
+        }
+
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
+            User user = User.GetUser(Global.UserId);
 
+            string currentPassword = txtCurrent.Text;
+            string newPassword = txtNew.Text;
+            string confirmPassword = txtConfirm.Text;
+
+            // validate current password
+            if (!User.IsPasswordValidForUser(user.UserId, currentPassword))
+            {
+                MessageBox.Show("The password you entered is incorrect.", "Incorrect Password");
+                return;
+            }
+
+            // validate new password
+            if (newPassword != confirmPassword)
+            {
+                MessageBox.Show("The new passwords you entered do not match.", "Passwords Not Matching");
+                return;
+            }
+
+            // update user
+
+            user.Password = newPassword;
+
+            User.EditUser(user);
+
+            MessageBox.Show("Password changed successfully.", "Password Changed");
+
+            ClearForm();
         }
     }
 }

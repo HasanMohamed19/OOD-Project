@@ -103,6 +103,39 @@ namespace OOD_Project
             DeleteUser(user_id);
         }
 
+        public static bool IsPasswordValidForUser(int user_id, string password)
+        {
+            bool valid = false;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+            dbm.Command.CommandText = "SELECT password" +
+                " FROM [dbo].[User] u " +
+                " WHERE user_id = @user_id";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+
+                if (!dbm.Reader.Read())
+                {
+                    throw new Exception("No user found for password validation");
+                }
+                valid = dbm.Reader.GetString(0) == password;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+            }
+            return valid;
+        }
 
         private static void ActivateUser(int user_id)
         {
