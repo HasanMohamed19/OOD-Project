@@ -60,6 +60,8 @@ namespace OOD_Project.TeacherGroup.ViewCourses
 
         private void studentsDG_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            
+
             // get id of current cell
             int universityId = Convert.ToInt32(studentsDG.CurrentRow.Cells[0].Value);
             // get student_id using universityId
@@ -122,6 +124,18 @@ namespace OOD_Project.TeacherGroup.ViewCourses
         private void publishBtn_Click(object sender, EventArgs e)
         {
             // send report to admin
+        }
+
+        private void emailBtn_Click(object sender, EventArgs e)
+        {
+            if (studentsDG.SelectedCells.Count < 1)
+            {
+                return;
+            }
+
+            int userId = Convert.ToInt32(studentsDG.CurrentRow.Cells[3].Value);
+
+            // open email form and sent to user
         }
     }
 }
