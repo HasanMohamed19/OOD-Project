@@ -13,7 +13,7 @@ namespace OOD_Project
 {
     public partial class EmailForm : Form
     {
-        private string[] files = {};
+        private List<string> files = new List<string>();
         private string selectedAttachmentName = "";
         public EmailForm()
         {
@@ -30,7 +30,7 @@ namespace OOD_Project
             User emailSender = User.GetUser(Global.UserId);
             Email email = new Email(content,0, recipient, emailSender, subject);
             int newEmailId = User.SendEmail(email);
-            if (files.Length > 0)
+            if (files.Count > 0)
             {
                 foreach (var file in files)
                 {
@@ -38,7 +38,7 @@ namespace OOD_Project
                 }
             }
             // after sending clear attachments
-            files = new string[0];
+            files.Clear();
             recipientTxt.Text = "To";
             attachmentsListView.Items.Clear();
             subjectTxt.Text = "Subject";
@@ -58,7 +58,7 @@ namespace OOD_Project
             
             if (filePicker.ShowDialog() == DialogResult.OK)
             {
-                files = filePicker.FileNames;
+                files.AddRange(filePicker.FileNames);
                 foreach (string file in filePicker.FileNames)
                 {
                     ListViewItem item = new ListViewItem(Path.GetFileName(file));

@@ -18,15 +18,23 @@ namespace OOD_Project
         private List<int> emailIds = new List<int>();
         private string selectedAttachmentName;
         static ImageList attachment = new ImageList();
-        
-        public ViewEmails()
+        private bool forInbox;
+        public ViewEmails(bool forInbox)
         {
-            
+
             InitializeComponent();
             //attachment.Images.Add(Bitmap.FromFile("C:\\Users\\Hassan\\source\\repos\\OOD-Project\\attach.png"));
             emailsListView.LargeImageList = attachment;
             hideElementsWhenLoadAndNothingSelected();
-            populateEmails();
+            this.forInbox = forInbox;
+            if (forInbox)
+            {
+                PopulateInbox();
+            } else
+            {
+                populateSentEmails();
+            }
+            
         }
 
         private void hideElementsWhenLoadAndNothingSelected()
@@ -46,14 +54,17 @@ namespace OOD_Project
             label1.Hide();
         }
 
-        private void populateEmails()
+        private void populateSentEmails()
         {
-            
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
-            dbm.Command.Parameters.AddWithValue("@recipient_user_id", Global.UserId);
-            dbm.Command.CommandText = "SELECT * FROM [dbo].[email] WHERE recipient_user_id = @recipient_user_id";
+            dbm.Command.Parameters.AddWithValue("@sender_user_id", Global.UserId);
+            dbm.Command.CommandText = "SELECT e.*, sender.username AS SenderUsername " +
+                "FROM [dbo].[email] e " +
+                "JOIN [dbo].[User] sender ON e.sender_user_id = sender.user_id " +
+                "WHERE e.sender_user_id = @sender_user_id ORDER BY email_id DESC";
+
             try
             {
                 dbm.Reader = dbm.Command.ExecuteReader();
@@ -64,8 +75,52 @@ namespace OOD_Project
                     string body = dbm.Reader["body"].ToString();
                     string subject = dbm.Reader["subject"].ToString();
 
-                    ListViewItem emailItem = new ListViewItem(dbm.Reader["sender_user_id"].ToString());
-                    emailItem.SubItems.Add(dbm.Reader["recipient_user_id"].ToString());
+                    ListViewItem emailItem = new ListViewItem(dbm.Reader["SenderUsername"].ToString());
+                    emailItem.SubItems.Add(dbm.Reader["subject"].ToString());
+                    //if (Convert.ToInt32(dbm.Reader["NumberOfAttachments"].ToString()) > 0)
+                    //{
+                    //    emailItem.ImageIndex = 0;
+                    //}
+
+                    emailsListView.Items.Add(emailItem);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+        }
+        private void PopulateInbox()
+        {
+            
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@recipient_user_id", Global.UserId);
+            //dbm.Command.CommandText = "SELECT * FROM [dbo].[email] WHERE recipient_user_id = @recipient_user_id ORDER BY email_id DESC";
+            dbm.Command.CommandText = "SELECT e.*, " +
+                "recipient.username AS RecUserName, recipient.email AS RecEmail FROM [dbo].[email] e " +
+                "JOIN [dbo].[User] recipient ON e.recipient_user_id = recipient.user_id " +
+                "WHERE e.recipient_user_id = @recipient_user_id ORDER BY email_id DESC";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                while (dbm.Reader.Read())
+                {
+                    int emailId = Convert.ToInt32(dbm.Reader["email_id"].ToString());
+                    emailIds.Add(emailId);
+                    string body = dbm.Reader["body"].ToString();
+                    string subject = dbm.Reader["subject"].ToString();
+
+                    ListViewItem emailItem = new ListViewItem(dbm.Reader["RecUserName"].ToString());
+                    emailItem.SubItems.Add(dbm.Reader["subject"].ToString());
                     //if (Convert.ToInt32(dbm.Reader["NumberOfAttachments"].ToString()) > 0)
                     //{
                     //    emailItem.ImageIndex = 0;
@@ -93,14 +148,19 @@ namespace OOD_Project
             dbm.Command = dbm.Connection.CreateCommand();
             //dbm.Command.Parameters.AddWithValue("@recipient_user_id", Global.User_id);
             dbm.Command.Parameters.AddWithValue("@email_id", emailId);
-            dbm.Command.CommandText = "SELECT * FROM [dbo].[email] WHERE email_id = @email_id";
+            dbm.Command.CommandText = "SELECT e.*, sender.email AS senderEmail, rec.email AS recEmail" +
+                " FROM [dbo].[email] e" +
+                " JOIN [dbo].[User] sender ON e.sender_user_id = sender.user_id" +
+                " JOIN [dbo].[User] rec ON e.recipient_user_id = rec.user_id" +
+                " WHERE email_id = @email_id";
             dbm.Reader = dbm.Command.ExecuteReader();
 
             while (dbm.Reader.Read())
             {
-                senderLbl.Text = dbm.Reader["sender_user_id"].ToString();
-                recipientLbl.Text = dbm.Reader["recipient_user_id"].ToString();
+                senderLbl.Text = "From: " + dbm.Reader["senderEmail"].ToString();
+                recipientLbl.Text = "To: " + dbm.Reader["recEmail"].ToString();
                 emailBodyTxt.Text = dbm.Reader["body"].ToString();
+                emailSubjetLbl.Text = dbm.Reader["subject"].ToString();
             }
             dbm.Command.Parameters.Clear();
             dbm.Connection.Close();
@@ -110,6 +170,7 @@ namespace OOD_Project
         private void emailsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             showElements();
+            attachmentsListView.Items.Clear();
             if (emailsListView.SelectedItems.Count > 0)
             {
                 // starts from zero
@@ -117,7 +178,7 @@ namespace OOD_Project
                 updateEmailDetails(emailIds[selectedIndex]);
                 loadAttachments(emailIds[selectedIndex]);
                 bool hasAttachments = emailHasAttachments(emailIds[selectedIndex]);
-                MessageBox.Show(hasAttachments.ToString());
+                //MessageBox.Show(hasAttachments.ToString());
             }
         }
 
@@ -132,14 +193,17 @@ namespace OOD_Project
             dbm.Command.CommandText = "SELECT * FROM [dbo].[email_attachment] WHERE email_id = @email_id";
             try
             {
-                int rows = (int)dbm.Command.ExecuteScalar();
-                if (rows > 0)
+
+                object result = dbm.Command.ExecuteScalar();
+                if (result != null)
                 {
                     hasAttachments = true;
                 }
+
             } catch (Exception ex)
             {
-                MessageBox.Show("here" + ex.Message);
+                MessageBox.Show(ex.Message);
+
             } finally
             {
                 dbm.Command.Parameters.Clear();

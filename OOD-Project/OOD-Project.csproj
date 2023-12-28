@@ -293,6 +293,12 @@
     <Compile Include="ViewAnnouncementsForm.Designer.cs">
       <DependentUpon>ViewAnnouncementsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewEmailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewEmailForm.Designer.cs">
+      <DependentUpon>ViewEmailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewEmails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherGroup\ViewCourses\ViewCourseForm.resx">
       <DependentUpon>ViewCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewEmailForm.resx">
+      <DependentUpon>ViewEmailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewEmails.resx">
       <DependentUpon>ViewEmails.cs</DependentUpon>

@@ -87,7 +87,7 @@ namespace OOD_Project
                     break;
                 case NotificationType.email:
                     // go to email tab
-                    OpenChildForm(new ViewEmails());
+                    OpenChildForm(new ViewEmails(true));
                     break;
             }
         }
@@ -116,7 +116,7 @@ namespace OOD_Project
 
         private void viewEmailBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ViewEmails());
+            OpenChildForm(new ViewEmailForm());
         }
 
         private void viewAnnouncementBtn_Click(object sender, EventArgs e)

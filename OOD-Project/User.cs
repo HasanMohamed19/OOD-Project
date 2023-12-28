@@ -379,26 +379,28 @@ namespace OOD_Project
         {
             int recId = getRecipientId(emailId);
             string fileName = Path.GetFileName(path);
-            string folderPath = Path.GetDirectoryName(path);
+            //string folderPath = Path.GetDirectoryName(path);
+            string dest = Path.Combine(DocumentHelper.emailsDiretory, (Global.UserId.ToString() + "_" + recId.ToString()), emailId.ToString());
+            string newPath = Path.Combine(dest, fileName);
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@file_name", fileName);
-            dbm.Command.Parameters.AddWithValue("@folder_path", folderPath);
+            dbm.Command.Parameters.AddWithValue("@folder_path", dest);
             dbm.Command.Parameters.AddWithValue("@email_id", emailId);
             dbm.Command.CommandText = "INSERT INTO [dbo].[email_attachment] (email_attachment_id, filename, folder_path, email_id)" +
                 " VALUES(NEXT VALUE FOR [dbo].[emaiAttachmentIDSequence], @file_name, @folder_path, @email_id)";
             try
             {
                 dbm.Command.ExecuteNonQuery();
-                // format: sender_receiver
-                string dest = Path.Combine(DocumentHelper.parentDirectory, (Global.UserId.ToString() + "_" + recId.ToString()));
+                // format: sender_receiver/emailid
+                // this format is used so that different emails can have the same attachments
                 if (!DocumentHelper.IsDirectoryExists(dest))
                 {
-                    DocumentHelper.MakeDirectory(Path.Combine(DocumentHelper.parentDirectory, (Global.UserId.ToString() + "_" + recId.ToString())));
+                    DocumentHelper.MakeDirectory(dest);
                    
                 }
-                DocumentHelper.CopyFile(path, Path.Combine(dest, fileName));
+                DocumentHelper.CopyFile(path, Path.Combine(dest, newPath));
 
             }
             catch (Exception ex)
