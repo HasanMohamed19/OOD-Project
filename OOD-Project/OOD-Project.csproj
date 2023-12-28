@@ -152,6 +152,12 @@
     </Compile>
     <Compile Include="Announcement.cs" />
     <Compile Include="Branch.cs" />
+    <Compile Include="ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class.cs" />
     <Compile Include="Content.cs" />
     <Compile Include="Course.cs" />
@@ -181,7 +187,7 @@
     <Compile Include="Helpers\NotificationCell.Designer.cs">
       <DependentUpon>NotificationCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\NotificationMenuContainer.cs" />
+    <Compile Include="Helpers\ProfileBarContainer.cs" />
     <Compile Include="Major.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="NotificationMenu.cs">
@@ -189,6 +195,18 @@
     </Compile>
     <Compile Include="NotificationMenu.Designer.cs">
       <DependentUpon>NotificationMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfileBar.Designer.cs">
+      <DependentUpon>ProfileBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileMenu.Designer.cs">
+      <DependentUpon>ProfileMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentRegisterForm.cs">
       <SubType>Form</SubType>
@@ -320,6 +338,9 @@
     <EmbeddedResource Include="Admin\ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmailForm.resx">
       <DependentUpon>EmailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,6 +349,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NotificationMenu.resx">
       <DependentUpon>NotificationMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileBar.resx">
+      <DependentUpon>ProfileBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileMenu.resx">
+      <DependentUpon>ProfileMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentRegisterForm.resx">
       <DependentUpon>StudentRegisterForm.cs</DependentUpon>
