@@ -48,12 +48,13 @@
             this.announcementsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.announcementsListView.HideSelection = false;
             this.announcementsListView.Location = new System.Drawing.Point(0, 0);
-            this.announcementsListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.announcementsListView.Margin = new System.Windows.Forms.Padding(2);
+            this.announcementsListView.MaximumSize = new System.Drawing.Size(220, 529);
             this.announcementsListView.MultiSelect = false;
             this.announcementsListView.Name = "announcementsListView";
-            this.announcementsListView.Size = new System.Drawing.Size(220, 628);
+            this.announcementsListView.Size = new System.Drawing.Size(220, 529);
             this.announcementsListView.TabIndex = 7;
-            this.announcementsListView.TileSize = new System.Drawing.Size(215, 90);
+            this.announcementsListView.TileSize = new System.Drawing.Size(198, 90);
             this.announcementsListView.UseCompatibleStateImageBehavior = false;
             this.announcementsListView.View = System.Windows.Forms.View.Tile;
             this.announcementsListView.SelectedIndexChanged += new System.EventHandler(this.announcementsListView_SelectedIndexChanged);
@@ -70,7 +71,7 @@
             this.announcementTitleLbl.Location = new System.Drawing.Point(220, 0);
             this.announcementTitleLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.announcementTitleLbl.Name = "announcementTitleLbl";
-            this.announcementTitleLbl.Size = new System.Drawing.Size(745, 65);
+            this.announcementTitleLbl.Size = new System.Drawing.Size(788, 65);
             this.announcementTitleLbl.TabIndex = 50;
             this.announcementTitleLbl.Text = "Announcement";
             this.announcementTitleLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,7 +84,7 @@
             this.announcementBodyLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.announcementBodyLbl.Name = "announcementBodyLbl";
             this.announcementBodyLbl.Padding = new System.Windows.Forms.Padding(10);
-            this.announcementBodyLbl.Size = new System.Drawing.Size(745, 563);
+            this.announcementBodyLbl.Size = new System.Drawing.Size(788, 464);
             this.announcementBodyLbl.TabIndex = 51;
             this.announcementBodyLbl.Text = resources.GetString("announcementBodyLbl.Text");
             // 
@@ -92,11 +93,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(965, 628);
+            this.ClientSize = new System.Drawing.Size(1008, 529);
             this.Controls.Add(this.announcementBodyLbl);
             this.Controls.Add(this.announcementTitleLbl);
             this.Controls.Add(this.announcementsListView);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewAnnouncementsForm";
             this.Text = "ViewAnnouncementsForm";
             this.ResumeLayout(false);

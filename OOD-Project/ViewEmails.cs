@@ -24,7 +24,7 @@ namespace OOD_Project
 
             InitializeComponent();
             //attachment.Images.Add(Bitmap.FromFile("C:\\Users\\Hassan\\source\\repos\\OOD-Project\\attach.png"));
-            emailsListView.LargeImageList = attachment;
+            //emailsListView.LargeImageList = attachment;
             hideElementsWhenLoadAndNothingSelected();
             this.forInbox = forInbox;
             if (forInbox)

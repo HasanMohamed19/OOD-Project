@@ -34,20 +34,20 @@
             this.emailSubject = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.nothingLbl = new System.Windows.Forms.Label();
             this.viewEmailPanel = new System.Windows.Forms.Panel();
+            this.emailTableView = new System.Windows.Forms.TableLayoutPanel();
             this.emailSubjetLbl = new System.Windows.Forms.Label();
             this.attachmentsListView = new System.Windows.Forms.ListView();
             this.fileName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.emailBodyTxt = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.senderLbl = new System.Windows.Forms.Label();
             this.recipientLbl = new System.Windows.Forms.Label();
+            this.emailBodyTxt = new System.Windows.Forms.RichTextBox();
             this.downloadMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.downloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.emailTableView = new System.Windows.Forms.TableLayoutPanel();
             this.viewEmailPanel.SuspendLayout();
+            this.emailTableView.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.downloadMenuStrip.SuspendLayout();
-            this.emailTableView.SuspendLayout();
             this.SuspendLayout();
             // 
             // emailsListView
@@ -62,10 +62,11 @@
             this.emailsListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.emailsListView.HideSelection = false;
             this.emailsListView.Location = new System.Drawing.Point(0, 0);
-            this.emailsListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.emailsListView.Margin = new System.Windows.Forms.Padding(2);
+            this.emailsListView.MaximumSize = new System.Drawing.Size(220, 999);
             this.emailsListView.MultiSelect = false;
             this.emailsListView.Name = "emailsListView";
-            this.emailsListView.Size = new System.Drawing.Size(194, 498);
+            this.emailsListView.Size = new System.Drawing.Size(220, 498);
             this.emailsListView.TabIndex = 7;
             this.emailsListView.TileSize = new System.Drawing.Size(200, 90);
             this.emailsListView.UseCompatibleStateImageBehavior = false;
@@ -96,11 +97,30 @@
             this.viewEmailPanel.Controls.Add(this.emailTableView);
             this.viewEmailPanel.Controls.Add(this.nothingLbl);
             this.viewEmailPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.viewEmailPanel.Location = new System.Drawing.Point(194, 0);
-            this.viewEmailPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.viewEmailPanel.Location = new System.Drawing.Point(220, 0);
+            this.viewEmailPanel.Margin = new System.Windows.Forms.Padding(2);
             this.viewEmailPanel.Name = "viewEmailPanel";
-            this.viewEmailPanel.Size = new System.Drawing.Size(801, 498);
+            this.viewEmailPanel.Size = new System.Drawing.Size(775, 498);
             this.viewEmailPanel.TabIndex = 9;
+            // 
+            // emailTableView
+            // 
+            this.emailTableView.ColumnCount = 1;
+            this.emailTableView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.emailTableView.Controls.Add(this.emailSubjetLbl, 0, 0);
+            this.emailTableView.Controls.Add(this.attachmentsListView, 0, 3);
+            this.emailTableView.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.emailTableView.Controls.Add(this.emailBodyTxt, 0, 2);
+            this.emailTableView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailTableView.Location = new System.Drawing.Point(0, 0);
+            this.emailTableView.Name = "emailTableView";
+            this.emailTableView.RowCount = 4;
+            this.emailTableView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.emailTableView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.emailTableView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58F));
+            this.emailTableView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.emailTableView.Size = new System.Drawing.Size(775, 498);
+            this.emailTableView.TabIndex = 13;
             // 
             // emailSubjetLbl
             // 
@@ -109,7 +129,7 @@
             this.emailSubjetLbl.Location = new System.Drawing.Point(2, 0);
             this.emailSubjetLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emailSubjetLbl.Name = "emailSubjetLbl";
-            this.emailSubjetLbl.Size = new System.Drawing.Size(797, 49);
+            this.emailSubjetLbl.Size = new System.Drawing.Size(771, 49);
             this.emailSubjetLbl.TabIndex = 12;
             this.emailSubjetLbl.Text = "Title";
             this.emailSubjetLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -121,26 +141,14 @@
             this.attachmentsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.attachmentsListView.HideSelection = false;
             this.attachmentsListView.Location = new System.Drawing.Point(2, 398);
-            this.attachmentsListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.attachmentsListView.Margin = new System.Windows.Forms.Padding(2);
             this.attachmentsListView.Name = "attachmentsListView";
-            this.attachmentsListView.Size = new System.Drawing.Size(797, 98);
+            this.attachmentsListView.Size = new System.Drawing.Size(771, 98);
             this.attachmentsListView.TabIndex = 11;
             this.attachmentsListView.UseCompatibleStateImageBehavior = false;
             this.attachmentsListView.View = System.Windows.Forms.View.SmallIcon;
             this.attachmentsListView.ItemMouseHover += new System.Windows.Forms.ListViewItemMouseHoverEventHandler(this.attachmentsListView_ItemMouseHover);
             this.attachmentsListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.attachmentsListView_MouseClick);
-            // 
-            // emailBodyTxt
-            // 
-            this.emailBodyTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.emailBodyTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailBodyTxt.Location = new System.Drawing.Point(2, 110);
-            this.emailBodyTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.emailBodyTxt.Name = "emailBodyTxt";
-            this.emailBodyTxt.ReadOnly = true;
-            this.emailBodyTxt.Size = new System.Drawing.Size(797, 284);
-            this.emailBodyTxt.TabIndex = 10;
-            this.emailBodyTxt.Text = "";
             // 
             // flowLayoutPanel1
             // 
@@ -149,9 +157,9 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 51);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(797, 55);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(771, 55);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // senderLbl
@@ -177,6 +185,18 @@
             this.recipientLbl.TabIndex = 1;
             this.recipientLbl.Text = "To:";
             // 
+            // emailBodyTxt
+            // 
+            this.emailBodyTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.emailBodyTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailBodyTxt.Location = new System.Drawing.Point(2, 110);
+            this.emailBodyTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.emailBodyTxt.Name = "emailBodyTxt";
+            this.emailBodyTxt.ReadOnly = true;
+            this.emailBodyTxt.Size = new System.Drawing.Size(771, 284);
+            this.emailBodyTxt.TabIndex = 10;
+            this.emailBodyTxt.Text = "";
+            // 
             // downloadMenuStrip
             // 
             this.downloadMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -192,25 +212,6 @@
             this.downloadToolStripMenuItem.Text = "Download";
             this.downloadToolStripMenuItem.Click += new System.EventHandler(this.downloadToolStripMenuItem_Click);
             // 
-            // emailTableView
-            // 
-            this.emailTableView.ColumnCount = 1;
-            this.emailTableView.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.emailTableView.Controls.Add(this.emailSubjetLbl, 0, 0);
-            this.emailTableView.Controls.Add(this.attachmentsListView, 0, 3);
-            this.emailTableView.Controls.Add(this.flowLayoutPanel1, 0, 1);
-            this.emailTableView.Controls.Add(this.emailBodyTxt, 0, 2);
-            this.emailTableView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailTableView.Location = new System.Drawing.Point(0, 0);
-            this.emailTableView.Name = "emailTableView";
-            this.emailTableView.RowCount = 4;
-            this.emailTableView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.emailTableView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.emailTableView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58F));
-            this.emailTableView.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.emailTableView.Size = new System.Drawing.Size(801, 498);
-            this.emailTableView.TabIndex = 13;
-            // 
             // ViewEmails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,14 +221,14 @@
             this.Controls.Add(this.viewEmailPanel);
             this.Controls.Add(this.emailsListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewEmails";
             this.Text = "ViewEmails";
             this.viewEmailPanel.ResumeLayout(false);
+            this.emailTableView.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.downloadMenuStrip.ResumeLayout(false);
-            this.emailTableView.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
