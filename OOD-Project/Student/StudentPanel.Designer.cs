@@ -37,6 +37,7 @@
             this.notificationPnl = new System.Windows.Forms.Panel();
             this.profileBar = new OOD_Project.ProfileBar();
             this.studentMainContent = new System.Windows.Forms.Panel();
+            this.btnSendEmail = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.notificationPnl.SuspendLayout();
@@ -50,8 +51,9 @@
             this.panelHeader.Controls.Add(this.notificationPnl);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1008, 72);
+            this.panelHeader.Size = new System.Drawing.Size(1341, 89);
             this.panelHeader.TabIndex = 2;
             // 
             // flowLayoutPanel1
@@ -59,12 +61,13 @@
             this.flowLayoutPanel1.Controls.Add(this.viewCoursesBtn);
             this.flowLayoutPanel1.Controls.Add(this.viewEmailBtn);
             this.flowLayoutPanel1.Controls.Add(this.viewAnnouncementBtn);
+            this.flowLayoutPanel1.Controls.Add(this.btnSendEmail);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(128, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(171, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 12, 8, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(680, 72);
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 15, 11, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(903, 89);
             this.flowLayoutPanel1.TabIndex = 4;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -76,9 +79,10 @@
             this.viewCoursesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.viewCoursesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewCoursesBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.viewCoursesBtn.Location = new System.Drawing.Point(3, 15);
+            this.viewCoursesBtn.Location = new System.Drawing.Point(4, 19);
+            this.viewCoursesBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.viewCoursesBtn.Name = "viewCoursesBtn";
-            this.viewCoursesBtn.Size = new System.Drawing.Size(108, 42);
+            this.viewCoursesBtn.Size = new System.Drawing.Size(144, 52);
             this.viewCoursesBtn.TabIndex = 6;
             this.viewCoursesBtn.Text = "View Courses";
             this.viewCoursesBtn.UseVisualStyleBackColor = false;
@@ -92,9 +96,10 @@
             this.viewEmailBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.viewEmailBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewEmailBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.viewEmailBtn.Location = new System.Drawing.Point(117, 15);
+            this.viewEmailBtn.Location = new System.Drawing.Point(156, 19);
+            this.viewEmailBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.viewEmailBtn.Name = "viewEmailBtn";
-            this.viewEmailBtn.Size = new System.Drawing.Size(116, 42);
+            this.viewEmailBtn.Size = new System.Drawing.Size(155, 52);
             this.viewEmailBtn.TabIndex = 7;
             this.viewEmailBtn.Text = "View Emails";
             this.viewEmailBtn.UseVisualStyleBackColor = false;
@@ -108,9 +113,10 @@
             this.viewAnnouncementBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.viewAnnouncementBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewAnnouncementBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.viewAnnouncementBtn.Location = new System.Drawing.Point(239, 15);
+            this.viewAnnouncementBtn.Location = new System.Drawing.Point(319, 19);
+            this.viewAnnouncementBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.viewAnnouncementBtn.Name = "viewAnnouncementBtn";
-            this.viewAnnouncementBtn.Size = new System.Drawing.Size(116, 42);
+            this.viewAnnouncementBtn.Size = new System.Drawing.Size(155, 52);
             this.viewAnnouncementBtn.TabIndex = 8;
             this.viewAnnouncementBtn.Text = "View Announcement";
             this.viewAnnouncementBtn.UseVisualStyleBackColor = false;
@@ -122,8 +128,9 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(247)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(128, 72);
+            this.label2.Size = new System.Drawing.Size(171, 89);
             this.label2.TabIndex = 0;
             this.label2.Text = "eLMS";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -132,46 +139,64 @@
             // 
             this.notificationPnl.Controls.Add(this.profileBar);
             this.notificationPnl.Dock = System.Windows.Forms.DockStyle.Right;
-            this.notificationPnl.Location = new System.Drawing.Point(808, 0);
-            this.notificationPnl.Margin = new System.Windows.Forms.Padding(2);
+            this.notificationPnl.Location = new System.Drawing.Point(1074, 0);
+            this.notificationPnl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.notificationPnl.Name = "notificationPnl";
-            this.notificationPnl.Padding = new System.Windows.Forms.Padding(3);
-            this.notificationPnl.Size = new System.Drawing.Size(200, 72);
+            this.notificationPnl.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.notificationPnl.Size = new System.Drawing.Size(267, 89);
             this.notificationPnl.TabIndex = 7;
             // 
             // profileBar
             // 
             this.profileBar.BackColor = System.Drawing.Color.Transparent;
             this.profileBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.profileBar.Location = new System.Drawing.Point(3, 3);
+            this.profileBar.Location = new System.Drawing.Point(4, 4);
             this.profileBar.LoggedInUser = null;
+            this.profileBar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.profileBar.Name = "profileBar";
             this.profileBar.NotificationList = null;
             this.profileBar.ParentContainer = null;
-            this.profileBar.Size = new System.Drawing.Size(194, 66);
+            this.profileBar.Size = new System.Drawing.Size(259, 81);
             this.profileBar.TabIndex = 1;
             // 
             // studentMainContent
             // 
             this.studentMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.studentMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentMainContent.Location = new System.Drawing.Point(0, 72);
-            this.studentMainContent.Margin = new System.Windows.Forms.Padding(2);
+            this.studentMainContent.Location = new System.Drawing.Point(0, 89);
+            this.studentMainContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.studentMainContent.Name = "studentMainContent";
-            this.studentMainContent.Size = new System.Drawing.Size(1008, 529);
+            this.studentMainContent.Size = new System.Drawing.Size(1341, 641);
             this.studentMainContent.TabIndex = 3;
+            // 
+            // btnSendEmail
+            // 
+            this.btnSendEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.btnSendEmail.FlatAppearance.BorderSize = 0;
+            this.btnSendEmail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(247)))));
+            this.btnSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSendEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSendEmail.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnSendEmail.Location = new System.Drawing.Point(482, 19);
+            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSendEmail.Name = "btnSendEmail";
+            this.btnSendEmail.Size = new System.Drawing.Size(155, 52);
+            this.btnSendEmail.TabIndex = 9;
+            this.btnSendEmail.Text = "Send Email";
+            this.btnSendEmail.UseVisualStyleBackColor = false;
+            this.btnSendEmail.Click += new System.EventHandler(this.btnSendEmail_Click);
             // 
             // StudentPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 601);
+            this.ClientSize = new System.Drawing.Size(1341, 730);
             this.Controls.Add(this.studentMainContent);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(1024, 640);
-            this.MinimumSize = new System.Drawing.Size(1024, 640);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1359, 777);
+            this.MinimumSize = new System.Drawing.Size(1359, 777);
             this.Name = "StudentPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentPanel";
@@ -193,5 +218,6 @@
         private System.Windows.Forms.Button viewEmailBtn;
         private System.Windows.Forms.Button viewAnnouncementBtn;
         private ProfileBar profileBar;
+        private System.Windows.Forms.Button btnSendEmail;
     }
 }

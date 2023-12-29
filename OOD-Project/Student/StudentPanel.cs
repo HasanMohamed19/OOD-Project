@@ -73,5 +73,10 @@ namespace OOD_Project
             loginForm.Show();
             this.Close();
         }
+
+        private void btnSendEmail_Click(object sender, EventArgs e)
+        {
+            new EmailForm(null).ShowDialog();
+        }
     }
 }

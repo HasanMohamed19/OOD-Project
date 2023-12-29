@@ -8,6 +8,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace OOD_Project
 {
@@ -42,7 +44,11 @@ namespace OOD_Project
 
         private void coursesListView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            feedbackBtn.Enabled = coursesListView.SelectedIndices.Count > 0;
+            bool courseSelected = coursesListView.SelectedIndices.Count > 0;
+            emailBtn.Enabled = courseSelected;
+            feedbackBtn.Enabled = courseSelected;
+            
+            downloadBtn.Enabled = courseSelected;
             if (coursesListView.SelectedItems.Count > 0)
             {
                 // starts from zero
@@ -55,8 +61,8 @@ namespace OOD_Project
 
         private void emailBtn_Click(object sender, EventArgs e)
         {
-            EmailForm emailForm = new EmailForm();
-            emailForm.Show();
+            EmailForm emailForm = new EmailForm(GetCourseTutorEmail(coursesId[coursesListView.SelectedItems[0].Index]));
+            emailForm.ShowDialog();
             
         }
 
@@ -140,6 +146,40 @@ namespace OOD_Project
 
 
         }
+
+        // where to put this
+        public string GetCourseTutorEmail(int course_id)
+        {
+            string email = "";
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@course_id", course_id);
+            //dbm.Command.Parameters.AddWithValue("@teacher_id", teacher_id);
+            dbm.Command.CommandText = "SELECT u.email from [dbo].[User] u " +
+                "JOIN[dbo].[teacher] t ON t.user_id = u.user_id " + 
+                "JOIN[dbo].[section] s ON s.teacher_id = t.teacher_id " +
+                "JOIN[dbo].[course] c ON c.course_id = s.course_id " + 
+                "WHERE t.user_id = u.user_id AND s.course_id = @course_id";
+            dbm.Reader = dbm.Command.ExecuteReader();
+            try
+            {
+                while (dbm.Reader.Read())
+                {
+                    email = dbm.Reader["email"].ToString();
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+            return email;
+
+        }
+
     }
 
 }

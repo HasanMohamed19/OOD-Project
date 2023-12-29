@@ -85,7 +85,7 @@ namespace OOD_Project
 
         private void sendEmailBtn_Click(object sender, EventArgs e)
         {
-            new EmailForm().ShowDialog();
+            new EmailForm(null).ShowDialog();
         }
     }
 }

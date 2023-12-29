@@ -16,10 +16,23 @@ namespace OOD_Project
         private Dictionary<int, string> emails = new Dictionary<int, string>();
         private List<string> files = new List<string>();
         private string selectedAttachmentName = "";
-        public EmailForm()
+        private string recipientEmail;
+
+        public EmailForm(string recipientEmail)
         {
             InitializeComponent();
+
             GetEmails();
+            if (!string.IsNullOrWhiteSpace(recipientEmail))
+            {
+                this.recipientEmail = recipientEmail;
+                recipientTxt.Text = recipientEmail;
+                recipientTxt.ReadOnly = true;
+            }
+            else
+            {
+                this.recipientEmail = null;
+            }
         }
 
         private void btnSendEmail_Click(object sender, EventArgs e)
@@ -27,8 +40,8 @@ namespace OOD_Project
 
             string subject = subjectTxt.Text;
             string content = bodyText.Text;
-            
-            User recipient = User.GetUser(3);
+            string recipientEmail = recipientTxt.Text;
+            User recipient = User.GetUser(User.GetUserIdByEmail(recipientEmail));
             User emailSender = User.GetUser(Global.UserId);
             Email email = new Email(content,0, recipient, emailSender, subject);
             int newEmailId = User.SendEmail(email);
@@ -40,11 +53,14 @@ namespace OOD_Project
                 }
             }
             // after sending clear attachments
-            files.Clear();
-            recipientTxt.Text = "To";
-            attachmentsListView.Items.Clear();
-            subjectTxt.Text = "Subject";
-            bodyText.Text = "";
+            //files.Clear();
+            //recipientTxt.Text = "To";
+            //attachmentsListView.Items.Clear();
+            //subjectTxt.Text = "Subject";
+            //bodyText.Text = "";
+
+            // close the form after sending email
+            this.Close();
 
         }
 

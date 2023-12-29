@@ -54,5 +54,15 @@ namespace OOD_Project
         {
             Helper.OpenChildForm(new TeacherGroup.TeacherViewCoursesForm(loggedInTeacher), teacherMainContent);
         }
+
+        private void viewEmailsBtn_Click(object sender, EventArgs e)
+        {
+            Helper.OpenChildForm(new ViewEmailForm(), teacherMainContent);
+        }
+
+        private void sendEmailBtn_Click(object sender, EventArgs e)
+        {
+            new EmailForm(null).ShowDialog();
+        }
     }
 }

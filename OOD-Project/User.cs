@@ -330,15 +330,17 @@ namespace OOD_Project
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@sender_user_id", Global.UserId);
             dbm.Command.Parameters.AddWithValue("@subject", email.Subject);
             dbm.Command.Parameters.AddWithValue("@body", email.Body);
             dbm.Command.Parameters.AddWithValue("@recipient_user_id", email.Recipent.UserId);
             dbm.Command.CommandText = "INSERT INTO [dbo].[email] (email_id, body, subject, sender_user_id, recipient_user_id)" +
-                " VALUES(NEXT VALUE FOR [dbo].[emailIDSequence], @body, @subject, 2, 2)";
+                " VALUES(NEXT VALUE FOR [dbo].[emailIDSequence], @body, @subject, @sender_user_id, @recipient_user_id)";
 
             try
             {
                 dbm.Command.ExecuteNonQuery();
+                MessageBox.Show("Email sent successfully", "Email sent", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -363,7 +365,7 @@ namespace OOD_Project
                     emailId = dbm.Reader.GetInt32(0);
                 }
                 
-                MessageBox.Show(emailId.ToString());
+                
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -386,7 +388,7 @@ namespace OOD_Project
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
-            dbm.Command.Parameters.AddWithValue("@email_id", 13);
+            dbm.Command.Parameters.AddWithValue("@email_id", eid);
             dbm.Command.CommandText = "SELECT recipient_user_id FROM [dbo].[email] WHERE email_id = @email_id";
 
             try
@@ -446,6 +448,37 @@ namespace OOD_Project
                 dbm.Connection.Close();
             }
 
+        }
+
+        public static int GetUserIdByEmail(string email)
+        {
+            int recipientId = -1;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@email", email);
+            dbm.Command.CommandText = "SELECT user_id FROM [dbo].[User] WHERE email = @email";
+
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                while (dbm.Reader.Read())
+                {
+                    int userId = dbm.Reader.GetInt32(0);
+                    recipientId = userId;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+            return recipientId;
         }
 
         public static List<User> GetAllUsers()

@@ -148,8 +148,10 @@ namespace OOD_Project.TeacherGroup.ViewCourses
             }
 
             int userId = Convert.ToInt32(studentsDG.CurrentRow.Cells[3].Value);
-
+            User recipient = User.GetUser(userId);
             // open email form and sent to user
+            EmailForm emailForm = new EmailForm(recipient.Email);
+            emailForm.ShowDialog();
         }
     }
 }
