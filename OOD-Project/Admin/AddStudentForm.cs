@@ -63,7 +63,7 @@ namespace OOD_Project.Admin
 
             // TODO: implement validation
             Student student = new Student(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, status, false
-                , inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
+                ,0, inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
 
             // if there is student with universityId already, dont add
             if (Student.InactiveStudentExistsWithId(student.StudentUniversityId))

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace OOD_Project.Helpers
 {
-    public interface NotificationMenuContainer
+    public interface ProfileBarContainer
     {
-        void NotificationMenuClosed();
         void PerformNotificationAction(NotificationType type);
+
+        void GoToChangePassword();
+        void SignOut();
     }
 }

@@ -55,7 +55,7 @@ namespace OOD_Project
 
             // TODO: implement validation
             Student student = new Student(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, UserStatus.pending, false
-                , inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
+                ,0, inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
 
             try
             {

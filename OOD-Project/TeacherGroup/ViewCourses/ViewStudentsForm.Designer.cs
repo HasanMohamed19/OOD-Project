@@ -28,100 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
-            "lesson1.pptx",
-            "C:\\Users\\Jameelo\\Documents",
-            "213 KB"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
-            "lesson2.mp4",
-            "content\\14_11",
-            "94 MB"}, -1);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.usersListControls = new System.Windows.Forms.FlowLayoutPanel();
-            this.gradeBtn = new System.Windows.Forms.Button();
             this.emailBtn = new System.Windows.Forms.Button();
-            this.classesListView = new System.Windows.Forms.ListView();
-            this.columnStudentId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnStudentName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnGrade = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.generateBtn = new System.Windows.Forms.Button();
+            this.publishBtn = new System.Windows.Forms.Button();
+            this.studentsDG = new System.Windows.Forms.DataGridView();
             this.usersListControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentsDG)).BeginInit();
             this.SuspendLayout();
             // 
             // usersListControls
             // 
-            this.usersListControls.Controls.Add(this.gradeBtn);
             this.usersListControls.Controls.Add(this.emailBtn);
+            this.usersListControls.Controls.Add(this.generateBtn);
+            this.usersListControls.Controls.Add(this.publishBtn);
             this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersListControls.Location = new System.Drawing.Point(0, 0);
             this.usersListControls.Name = "usersListControls";
             this.usersListControls.Size = new System.Drawing.Size(773, 33);
             this.usersListControls.TabIndex = 7;
             // 
-            // gradeBtn
-            // 
-            this.gradeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.gradeBtn.FlatAppearance.BorderSize = 0;
-            this.gradeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gradeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gradeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.gradeBtn.Location = new System.Drawing.Point(3, 3);
-            this.gradeBtn.Name = "gradeBtn";
-            this.gradeBtn.Size = new System.Drawing.Size(95, 27);
-            this.gradeBtn.TabIndex = 0;
-            this.gradeBtn.TabStop = false;
-            this.gradeBtn.Text = "Grade";
-            this.gradeBtn.UseVisualStyleBackColor = false;
-            // 
             // emailBtn
             // 
             this.emailBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
             this.emailBtn.FlatAppearance.BorderSize = 0;
             this.emailBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.emailBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.emailBtn.Location = new System.Drawing.Point(104, 3);
+            this.emailBtn.Location = new System.Drawing.Point(3, 3);
             this.emailBtn.Name = "emailBtn";
-            this.emailBtn.Size = new System.Drawing.Size(95, 27);
+            this.emailBtn.Size = new System.Drawing.Size(156, 27);
             this.emailBtn.TabIndex = 3;
             this.emailBtn.TabStop = false;
-            this.emailBtn.Text = "Email";
+            this.emailBtn.Text = "Email Student";
             this.emailBtn.UseVisualStyleBackColor = false;
+            this.emailBtn.Click += new System.EventHandler(this.emailBtn_Click);
             // 
-            // classesListView
+            // generateBtn
             // 
-            this.classesListView.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.classesListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnStudentId,
-            this.columnStudentName,
-            this.columnGrade});
-            this.classesListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.classesListView.FullRowSelect = true;
-            this.classesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.classesListView.HideSelection = false;
-            this.classesListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.classesListView.Location = new System.Drawing.Point(0, 33);
-            this.classesListView.MultiSelect = false;
-            this.classesListView.Name = "classesListView";
-            this.classesListView.Size = new System.Drawing.Size(773, 427);
-            this.classesListView.TabIndex = 8;
-            this.classesListView.UseCompatibleStateImageBehavior = false;
-            this.classesListView.View = System.Windows.Forms.View.Details;
+            this.generateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.generateBtn.FlatAppearance.BorderSize = 0;
+            this.generateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.generateBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generateBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.generateBtn.Location = new System.Drawing.Point(165, 3);
+            this.generateBtn.Name = "generateBtn";
+            this.generateBtn.Size = new System.Drawing.Size(156, 27);
+            this.generateBtn.TabIndex = 0;
+            this.generateBtn.TabStop = false;
+            this.generateBtn.Text = "Generate Report";
+            this.generateBtn.UseVisualStyleBackColor = false;
+            this.generateBtn.Click += new System.EventHandler(this.generateBtn_Click);
             // 
-            // columnStudentId
+            // publishBtn
             // 
-            this.columnStudentId.Text = "Student ID";
-            this.columnStudentId.Width = 140;
+            this.publishBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.publishBtn.FlatAppearance.BorderSize = 0;
+            this.publishBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.publishBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.publishBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.publishBtn.Location = new System.Drawing.Point(327, 3);
+            this.publishBtn.Name = "publishBtn";
+            this.publishBtn.Size = new System.Drawing.Size(156, 27);
+            this.publishBtn.TabIndex = 4;
+            this.publishBtn.TabStop = false;
+            this.publishBtn.Text = "Publish Report";
+            this.publishBtn.UseVisualStyleBackColor = false;
+            this.publishBtn.Click += new System.EventHandler(this.publishBtn_Click);
             // 
-            // columnStudentName
+            // studentsDG
             // 
-            this.columnStudentName.Text = "Name";
-            this.columnStudentName.Width = 170;
-            // 
-            // columnGrade
-            // 
-            this.columnGrade.Width = 200;
+            this.studentsDG.AllowUserToAddRows = false;
+            this.studentsDG.AllowUserToDeleteRows = false;
+            this.studentsDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.studentsDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.studentsDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.studentsDG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentsDG.Location = new System.Drawing.Point(0, 33);
+            this.studentsDG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.studentsDG.MultiSelect = false;
+            this.studentsDG.Name = "studentsDG";
+            this.studentsDG.RowHeadersWidth = 51;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentsDG.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.studentsDG.RowTemplate.Height = 24;
+            this.studentsDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.studentsDG.Size = new System.Drawing.Size(773, 427);
+            this.studentsDG.TabIndex = 8;
+            this.studentsDG.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDG_CellEndEdit);
             // 
             // ViewStudentsForm
             // 
@@ -129,12 +132,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(773, 460);
-            this.Controls.Add(this.classesListView);
+            this.Controls.Add(this.studentsDG);
             this.Controls.Add(this.usersListControls);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ViewStudentsForm";
             this.Text = "GradeStudentsForm";
             this.usersListControls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.studentsDG)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -142,11 +146,9 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel usersListControls;
-        private System.Windows.Forms.Button gradeBtn;
+        private System.Windows.Forms.Button generateBtn;
         private System.Windows.Forms.Button emailBtn;
-        private System.Windows.Forms.ListView classesListView;
-        private System.Windows.Forms.ColumnHeader columnStudentId;
-        private System.Windows.Forms.ColumnHeader columnStudentName;
-        private System.Windows.Forms.ColumnHeader columnGrade;
+        private System.Windows.Forms.DataGridView studentsDG;
+        private System.Windows.Forms.Button publishBtn;
     }
 }

@@ -11,6 +11,7 @@ namespace OOD_Project
     {
         public static string parentDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppFiles");
         public static string emailsDiretory = Path.Combine(parentDirectory, "Emails");
+        public static string coursesDirectory = Path.Combine(parentDirectory, "Courses");
         public static void MakeDirectory(string path)
         {
             try
