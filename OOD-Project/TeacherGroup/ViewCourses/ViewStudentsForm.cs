@@ -124,6 +124,20 @@ namespace OOD_Project.TeacherGroup.ViewCourses
         private void publishBtn_Click(object sender, EventArgs e)
         {
             // send report to admin
+            OpenFileDialog filePicker = new OpenFileDialog();
+            filePicker.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            filePicker.CheckPathExists  = true;
+            filePicker.CheckFileExists = true;
+            filePicker.Title = "Upload report";
+            filePicker.Multiselect = false;
+            DialogResult = filePicker.ShowDialog();
+
+            if (DialogResult == DialogResult.OK)
+            {
+                string path = filePicker.FileName;
+                Teacher.UploadReport(path, courseId);
+            }
+
         }
 
         private void emailBtn_Click(object sender, EventArgs e)

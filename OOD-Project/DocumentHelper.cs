@@ -41,5 +41,10 @@ namespace OOD_Project
         {
             return Directory.Exists(path);
         }
+
+        public static bool IsFileExists(string path)
+        {
+            return File.Exists(path);
+        }
     }
 }

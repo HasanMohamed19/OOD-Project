@@ -336,6 +336,57 @@ namespace OOD_Project
 
         }
 
+        public static void UploadReport(string reportPath, int courseId)
+        {
+            string fileName = Path.GetFileName(reportPath);
+            string newDestDirectory = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), "Reports");
+            string newReportPath = Path.Combine(newDestDirectory, fileName);
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@report_path", newReportPath);
+            dbm.Command.Parameters.AddWithValue("@course_id", courseId);
+            dbm.Command.CommandText = "UPDATE [dbo].[section] SET report_path = @report_path WHERE course_id = @course_id";
+            try
+            {
+                
+                if (!DocumentHelper.IsDirectoryExists(newDestDirectory))
+                {
+                    DocumentHelper.MakeDirectory(newDestDirectory);
+                }
+
+                // check if report already exists
+                MessageBox.Show(DocumentHelper.IsFileExists(newReportPath).ToString());
+                if (DocumentHelper.IsFileExists(newReportPath))
+                {
+
+                    DialogResult dialogResult = MessageBox.Show("Report already exists, do you want to overwrite it?", "File exists", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        dbm.Command.ExecuteNonQuery();
+                        DocumentHelper.CopyFile(reportPath, newReportPath);
+                    } else
+                    {
+                        MessageBox.Show("Report upload cancelled");
+                    }
+                } else
+                {
+                    dbm.Command.ExecuteNonQuery();
+                    DocumentHelper.CopyFile(reportPath, newReportPath);
+                }
+
+                
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+        }
+
         public static void DownloadContent(Content content)
         {
             
