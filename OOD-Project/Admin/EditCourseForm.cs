@@ -26,10 +26,8 @@ namespace OOD_Project.Admin
         private Course course;
         private Section section;
         private List<Student> registeredStudents = new List<Student>();
-        private int section_id;
         public EditCourseForm(int section_id, ManageCourseForm manageCourse)
         {
-            this.section_id = section_id;
             this.manageCourse = manageCourse;
             section = Section.GetSection(section_id);
             course = Course.GetCourse(section.AssignedCourse.Id);

@@ -89,6 +89,12 @@
     <Compile Include="Admin\AddAnouncementForm.Designer.cs">
       <DependentUpon>AddAnouncementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddClassForm.Designer.cs">
+      <DependentUpon>AddClassForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,12 @@
     </Compile>
     <Compile Include="Admin\AddCourseForm.Designer.cs">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditClassForm.Designer.cs">
+      <DependentUpon>EditClassForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditCourseForm.cs">
       <SubType>Form</SubType>
@@ -291,6 +303,9 @@
     <EmbeddedResource Include="Admin\AddAnouncementForm.resx">
       <DependentUpon>AddAnouncementForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddClassForm.resx">
+      <DependentUpon>AddClassForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditClassForm.resx">
+      <DependentUpon>EditClassForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditCourseForm.resx">
       <DependentUpon>EditCourseForm.cs</DependentUpon>

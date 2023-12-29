@@ -50,7 +50,83 @@ namespace OOD_Project
         }
 
 
+        public static void EditClass(Class c)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
 
+            dbm.Command.Parameters.AddWithValue("@class_id", c.ClassId);
+            dbm.Command.Parameters.AddWithValue("@start_time", c.StartTime);
+            dbm.Command.Parameters.AddWithValue("@end_time", c.EndTime);
+            dbm.Command.Parameters.AddWithValue("@building", c.Building);
+            dbm.Command.Parameters.AddWithValue("@room_number", c.RoomNumber);
+            dbm.Command.Parameters.AddWithValue("@section_id", c.Section.Id);
+            dbm.Command.Parameters.AddWithValue("@week_day_id", (int)c.DayOfTheWeek+1);
+            dbm.Command.CommandText = "UPDATE [dbo].[class] " +
+                "SET start_time = @start_time, end_time = @end_time, building = @building, room_number = @room_number, section_id = @section_id, week_day_id = @week_day_id " +
+                "WHERE class_id = @class_id";
+            
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
+
+        public static Class GetClass(int classId)
+        {
+            Class newClass = null;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@class_id", classId);
+            dbm.Command.CommandText = "SELECT class_id, start_time, end_time, building, room_number, section_id, week_day_id " +
+                "FROM [dbo].[class] " +
+                "WHERE class_id = @class_id ";
+            int section_id = -1;
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    
+                    int class_id = dbm.Reader.GetInt32(0);
+                    TimeSpan ts_startTime = dbm.Reader.GetTimeSpan(1); // cannot use GetDateTime, must convert
+                    TimeSpan ts_endTime = dbm.Reader.GetTimeSpan(2);
+                    string building = dbm.Reader.GetString(3);
+                    string roomNumber = dbm.Reader.GetString(4);
+                    section_id = dbm.Reader.GetInt32(5);
+                    WeekDays dayOfTheWeek = (WeekDays)dbm.Reader.GetInt32(6);
+                    // convert timespans to datetime
+                    DateTime startTime = new DateTime(2023,1,1,ts_startTime.Hours,ts_startTime.Minutes, 00);
+                    DateTime endTime = new DateTime(2023,1,1,ts_endTime.Hours,ts_endTime.Minutes, 00);
+
+                    newClass = new Class(class_id, building, roomNumber, dayOfTheWeek, endTime, startTime, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+            newClass.Section = Section.GetSection(section_id);
+
+            return newClass;
+        }
         public static void AddClass(Class c)
         {
             DatabaseManager dbm = DatabaseManager.Instance();

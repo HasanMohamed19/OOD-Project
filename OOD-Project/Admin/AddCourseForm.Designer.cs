@@ -58,6 +58,7 @@ namespace OOD_Project.Admin
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.classPage = new System.Windows.Forms.TableLayoutPanel();
             this.btnDeleteClass = new System.Windows.Forms.Button();
             this.btnAddClass = new System.Windows.Forms.Button();
@@ -78,7 +79,6 @@ namespace OOD_Project.Admin
             this.class3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.class4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.class5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelHeader.SuspendLayout();
             this.coursePage.SuspendLayout();
             this.bottomPnl.SuspendLayout();
@@ -437,6 +437,11 @@ namespace OOD_Project.Admin
             this.columnHeader4.Text = "Major";
             this.columnHeader4.Width = 150;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Programme";
+            this.columnHeader5.Width = 180;
+            // 
             // classPage
             // 
             this.classPage.ColumnCount = 4;
@@ -670,11 +675,6 @@ namespace OOD_Project.Admin
             // 
             this.class5.Text = "Room";
             this.class5.Width = 80;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Programme";
-            this.columnHeader5.Width = 180;
             // 
             // AddCourseForm
             // 

@@ -40,6 +40,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.coursePage = new System.Windows.Forms.TableLayoutPanel();
             this.txtCredits = new System.Windows.Forms.TextBox();
             this.comboTeacher = new System.Windows.Forms.ComboBox();
@@ -57,7 +58,6 @@
             this.courseNameLbl = new System.Windows.Forms.Label();
             this.txtCourseName = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bottomPnl.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.pagesContainer.SuspendLayout();
@@ -200,6 +200,11 @@
             // 
             this.columnHeader4.Text = "Major";
             this.columnHeader4.Width = 150;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Programme";
+            this.columnHeader5.Width = 180;
             // 
             // coursePage
             // 
@@ -413,11 +418,6 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(540, 91);
             this.txtDescription.TabIndex = 32;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Programme";
-            this.columnHeader5.Width = 180;
             // 
             // EditCourseForm
             // 
