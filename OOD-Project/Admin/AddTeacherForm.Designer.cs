@@ -313,6 +313,7 @@
             this.txtPhoneT.Name = "txtPhoneT";
             this.txtPhoneT.Size = new System.Drawing.Size(245, 37);
             this.txtPhoneT.TabIndex = 23;
+            this.txtPhoneT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneT_KeyPress);
             // 
             // label22
             // 

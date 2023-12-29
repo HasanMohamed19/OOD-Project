@@ -54,7 +54,7 @@ namespace OOD_Project
         {
             this.userId = userId;
             this.username = username;
-            this.password = password;
+            this.Password= Password;
             Email = email;
             this.roleId = roleId;
             this.statusId = statusId;

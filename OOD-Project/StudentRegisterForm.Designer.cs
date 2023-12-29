@@ -64,7 +64,7 @@
             this.panelRegisterFormStudent.Controls.Add(this.panelBottom);
             this.panelRegisterFormStudent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRegisterFormStudent.Location = new System.Drawing.Point(0, 0);
-            this.panelRegisterFormStudent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelRegisterFormStudent.Margin = new System.Windows.Forms.Padding(4);
             this.panelRegisterFormStudent.Name = "panelRegisterFormStudent";
             this.panelRegisterFormStudent.Size = new System.Drawing.Size(1045, 428);
             this.panelRegisterFormStudent.TabIndex = 4;
@@ -167,7 +167,7 @@
             this.txtFName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFName.Location = new System.Drawing.Point(246, 17);
-            this.txtFName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(245, 37);
             this.txtFName.TabIndex = 17;
@@ -177,7 +177,7 @@
             this.txtLName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLName.Location = new System.Drawing.Point(246, 64);
-            this.txtLName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLName.Margin = new System.Windows.Forms.Padding(4);
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(245, 37);
             this.txtLName.TabIndex = 19;
@@ -202,7 +202,7 @@
             this.flowLayoutPanel1.Controls.Add(this.radioMale);
             this.flowLayoutPanel1.Controls.Add(this.radioFemale);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(804, 68);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(148, 28);
             this.flowLayoutPanel1.TabIndex = 34;
@@ -211,7 +211,7 @@
             // 
             this.radioMale.AutoSize = true;
             this.radioMale.Location = new System.Drawing.Point(4, 4);
-            this.radioMale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioMale.Margin = new System.Windows.Forms.Padding(4);
             this.radioMale.Name = "radioMale";
             this.radioMale.Size = new System.Drawing.Size(58, 20);
             this.radioMale.TabIndex = 30;
@@ -223,7 +223,7 @@
             // 
             this.radioFemale.AutoSize = true;
             this.radioFemale.Location = new System.Drawing.Point(70, 4);
-            this.radioFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radioFemale.Margin = new System.Windows.Forms.Padding(4);
             this.radioFemale.Name = "radioFemale";
             this.radioFemale.Size = new System.Drawing.Size(74, 20);
             this.radioFemale.TabIndex = 31;
@@ -249,7 +249,7 @@
             this.dateDOB.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateDOB.Location = new System.Drawing.Point(812, 165);
-            this.dateDOB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateDOB.Margin = new System.Windows.Forms.Padding(4);
             this.dateDOB.Name = "dateDOB";
             this.dateDOB.Size = new System.Drawing.Size(131, 22);
             this.dateDOB.TabIndex = 28;
@@ -259,10 +259,11 @@
             this.txtPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Location = new System.Drawing.Point(755, 111);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(245, 37);
             this.txtPhone.TabIndex = 23;
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // label12
             // 
@@ -282,7 +283,7 @@
             this.txtEmail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(246, 111);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(245, 37);
             this.txtEmail.TabIndex = 25;
@@ -305,7 +306,7 @@
             this.txtStudentID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtStudentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStudentID.Location = new System.Drawing.Point(755, 17);
-            this.txtStudentID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStudentID.Margin = new System.Windows.Forms.Padding(4);
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(245, 37);
             this.txtStudentID.TabIndex = 32;
@@ -329,7 +330,7 @@
             this.txtCPR.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPR.Location = new System.Drawing.Point(246, 158);
-            this.txtCPR.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCPR.Margin = new System.Windows.Forms.Padding(4);
             this.txtCPR.Name = "txtCPR";
             this.txtCPR.Size = new System.Drawing.Size(245, 37);
             this.txtCPR.TabIndex = 21;
@@ -341,7 +342,7 @@
             this.comboMajor.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboMajor.FormattingEnabled = true;
             this.comboMajor.Location = new System.Drawing.Point(246, 205);
-            this.comboMajor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboMajor.Margin = new System.Windows.Forms.Padding(4);
             this.comboMajor.Name = "comboMajor";
             this.comboMajor.Size = new System.Drawing.Size(245, 37);
             this.comboMajor.TabIndex = 36;
@@ -351,7 +352,7 @@
             this.panelBottom.Controls.Add(this.btnRegister);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBottom.Location = new System.Drawing.Point(0, 312);
-            this.panelBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelBottom.Margin = new System.Windows.Forms.Padding(4);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Size = new System.Drawing.Size(1045, 116);
             this.panelBottom.TabIndex = 35;
@@ -364,7 +365,7 @@
             this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnRegister.Location = new System.Drawing.Point(265, 25);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(511, 66);
             this.btnRegister.TabIndex = 11;
@@ -378,7 +379,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1045, 428);
             this.Controls.Add(this.panelRegisterFormStudent);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StudentRegisterForm";
             this.Text = "StudentRegisterForm";
             this.panelRegisterFormStudent.ResumeLayout(false);
