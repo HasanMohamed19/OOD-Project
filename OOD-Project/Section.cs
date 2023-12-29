@@ -316,6 +316,28 @@ namespace OOD_Project
 
         }
 
+        public static void PublishReport(string sectionId)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@section_id", sectionId);
+            dbm.Command.CommandText = "UPDATE [dbo].[section] SET is_report_published = 1 WHERE section_id = @section_id";
+
+            try
+            {
+                int rows = dbm.Command.ExecuteNonQuery();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+        }
+
         public Teacher AssignedTeacher
         {
             get

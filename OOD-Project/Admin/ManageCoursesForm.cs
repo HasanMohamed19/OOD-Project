@@ -151,6 +151,10 @@ namespace OOD_Project.Admin
 
         private void courseDG_SelectionChanged(object sender, EventArgs e)
         {
+            bool courseSelected = courseDG.SelectedRows.Count > 0;
+            btnPublishReport.Enabled = courseSelected;
+            feedbackBtn.Enabled = courseSelected;
+            reportBtn.Enabled = courseSelected;
             PopulateClassDGV();
         }
 
@@ -243,6 +247,18 @@ namespace OOD_Project.Admin
 
             }
 
+        }
+
+        private void btnPublishReport_Click(object sender, EventArgs e)
+        {
+            List<User> students = Student.GetStudentsOfCourse(Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value));
+            string courseCode = courseDG.SelectedRows[0].Cells[0].Value.ToString();
+            string courseName = courseDG.SelectedRows[0].Cells[1].Value.ToString();
+            string sectionId = courseDG.SelectedRows[0].Cells[8].Value.ToString();
+            Announcement announcement = new Announcement(0, $"{courseCode}-{courseName} grade has been published.", DateTime.Now, students, false, "Grade Published", Announcement.AnnouncementType.grade);
+            Announcement.PublishAnnouncement(announcement);
+            Section.PublishReport(sectionId);
+            // need to check path before? and how to update the view
         }
     }
 }

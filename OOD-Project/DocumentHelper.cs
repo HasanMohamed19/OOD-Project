@@ -51,5 +51,10 @@ namespace OOD_Project
         {
             return File.Exists(path);
         }
+
+        public static void DeleteFile(string path)
+        {
+            File.Delete(path);
+        }
     }
 }

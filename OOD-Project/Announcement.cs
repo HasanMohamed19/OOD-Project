@@ -89,6 +89,12 @@ namespace OOD_Project
                         announcement.Attach(user);
                     }
                 }
+            } else if (announcement.type == AnnouncementType.grade)
+            {
+                foreach (var student in announcement.forUsers)
+                {
+                    announcement.Attach(student);
+                }
             }
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
@@ -118,6 +124,42 @@ namespace OOD_Project
                 dbm.Connection.Close();
             }
             announcement.Notify();
+
+            if (announcement.Type == AnnouncementType.grade)
+            {
+                foreach (var student in announcement.forUsers)
+                {
+                    PublishStudentAnnouncement(student.UserId);
+                }
+                
+            }
+
         }
+
+        private static void PublishStudentAnnouncement(int user_id)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@user_id", user_id);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[user_announcement] (user_announcement_id, user_id, announcement_id) " +
+            "VALUES (NEXT VALUE FOR [dbo].[userAnnouncementIDSequence], @user_id, CONVERT(int, (SELECT current_value FROM sys.sequences WHERE name = 'announcementIDSequence')))";
+
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+        }
+
     }
 }

@@ -472,6 +472,37 @@ namespace OOD_Project
             }
         }
 
+        public static List<User> GetStudentsOfCourse(int sectionId)
+        {
+            List<User> students = new List<User>();
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command.Parameters.AddWithValue("@section_id", sectionId);
+
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[registration] r" +
+                " JOIN [dbo].[student] s ON s.student_id = r.student_id WHERE section_id = @section_id";
+            dbm.Reader = dbm.Command.ExecuteReader();
+            try
+            {
+                while (dbm.Reader.Read())
+                {
+                    User student = new Student();
+                    //student.studentId = Convert.ToInt32(dbm.Reader["student_id"].ToString());
+                    student.UserId = Convert.ToInt32(dbm.Reader["user_id"].ToString());
+                    students.Add(student);
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+            return students;
+
+        }
+
         public string StudentUniversityId { get => studentUniversityId; set => studentUniversityId = value; }
         public string FirstName { get => firstName; set => firstName = value; }
         public string LastName { get => lastName; set => lastName = value; }

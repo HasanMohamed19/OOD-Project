@@ -48,10 +48,10 @@
             this.emailTableLayout.SetColumnSpan(this.recipientTxt, 2);
             this.recipientTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recipientTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recipientTxt.Location = new System.Drawing.Point(18, 18);
-            this.recipientTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.recipientTxt.Location = new System.Drawing.Point(24, 22);
+            this.recipientTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.recipientTxt.Name = "recipientTxt";
-            this.recipientTxt.Size = new System.Drawing.Size(462, 23);
+            this.recipientTxt.Size = new System.Drawing.Size(616, 27);
             this.recipientTxt.TabIndex = 0;
             this.recipientTxt.Text = "To";
             this.recipientTxt.TextChanged += new System.EventHandler(this.recipientTxt_TextChanged);
@@ -61,10 +61,10 @@
             this.emailTableLayout.SetColumnSpan(this.subjectTxt, 2);
             this.subjectTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subjectTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subjectTxt.Location = new System.Drawing.Point(18, 48);
-            this.subjectTxt.Margin = new System.Windows.Forms.Padding(2);
+            this.subjectTxt.Location = new System.Drawing.Point(24, 59);
+            this.subjectTxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.subjectTxt.Name = "subjectTxt";
-            this.subjectTxt.Size = new System.Drawing.Size(462, 23);
+            this.subjectTxt.Size = new System.Drawing.Size(616, 27);
             this.subjectTxt.TabIndex = 1;
             this.subjectTxt.Text = "Subject";
             // 
@@ -73,10 +73,10 @@
             this.emailTableLayout.SetColumnSpan(this.bodyText, 2);
             this.bodyText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bodyText.Location = new System.Drawing.Point(18, 78);
-            this.bodyText.Margin = new System.Windows.Forms.Padding(2);
+            this.bodyText.Location = new System.Drawing.Point(24, 96);
+            this.bodyText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bodyText.Name = "bodyText";
-            this.bodyText.Size = new System.Drawing.Size(462, 326);
+            this.bodyText.Size = new System.Drawing.Size(616, 401);
             this.bodyText.TabIndex = 2;
             this.bodyText.Text = "";
             // 
@@ -88,10 +88,10 @@
             this.btnSendEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSendEmail.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendEmail.ForeColor = System.Drawing.Color.White;
-            this.btnSendEmail.Location = new System.Drawing.Point(57, 493);
-            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSendEmail.Location = new System.Drawing.Point(76, 607);
+            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSendEmail.Name = "btnSendEmail";
-            this.btnSendEmail.Size = new System.Drawing.Size(150, 40);
+            this.btnSendEmail.Size = new System.Drawing.Size(200, 49);
             this.btnSendEmail.TabIndex = 4;
             this.btnSendEmail.Text = "Send";
             this.btnSendEmail.UseVisualStyleBackColor = false;
@@ -103,10 +103,10 @@
             this.btnAttach.FlatAppearance.BorderSize = 0;
             this.btnAttach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAttach.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttach.Location = new System.Drawing.Point(290, 493);
-            this.btnAttach.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAttach.Location = new System.Drawing.Point(387, 607);
+            this.btnAttach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttach.Name = "btnAttach";
-            this.btnAttach.Size = new System.Drawing.Size(150, 40);
+            this.btnAttach.Size = new System.Drawing.Size(200, 49);
             this.btnAttach.TabIndex = 5;
             this.btnAttach.Text = "Attach";
             this.btnAttach.UseVisualStyleBackColor = true;
@@ -119,10 +119,10 @@
             this.emailTableLayout.SetColumnSpan(this.attachmentsListView, 2);
             this.attachmentsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.attachmentsListView.HideSelection = false;
-            this.attachmentsListView.Location = new System.Drawing.Point(18, 408);
-            this.attachmentsListView.Margin = new System.Windows.Forms.Padding(2);
+            this.attachmentsListView.Location = new System.Drawing.Point(24, 501);
+            this.attachmentsListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.attachmentsListView.Name = "attachmentsListView";
-            this.attachmentsListView.Size = new System.Drawing.Size(462, 78);
+            this.attachmentsListView.Size = new System.Drawing.Size(616, 97);
             this.attachmentsListView.TabIndex = 12;
             this.attachmentsListView.UseCompatibleStateImageBehavior = false;
             this.attachmentsListView.View = System.Windows.Forms.View.SmallIcon;
@@ -134,12 +134,12 @@
             this.deleteMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteToolStripMenuItem});
             this.deleteMenuStrip.Name = "deleteMenuStrip";
-            this.deleteMenuStrip.Size = new System.Drawing.Size(108, 26);
+            this.deleteMenuStrip.Size = new System.Drawing.Size(123, 28);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(122, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -156,25 +156,26 @@
             this.emailTableLayout.Controls.Add(this.bodyText, 0, 2);
             this.emailTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.emailTableLayout.Location = new System.Drawing.Point(0, 0);
+            this.emailTableLayout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.emailTableLayout.Name = "emailTableLayout";
-            this.emailTableLayout.Padding = new System.Windows.Forms.Padding(16);
+            this.emailTableLayout.Padding = new System.Windows.Forms.Padding(21, 20, 21, 20);
             this.emailTableLayout.RowCount = 5;
-            this.emailTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.emailTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.emailTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.emailTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.emailTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.emailTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.emailTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.emailTableLayout.Size = new System.Drawing.Size(498, 555);
+            this.emailTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
+            this.emailTableLayout.Size = new System.Drawing.Size(664, 683);
             this.emailTableLayout.TabIndex = 13;
             // 
             // EmailForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(498, 555);
+            this.ClientSize = new System.Drawing.Size(664, 683);
             this.Controls.Add(this.emailTableLayout);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EmailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Send Email";
