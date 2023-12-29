@@ -37,6 +37,7 @@ namespace OOD_Project
             {
                 case NotificationType.announcement:
                     // go to announcement tab
+                    Helper.OpenChildForm(new ViewAnnouncementsForm(), studentMainContent);
                     break;
                 case NotificationType.email:
                     // go to email tab

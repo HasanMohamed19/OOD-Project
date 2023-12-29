@@ -61,6 +61,7 @@ namespace OOD_Project
                     break;
                 case NotificationType.email:
                     // go to email tab
+                    Helper.OpenChildForm(new ViewEmailForm(), adminMainContent);
                     break;
             }
         }
