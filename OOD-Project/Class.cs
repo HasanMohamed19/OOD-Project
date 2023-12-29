@@ -10,62 +10,74 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
 
 
 namespace OOD_Project
 {
     public enum WeekDays
     {
+        saturday,
         sunday,
         monday,
         tuesday,
         wednesday,
         thursday,
-        friday,
-        saturday,
+        friday
     }
 
 
     public class Class
     {
 
-        private DateTime beginDate;
-        private string building;
         private int classId;
+        private string building;
+        private string roomNumber;
         private WeekDays dayOfTheWeek;
         private DateTime endTime;
-        private DateTime finishDate;
-        private string roomNumber;
         private DateTime startTime;
         private Section section;
 
-        public Class(DateTime beginDate, string building, int classId, WeekDays dayOfTheWeek, DateTime endTime, DateTime finishDate, string roomNumber, DateTime startTime, Section section)
+        public Class(int classId, string building, string roomNumber, WeekDays dayOfTheWeek, DateTime endTime, DateTime startTime, Section section)
         {
-            this.beginDate = beginDate;
-            this.building = building;
             this.classId = classId;
+            this.building = building;
+            this.roomNumber = roomNumber;
             this.dayOfTheWeek = dayOfTheWeek;
             this.endTime = endTime;
-            this.finishDate = finishDate;
-            this.roomNumber = roomNumber;
             this.startTime = startTime;
             this.section = section;
         }
 
-        ~Class()
-        {
 
-        }
 
-        public DateTime BeginDate
+        public static void AddClass(Class c)
         {
-            get
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@start_time", c.StartTime);
+            dbm.Command.Parameters.AddWithValue("@end_time", c.EndTime);
+            dbm.Command.Parameters.AddWithValue("@building", c.Building);
+            dbm.Command.Parameters.AddWithValue("@room_number", c.RoomNumber);
+            dbm.Command.Parameters.AddWithValue("@section_id", c.Section.Id);
+            dbm.Command.Parameters.AddWithValue("@week_day_id", (int)c.DayOfTheWeek+1);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[class] (class_id, start_time, end_time, building, room_number, section_id, week_day_id)" +
+                "VALUES (NEXT VALUE FOR [dbo].[classIDSequence], @start_time, @end_time, @building, @room_number, @section_id, @week_day_id)";
+
+            try
             {
-                return beginDate;
+                dbm.Command.ExecuteNonQuery();
             }
-            set
+            catch (Exception ex)
             {
-                beginDate = value;
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
             }
         }
 
@@ -102,18 +114,6 @@ namespace OOD_Project
             set
             {
                 endTime = value;
-            }
-        }
-
-        public DateTime FinishDate
-        {
-            get
-            {
-                return finishDate;
-            }
-            set
-            {
-                finishDate = value;
             }
         }
 

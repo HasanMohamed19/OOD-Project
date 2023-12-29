@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 
 namespace OOD_Project
 {
@@ -39,6 +40,64 @@ namespace OOD_Project
             this.teacherUniversityId = teacherUniversityId;
         }
 
+        public static List<Teacher> GetTeachers()
+        {
+            List<Teacher> teachers = new List<Teacher>();
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            // get teachers without branch
+            dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification," +
+                "t.first_name, t.last_name, t.dob, t.cpr, t.phone_number, t.gender, t.programme_id, t.teacher_university_id, branch_id, teacher_id " +
+                " FROM [dbo].[teacher] t, [dbo].[User] u " +
+                " WHERE t.user_id = u.user_id";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                Teacher teacher;
+                int branchId;
+                while (dbm.Reader.Read())
+                {
+                    int id = dbm.Reader.GetInt32(0);
+                    string username = dbm.Reader.GetString(1);
+                    string password = dbm.Reader.GetString(2);
+                    string email = dbm.Reader.GetString(3);
+                    UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
+                    UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
+                    bool hasNotification = dbm.Reader.GetBoolean(6);
+                    string firstName = dbm.Reader.GetString(7);
+                    string lastName = dbm.Reader.GetString(8);
+                    DateTime dob = dbm.Reader.GetDateTime(9);
+                    string cpr = dbm.Reader.GetString(10);
+                    string phoneNumber = dbm.Reader.GetString(11);
+                    char gender = dbm.Reader.GetString(12)[0];
+                    Programme programme = (Programme)dbm.Reader.GetInt32(13);
+                    string universityId = dbm.Reader.GetString(14);
+                    branchId = dbm.Reader.GetInt32(15);
+                    int teacherId = dbm.Reader.GetInt32(16);
+                    teacher = new Teacher(id, username, password, email, roleId, statusId, hasNotification,
+                        teacherId, firstName, lastName, dob, cpr, gender, phoneNumber, null, programme, universityId);
+                    teachers.Add(teacher);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+            }
+
+            // get branch for each teacher
+
+            foreach (Teacher t in teachers)
+            {
+                t.forBranch = Branch.GetBranchForTeacher(t.TeacherId);
+            }
+
+            return teachers;
+        }
         public static Teacher GetTeacher(int user_id)
         {
             Teacher teacher = null;
@@ -186,17 +245,17 @@ namespace OOD_Project
 
         public static void UpdateTeacher(Teacher teacher)
         {
-            // update user table for student in db
+            // update user table for teacher in db
             if (!EditUser(teacher))
             {
                 return;
             }
 
-            // update student table
+            // update teacher table
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
 
-            // UPDATE STUDENT ROW
+            // UPDATE TEACHER ROW
             dbm.Command.Parameters.AddWithValue("@user_id", teacher.UserId);
             dbm.Command.Parameters.AddWithValue("@first_name", teacher.firstName);
             dbm.Command.Parameters.AddWithValue("@last_name", teacher.lastName);

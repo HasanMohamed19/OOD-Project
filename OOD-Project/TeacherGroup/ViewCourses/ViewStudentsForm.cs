@@ -63,7 +63,7 @@ namespace OOD_Project.TeacherGroup.ViewCourses
             
 
             // get id of current cell
-            int universityId = Convert.ToInt32(studentsDG.CurrentRow.Cells[0].Value);
+            string universityId = Convert.ToString(studentsDG.CurrentRow.Cells[0].Value);
             // get student_id using universityId
             int studentId = Student.GetStudentFromUniId(universityId).StudentId;
 

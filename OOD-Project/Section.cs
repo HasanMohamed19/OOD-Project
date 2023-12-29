@@ -27,6 +27,58 @@ namespace OOD_Project
         }
 
 
+        public static int AddSection(Section section)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@crn", section.Crn);
+            dbm.Command.Parameters.AddWithValue("@capacity", section.Capacity);
+            dbm.Command.Parameters.AddWithValue("@teacher_id", section.AssignedTeacher.TeacherId);
+            dbm.Command.Parameters.AddWithValue("@course_id", section.AssignedCourse.Id);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[section] (section_id, crn, capacity, teacher_id, course_id)" +
+                "VALUES (NEXT VALUE FOR [dbo].[sectionIDSequence], @crn, @capacity, @teacher_id, @course_id)";
+
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+            // get new id
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.CommandText = "SELECT CAST(CURRENT_VALUE AS INT) FROM SYS.SEQUENCES WHERE NAME='sectionIDSequence'";
+            int section_id = -1;
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    section_id = dbm.Reader.GetInt32(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Connection.Close();
+            }
+            // return the new course id
+            return section_id;
+        }
+
         public static Section GetSectionFromCourse(int course_id)
         {
             Section section = null;

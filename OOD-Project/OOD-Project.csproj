@@ -156,6 +156,16 @@
     <Compile Include="Content.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="DatabaseManager.cs" />
+    <Compile Include="dbAllDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbAllDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dbComboDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbComboDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -402,6 +412,28 @@
     <EmbeddedResource Include="ViewEmails.resx">
       <DependentUpon>ViewEmails.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dbAllDataSet.xsc">
+      <DependentUpon>dbAllDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbAllDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbAllDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbAllDataSet.xss">
+      <DependentUpon>dbAllDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbComboDataSet.xsc">
+      <DependentUpon>dbComboDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dbComboDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dbComboDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dbComboDataSet.xss">
+      <DependentUpon>dbComboDataSet.xsd</DependentUpon>
+    </None>
     <None Include="dbDataSet.xsc">
       <DependentUpon>dbDataSet.xsd</DependentUpon>
     </None>

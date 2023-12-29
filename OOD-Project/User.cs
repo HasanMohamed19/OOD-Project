@@ -250,7 +250,7 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@role_id", user.roleId);
             dbm.Command.Parameters.AddWithValue("@status_id", 1);
             dbm.Command.CommandText = "INSERT INTO [dbo].[User] (user_id, username, password, email, role_id, status_id)" +
-                " VALUES ([(NEXT VALUE FOR [dbo].[userIDSequence], @username, @password, @email, @role_id, @status_id)";
+                " VALUES (NEXT VALUE FOR [dbo].[userIDSequence], @username, @password, @email, @role_id, @status_id)";
 
             try
             {

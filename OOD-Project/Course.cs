@@ -73,28 +73,54 @@ namespace OOD_Project
 
             return course;
         }
-        public static void AddCourse(Course course)
+        public static int AddCourse(Course course)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
-
-            dbm.Command.Parameters.AddWithValue("@course_id", course.id);
-            dbm.Command.Parameters.AddWithValue("@name", course.courseName);
-            dbm.Command.Parameters.AddWithValue("@description", course.description);
-            dbm.Command.Parameters.AddWithValue("@credits", course.credits);
-            dbm.Command.Parameters.AddWithValue("@programme_id", 1); // later get programme id here
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@name", course.Name);
+            dbm.Command.Parameters.AddWithValue("@code", course.Code);
+            dbm.Command.Parameters.AddWithValue("@description", course.Description);
+            dbm.Command.Parameters.AddWithValue("@credits", course.Credits);
+            dbm.Command.Parameters.AddWithValue("@programme_id", (int)course.forProgramme);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[course] (course_id, name, code, description, programme_id, credits)" +
+                "VALUES (NEXT VALUE FOR [dbo].[courseIDSequence], @name, @code, @description, @programme_id, @credits)";
 
             try
             {
                 dbm.Command.ExecuteNonQuery();
             } catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message );
             } finally
             {
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();
             }
+            // get new id
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.CommandText = "SELECT CAST(CURRENT_VALUE AS INT) FROM SYS.SEQUENCES WHERE NAME='courseIDSequence'";
+            int course_id = -1;
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    course_id = dbm.Reader.GetInt32(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Connection.Close();
+            }
+            // return the new course id
+            return course_id;
         }
 
         public static bool DeleteCourse(int course_id)

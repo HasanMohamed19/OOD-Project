@@ -114,6 +114,8 @@ namespace OOD_Project.Admin
 
         private void addCourseBtn_Click(object sender, EventArgs e)
         {
+            AddCourseForm form = new AddCourseForm(this);
+            form.Show();
         }
 
         private void courseDG_SelectionChanged(object sender, EventArgs e)

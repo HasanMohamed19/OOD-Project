@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 
 namespace OOD_Project
 {
@@ -39,6 +40,33 @@ namespace OOD_Project
             this.phoneNumber = phoneNumber;
             this.inMajor = inMajor;
             this.studentUniversityId = studentUniversityId;
+        }
+
+
+        public static void RegisterStudentToSection(int student_id, int section_id)
+        {
+            // inserts registration record into db
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@student_id", student_id);
+            dbm.Command.Parameters.AddWithValue("@section_id", section_id);
+
+            dbm.Command.CommandText = "INSERT INTO [dbo].[registration] (registration_id, student_id, section_id) " +
+                "VALUES (NEXT VALUE FOR [dbo].[registrationIDSequence], @student_id, @section_id)";
+
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
         }
 
         // check if an inactive student account exists with this id
@@ -130,7 +158,7 @@ namespace OOD_Project
             return ids[0];
         }
 
-        public static Student GetStudentFromUniId(int university_id)
+        public static Student GetStudentFromUniId(string university_id)
         {
             Student student = null;
             DatabaseManager dbm = DatabaseManager.Instance();

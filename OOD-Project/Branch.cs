@@ -64,6 +64,37 @@ namespace OOD_Project
         public string BranchName { get => branchName; set => branchName = value; }
 
 
+        public static Branch GetBranchForTeacher(int teacher_id)
+        {
+            Branch branch = null;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@teacher_id", teacher_id);
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[branch] b " +
+                "JOIN [dbo].[teacher] t ON t.branch_id = b.branch_id " +
+                "WHERE teacher_id = @teacher_id ";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    int branchId = dbm.Reader.GetInt32(0);
+                    string branchName = dbm.Reader.GetString(1);
+                    string branchPhone = dbm.Reader.GetString(2);
+                    branch = new Branch(branchId, branchName, branchPhone);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally { dbm.Reader.Close(); dbm.Connection.Close(); }
+
+            return branch;
+        }
+
         public static Branch GetBranch(int branch_id)
         {
             Branch branch = null;
