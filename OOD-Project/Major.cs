@@ -12,7 +12,7 @@ namespace OOD_Project
         ict = 1,
         business = 2,
         creativeMedia = 3,
-        enginerring = 4,
+        engineering = 4,
         logistics = 5,
         foundation = 6
     }

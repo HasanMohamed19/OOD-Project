@@ -31,6 +31,70 @@ namespace OOD_Project
         }
 
 
+        public static bool CanDeleteSection(int section_id)
+        {
+            // check if section has students registered in it
+            // used to check if it can be deleted
+            bool canDelete = false;
+
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@section_id", section_id);
+            dbm.Command.CommandText = "SELECT COUNT(registration_id) " +
+                " FROM [dbo].[registration] " +
+                " WHERE section_id = @section_id ";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    int count = dbm.Reader.GetInt32(0);
+                    canDelete = count <= 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+            }
+
+            return canDelete;
+        }
+
+        public static void DeleteSection(int section_id)
+        {
+            int course_id = GetSection(section_id).AssignedCourse.Id;
+
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@section_id", section_id);
+            dbm.Command.Parameters.AddWithValue("@course_id", course_id);
+            dbm.Command.CommandText = "DELETE FROM [dbo].[class] WHERE section_id = @section_id; " +
+                "DELETE FROM [dbo].[section] WHERE section_id = @section_id; " +
+                "DELETE FROM [dbo].[course] WHERE course_id = @course_id; ";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
+
         public static int AddSection(Section section)
         {
             DatabaseManager dbm = DatabaseManager.Instance();

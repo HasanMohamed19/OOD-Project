@@ -101,10 +101,31 @@ namespace OOD_Project.Admin
         }
         private void deleteCourseBtn_Click(object sender, EventArgs e)
         {
+            // get selected course
+            if (courseDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
+            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+
+            // check if there are registered students in the course
+            if (!Section.CanDeleteSection(section_id))
+            {
+                MessageBox.Show("This course has students registered for it already. If you would like to delete it, please unregister the students first.","Cannot delete");
+                return;
+            }
+
             DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected course?", "Delete Confirmation", MessageBoxButtons.YesNo);
+            
+            if (deleteConfirmation != DialogResult.Yes)
+            {
+                return;
+            }
 
-
-
+            // delete course and section and classes
+            Section.DeleteSection(section_id);
+            // refresh view
+            PopulateDGVs();
         }
 
         private void editCourseBtn_Click(object sender, EventArgs e)
@@ -114,7 +135,6 @@ namespace OOD_Project.Admin
             {
                 return;
             }
-
             int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
 
             EditCourseForm editCourseForm = new EditCourseForm(section_id, this);
