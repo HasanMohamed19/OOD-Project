@@ -117,11 +117,11 @@ namespace OOD_Project.Admin
             dbm.Command = dbm.Connection.CreateCommand();
 
             dbm.Command.Parameters.AddWithValue("@programme_id", (int)course.ForProgramme); // TODO: remove
-            dbm.Command.CommandText = "SELECT s.student_university_id, s.first_name + ' ' + s.last_name, s.cpr, m.major_name " +
+            dbm.Command.CommandText = "SELECT s.student_university_id, s.first_name + ' ' + s.last_name, s.cpr, m.major_name, p.programme_name " +
                 "FROM [dbo].[student] s " +
                 "JOIN [dbo].[User] u ON s.user_id = u.user_id " +
                 "JOIN [dbo].[major] m ON s.major_id = m.major_id " +
-                "WHERE m.programme_id = @programme_id " +
+                "JOIN [dbo].[programme] p ON m.programme_id = p.programme_id " +
                 "AND u.status_id = 2 ";
             try
             {
@@ -133,6 +133,7 @@ namespace OOD_Project.Admin
                     item.SubItems.Add(dbm.Reader.GetString(1));
                     item.SubItems.Add(dbm.Reader.GetString(2));
                     item.SubItems.Add(dbm.Reader.GetString(3));
+                    item.SubItems.Add(dbm.Reader.GetString(4));
                     studentsListView.Items.Add(item);
                 }
             }

@@ -78,6 +78,7 @@ namespace OOD_Project.Admin
             this.class3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.class4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.class5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelHeader.SuspendLayout();
             this.coursePage.SuspendLayout();
             this.bottomPnl.SuspendLayout();
@@ -403,7 +404,8 @@ namespace OOD_Project.Admin
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader5});
             this.studentsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentsListView.FullRowSelect = true;
@@ -418,7 +420,7 @@ namespace OOD_Project.Admin
             // columnHeader1
             // 
             this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 130;
+            this.columnHeader1.Width = 110;
             // 
             // columnHeader2
             // 
@@ -428,7 +430,7 @@ namespace OOD_Project.Admin
             // columnHeader3
             // 
             this.columnHeader3.Text = "CPR";
-            this.columnHeader3.Width = 130;
+            this.columnHeader3.Width = 110;
             // 
             // columnHeader4
             // 
@@ -669,6 +671,11 @@ namespace OOD_Project.Admin
             this.class5.Text = "Room";
             this.class5.Width = 80;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Programme";
+            this.columnHeader5.Width = 180;
+            // 
             // AddCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -744,5 +751,6 @@ namespace OOD_Project.Admin
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

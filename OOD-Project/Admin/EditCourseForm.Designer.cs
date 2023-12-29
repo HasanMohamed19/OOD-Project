@@ -57,6 +57,7 @@
             this.courseNameLbl = new System.Windows.Forms.Label();
             this.txtCourseName = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bottomPnl.SuspendLayout();
             this.panelHeader.SuspendLayout();
             this.pagesContainer.SuspendLayout();
@@ -167,7 +168,8 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.columnHeader5});
             this.studentsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.studentsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentsListView.FullRowSelect = true;
@@ -182,7 +184,7 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 130;
+            this.columnHeader1.Width = 110;
             // 
             // columnHeader2
             // 
@@ -192,7 +194,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "CPR";
-            this.columnHeader3.Width = 130;
+            this.columnHeader3.Width = 110;
             // 
             // columnHeader4
             // 
@@ -412,6 +414,11 @@
             this.txtDescription.Size = new System.Drawing.Size(540, 91);
             this.txtDescription.TabIndex = 32;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Programme";
+            this.columnHeader5.Width = 180;
+            // 
             // EditCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,5 +472,6 @@
         private System.Windows.Forms.Label courseNameLbl;
         private System.Windows.Forms.TextBox txtCourseName;
         private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
