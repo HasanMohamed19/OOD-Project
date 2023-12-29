@@ -16,24 +16,21 @@ namespace OOD_Project
         public ViewEmailForm()
         {
             InitializeComponent();
-            UpdateView();
+            Helper.OpenChildForm(new ViewEmails(true), emailContainer);
+        }
+        private void inboxBtn_Click(object sender, EventArgs e)
+        {
+            Helper.OpenChildForm(new ViewEmails(true), emailContainer);
         }
 
-        private void UpdateView()
+        private void outboxBtn_Click(object sender, EventArgs e)
         {
-            if (emailTabs.SelectedTab == inboxTab)
-            {
-                Helper.OpenChildForm(new ViewEmails(true), inboxPanel);
-            }
-            else
-            {
-                Helper.OpenChildForm(new ViewEmails(false), sentPanel);
-            }
+            Helper.OpenChildForm(new ViewEmails(false), emailContainer);
         }
 
-        private void emailTabs_Selecting(object sender, TabControlCancelEventArgs e)
+        private void sendEmailBtn_Click(object sender, EventArgs e)
         {
-            UpdateView(); 
+            new EmailForm(null).ShowDialog();
         }
     }
 }

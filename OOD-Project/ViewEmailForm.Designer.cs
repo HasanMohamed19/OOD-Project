@@ -28,74 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.emailTabs = new System.Windows.Forms.TabControl();
-            this.inboxTab = new System.Windows.Forms.TabPage();
-            this.inboxPanel = new System.Windows.Forms.Panel();
-            this.sentTab = new System.Windows.Forms.TabPage();
-            this.sentPanel = new System.Windows.Forms.Panel();
-            this.emailTabs.SuspendLayout();
-            this.inboxTab.SuspendLayout();
-            this.sentTab.SuspendLayout();
+            this.emailContainer = new System.Windows.Forms.Panel();
+            this.buttonPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.inboxBtn = new System.Windows.Forms.Button();
+            this.outboxBtn = new System.Windows.Forms.Button();
+            this.sendEmailBtn = new System.Windows.Forms.Button();
+            this.buttonPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // emailTabs
+            // emailContainer
             // 
-            this.emailTabs.Controls.Add(this.inboxTab);
-            this.emailTabs.Controls.Add(this.sentTab);
-            this.emailTabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.emailTabs.Location = new System.Drawing.Point(0, 0);
-            this.emailTabs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.emailTabs.Name = "emailTabs";
-            this.emailTabs.SelectedIndex = 0;
-            this.emailTabs.Size = new System.Drawing.Size(1007, 528);
-            this.emailTabs.TabIndex = 0;
-            this.emailTabs.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.emailTabs_Selecting);
+            this.emailContainer.BackColor = System.Drawing.Color.Transparent;
+            this.emailContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailContainer.Location = new System.Drawing.Point(0, 69);
+            this.emailContainer.Margin = new System.Windows.Forms.Padding(2);
+            this.emailContainer.Name = "emailContainer";
+            this.emailContainer.Size = new System.Drawing.Size(1007, 459);
+            this.emailContainer.TabIndex = 0;
             // 
-            // inboxTab
+            // buttonPanel
             // 
-            this.inboxTab.Controls.Add(this.inboxPanel);
-            this.inboxTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inboxTab.Location = new System.Drawing.Point(4, 22);
-            this.inboxTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.inboxTab.Name = "inboxTab";
-            this.inboxTab.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.inboxTab.Size = new System.Drawing.Size(876, 615);
-            this.inboxTab.TabIndex = 0;
-            this.inboxTab.Text = "Inbox";
-            this.inboxTab.UseVisualStyleBackColor = true;
+            this.buttonPanel.Controls.Add(this.inboxBtn);
+            this.buttonPanel.Controls.Add(this.outboxBtn);
+            this.buttonPanel.Controls.Add(this.sendEmailBtn);
+            this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonPanel.Location = new System.Drawing.Point(0, 0);
+            this.buttonPanel.Name = "buttonPanel";
+            this.buttonPanel.Size = new System.Drawing.Size(1007, 69);
+            this.buttonPanel.TabIndex = 1;
             // 
-            // inboxPanel
+            // inboxBtn
             // 
-            this.inboxPanel.BackColor = System.Drawing.Color.Transparent;
-            this.inboxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inboxPanel.Location = new System.Drawing.Point(2, 2);
-            this.inboxPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.inboxPanel.Name = "inboxPanel";
-            this.inboxPanel.Size = new System.Drawing.Size(872, 611);
-            this.inboxPanel.TabIndex = 0;
+            this.inboxBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.inboxBtn.FlatAppearance.BorderSize = 0;
+            this.inboxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(247)))));
+            this.inboxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inboxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inboxBtn.ForeColor = System.Drawing.Color.White;
+            this.inboxBtn.Location = new System.Drawing.Point(3, 9);
+            this.inboxBtn.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
+            this.inboxBtn.Name = "inboxBtn";
+            this.inboxBtn.Size = new System.Drawing.Size(150, 50);
+            this.inboxBtn.TabIndex = 0;
+            this.inboxBtn.Text = "Inbox";
+            this.inboxBtn.UseVisualStyleBackColor = false;
+            this.inboxBtn.Click += new System.EventHandler(this.inboxBtn_Click);
             // 
-            // sentTab
+            // outboxBtn
             // 
-            this.sentTab.Controls.Add(this.sentPanel);
-            this.sentTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sentTab.Location = new System.Drawing.Point(4, 22);
-            this.sentTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.sentTab.Name = "sentTab";
-            this.sentTab.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.sentTab.Size = new System.Drawing.Size(999, 502);
-            this.sentTab.TabIndex = 1;
-            this.sentTab.Text = "Sent";
-            this.sentTab.UseVisualStyleBackColor = true;
+            this.outboxBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.outboxBtn.FlatAppearance.BorderSize = 0;
+            this.outboxBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(247)))));
+            this.outboxBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.outboxBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.outboxBtn.ForeColor = System.Drawing.Color.White;
+            this.outboxBtn.Location = new System.Drawing.Point(159, 9);
+            this.outboxBtn.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
+            this.outboxBtn.Name = "outboxBtn";
+            this.outboxBtn.Size = new System.Drawing.Size(150, 50);
+            this.outboxBtn.TabIndex = 2;
+            this.outboxBtn.Text = "Outbox";
+            this.outboxBtn.UseVisualStyleBackColor = false;
+            this.outboxBtn.Click += new System.EventHandler(this.outboxBtn_Click);
             // 
-            // sentPanel
+            // sendEmailBtn
             // 
-            this.sentPanel.BackColor = System.Drawing.Color.Transparent;
-            this.sentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sentPanel.Location = new System.Drawing.Point(2, 2);
-            this.sentPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.sentPanel.Name = "sentPanel";
-            this.sentPanel.Size = new System.Drawing.Size(995, 498);
-            this.sentPanel.TabIndex = 0;
+            this.sendEmailBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.sendEmailBtn.FlatAppearance.BorderSize = 0;
+            this.sendEmailBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(156)))), ((int)(((byte)(247)))));
+            this.sendEmailBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sendEmailBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sendEmailBtn.ForeColor = System.Drawing.Color.White;
+            this.sendEmailBtn.Location = new System.Drawing.Point(315, 9);
+            this.sendEmailBtn.Margin = new System.Windows.Forms.Padding(3, 9, 3, 3);
+            this.sendEmailBtn.Name = "sendEmailBtn";
+            this.sendEmailBtn.Size = new System.Drawing.Size(150, 50);
+            this.sendEmailBtn.TabIndex = 1;
+            this.sendEmailBtn.Text = "Send Email";
+            this.sendEmailBtn.UseVisualStyleBackColor = false;
+            this.sendEmailBtn.Click += new System.EventHandler(this.sendEmailBtn_Click);
             // 
             // ViewEmailForm
             // 
@@ -103,24 +114,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(1007, 528);
-            this.Controls.Add(this.emailTabs);
+            this.Controls.Add(this.emailContainer);
+            this.Controls.Add(this.buttonPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewEmailForm";
             this.Text = "ViewEmailForm";
-            this.emailTabs.ResumeLayout(false);
-            this.inboxTab.ResumeLayout(false);
-            this.sentTab.ResumeLayout(false);
+            this.buttonPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl emailTabs;
-        private System.Windows.Forms.TabPage inboxTab;
-        private System.Windows.Forms.TabPage sentTab;
-        private System.Windows.Forms.Panel inboxPanel;
-        private System.Windows.Forms.Panel sentPanel;
+        private System.Windows.Forms.Panel emailContainer;
+        private System.Windows.Forms.FlowLayoutPanel buttonPanel;
+        private System.Windows.Forms.Button inboxBtn;
+        private System.Windows.Forms.Button outboxBtn;
+        private System.Windows.Forms.Button sendEmailBtn;
     }
 }

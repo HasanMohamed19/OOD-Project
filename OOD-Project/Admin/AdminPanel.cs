@@ -83,9 +83,10 @@ namespace OOD_Project
             Helper.OpenChildForm(new ViewEmailForm(), adminMainContent);
         }
 
-        private void sendEmailBtn_Click(object sender, EventArgs e)
+
+        private void viewFeedbackBtn_Click(object sender, EventArgs e)
         {
-            new EmailForm(null).ShowDialog();
+
         }
     }
 }

@@ -168,6 +168,12 @@
     <Compile Include="Admin\ManageBranchesForm.Designer.cs">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ViewFeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewFeedbackForm.Designer.cs">
+      <DependentUpon>ViewFeedbackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Announcement.cs" />
     <Compile Include="Branch.cs" />
     <Compile Include="ChangePasswordForm.cs">
@@ -365,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\ManageBranchesForm.resx">
       <DependentUpon>ManageBranchesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\ViewFeedbackForm.resx">
+      <DependentUpon>ViewFeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>

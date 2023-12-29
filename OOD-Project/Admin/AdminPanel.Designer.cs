@@ -35,11 +35,11 @@
             this.manageCoursesBtn = new System.Windows.Forms.Button();
             this.btnAddAnouncement = new System.Windows.Forms.Button();
             this.viewEmailsBtn = new System.Windows.Forms.Button();
-            this.sendEmailBtn = new System.Windows.Forms.Button();
+            this.viewFeedbackBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.notificationPnl = new System.Windows.Forms.Panel();
-            this.profileBar = new OOD_Project.ProfileBar();
             this.adminMainContent = new System.Windows.Forms.Panel();
+            this.profileBar = new OOD_Project.ProfileBar();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.notificationPnl.SuspendLayout();
@@ -64,7 +64,7 @@
             this.flowLayoutPanel1.Controls.Add(this.manageCoursesBtn);
             this.flowLayoutPanel1.Controls.Add(this.btnAddAnouncement);
             this.flowLayoutPanel1.Controls.Add(this.viewEmailsBtn);
-            this.flowLayoutPanel1.Controls.Add(this.sendEmailBtn);
+            this.flowLayoutPanel1.Controls.Add(this.viewFeedbackBtn);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(128, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -154,22 +154,21 @@
             this.viewEmailsBtn.UseVisualStyleBackColor = false;
             this.viewEmailsBtn.Click += new System.EventHandler(this.email_Click);
             // 
-            // sendEmailBtn
-            // profileBar
+            // viewFeedbackBtn
             // 
-            this.sendEmailBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.sendEmailBtn.FlatAppearance.BorderSize = 0;
-            this.sendEmailBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendEmailBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendEmailBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.sendEmailBtn.Location = new System.Drawing.Point(584, 16);
-            this.sendEmailBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.sendEmailBtn.Name = "sendEmailBtn";
-            this.sendEmailBtn.Size = new System.Drawing.Size(108, 42);
-            this.sendEmailBtn.TabIndex = 10;
-            this.sendEmailBtn.Text = "Send Emails";
-            this.sendEmailBtn.UseVisualStyleBackColor = false;
-            this.sendEmailBtn.Click += new System.EventHandler(this.sendEmailBtn_Click);
+            this.viewFeedbackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.viewFeedbackBtn.FlatAppearance.BorderSize = 0;
+            this.viewFeedbackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewFeedbackBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewFeedbackBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.viewFeedbackBtn.Location = new System.Drawing.Point(584, 16);
+            this.viewFeedbackBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.viewFeedbackBtn.Name = "viewFeedbackBtn";
+            this.viewFeedbackBtn.Size = new System.Drawing.Size(108, 42);
+            this.viewFeedbackBtn.TabIndex = 10;
+            this.viewFeedbackBtn.Text = "View Feedback";
+            this.viewFeedbackBtn.UseVisualStyleBackColor = false;
+            this.viewFeedbackBtn.Click += new System.EventHandler(this.viewFeedbackBtn_Click);
             // 
             // label1
             // 
@@ -194,6 +193,16 @@
             this.notificationPnl.Size = new System.Drawing.Size(181, 72);
             this.notificationPnl.TabIndex = 8;
             // 
+            // adminMainContent
+            // 
+            this.adminMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.adminMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adminMainContent.Location = new System.Drawing.Point(0, 72);
+            this.adminMainContent.Margin = new System.Windows.Forms.Padding(4);
+            this.adminMainContent.Name = "adminMainContent";
+            this.adminMainContent.Size = new System.Drawing.Size(1008, 529);
+            this.adminMainContent.TabIndex = 3;
+            // 
             // profileBar
             // 
             this.profileBar.BackColor = System.Drawing.Color.Transparent;
@@ -205,16 +214,6 @@
             this.profileBar.ParentContainer = null;
             this.profileBar.Size = new System.Drawing.Size(173, 64);
             this.profileBar.TabIndex = 0;
-            // 
-            // adminMainContent
-            // 
-            this.adminMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.adminMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.adminMainContent.Location = new System.Drawing.Point(0, 72);
-            this.adminMainContent.Margin = new System.Windows.Forms.Padding(4);
-            this.adminMainContent.Name = "adminMainContent";
-            this.adminMainContent.Size = new System.Drawing.Size(1008, 529);
-            this.adminMainContent.TabIndex = 3;
             // 
             // AdminPanel
             // 
@@ -248,7 +247,7 @@
         private System.Windows.Forms.Panel notificationPnl;
         private System.Windows.Forms.Button btnAddAnouncement;
         private System.Windows.Forms.Button viewEmailsBtn;
-        private System.Windows.Forms.Button sendEmailBtn;
+        private System.Windows.Forms.Button viewFeedbackBtn;
         private ProfileBar profileBar;
     }
 }

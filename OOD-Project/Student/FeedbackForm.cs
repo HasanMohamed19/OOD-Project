@@ -21,15 +21,12 @@ namespace OOD_Project
 
             if (!IsFeedbackSubmitted())
             {
-                MessageBox.Show("Feedback added");
                 AddFeedback();
             } else
             {
                 MessageBox.Show("Feedback already submitted");
-                this.Hide();
+                Close();
             }
-
-            
         }
 
         private void AddFeedback()
@@ -41,15 +38,14 @@ namespace OOD_Project
                 dbm.Command.Parameters.AddWithValue("@student_id", Global.StudentId);
                 dbm.Command.Parameters.AddWithValue("@course_id", selectedCourse.Id);
                 dbm.Command.CommandText = "INSERT INTO [dbo].[Feedback] (feedback_id, student_id, course_id)" +
-                    "VALUES (NEXT VALUE FOR [dbo].[feedbackIDSequence], @student_id, @course_id";
+                    "VALUES (NEXT VALUE FOR [dbo].[feedbackIDSequence], @student_id, @course_id)";
 
                 try
                 {
                     dbm.Command.ExecuteNonQuery();
-                    MessageBox.Show("added");
+                    MessageBox.Show("Feedback submitted");
                 } catch (Exception ex) {
-
-                
+                    MessageBox.Show(ex.Message);
                 } finally
                 {
                     dbm.Command.Parameters.Clear();
@@ -58,7 +54,7 @@ namespace OOD_Project
 
             } else
             {
-                MessageBox.Show("not added");
+                MessageBox.Show("Feedback not added.");
             }
             
         }
@@ -66,28 +62,27 @@ namespace OOD_Project
         // returns false nothing found, true otherwise
         private bool IsFeedbackSubmitted()
         {
-
+            bool submitted = false;
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@student_id", Global.StudentId);
-            dbm.Command.Parameters.AddWithValue("@coursee_id", selectedCourse.Id);
-            dbm.Command.CommandText = "SELECT * FROM [dbo].[Feedback] WHERE student_id = @student_id AND course_id = @coursee_id";
-            dbm.Reader = dbm.Command.ExecuteReader();
-
-            if (!dbm.Reader.HasRows)
-            {
-                dbm.Command.Parameters.Clear();
-                dbm.Connection.Close();
-                return false;
-            } else
-            {
-                dbm.Command.Parameters.Clear();
-                dbm.Connection.Close();
-                return true;
-            }
-
-
+            dbm.Command.Parameters.AddWithValue("@course_id", selectedCourse.Id);
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[Feedback] WHERE student_id = @student_id AND course_id = @course_id";
             
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                submitted = dbm.Reader.HasRows;
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+            return submitted;
         }
 
         //Method to check and disable radio buttons and textboxes inside the form
@@ -219,23 +214,17 @@ namespace OOD_Project
                     {
                         dbm.Command.ExecuteNonQuery();
                         MessageBox.Show("Course feedback has been sent", "Submitted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Hide();
+                        Close();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("here " + ex.Message);
+                        MessageBox.Show(ex.Message);
                     }
                     finally
                     {
                         dbm.Command.Parameters.Clear();
                     }
-
-
                 }
-
-                
-
-                
             }
             else
             {

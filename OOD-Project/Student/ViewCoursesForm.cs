@@ -50,13 +50,7 @@ namespace OOD_Project
                 selectedCourse = Course.GetCourse(coursesId[selectedIndex]);
                 
                 FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
-                FeedbackForm.ShowDialog();
-            }
-            else
-            {
-               //selectedCourse = (Course)coursesListView.Items[0].Tag;
-               //FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
-               //FeedbackForm.Show();
+                FeedbackForm.Show();
             }
         }
 

@@ -112,7 +112,7 @@
             this.branchesListView.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.branchesListView.HideSelection = false;
             this.branchesListView.Location = new System.Drawing.Point(0, 33);
-            this.branchesListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.branchesListView.Margin = new System.Windows.Forms.Padding(2);
             this.branchesListView.MultiSelect = false;
             this.branchesListView.Name = "branchesListView";
             this.branchesListView.Size = new System.Drawing.Size(1008, 496);
@@ -139,10 +139,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(1008, 529);
             this.Controls.Add(this.branchesListView);
             this.Controls.Add(this.usersListControls);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageBranchesForm";
             this.Text = "ManageBranchesForm";
             this.Load += new System.EventHandler(this.ManageBranchesForm_Load);
