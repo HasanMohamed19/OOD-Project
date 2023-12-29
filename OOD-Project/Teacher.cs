@@ -455,7 +455,7 @@ namespace OOD_Project
         public static void UploadReport(string reportPath, int courseId)
         {
             string fileName = Path.GetFileName(reportPath);
-            string newDestDirectory = Path.Combine(DocumentHelper.relativePath, "Courses", courseId.ToString(), "Reports");
+            string newDestDirectory = Path.Combine(DocumentHelper.parentRelativePath, "Courses", courseId.ToString(), "Reports");
             string newReportPath = Path.Combine(newDestDirectory, fileName);
             
             DatabaseManager dbm = DatabaseManager.Instance();

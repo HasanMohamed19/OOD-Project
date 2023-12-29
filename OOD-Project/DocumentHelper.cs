@@ -9,10 +9,14 @@ namespace OOD_Project
 {
     public static class DocumentHelper
     {
+        // for checking the physical folder in the user machine
         public static string parentDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppFiles");
         public static string emailsDiretory = Path.Combine(parentDirectory, "Emails");
         public static string coursesDirectory = Path.Combine(parentDirectory, "Courses");
-        public static string relativePath = $"bin\\debug\\AppFiles";
+        // for inserting in database
+        public static string parentRelativePath = $"bin\\debug\\AppFiles";
+        public static string emailsRelativePath = Path.Combine(parentRelativePath, "Emails");
+        public static string coursesRelativePath = Path.Combine(parentRelativePath, "Courses");
         public static void MakeDirectory(string path)
         {
             try
