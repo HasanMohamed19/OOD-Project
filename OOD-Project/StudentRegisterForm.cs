@@ -54,7 +54,7 @@ namespace OOD_Project
             DateTime inDOB = dateDOB.Value.Date;
 
             // TODO: implement validation
-            Student student = new Student(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, UserStatus.pending, false
+            Student student = new Student(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, UserStatus.pending
                 ,0, inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
 
             try
