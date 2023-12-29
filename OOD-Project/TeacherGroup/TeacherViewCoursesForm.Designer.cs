@@ -172,6 +172,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(1008, 529);
             this.Controls.Add(this.viewCoursesMainPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TeacherViewCoursesForm";
             this.Text = "TeacherViewCoursesForm";
             this.viewCoursesMainPanel.ResumeLayout(false);

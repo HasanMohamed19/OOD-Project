@@ -24,7 +24,7 @@ namespace OOD_Project
 
             InitializeComponent();
             //attachment.Images.Add(Bitmap.FromFile("C:\\Users\\Hassan\\source\\repos\\OOD-Project\\attach.png"));
-            emailsListView.LargeImageList = attachment;
+            //emailsListView.LargeImageList = attachment;
             hideElementsWhenLoadAndNothingSelected();
             this.forInbox = forInbox;
             if (forInbox)
@@ -39,19 +39,21 @@ namespace OOD_Project
 
         private void hideElementsWhenLoadAndNothingSelected()
         {
-            senderLbl.Hide();
-            recipientLbl.Hide();
-            emailBodyTxt.Hide();
-            attachmentsListView.Hide();
+            emailTableView.Hide();
+            //senderLbl.Hide();
+            //recipientLbl.Hide();
+            //emailBodyTxt.Hide();
+            //attachmentsListView.Hide();
         }
 
         private void showElements()
         {
-            senderLbl.Show();
-            recipientLbl.Show();
-            emailBodyTxt.Show();
-            attachmentsListView.Show();
-            label1.Hide();
+            emailTableView.Show();
+            //senderLbl.Show();
+            //recipientLbl.Show();
+            //emailBodyTxt.Show();
+            //attachmentsListView.Show();
+            //nothingLbl.Hide();
         }
 
         private void populateSentEmails()
