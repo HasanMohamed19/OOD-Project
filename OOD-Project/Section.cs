@@ -178,7 +178,7 @@ namespace OOD_Project
                 dbm.Reader.Close();
                 dbm.Connection.Close();
 
-                Teacher teacher = Teacher.GetTeacher(teacher_id);
+                Teacher teacher = Teacher.GetTeacherFromTeacherID(teacher_id);
                 Course course = Course.GetCourse(course_id);
                 section = new Section(capacity, crn, id, teacher, course, reportPath, isReportPublished);
 

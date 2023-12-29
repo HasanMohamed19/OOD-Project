@@ -39,19 +39,21 @@ namespace OOD_Project
 
         private void hideElementsWhenLoadAndNothingSelected()
         {
-            senderLbl.Hide();
-            recipientLbl.Hide();
-            emailBodyTxt.Hide();
-            attachmentsListView.Hide();
+            emailTableView.Hide();
+            //senderLbl.Hide();
+            //recipientLbl.Hide();
+            //emailBodyTxt.Hide();
+            //attachmentsListView.Hide();
         }
 
         private void showElements()
         {
-            senderLbl.Show();
-            recipientLbl.Show();
-            emailBodyTxt.Show();
-            attachmentsListView.Show();
-            label1.Hide();
+            emailTableView.Show();
+            //senderLbl.Show();
+            //recipientLbl.Show();
+            //emailBodyTxt.Show();
+            //attachmentsListView.Show();
+            //nothingLbl.Hide();
         }
 
         private void populateSentEmails()

@@ -25,9 +25,10 @@ namespace OOD_Project
         public StudentPanel()
         {
             InitializeComponent();
+            loggedInStudent = Student.GetStudent(Global.UserId);
             loggedInUser = User.GetUser(Global.UserId);
             profileBar.Initialize(loggedInUser, this);
-            Helper.OpenChildForm(new ViewCoursesForm(), studentMainContent);
+            Helper.OpenChildForm(new ViewCoursesForm(loggedInStudent.StudentId), studentMainContent);
         }
 
 
@@ -48,7 +49,7 @@ namespace OOD_Project
 
         private void viewCoursesBtn_Click(object sender, EventArgs e)
         {
-            Helper.OpenChildForm(new ViewCoursesForm(), studentMainContent);
+            Helper.OpenChildForm(new ViewCoursesForm(loggedInStudent.StudentId), studentMainContent);
         }
 
         private void viewEmailBtn_Click(object sender, EventArgs e)
