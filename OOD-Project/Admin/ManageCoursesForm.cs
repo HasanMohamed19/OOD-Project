@@ -178,5 +178,26 @@ namespace OOD_Project.Admin
             EditClassForm form = new EditClassForm(class_id, this);
             form.Show();
         }
+
+        private void deleteClass_Click(object sender, EventArgs e)
+        {
+            // get selected class
+            if (classDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
+            int class_id = Convert.ToInt32(classDG.SelectedRows[0].Cells[0].Value);
+
+            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected class?", "Delete Confirmation", MessageBoxButtons.YesNo);
+
+            if (deleteConfirmation != DialogResult.Yes)
+            {
+                return;
+            }
+
+            Class.DeleteClass(class_id);
+            PopulateDGVs();
+
+        }
     }
 }

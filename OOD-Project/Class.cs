@@ -82,6 +82,29 @@ namespace OOD_Project
             }
         }
 
+        public static void DeleteClass(int class_id) 
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@class_id", class_id);
+            dbm.Command.CommandText = "DELETE FROM [dbo].[class] WHERE class_id = @class_id ";
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
+
         public static Class GetClass(int classId)
         {
             Class newClass = null;
@@ -121,6 +144,7 @@ namespace OOD_Project
             finally
             {
                 dbm.Command.Parameters.Clear();
+                dbm.Reader.Close();
                 dbm.Connection.Close();
             }
             newClass.Section = Section.GetSection(section_id);
