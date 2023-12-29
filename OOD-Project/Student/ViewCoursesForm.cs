@@ -162,11 +162,14 @@ namespace OOD_Project
                     item.SubItems.Add(filename);
                     try
                     {
-                        string size = ((new FileInfo(folder_path + "\\" + filename).Length) / 1024).ToString() + " KB";
+                        selectedIndex = coursesListView.SelectedItems[0].Index;
+                        int courseId = coursesId[selectedIndex];
+                        string fullPath = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), filename);
+                        string size = ((new FileInfo(fullPath).Length) / 1024).ToString() + " KB";
                         item.SubItems.Add(size);
                     } catch (Exception ex)
                     {
-                        
+                        MessageBox.Show(ex.Message);
                     }
                     
                     contentListView.Items.Add(item);

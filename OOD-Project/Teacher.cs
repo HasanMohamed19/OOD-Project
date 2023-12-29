@@ -440,7 +440,7 @@ namespace OOD_Project
                 {
                     DocumentHelper.MakeDirectory(dest);
                 }
-                DocumentHelper.CopyFile(fileName, dest);
+                DocumentHelper.CopyFile(path, dest);
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());

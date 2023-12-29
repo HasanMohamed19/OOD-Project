@@ -20,6 +20,7 @@ namespace OOD_Project.TeacherGroup.ViewCourses
             InitializeComponent();
             this.courseId = courseId;
             filesList = new string[0];
+            PopulateCourseContent(courseId);
         }
 
         private void uploadContentBtn_Click(object sender, EventArgs e)
@@ -37,16 +38,19 @@ namespace OOD_Project.TeacherGroup.ViewCourses
                 filesList = filePicker.FileNames;
                 foreach (string file in filePicker.FileNames)
                 {
-                    ListViewItem contentFile = new ListViewItem(Path.GetFileName(file));
+                    string fileName = Path.GetFileName(file);
+                    ListViewItem contentFile = new ListViewItem(fileName);
                     long fileSizeInBytes = new FileInfo(file).Length;
                     // rename the view later
                     string fileSize = $"{fileSizeInBytes / 1024} KB";
                     contentFile.SubItems.Add(fileSize);
                     classesListView.Items.Add(contentFile);
-                    string newPath = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), Path.GetFileName(file));
-                    Teacher.UploadContent(newPath, courseId);
+                    string newRelativePath = Path.Combine(DocumentHelper.coursesRelativePath, courseId.ToString(), fileName);
+                    Teacher.UploadContent(newRelativePath, courseId);
                     //MessageBox.Show(Path.Combine(DocumentHelper.parentDirectory, courseId.ToString()));
-                    DocumentHelper.CopyFile(file, newPath);
+                    MessageBox.Show(Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), fileName));
+                    string newFullPath = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), fileName);
+                    DocumentHelper.CopyFile(file, newFullPath);
                 }
             }
         }
@@ -80,7 +84,10 @@ namespace OOD_Project.TeacherGroup.ViewCourses
             dbm.Reader = dbm.Command.ExecuteReader();
             while (dbm.Reader.Read())
             {
-                string fullPath = Path.Combine(dbm.Reader["folder_path"].ToString(), dbm.Reader["filename"].ToString());
+                string folderPath = dbm.Reader["folder_path"].ToString();
+                string fileName = dbm.Reader["filename"].ToString();
+                string relativePath = Path.Combine(folderPath, fileName);
+                string fullPath = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), fileName);
                 ListViewItem courseContent = new ListViewItem(dbm.Reader["filename"].ToString());
                 long fileSizeInBytes = new FileInfo(fullPath).Length;
                 // rename the view later
