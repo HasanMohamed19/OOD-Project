@@ -18,6 +18,7 @@ namespace OOD_Project
         List<Course> courses = new List<Course>();
         List<int> coursesId = new List<int>();
         private string selectedCourseCode = "";
+        private int selectedIndex = -1;
         public ViewCoursesForm()
         {
             InitializeComponent();
@@ -28,17 +29,18 @@ namespace OOD_Project
         private void feedbackBtn_Click(object sender, EventArgs e)
         {
             Course selectedCourse;
-            if (coursesListView.SelectedIndices.Count > 0)
+            if (selectedIndex != -1)
             {
-                selectedCourse = courses[coursesListView.SelectedIndices[0]];
+                selectedCourse = Course.GetCourse(coursesId[selectedIndex]);
+                
                 FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
-                FeedbackForm.Show();
+                FeedbackForm.ShowDialog();
             }
             else
             {
-               selectedCourse = (Course)coursesListView.Items[0].Tag;
-               FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
-               FeedbackForm.Show();
+               //selectedCourse = (Course)coursesListView.Items[0].Tag;
+               //FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
+               //FeedbackForm.Show();
             }
         }
 
@@ -47,12 +49,12 @@ namespace OOD_Project
             bool courseSelected = coursesListView.SelectedIndices.Count > 0;
             emailBtn.Enabled = courseSelected;
             feedbackBtn.Enabled = courseSelected;
-            
             downloadBtn.Enabled = courseSelected;
+
             if (coursesListView.SelectedItems.Count > 0)
             {
                 // starts from zero
-                int selectedIndex = coursesListView.SelectedItems[0].Index;
+                selectedIndex = coursesListView.SelectedItems[0].Index;
                 updateDetails(coursesId[selectedIndex]);
             }
         }

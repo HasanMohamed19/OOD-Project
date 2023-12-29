@@ -16,6 +16,7 @@ namespace OOD_Project
         {
             InitializeComponent();
             InitializeComboBox();
+            btnRegister.Enabled = false;
         }
         List<Major> majors = Major.GetMajors();
         private void InitializeComboBox()
@@ -27,6 +28,20 @@ namespace OOD_Project
             }
         }
 
+        private void setButtonEnabled()
+        {
+            if ((txtEmail.Text != String.Empty) && (txtStudentID.Text != String.Empty) && (txtCPR.Text != String.Empty) 
+                && (txtFName.Text != String.Empty) && (txtLName.Text != String.Empty) && (txtPhone.Text != String.Empty) && (txtStudentID.Text != String.Empty)
+                && (!radioMale.Checked || !radioFemale.Checked) && comboMajor.SelectedIndex != -1)
+            {
+                btnRegister.Enabled = true;
+            }
+            else
+            {
+                btnRegister.Enabled = false;
+            }
+        }
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
             string inEmail = txtEmail.Text;
@@ -35,7 +50,16 @@ namespace OOD_Project
             string inFName = txtFName.Text;
             string inLName = txtLName.Text;
             string inPhone = txtPhone.Text;
-            Major inMajor = majors[comboMajor.SelectedIndex]; // get major from combo box
+            Major inMajor = null;
+            if (comboMajor.SelectedIndex != -1)
+            {
+                inMajor = majors[comboMajor.SelectedIndex]; // get major from combo box
+            }
+            //else
+            //{
+            //    setButtonEnabled();
+            //}
+            
             // get gender from radio buttons and store as char 'M' or 'F'
             char inGender;
             if (radioMale.Checked)
@@ -48,6 +72,7 @@ namespace OOD_Project
             }
             else
             {
+                //setButtonEnabled();
                 MessageBox.Show("Please select a gender to continue.", "Gender Not Selected");
                 return;
             }
@@ -92,6 +117,45 @@ namespace OOD_Project
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtFName_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtLName_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtCPR_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtStudentID_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void comboMajor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (comboMajor.SelectedIndex != -1)
+            //{
+            //    setButtonEnabled();
+            //}
+            setButtonEnabled();
         }
     }
 }

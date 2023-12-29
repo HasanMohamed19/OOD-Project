@@ -19,6 +19,7 @@ namespace OOD_Project.Admin
             this.parentForm = parentForm;
             InitializeComponent();
             InitializeComboBoxes();
+            btnAdd.Enabled = false;
             this.parentForm = parentForm;
             this.activateUser = activateUser;
         }
@@ -81,6 +82,20 @@ namespace OOD_Project.Admin
             parentForm.CloseAndRefresh();
         }
 
+        private void setButtonEnabled()
+        {
+            if ((txtEmailT.Text != String.Empty) && (txtTeacherId.Text != String.Empty) && (txtCPRT.Text != String.Empty)
+                && (txtFNameT.Text != String.Empty) && (txtLNameT.Text != String.Empty) && (txtPhoneT.Text != String.Empty) && (txtTeacherId.Text != String.Empty)
+                && (!radioMaleT.Checked || !radioFemaleT.Checked) && comboProgramme.SelectedIndex != -1 && comboBranch.SelectedIndex != -1)
+            {                
+                btnAdd.Enabled = true;
+            }
+            else
+            {
+                btnAdd.Enabled = false;
+            }
+        }
+
         private void txtTeacherId_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
@@ -103,6 +118,46 @@ namespace OOD_Project.Admin
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtFNameT_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtLNameT_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtEmailT_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtCPRT_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtTeacherId_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtPhoneT_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void comboProgramme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void comboBranch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
         }
     }
 }

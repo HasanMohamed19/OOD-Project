@@ -171,6 +171,7 @@
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(245, 37);
             this.txtFName.TabIndex = 17;
+            this.txtFName.TextChanged += new System.EventHandler(this.txtFName_TextChanged);
             // 
             // txtLName
             // 
@@ -181,6 +182,7 @@
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(245, 37);
             this.txtLName.TabIndex = 19;
+            this.txtLName.TextChanged += new System.EventHandler(this.txtLName_TextChanged);
             // 
             // label11
             // 
@@ -263,6 +265,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(245, 37);
             this.txtPhone.TabIndex = 23;
+            this.txtPhone.TextChanged += new System.EventHandler(this.txtPhone_TextChanged);
             this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // label12
@@ -287,6 +290,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(245, 37);
             this.txtEmail.TabIndex = 25;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // label9
             // 
@@ -310,6 +314,7 @@
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(245, 37);
             this.txtStudentID.TabIndex = 32;
+            this.txtStudentID.TextChanged += new System.EventHandler(this.txtStudentID_TextChanged);
             this.txtStudentID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentID_KeyPress);
             // 
             // label7
@@ -334,6 +339,7 @@
             this.txtCPR.Name = "txtCPR";
             this.txtCPR.Size = new System.Drawing.Size(245, 37);
             this.txtCPR.TabIndex = 21;
+            this.txtCPR.TextChanged += new System.EventHandler(this.txtCPR_TextChanged);
             this.txtCPR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPR_KeyPress);
             // 
             // comboMajor
@@ -346,6 +352,7 @@
             this.comboMajor.Name = "comboMajor";
             this.comboMajor.Size = new System.Drawing.Size(245, 37);
             this.comboMajor.TabIndex = 36;
+            this.comboMajor.SelectedIndexChanged += new System.EventHandler(this.comboMajor_SelectedIndexChanged);
             // 
             // panelBottom
             // 

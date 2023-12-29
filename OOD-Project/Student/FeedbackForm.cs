@@ -70,8 +70,8 @@ namespace OOD_Project
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command.Parameters.AddWithValue("@student_id", Global.StudentId);
-            dbm.Command.Parameters.AddWithValue("@course_id", selectedCourse.Id);
-            dbm.Command.CommandText = "SELECT * FROM [dbo].[Feedback] WHERE student_id = @student_id AND course_id = @course_id";
+            dbm.Command.Parameters.AddWithValue("@coursee_id", selectedCourse.Id);
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[Feedback] WHERE student_id = @student_id AND course_id = @coursee_id";
             dbm.Reader = dbm.Command.ExecuteReader();
 
             if (!dbm.Reader.HasRows)

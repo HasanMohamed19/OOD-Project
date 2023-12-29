@@ -137,6 +137,7 @@
             this.comboBranch.Name = "comboBranch";
             this.comboBranch.Size = new System.Drawing.Size(245, 37);
             this.comboBranch.TabIndex = 37;
+            this.comboBranch.SelectedIndexChanged += new System.EventHandler(this.comboBranch_SelectedIndexChanged);
             // 
             // comboProgramme
             // 
@@ -148,6 +149,7 @@
             this.comboProgramme.Name = "comboProgramme";
             this.comboProgramme.Size = new System.Drawing.Size(245, 37);
             this.comboProgramme.TabIndex = 38;
+            this.comboProgramme.SelectedIndexChanged += new System.EventHandler(this.comboProgramme_SelectedIndexChanged);
             // 
             // txtTeacherId
             // 
@@ -158,6 +160,7 @@
             this.txtTeacherId.Name = "txtTeacherId";
             this.txtTeacherId.Size = new System.Drawing.Size(245, 37);
             this.txtTeacherId.TabIndex = 36;
+            this.txtTeacherId.TextChanged += new System.EventHandler(this.txtTeacherId_TextChanged);
             this.txtTeacherId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTeacherId_KeyPress);
             // 
             // label1
@@ -221,6 +224,7 @@
             this.txtFNameT.Name = "txtFNameT";
             this.txtFNameT.Size = new System.Drawing.Size(245, 37);
             this.txtFNameT.TabIndex = 17;
+            this.txtFNameT.TextChanged += new System.EventHandler(this.txtFNameT_TextChanged);
             // 
             // txtLNameT
             // 
@@ -231,6 +235,7 @@
             this.txtLNameT.Name = "txtLNameT";
             this.txtLNameT.Size = new System.Drawing.Size(245, 37);
             this.txtLNameT.TabIndex = 19;
+            this.txtLNameT.TextChanged += new System.EventHandler(this.txtLNameT_TextChanged);
             // 
             // label19
             // 
@@ -313,6 +318,7 @@
             this.txtPhoneT.Name = "txtPhoneT";
             this.txtPhoneT.Size = new System.Drawing.Size(245, 37);
             this.txtPhoneT.TabIndex = 23;
+            this.txtPhoneT.TextChanged += new System.EventHandler(this.txtPhoneT_TextChanged);
             this.txtPhoneT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneT_KeyPress);
             // 
             // label22
@@ -337,6 +343,7 @@
             this.txtEmailT.Name = "txtEmailT";
             this.txtEmailT.Size = new System.Drawing.Size(245, 37);
             this.txtEmailT.TabIndex = 25;
+            this.txtEmailT.TextChanged += new System.EventHandler(this.txtEmailT_TextChanged);
             // 
             // label23
             // 
@@ -373,6 +380,7 @@
             this.txtCPRT.Name = "txtCPRT";
             this.txtCPRT.Size = new System.Drawing.Size(245, 37);
             this.txtCPRT.TabIndex = 21;
+            this.txtCPRT.TextChanged += new System.EventHandler(this.txtCPRT_TextChanged);
             this.txtCPRT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPRT_KeyPress);
             // 
             // panel2

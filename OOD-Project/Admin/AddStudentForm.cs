@@ -16,10 +16,12 @@ namespace OOD_Project.Admin
         private bool activateUser;
         public AddStudentForm(AddUserForm parentForm, bool activateUser)
         {
+            
             this.parentForm = parentForm;
             this.activateUser = activateUser;
             InitializeComponent();
             InitializeComboBox();
+            btnRegister.Enabled = false;
         }
 
         List<Major> majors = Major.GetMajors();
@@ -31,6 +33,21 @@ namespace OOD_Project.Admin
                 comboMajor.Items.Add(major.Name);
             }
         }
+
+        private void setButtonEnabled()
+        {
+            if ((txtEmail.Text != String.Empty) && (txtStudentID.Text != String.Empty) && (txtCPR.Text != String.Empty)
+                && (txtFName.Text != String.Empty) && (txtLName.Text != String.Empty) && (txtPhone.Text != String.Empty) && (txtStudentID.Text != String.Empty)
+                && (!radioMale.Checked || !radioFemale.Checked) && comboMajor.SelectedIndex != -1)
+            {
+                btnRegister.Enabled = true;
+            }
+            else
+            {
+                btnRegister.Enabled = false;
+            }
+        }
+
         private void btnRegister_Click(object sender, EventArgs e)
         {
             UserStatus status = activateUser ? UserStatus.accepted : UserStatus.inactive;
@@ -98,6 +115,45 @@ namespace OOD_Project.Admin
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtFName_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtLName_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtCPR_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtStudentID_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void comboMajor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (comboMajor.SelectedIndex != -1)
+            //{
+            //    setButtonEnabled();
+            //}
+            setButtonEnabled();
         }
     }
 }

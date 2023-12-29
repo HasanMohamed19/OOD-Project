@@ -138,8 +138,6 @@ namespace OOD_Project
                 dbm.Connection.Close();
             }
             
-            MessageBox.Show(emails.Count.ToString());
-
         }
 
     }
