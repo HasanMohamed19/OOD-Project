@@ -96,7 +96,7 @@ namespace OOD_Project
             PopulateGrids();
         }
 
-        private void PopulateDataGrid(DataGridView dgv, String sqlCommand)
+        private void PopulateDataGrid(DataGridView dgv, string sqlCommand)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             // get all active students and teachers
@@ -155,7 +155,7 @@ namespace OOD_Project
 
         private void PopulateCurrentDGV()
         {
-            String sqlCommand = "SELECT  r.role_name AS Role, s.student_university_id AS 'University ID', s.first_name +' '+ s.last_name AS Name, s.phone_number AS Phone, s.cpr AS CPR, u.email AS Email, s.dob AS Birthdate, s.gender AS Gender, u.user_id AS ID " +
+            string sqlCommand = "SELECT  r.role_name AS Role, s.student_university_id AS 'University ID', s.first_name +' '+ s.last_name AS Name, s.phone_number AS Phone, s.cpr AS CPR, u.email AS Email, s.dob AS Birthdate, s.gender AS Gender, u.user_id AS ID " +
                 "FROM [dbo].[User] u " +
                 "JOIN [dbo].[student] s ON u.user_id = s.user_id " +
                 "JOIN [dbo].[role] r ON u.role_id = r.role_id " +
@@ -171,7 +171,7 @@ namespace OOD_Project
         private void PopulatePendingDGV()
         {
             // get all pending students and teachers
-            String sqlCommand = "SELECT  r.role_name AS Role, s.student_university_id AS 'University ID', s.first_name +' '+ s.last_name AS Name, s.phone_number AS Phone, s.cpr AS CPR, u.email AS Email, s.dob AS Birthdate, s.gender AS Gender, u.user_id AS ID " +
+            string sqlCommand = "SELECT  r.role_name AS Role, s.student_university_id AS 'University ID', s.first_name +' '+ s.last_name AS Name, s.phone_number AS Phone, s.cpr AS CPR, u.email AS Email, s.dob AS Birthdate, s.gender AS Gender, u.user_id AS ID " +
                 "FROM [dbo].[User] u " +
                 "JOIN [dbo].[student] s ON u.user_id = s.user_id " +
                 "JOIN [dbo].[role] r ON u.role_id = r.role_id " +
@@ -188,7 +188,7 @@ namespace OOD_Project
         private void PopulateInactiveDGV()
         {
             // get all inactive students and teachers
-            String sqlCommand = "SELECT  r.role_name AS Role, s.student_university_id AS 'University ID', s.first_name +' '+ s.last_name AS Name, s.phone_number AS Phone, s.cpr AS CPR, u.email AS Email, s.dob AS Birthdate, s.gender AS Gender, u.user_id AS ID " +
+            string sqlCommand = "SELECT  r.role_name AS Role, s.student_university_id AS 'University ID', s.first_name +' '+ s.last_name AS Name, s.phone_number AS Phone, s.cpr AS CPR, u.email AS Email, s.dob AS Birthdate, s.gender AS Gender, u.user_id AS ID " +
                 "FROM [dbo].[User] u " +
                 "JOIN [dbo].[student] s ON u.user_id = s.user_id " +
                 "JOIN [dbo].[role] r ON u.role_id = r.role_id " +

@@ -105,13 +105,23 @@ namespace OOD_Project
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command.CommandText = "SELECT user_id, email FROM [dbo].[User]";
-            dbm.Reader = dbm.Command.ExecuteReader();
-
-            while (dbm.Reader.Read())
+            try
             {
-                emails.Add(dbm.Reader.GetInt32(0), dbm.Reader.GetString(1));
+                dbm.Reader = dbm.Command.ExecuteReader();
+
+                while (dbm.Reader.Read())
+                {
+                    emails.Add(dbm.Reader.GetInt32(0), dbm.Reader.GetString(1));
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Reader.Close();
+                dbm.Connection.Close();
             }
-            dbm.Reader.Close();
+            
             MessageBox.Show(emails.Count.ToString());
 
         }

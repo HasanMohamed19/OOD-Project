@@ -8,32 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OOD_Project.Admin;
+using OOD_Project.Helpers;
 
 namespace OOD_Project
 {
-    public partial class AdminPanel : Form
+    public partial class AdminPanel : Form, ProfileBarContainer
     {
+        private User loggedInUser;
         public AdminPanel()
         {
             InitializeComponent();
-           
+            loggedInUser = User.GetUser(Global.UserId);
+            profileBar.Initialize(loggedInUser, this);
+            Helper.OpenChildForm(new usersListForms(), adminMainContent);
+
         }
 
-        private void OpenChildForm(Form childForm, object senderBtn)
-        {
-            
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            this.adminMainContent.Controls.Add(childForm);
-            this.adminMainContent.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-        }
 
         private void manageBranchesBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ManageBranchesForm(), sender);
+            Helper.OpenChildForm(new ManageBranchesForm(), adminMainContent);
         }
 
         private void manageInformationBtn_Click(object sender, EventArgs e)
@@ -43,24 +37,49 @@ namespace OOD_Project
 
         private void manageUsersBtn_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new usersListForms(), sender);
+            Helper.OpenChildForm(new usersListForms(), adminMainContent);
         }
 
  
 
         private void manageCoursesBtn_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new ManageCourseForm(this), sender);
+            Helper.OpenChildForm(new ManageCourseForm(this), adminMainContent);
         }
 
         private void btnAddAnouncement_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new AddAnouncementForm(), sender);
+            Helper.OpenChildForm(new AddAnouncementForm(), adminMainContent);
+        }
+
+        public void PerformNotificationAction(NotificationType type)
+        {
+            switch (type)
+            {
+                case NotificationType.announcement:
+                    // go to announcement tab
+                    break;
+                case NotificationType.email:
+                    // go to email tab
+                    break;
+            }
+        }
+
+        public void GoToChangePassword()
+        {
+            Helper.OpenChildForm(new ChangePasswordForm(), adminMainContent);
+        }
+
+        public void SignOut()
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
         }
 
         private void email_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ViewEmailForm(), sender);
+            Helper.OpenChildForm(new ViewEmailForm(), adminMainContent);
         }
 
         private void sendEmailBtn_Click(object sender, EventArgs e)

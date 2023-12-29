@@ -153,18 +153,25 @@ namespace OOD_Project
                 " JOIN [dbo].[User] sender ON e.sender_user_id = sender.user_id" +
                 " JOIN [dbo].[User] rec ON e.recipient_user_id = rec.user_id" +
                 " WHERE email_id = @email_id";
-            dbm.Reader = dbm.Command.ExecuteReader();
-
-            while (dbm.Reader.Read())
+            try
             {
-                senderLbl.Text = "From: " + dbm.Reader["senderEmail"].ToString();
-                recipientLbl.Text = "To: " + dbm.Reader["recEmail"].ToString();
-                emailBodyTxt.Text = dbm.Reader["body"].ToString();
-                emailSubjetLbl.Text = dbm.Reader["subject"].ToString();
-            }
-            dbm.Command.Parameters.Clear();
-            dbm.Connection.Close();
+                dbm.Reader = dbm.Command.ExecuteReader();
 
+                while (dbm.Reader.Read())
+                {
+                    senderLbl.Text = "From: " + dbm.Reader["senderEmail"].ToString();
+                    recipientLbl.Text = "To: " + dbm.Reader["recEmail"].ToString();
+                    emailBodyTxt.Text = dbm.Reader["body"].ToString();
+                    emailSubjetLbl.Text = dbm.Reader["subject"].ToString();
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show (ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
         }
 
         private void emailsListView_SelectedIndexChanged(object sender, EventArgs e)
@@ -220,19 +227,23 @@ namespace OOD_Project
 
             dbm.Command.Parameters.AddWithValue("@email_id", emailId);
             dbm.Command.CommandText = "SELECT * FROM [dbo].[email_attachment] WHERE email_id = @email_id";
-            dbm.Reader = dbm.Command.ExecuteReader();
-            while (dbm.Reader.Read())
+            try
             {
-                ListViewItem attachItem = new ListViewItem(dbm.Reader["filename"].ToString());
-                attachmentsListView.Items.Add(attachItem);
+                dbm.Reader = dbm.Command.ExecuteReader();
+                while (dbm.Reader.Read())
+                {
+                    ListViewItem attachItem = new ListViewItem(dbm.Reader["filename"].ToString());
+                    attachmentsListView.Items.Add(attachItem);
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
             }
-            dbm.Command.Parameters.Clear();
-            dbm.Connection.Close();
-            
         }
-
-        
-
         
 
         private void attachmentsListView_ItemMouseHover(object sender, ListViewItemMouseHoverEventArgs e)
