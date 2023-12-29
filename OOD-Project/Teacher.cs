@@ -50,7 +50,8 @@ namespace OOD_Project
             dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id," +
                 "t.first_name, t.last_name, t.dob, t.cpr, t.phone_number, t.gender, t.programme_id, t.teacher_university_id, branch_id, teacher_id " +
                 " FROM [dbo].[teacher] t, [dbo].[User] u " +
-                " WHERE t.user_id = u.user_id";
+                " WHERE t.user_id = u.user_id " +
+                " AND u.status_id = 2";
             try
             {
                 dbm.Reader = dbm.Command.ExecuteReader();
@@ -97,6 +98,63 @@ namespace OOD_Project
 
             return teachers;
         }
+
+        public static Teacher GetTeacherFromTeacherID(int teacher_id)
+        {
+            Teacher teacher = null;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@teacher_id", teacher_id);
+            dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id," +
+                "t.first_name, t.last_name, t.dob, t.cpr, t.phone_number, t.gender, t.programme_id, t.teacher_university_id, branch_id, teacher_id " +
+                " FROM [dbo].[teacher] t, [dbo].[User] u " +
+                " WHERE t.user_id = u.user_id " +
+                " AND t.teacher_id = @teacher_id";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+
+                if (!dbm.Reader.Read())
+                {
+                    dbm.Reader.Close();
+                    dbm.Connection.Close();
+                    MessageBox.Show("ERROR: Teacher not found");
+                    return null;
+                }
+                int id = dbm.Reader.GetInt32(0);
+                string username = dbm.Reader.GetString(1);
+                string password = dbm.Reader.GetString(2);
+                string email = dbm.Reader.GetString(3);
+                UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
+                UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
+                string firstName = dbm.Reader.GetString(6);
+                string lastName = dbm.Reader.GetString(7);
+                DateTime dob = dbm.Reader.GetDateTime(8);
+                string cpr = dbm.Reader.GetString(9);
+                string phoneNumber = dbm.Reader.GetString(10);
+                char gender = dbm.Reader.GetString(11)[0];
+                Programme programme = (Programme)dbm.Reader.GetInt32(12);
+                string universityId = dbm.Reader.GetString(13);
+                int branchId = dbm.Reader.GetInt32(14);
+                int teacherId = dbm.Reader.GetInt32(15);
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+
+                Branch branch = Branch.GetBranch(branchId);
+                teacher = new Teacher(id, username, password, email, roleId, statusId,
+                    teacherId, firstName, lastName, dob, cpr, gender, phoneNumber, branch, programme, universityId);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return teacher;
+        }
+
         public static Teacher GetTeacher(int user_id)
         {
             Teacher teacher = null;
@@ -118,6 +176,7 @@ namespace OOD_Project
                 {
                     dbm.Reader.Close();
                     dbm.Connection.Close();
+                    MessageBox.Show("ERROR: Teacher not found");
                     return null;
                 }
                 int id = dbm.Reader.GetInt32(0);

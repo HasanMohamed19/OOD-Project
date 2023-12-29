@@ -156,7 +156,9 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@programme_id", course.forProgramme);
             dbm.Command.Parameters.AddWithValue("@credits", course.credits);
 
-            dbm.Command.CommandText = "UPDATE [dbo].[course] SET name = @name, code = @code, description = @description, programme_id = @programme_id, credits = @credits WHERE course_id = @course_id";
+            dbm.Command.CommandText = "UPDATE [dbo].[course] " +
+                "SET name = @name, code = @code, description = @description, programme_id = @programme_id, credits = @credits " +
+                "WHERE course_id = @course_id";
             try
             {
                 dbm.Command.ExecuteNonQuery();

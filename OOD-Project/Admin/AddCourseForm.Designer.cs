@@ -33,6 +33,7 @@ namespace OOD_Project.Admin
             this.panelHeader = new System.Windows.Forms.Panel();
             this.headerLbl = new System.Windows.Forms.Label();
             this.coursePage = new System.Windows.Forms.TableLayoutPanel();
+            this.txtCredits = new System.Windows.Forms.TextBox();
             this.comboTeacher = new System.Windows.Forms.ComboBox();
             this.txtCRN = new System.Windows.Forms.TextBox();
             this.crnLbl = new System.Windows.Forms.Label();
@@ -51,6 +52,12 @@ namespace OOD_Project.Admin
             this.bottomPnl = new System.Windows.Forms.Panel();
             this.btnLeft = new System.Windows.Forms.Button();
             this.pagesContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.studentsPage = new System.Windows.Forms.TableLayoutPanel();
+            this.studentsListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.classPage = new System.Windows.Forms.TableLayoutPanel();
             this.btnDeleteClass = new System.Windows.Forms.Button();
             this.btnAddClass = new System.Windows.Forms.Button();
@@ -64,26 +71,19 @@ namespace OOD_Project.Admin
             this.txtBuilding = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.timeStart = new System.Windows.Forms.DateTimePicker();
-            this.txtCredits = new System.Windows.Forms.TextBox();
             this.classesListView = new System.Windows.Forms.ListView();
+            this.class0 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.class1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.class2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.class3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.class4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.class5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.class0 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.studentsPage = new System.Windows.Forms.TableLayoutPanel();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.studentsListView = new System.Windows.Forms.ListView();
             this.panelHeader.SuspendLayout();
             this.coursePage.SuspendLayout();
             this.bottomPnl.SuspendLayout();
             this.pagesContainer.SuspendLayout();
-            this.classPage.SuspendLayout();
             this.studentsPage.SuspendLayout();
+            this.classPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRight
@@ -162,6 +162,15 @@ namespace OOD_Project.Admin
             this.coursePage.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.coursePage.Size = new System.Drawing.Size(729, 266);
             this.coursePage.TabIndex = 41;
+            // 
+            // txtCredits
+            // 
+            this.txtCredits.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCredits.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCredits.Location = new System.Drawing.Point(519, 51);
+            this.txtCredits.Name = "txtCredits";
+            this.txtCredits.Size = new System.Drawing.Size(185, 31);
+            this.txtCredits.TabIndex = 51;
             // 
             // comboTeacher
             // 
@@ -371,6 +380,61 @@ namespace OOD_Project.Admin
             this.pagesContainer.Size = new System.Drawing.Size(729, 266);
             this.pagesContainer.TabIndex = 39;
             // 
+            // studentsPage
+            // 
+            this.studentsPage.ColumnCount = 2;
+            this.studentsPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.studentsPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.studentsPage.Controls.Add(this.studentsListView, 0, 0);
+            this.studentsPage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentsPage.Location = new System.Drawing.Point(729, 0);
+            this.studentsPage.Margin = new System.Windows.Forms.Padding(0);
+            this.studentsPage.MinimumSize = new System.Drawing.Size(729, 0);
+            this.studentsPage.Name = "studentsPage";
+            this.studentsPage.RowCount = 1;
+            this.studentsPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.studentsPage.Size = new System.Drawing.Size(729, 266);
+            this.studentsPage.TabIndex = 39;
+            // 
+            // studentsListView
+            // 
+            this.studentsListView.CheckBoxes = true;
+            this.studentsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4});
+            this.studentsListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentsListView.FullRowSelect = true;
+            this.studentsListView.HideSelection = false;
+            this.studentsListView.Location = new System.Drawing.Point(3, 3);
+            this.studentsListView.Name = "studentsListView";
+            this.studentsListView.Size = new System.Drawing.Size(723, 260);
+            this.studentsListView.TabIndex = 58;
+            this.studentsListView.UseCompatibleStateImageBehavior = false;
+            this.studentsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 130;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Name";
+            this.columnHeader2.Width = 180;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "CPR";
+            this.columnHeader3.Width = 130;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Major";
+            this.columnHeader4.Width = 150;
+            // 
             // classPage
             // 
             this.classPage.ColumnCount = 4;
@@ -415,7 +479,7 @@ namespace OOD_Project.Admin
             this.btnDeleteClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteClass.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteClass.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDeleteClass.Location = new System.Drawing.Point(543, 87);
+            this.btnDeleteClass.Location = new System.Drawing.Point(543, 88);
             this.btnDeleteClass.Name = "btnDeleteClass";
             this.btnDeleteClass.Size = new System.Drawing.Size(173, 31);
             this.btnDeleteClass.TabIndex = 56;
@@ -431,7 +495,7 @@ namespace OOD_Project.Admin
             this.btnAddClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddClass.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddClass.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddClass.Location = new System.Drawing.Point(366, 87);
+            this.btnAddClass.Location = new System.Drawing.Point(366, 88);
             this.btnAddClass.Name = "btnAddClass";
             this.btnAddClass.Size = new System.Drawing.Size(171, 31);
             this.btnAddClass.TabIndex = 55;
@@ -445,7 +509,7 @@ namespace OOD_Project.Admin
             this.timeEnd.CustomFormat = "hh:mm tt";
             this.timeEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeEnd.Location = new System.Drawing.Point(164, 50);
+            this.timeEnd.Location = new System.Drawing.Point(164, 53);
             this.timeEnd.Name = "timeEnd";
             this.timeEnd.ShowUpDown = true;
             this.timeEnd.Size = new System.Drawing.Size(185, 24);
@@ -478,7 +542,7 @@ namespace OOD_Project.Admin
             this.label5.Location = new System.Drawing.Point(13, 91);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(135, 30);
+            this.label5.Size = new System.Drawing.Size(135, 31);
             this.label5.TabIndex = 47;
             this.label5.Text = "Day:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -546,21 +610,12 @@ namespace OOD_Project.Admin
             this.timeStart.CustomFormat = "hh:mm tt";
             this.timeStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeStart.Location = new System.Drawing.Point(164, 13);
+            this.timeStart.Location = new System.Drawing.Point(164, 16);
             this.timeStart.Name = "timeStart";
             this.timeStart.ShowUpDown = true;
             this.timeStart.Size = new System.Drawing.Size(185, 24);
             this.timeStart.TabIndex = 52;
             this.timeStart.Value = new System.DateTime(2023, 12, 29, 8, 0, 0, 0);
-            // 
-            // txtCredits
-            // 
-            this.txtCredits.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtCredits.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCredits.Location = new System.Drawing.Point(519, 51);
-            this.txtCredits.Name = "txtCredits";
-            this.txtCredits.Size = new System.Drawing.Size(185, 31);
-            this.txtCredits.TabIndex = 51;
             // 
             // classesListView
             // 
@@ -576,13 +631,18 @@ namespace OOD_Project.Admin
             this.classesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classesListView.FullRowSelect = true;
             this.classesListView.HideSelection = false;
-            this.classesListView.Location = new System.Drawing.Point(13, 124);
+            this.classesListView.Location = new System.Drawing.Point(13, 125);
             this.classesListView.MultiSelect = false;
             this.classesListView.Name = "classesListView";
-            this.classesListView.Size = new System.Drawing.Size(703, 129);
+            this.classesListView.Size = new System.Drawing.Size(703, 128);
             this.classesListView.TabIndex = 57;
             this.classesListView.UseCompatibleStateImageBehavior = false;
             this.classesListView.View = System.Windows.Forms.View.Details;
+            // 
+            // class0
+            // 
+            this.class0.Text = "ID";
+            this.class0.Width = 50;
             // 
             // class1
             // 
@@ -609,66 +669,6 @@ namespace OOD_Project.Admin
             this.class5.Text = "Room";
             this.class5.Width = 80;
             // 
-            // class0
-            // 
-            this.class0.Text = "ID";
-            this.class0.Width = 50;
-            // 
-            // studentsPage
-            // 
-            this.studentsPage.ColumnCount = 2;
-            this.studentsPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.studentsPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.studentsPage.Controls.Add(this.studentsListView, 0, 0);
-            this.studentsPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentsPage.Location = new System.Drawing.Point(729, 0);
-            this.studentsPage.Margin = new System.Windows.Forms.Padding(0);
-            this.studentsPage.MinimumSize = new System.Drawing.Size(729, 0);
-            this.studentsPage.Name = "studentsPage";
-            this.studentsPage.RowCount = 1;
-            this.studentsPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.studentsPage.Size = new System.Drawing.Size(729, 266);
-            this.studentsPage.TabIndex = 39;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 130;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Name";
-            this.columnHeader2.Width = 180;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "CPR";
-            this.columnHeader3.Width = 130;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Major";
-            this.columnHeader4.Width = 150;
-            // 
-            // studentsListView
-            // 
-            this.studentsListView.CheckBoxes = true;
-            this.studentsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
-            this.studentsListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentsListView.FullRowSelect = true;
-            this.studentsListView.HideSelection = false;
-            this.studentsListView.Location = new System.Drawing.Point(3, 3);
-            this.studentsListView.Name = "studentsListView";
-            this.studentsListView.Size = new System.Drawing.Size(723, 260);
-            this.studentsListView.TabIndex = 58;
-            this.studentsListView.UseCompatibleStateImageBehavior = false;
-            this.studentsListView.View = System.Windows.Forms.View.Details;
-            // 
             // AddCourseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,15 +681,15 @@ namespace OOD_Project.Admin
             this.Name = "AddCourseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Course";
-            this.Load += new System.EventHandler(this.AddCourseForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddCourseForm_FormClosing);
             this.panelHeader.ResumeLayout(false);
             this.coursePage.ResumeLayout(false);
             this.coursePage.PerformLayout();
             this.bottomPnl.ResumeLayout(false);
             this.pagesContainer.ResumeLayout(false);
+            this.studentsPage.ResumeLayout(false);
             this.classPage.ResumeLayout(false);
             this.classPage.PerformLayout();
-            this.studentsPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

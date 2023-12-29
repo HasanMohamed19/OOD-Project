@@ -16,14 +16,18 @@ namespace OOD_Project
         private int sectionId;
         private Teacher assignedTeacher;
         private Course forCourse;
+        private string reportPath;
+        private bool isReportPublished;
 
-        public Section(int capacity, string crn, int sectionId, Teacher assignedTeacher, Course assignedCourse)
+        public Section(int capacity, string crn, int sectionId, Teacher assignedTeacher, Course assignedCourse, string reportPath = null, bool isReportPublished = false)
         {
             this.capacity = capacity;
             this.crn = crn;
             this.sectionId = sectionId;
             this.assignedTeacher = assignedTeacher;
             this.forCourse = assignedCourse;
+            this.reportPath = reportPath;
+            this.isReportPublished = isReportPublished;
         }
 
 
@@ -88,7 +92,7 @@ namespace OOD_Project
             dbm.Command = dbm.Connection.CreateCommand();
 
             dbm.Command.Parameters.AddWithValue("@course_id", course_id);
-            dbm.Command.CommandText = "SELECT section_id, crn, capacity, teacher_id " +
+            dbm.Command.CommandText = "SELECT section_id, crn, capacity, teacher_id, report_path, is_report_published " +
                 " FROM [dbo].[section] " +
                 " WHERE course_id = @course_id ";
             try
@@ -105,12 +109,59 @@ namespace OOD_Project
                 string crn = dbm.Reader.GetString(1);
                 int capacity = dbm.Reader.GetInt32(2);
                 int teacher_id= dbm.Reader.GetInt32(3);
+                string reportPath = dbm.Reader.GetString(4);
+                bool isReportPublished = dbm.Reader.GetBoolean(5);
                 dbm.Reader.Close();
                 dbm.Connection.Close();
 
                 Teacher teacher = Teacher.GetTeacher(teacher_id);
                 Course course = Course.GetCourse(course_id);
-                section = new Section(capacity, crn, id, teacher, course);
+                section = new Section(capacity, crn, id, teacher, course, reportPath, isReportPublished);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return section;
+        }
+        public static Section GetSection(int section_id)
+        {
+            Section section = null;
+
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@section_id", section_id);
+            dbm.Command.CommandText = "SELECT section_id, crn, capacity, teacher_id, course_id, report_path, is_report_published " +
+                " FROM [dbo].[section] " +
+                " WHERE section_id = @section_id ";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+
+                if (!dbm.Reader.Read())
+                {
+                    dbm.Reader.Close();
+                    dbm.Connection.Close();
+                    MessageBox.Show("ERROR: Section not found");
+                    return null;
+                }
+                int id = dbm.Reader.GetInt32(0);
+                string crn = dbm.Reader.GetString(1);
+                int capacity = dbm.Reader.GetInt32(2);
+                int teacher_id = dbm.Reader.GetInt32(3);
+                int course_id = dbm.Reader.GetInt32(4);
+                string reportPath = dbm.Reader.IsDBNull(5) ? null : dbm.Reader.GetString(5); // do not read if column is null
+                bool isReportPublished = dbm.Reader.GetBoolean(6);
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+
+                Teacher teacher = Teacher.GetTeacherFromTeacherID(teacher_id);
+                Course course = Course.GetCourse(course_id);
+                section = new Section(capacity, crn, id, teacher, course, reportPath, isReportPublished);
 
             }
             catch (Exception ex)
@@ -121,10 +172,48 @@ namespace OOD_Project
             return section;
         }
 
+        public static bool EditSection(Section section)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
 
+            dbm.Command.Parameters.AddWithValue("@section_id", section.Id);
+            dbm.Command.Parameters.AddWithValue("@crn", section.Crn);
+            dbm.Command.Parameters.AddWithValue("@capacity", section.Capacity);
+            dbm.Command.Parameters.AddWithValue("@teacher_id", section.AssignedTeacher.TeacherId);
+            dbm.Command.Parameters.AddWithValue("@course_id", section.forCourse.Id);
+            dbm.Command.Parameters.AddWithValue("@is_report_published", section.IsReportPublished);
+            // if there is no report path, do not add parameter
+            if (section.reportPath == null)
+            {
+                dbm.Command.CommandText = "UPDATE [dbo].[section] " +
+                "SET crn = @crn, capacity = @capacity, teacher_id = @teacher_id, course_id = @course_id, is_report_published = @is_report_published " +
+                "WHERE section_id = @section_id";
+            } else
+            {
+                dbm.Command.Parameters.AddWithValue("@report_path", section.reportPath); 
+                dbm.Command.CommandText = "UPDATE [dbo].[section] " +
+                "SET crn = @crn, capacity = @capacity, teacher_id = @teacher_id, course_id = @course_id, report_path = @report_path, is_report_published = @is_report_published " +
+                "WHERE section_id = @section_id";
+            }
 
-
-
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
 
         public Teacher AssignedTeacher
         {
@@ -175,6 +264,8 @@ namespace OOD_Project
         }
 
         public Course AssignedCourse { get => forCourse; set => forCourse = value; }
+        public string ReportPath { get => reportPath; set => reportPath = value; }
+        public bool IsReportPublished { get => isReportPublished; set => isReportPublished = value; }
     }//end Section
 
 }

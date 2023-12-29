@@ -20,7 +20,7 @@ namespace OOD_Project.Admin
             PopulateDGVs();
         }
 
-        private void PopulateDGVs()
+        public void PopulateDGVs()
         {
             PopulateCourseDGV();
             PopulateClassDGV();
@@ -109,7 +109,16 @@ namespace OOD_Project.Admin
 
         private void editCourseBtn_Click(object sender, EventArgs e)
         {
+            // get selected course
+            if (courseDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
 
+            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+
+            EditCourseForm editCourseForm = new EditCourseForm(section_id, this);
+            editCourseForm.Show();
         }
 
         private void addCourseBtn_Click(object sender, EventArgs e)

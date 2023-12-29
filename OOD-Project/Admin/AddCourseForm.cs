@@ -31,10 +31,10 @@ namespace OOD_Project.Admin
         private List<Class> classes = new List<Class>();
         int classIdCounter = 0;
 
-        public AddCourseForm(ManageCourseForm manageCourseForm)
+        public AddCourseForm(ManageCourseForm manageCourse)
         {
+            this.manageCourse = manageCourse;
             InitializeComponent();
-            this.manageCourse = manageCourseForm;
             currentScreen = CourseScreens.course;
             InitializeComboBoxes();
         }
@@ -181,11 +181,6 @@ namespace OOD_Project.Admin
 
         }
 
-        private void AddCourseForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAddClass_Click(object sender, EventArgs e)
         {
             DateTime start = timeStart.Value;
@@ -241,6 +236,11 @@ namespace OOD_Project.Admin
                 }
             }
             PopulateClassView();
+        }
+
+        private void AddCourseForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            manageCourse.PopulateDGVs();
         }
     }
 }

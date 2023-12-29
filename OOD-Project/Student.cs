@@ -43,6 +43,33 @@ namespace OOD_Project
         }
 
 
+        public static void UnregisterStudentFromSection(int student_id, int section_id)
+        {
+            // deletes registration record from db
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@student_id", student_id);
+            dbm.Command.Parameters.AddWithValue("@section_id", section_id);
+
+            dbm.Command.CommandText = "DELETE FROM [dbo].[registration] " +
+                "WHERE student_id = @student_id AND section_id = @section_id ";
+
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
         public static void RegisterStudentToSection(int student_id, int section_id)
         {
             // inserts registration record into db
@@ -172,6 +199,60 @@ namespace OOD_Project
                 " WHERE s.user_id = u.user_id " +
                 " AND s.student_university_id = @student_university_id " +
                 " AND u.status_id = 2 ";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+
+                if (!dbm.Reader.Read())
+                {
+                    dbm.Reader.Close();
+                    dbm.Connection.Close();
+                    return null;
+                }
+                int id = dbm.Reader.GetInt32(0);
+                string username = dbm.Reader.GetString(1);
+                string password = dbm.Reader.GetString(2);
+                string email = dbm.Reader.GetString(3);
+                UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
+                UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
+                string firstName = dbm.Reader.GetString(6);
+                string lastName = dbm.Reader.GetString(7);
+                DateTime dob = dbm.Reader.GetDateTime(8);
+                string cpr = dbm.Reader.GetString(9);
+                string phoneNumber = dbm.Reader.GetString(10);
+                char gender = dbm.Reader.GetString(11)[0];
+                int major_id = dbm.Reader.GetInt32(12);
+                string universityId = dbm.Reader.GetString(13);
+                int studentId = dbm.Reader.GetInt32(14);
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+
+                Major major = Major.GetMajor(major_id);
+                student = new Student(id, username, password, email, roleId, statusId,
+                    studentId, firstName, lastName, dob, cpr, gender, phoneNumber, major, universityId);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return student;
+        }
+
+        public static Student GetStudentFromStudentID(int student_id)
+        {
+            Student student = null;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@student_id", student_id);
+            dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id," +
+                "s.first_name, s.last_name, s.dob, s.cpr, s.phone_number, s.gender, s.major_id, s.student_university_id, s.student_id " +
+                " FROM [dbo].[student] s, [dbo].[User] u " +
+                " WHERE s.user_id = u.user_id " +
+                " AND s.student_id = @student_id";
             try
             {
                 dbm.Reader = dbm.Command.ExecuteReader();
