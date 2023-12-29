@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace OOD_Project.Admin
         {
             string command = "SELECT c.code AS Code, c.name AS Name, t.first_name + ' ' + t.last_name AS Teacher, " +
                 "p.programme_name AS Programme, c.credits AS Credits, s.capacity AS Capacity, s.crn AS CRN," +
-                " c.description AS Description, s.section_id " +
+                " c.description AS Description, s.section_id, s.is_report_published AS 'Report Published' " +
                 "FROM [dbo].[course] c " +
                 "JOIN [dbo].[section] s ON c.course_id = s.course_id " +
                 "JOIN [dbo].[teacher] t ON s.teacher_id = t.teacher_id " +
@@ -218,7 +219,29 @@ namespace OOD_Project.Admin
             {
                 return;
             }
+
             int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+            bool isReportPublished = Convert.ToBoolean(courseDG.SelectedRows[0].Cells[9].Value);
+            string reportPath = Section.GetReport(section_id);
+
+            if (!string.IsNullOrWhiteSpace(reportPath))
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string reportName = Path.GetFileName(reportPath);
+                saveFileDialog.FileName = reportName;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedFileName = saveFileDialog.FileName;
+                    string selectedDirectoryPath = Path.GetDirectoryName(selectedFileName);
+                    
+                    string courseID = Course.getCourseIdByCourseCode(courseDG.SelectedRows[0].Cells[0].Value.ToString());
+                    MessageBox.Show(Path.Combine(DocumentHelper.coursesDirectory, courseID, "Reports", reportName));
+                    DocumentHelper.CopyFile(Path.Combine(DocumentHelper.coursesDirectory, courseID, "Reports", reportName), Path.Combine(selectedDirectoryPath, selectedFileName));
+                }
+
+            }
 
         }
     }

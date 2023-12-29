@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -178,7 +179,7 @@ namespace OOD_Project
                 dbm.Reader.Close();
                 dbm.Connection.Close();
 
-                Teacher teacher = Teacher.GetTeacher(teacher_id);
+                Teacher teacher = Teacher.GetTeacherFromTeacherID(teacher_id);
                 Course course = Course.GetCourse(course_id);
                 section = new Section(capacity, crn, id, teacher, course, reportPath, isReportPublished);
 
@@ -277,6 +278,42 @@ namespace OOD_Project
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();
             }
+        }
+
+        public static string GetReport(int sectionId)
+        {
+            string reportPath = "";
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@section_id", sectionId);
+            dbm.Command.CommandText = "SELECT report_path FROM [dbo].[section] WHERE section_id = @section_id";
+            dbm.Reader = dbm.Command.ExecuteReader();
+            try
+            {
+                if (dbm.Reader.HasRows)
+                {
+                    while (dbm.Reader.Read())
+                    {
+                        reportPath = dbm.Reader.GetString(0);
+                    }
+                }
+            }
+            catch (SqlNullValueException)
+            {
+                MessageBox.Show("No report found for this course.", "No Report", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+            return reportPath;
+
         }
 
         public Teacher AssignedTeacher

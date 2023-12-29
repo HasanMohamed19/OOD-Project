@@ -455,8 +455,9 @@ namespace OOD_Project
         public static void UploadReport(string reportPath, int courseId)
         {
             string fileName = Path.GetFileName(reportPath);
-            string newDestDirectory = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), "Reports");
+            string newDestDirectory = Path.Combine(DocumentHelper.relativePath, "Courses", courseId.ToString(), "Reports");
             string newReportPath = Path.Combine(newDestDirectory, fileName);
+            
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
@@ -466,9 +467,9 @@ namespace OOD_Project
             try
             {
                 
-                if (!DocumentHelper.IsDirectoryExists(newDestDirectory))
+                if (!DocumentHelper.IsDirectoryExists(Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), "Reports")))
                 {
-                    DocumentHelper.MakeDirectory(newDestDirectory);
+                    DocumentHelper.MakeDirectory(Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), "Reports"));
                 }
 
                 // check if report already exists
@@ -488,7 +489,7 @@ namespace OOD_Project
                 } else
                 {
                     dbm.Command.ExecuteNonQuery();
-                    DocumentHelper.CopyFile(reportPath, newReportPath);
+                    DocumentHelper.CopyFile(reportPath, Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), "Reports", fileName));
                 }
 
                 
