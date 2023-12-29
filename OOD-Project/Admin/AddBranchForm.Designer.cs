@@ -31,8 +31,8 @@
             this.branchNameTxt = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.phoneNumberTxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -41,10 +41,9 @@
             // 
             this.branchNameTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.branchNameTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.branchNameTxt.Location = new System.Drawing.Point(199, 17);
-            this.branchNameTxt.Margin = new System.Windows.Forms.Padding(4);
+            this.branchNameTxt.Location = new System.Drawing.Point(190, 13);
             this.branchNameTxt.Name = "branchNameTxt";
-            this.branchNameTxt.Size = new System.Drawing.Size(245, 37);
+            this.branchNameTxt.Size = new System.Drawing.Size(286, 31);
             this.branchNameTxt.TabIndex = 17;
             this.branchNameTxt.TextChanged += new System.EventHandler(this.branchNameTxt_TextChanged);
             // 
@@ -53,10 +52,9 @@
             this.label17.AutoSize = true;
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(17, 12);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(13, 10);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(168, 47);
+            this.label17.Size = new System.Drawing.Size(143, 38);
             this.label17.TabIndex = 18;
             this.label17.Text = "Branch Name:";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -65,9 +63,9 @@
             // 
             this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.Controls.Add(this.phoneNumberTxt, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 2, 0);
@@ -77,40 +75,34 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(910, 71);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(852, 58);
             this.tableLayoutPanel2.TabIndex = 38;
+            // 
+            // phoneNumberTxt
+            // 
+            this.phoneNumberTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.phoneNumberTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneNumberTxt.Location = new System.Drawing.Point(619, 13);
+            this.phoneNumberTxt.Name = "phoneNumberTxt";
+            this.phoneNumberTxt.Size = new System.Drawing.Size(195, 31);
+            this.phoneNumberTxt.TabIndex = 36;
+            this.phoneNumberTxt.TextChanged += new System.EventHandler(this.phoneNumberTxt_TextChanged);
+            this.phoneNumberTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneNumberTxt_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(458, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(511, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 47);
+            this.label1.Size = new System.Drawing.Size(77, 38);
             this.label1.TabIndex = 35;
-            this.label1.Text = "Phone Number:";
+            this.label1.Text = "Phone:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // phoneNumberTxt
-            // 
-            this.phoneNumberTxt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.phoneNumberTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberTxt.Location = new System.Drawing.Point(634, 17);
-            this.phoneNumberTxt.Margin = new System.Windows.Forms.Padding(4);
-            this.phoneNumberTxt.Name = "phoneNumberTxt";
-            this.phoneNumberTxt.Size = new System.Drawing.Size(259, 37);
-            this.phoneNumberTxt.TabIndex = 36;
-            this.phoneNumberTxt.TextChanged += new System.EventHandler(this.phoneNumberTxt_TextChanged);
-            this.phoneNumberTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneNumberTxt_KeyPress);
             // 
             // btnAdd
             // 
@@ -120,22 +112,22 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAdd.Location = new System.Drawing.Point(199, 116);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAdd.Location = new System.Drawing.Point(234, 73);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(511, 66);
+            this.btnAdd.Size = new System.Drawing.Size(383, 54);
             this.btnAdd.TabIndex = 39;
-            this.btnAdd.Text = "Add Brnach";
+            this.btnAdd.Text = "Add Branch";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // AddBranchForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 195);
+            this.ClientSize = new System.Drawing.Size(852, 137);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tableLayoutPanel2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AddBranchForm";
             this.Text = "AddBranchForm";
             this.tableLayoutPanel2.ResumeLayout(false);

@@ -14,23 +14,9 @@ namespace OOD_Project
 {
     public partial class ManageBranchesForm : Form
     {
-
-        List<Branch> branches= new List<Branch>();
-        
-
         public ManageBranchesForm()
         {
             InitializeComponent();
-            //branches.Add(new Branch("10Km^2", 1, "Manama", "BTI", "12345678"));
-            //branches.Add(new Branch("30Km^2", 2, "Isa Town", "Polytechnic", "8765432"));
-            //foreach (var branch in branches)
-            //{
-            //    ListViewItem item = new ListViewItem(branch.BranchId.ToString());
-            //    item.SubItems.Add(branch.Area);
-            //    item.SubItems.Add(branch.City);
-            //    item.SubItems.Add(branch.PhoneNumber);
-            //    branchesListView.Items.Add(item);
-            //}
             
         }
 
@@ -45,40 +31,44 @@ namespace OOD_Project
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command.CommandText = "SELECT * FROM [dbo].[Branch]";
-            dbm.Reader = dbm.Command.ExecuteReader();
-            while (dbm.Reader.Read())
+            try
             {
-                var item = new ListViewItem(dbm.Reader["branch_id"].ToString());
-                item.SubItems.Add(dbm.Reader["name"].ToString());
-                item.SubItems.Add(dbm.Reader["phone_number"].ToString());
+                dbm.Reader = dbm.Command.ExecuteReader();
+                while (dbm.Reader.Read())
+                {
+                    var item = new ListViewItem(dbm.Reader["branch_id"].ToString());
+                    item.SubItems.Add(dbm.Reader["name"].ToString());
+                    item.SubItems.Add(dbm.Reader["phone_number"].ToString());
 
-                branchesListView.Items.Add(item);
+                    branchesListView.Items.Add(item);
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Reader.Close();
+                dbm.Connection.Close();
             }
-            dbm.Connection.Close();
+            
 
         }
 
         private void deleteBranchBtn_Click(object sender, EventArgs e)
         {   
-            
-
-            if (branchesListView.SelectedItems.Count > 0)
-            {
-                DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected branch?", "Delete Confirmation", MessageBoxButtons.YesNo);
-                if (deleteConfirmation == DialogResult.Yes) 
-                {
-                    int branch_id = Convert.ToInt32(branchesListView.SelectedItems[0].Text);
-                    bool hasDeleted = Branch.DeleteBranch(branch_id); 
-                    if (hasDeleted)
-                    {
-                        UpdateTable();
-                    }
-                }
-
-            } else
+            if (branchesListView.SelectedItems.Count <= 0)
             {
                 MessageBox.Show("Please select a branch to delete first");
             }
+
+            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected branch?", "Delete Confirmation", MessageBoxButtons.YesNo);
+            if (deleteConfirmation == DialogResult.Yes)
+            {
+                int branch_id = Convert.ToInt32(branchesListView.SelectedItems[0].Text);
+                Branch.DeleteBranch(branch_id);
+                UpdateTable();
+            }
+
         }
 
         private void editBranchBtn_Click(object sender, EventArgs e)
@@ -89,18 +79,14 @@ namespace OOD_Project
                 {
                     ListViewItem selctedItem = branchesListView.SelectedItems[0];
                     int id = Convert.ToInt32(selctedItem.Text);
-                    string name = selctedItem.SubItems[1].Text;
-                    string phoneNumber = selctedItem.SubItems[2].Text;
-                    Branch branch = new Branch(id, name, phoneNumber);
+                    Branch branch = Branch.GetBranch(id);
                     AddBranchForm editForm = new AddBranchForm(this, branch);
                     editForm.ShowDialog();
                 }
-            } catch (Exception ex)
+            } catch 
             {
                 MessageBox.Show("Please choose a branch to edit first");
             }
-            
-            
         }
 
         private void addBranchBtn_Click(object sender, EventArgs e)

@@ -49,7 +49,7 @@
             this.recipientTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.recipientTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recipientTxt.Location = new System.Drawing.Point(18, 18);
-            this.recipientTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.recipientTxt.Margin = new System.Windows.Forms.Padding(2);
             this.recipientTxt.Name = "recipientTxt";
             this.recipientTxt.Size = new System.Drawing.Size(462, 23);
             this.recipientTxt.TabIndex = 0;
@@ -62,7 +62,7 @@
             this.subjectTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.subjectTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectTxt.Location = new System.Drawing.Point(18, 48);
-            this.subjectTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.subjectTxt.Margin = new System.Windows.Forms.Padding(2);
             this.subjectTxt.Name = "subjectTxt";
             this.subjectTxt.Size = new System.Drawing.Size(462, 23);
             this.subjectTxt.TabIndex = 1;
@@ -74,7 +74,7 @@
             this.bodyText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bodyText.Location = new System.Drawing.Point(18, 78);
-            this.bodyText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bodyText.Margin = new System.Windows.Forms.Padding(2);
             this.bodyText.Name = "bodyText";
             this.bodyText.Size = new System.Drawing.Size(462, 326);
             this.bodyText.TabIndex = 2;
@@ -89,7 +89,7 @@
             this.btnSendEmail.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendEmail.ForeColor = System.Drawing.Color.White;
             this.btnSendEmail.Location = new System.Drawing.Point(57, 493);
-            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSendEmail.Margin = new System.Windows.Forms.Padding(2);
             this.btnSendEmail.Name = "btnSendEmail";
             this.btnSendEmail.Size = new System.Drawing.Size(150, 40);
             this.btnSendEmail.TabIndex = 4;
@@ -104,7 +104,7 @@
             this.btnAttach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAttach.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAttach.Location = new System.Drawing.Point(290, 493);
-            this.btnAttach.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAttach.Margin = new System.Windows.Forms.Padding(2);
             this.btnAttach.Name = "btnAttach";
             this.btnAttach.Size = new System.Drawing.Size(150, 40);
             this.btnAttach.TabIndex = 5;
@@ -120,7 +120,7 @@
             this.attachmentsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.attachmentsListView.HideSelection = false;
             this.attachmentsListView.Location = new System.Drawing.Point(18, 408);
-            this.attachmentsListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.attachmentsListView.Margin = new System.Windows.Forms.Padding(2);
             this.attachmentsListView.Name = "attachmentsListView";
             this.attachmentsListView.Size = new System.Drawing.Size(462, 78);
             this.attachmentsListView.TabIndex = 12;
@@ -174,7 +174,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(498, 555);
             this.Controls.Add(this.emailTableLayout);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EmailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Send Email";

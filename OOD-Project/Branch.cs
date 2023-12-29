@@ -118,7 +118,11 @@ namespace OOD_Project
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            } finally { dbm.Reader.Close(); dbm.Connection.Close(); }
+            } finally { 
+                dbm.Command.Parameters.Clear();
+                dbm.Reader.Close(); 
+                dbm.Connection.Close(); 
+            }
             
             return branch;
         }
@@ -148,6 +152,7 @@ namespace OOD_Project
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@branch_id", branch_id);
             dbm.Command.CommandText = "DELETE FROM [dbo].[Branch] WHERE branch_id = @branch_id";
             try
@@ -171,6 +176,7 @@ namespace OOD_Project
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@name", branch.branchName);
             dbm.Command.Parameters.AddWithValue("@phone_number", branch.phoneNumber);
 
@@ -195,6 +201,7 @@ namespace OOD_Project
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
 
             dbm.Command.Parameters.AddWithValue("@branch_id", branch.branchId);
             dbm.Command.Parameters.AddWithValue("@name", branch.branchName);

@@ -59,24 +59,18 @@ namespace OOD_Project.Admin
             if (oldBranch == null)
             {
                 bool hasAdded = Branch.AddBranch(branch);
-                if (hasAdded)
-                {
-                    MessageBox.Show("Branch added successfully");
-                } else
+                if (!hasAdded)
                 {
                     MessageBox.Show("Branch Not added");
-                }        
+                }       
                 
             } else if (oldBranch != null)
             {
                 branch.BranchId = oldBranch.BranchId;
                 bool hasEdited = Branch.EditBranch(branch);
-                if (hasEdited)
+                if (!hasEdited)
                 {
-                    MessageBox.Show("Branch updated successfully" + this.oldBranch.BranchId);
-                } else
-                {
-                    MessageBox.Show("Brnach wasn't updated");
+                    MessageBox.Show("Branch wasn't updated");
                 }
                 
             }
