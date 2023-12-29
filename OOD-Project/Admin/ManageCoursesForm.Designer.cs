@@ -29,10 +29,10 @@ namespace OOD_Project.Admin
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.addCourseBtn = new System.Windows.Forms.Button();
             this.editCourseBtn = new System.Windows.Forms.Button();
             this.courseControls = new System.Windows.Forms.FlowLayoutPanel();
@@ -44,6 +44,10 @@ namespace OOD_Project.Admin
             this.editClass = new System.Windows.Forms.Button();
             this.deleteClass = new System.Windows.Forms.Button();
             this.courseDG = new System.Windows.Forms.DataGridView();
+            this.lblClass = new System.Windows.Forms.Label();
+            this.lblCourses = new System.Windows.Forms.Label();
+            this.feedbackBtn = new System.Windows.Forms.Button();
+            this.reportBtn = new System.Windows.Forms.Button();
             this.courseControls.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.classDG)).BeginInit();
@@ -58,7 +62,7 @@ namespace OOD_Project.Admin
             this.addCourseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addCourseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addCourseBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.addCourseBtn.Location = new System.Drawing.Point(3, 3);
+            this.addCourseBtn.Location = new System.Drawing.Point(109, 3);
             this.addCourseBtn.Name = "addCourseBtn";
             this.addCourseBtn.Size = new System.Drawing.Size(75, 27);
             this.addCourseBtn.TabIndex = 0;
@@ -74,7 +78,7 @@ namespace OOD_Project.Admin
             this.editCourseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editCourseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editCourseBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.editCourseBtn.Location = new System.Drawing.Point(84, 3);
+            this.editCourseBtn.Location = new System.Drawing.Point(190, 3);
             this.editCourseBtn.Name = "editCourseBtn";
             this.editCourseBtn.Size = new System.Drawing.Size(75, 27);
             this.editCourseBtn.TabIndex = 1;
@@ -84,9 +88,12 @@ namespace OOD_Project.Admin
             // 
             // courseControls
             // 
+            this.courseControls.Controls.Add(this.lblCourses);
             this.courseControls.Controls.Add(this.addCourseBtn);
             this.courseControls.Controls.Add(this.editCourseBtn);
             this.courseControls.Controls.Add(this.deleteCourseBtn);
+            this.courseControls.Controls.Add(this.feedbackBtn);
+            this.courseControls.Controls.Add(this.reportBtn);
             this.courseControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.courseControls.Location = new System.Drawing.Point(3, 3);
             this.courseControls.Name = "courseControls";
@@ -100,7 +107,7 @@ namespace OOD_Project.Admin
             this.deleteCourseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteCourseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteCourseBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.deleteCourseBtn.Location = new System.Drawing.Point(165, 3);
+            this.deleteCourseBtn.Location = new System.Drawing.Point(271, 3);
             this.deleteCourseBtn.Name = "deleteCourseBtn";
             this.deleteCourseBtn.Size = new System.Drawing.Size(75, 27);
             this.deleteCourseBtn.TabIndex = 2;
@@ -132,14 +139,14 @@ namespace OOD_Project.Admin
             this.classDG.AllowUserToAddRows = false;
             this.classDG.AllowUserToDeleteRows = false;
             this.classDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.classDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.classDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.classDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.classDG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.classDG.Location = new System.Drawing.Point(2, 350);
@@ -148,8 +155,8 @@ namespace OOD_Project.Admin
             this.classDG.Name = "classDG";
             this.classDG.ReadOnly = true;
             this.classDG.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.classDG.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.classDG.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.classDG.RowTemplate.Height = 24;
             this.classDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.classDG.Size = new System.Drawing.Size(1004, 177);
@@ -157,6 +164,7 @@ namespace OOD_Project.Admin
             // 
             // classControls
             // 
+            this.classControls.Controls.Add(this.lblClass);
             this.classControls.Controls.Add(this.addClass);
             this.classControls.Controls.Add(this.editClass);
             this.classControls.Controls.Add(this.deleteClass);
@@ -173,7 +181,7 @@ namespace OOD_Project.Admin
             this.addClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.addClass.Location = new System.Drawing.Point(3, 3);
+            this.addClass.Location = new System.Drawing.Point(109, 3);
             this.addClass.Name = "addClass";
             this.addClass.Size = new System.Drawing.Size(75, 27);
             this.addClass.TabIndex = 0;
@@ -189,7 +197,7 @@ namespace OOD_Project.Admin
             this.editClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.editClass.Location = new System.Drawing.Point(84, 3);
+            this.editClass.Location = new System.Drawing.Point(190, 3);
             this.editClass.Name = "editClass";
             this.editClass.Size = new System.Drawing.Size(75, 27);
             this.editClass.TabIndex = 1;
@@ -204,7 +212,7 @@ namespace OOD_Project.Admin
             this.deleteClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteClass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.deleteClass.Location = new System.Drawing.Point(165, 3);
+            this.deleteClass.Location = new System.Drawing.Point(271, 3);
             this.deleteClass.Name = "deleteClass";
             this.deleteClass.Size = new System.Drawing.Size(75, 27);
             this.deleteClass.TabIndex = 2;
@@ -217,14 +225,14 @@ namespace OOD_Project.Admin
             this.courseDG.AllowUserToAddRows = false;
             this.courseDG.AllowUserToDeleteRows = false;
             this.courseDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.courseDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.courseDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.courseDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.courseDG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.courseDG.Location = new System.Drawing.Point(2, 41);
@@ -233,13 +241,63 @@ namespace OOD_Project.Admin
             this.courseDG.Name = "courseDG";
             this.courseDG.ReadOnly = true;
             this.courseDG.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseDG.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseDG.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.courseDG.RowTemplate.Height = 24;
             this.courseDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.courseDG.Size = new System.Drawing.Size(1004, 266);
             this.courseDG.TabIndex = 9;
             this.courseDG.SelectionChanged += new System.EventHandler(this.courseDG_SelectionChanged);
+            // 
+            // lblClass
+            // 
+            this.lblClass.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClass.Location = new System.Drawing.Point(3, 0);
+            this.lblClass.Name = "lblClass";
+            this.lblClass.Size = new System.Drawing.Size(100, 30);
+            this.lblClass.TabIndex = 3;
+            this.lblClass.Text = "Classes:";
+            this.lblClass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCourses
+            // 
+            this.lblCourses.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourses.Location = new System.Drawing.Point(3, 0);
+            this.lblCourses.Name = "lblCourses";
+            this.lblCourses.Size = new System.Drawing.Size(100, 30);
+            this.lblCourses.TabIndex = 4;
+            this.lblCourses.Text = "Courses:";
+            this.lblCourses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // feedbackBtn
+            // 
+            this.feedbackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.feedbackBtn.FlatAppearance.BorderSize = 0;
+            this.feedbackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.feedbackBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feedbackBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.feedbackBtn.Location = new System.Drawing.Point(352, 3);
+            this.feedbackBtn.Name = "feedbackBtn";
+            this.feedbackBtn.Size = new System.Drawing.Size(133, 27);
+            this.feedbackBtn.TabIndex = 5;
+            this.feedbackBtn.Text = "View Feedback";
+            this.feedbackBtn.UseVisualStyleBackColor = false;
+            this.feedbackBtn.Click += new System.EventHandler(this.feedbackBtn_Click);
+            // 
+            // reportBtn
+            // 
+            this.reportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
+            this.reportBtn.FlatAppearance.BorderSize = 0;
+            this.reportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.reportBtn.Location = new System.Drawing.Point(491, 3);
+            this.reportBtn.Name = "reportBtn";
+            this.reportBtn.Size = new System.Drawing.Size(149, 27);
+            this.reportBtn.TabIndex = 6;
+            this.reportBtn.Text = "Download Report";
+            this.reportBtn.UseVisualStyleBackColor = false;
+            this.reportBtn.Click += new System.EventHandler(this.reportBtn_Click);
             // 
             // ManageCourseForm
             // 
@@ -274,5 +332,9 @@ namespace OOD_Project.Admin
         private System.Windows.Forms.Button editClass;
         private System.Windows.Forms.Button deleteClass;
         private System.Windows.Forms.DataGridView classDG;
+        private System.Windows.Forms.Label lblCourses;
+        private System.Windows.Forms.Label lblClass;
+        private System.Windows.Forms.Button feedbackBtn;
+        private System.Windows.Forms.Button reportBtn;
     }
 }

@@ -199,5 +199,27 @@ namespace OOD_Project.Admin
             PopulateDGVs();
 
         }
+
+        private void feedbackBtn_Click(object sender, EventArgs e)
+        {
+            // get selected section
+            if (courseDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
+            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+
+        }
+
+        private void reportBtn_Click(object sender, EventArgs e)
+        {
+            // get selected section
+            if (courseDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
+            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+
+        }
     }
 }
