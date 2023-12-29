@@ -89,6 +89,12 @@
     <Compile Include="Admin\AddAnouncementForm.Designer.cs">
       <DependentUpon>AddAnouncementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddClassForm.Designer.cs">
+      <DependentUpon>AddClassForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddBranchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,12 @@
     </Compile>
     <Compile Include="Admin\AddCourseForm.Designer.cs">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\EditClassForm.Designer.cs">
+      <DependentUpon>EditClassForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\EditCourseForm.cs">
       <SubType>Form</SubType>
@@ -168,11 +180,6 @@
     <Compile Include="Content.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="DatabaseManager.cs" />
-    <Compile Include="dbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dbDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DocumentHelper.cs" />
     <Compile Include="Email.cs" />
     <Compile Include="EmailAttachment.cs" />
@@ -285,11 +292,11 @@
       <DependentUpon>ViewCourseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
-    <Compile Include="Admin\usersListForms.cs">
+    <Compile Include="Admin\ManageUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Admin\usersListForms.Designer.cs">
-      <DependentUpon>usersListForms.cs</DependentUpon>
+    <Compile Include="Admin\ManageUsersForm.Designer.cs">
+      <DependentUpon>ManageUsersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -304,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AddBranchForm.resx">
       <DependentUpon>AddBranchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\AddClassForm.resx">
+      <DependentUpon>AddClassForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
@@ -337,6 +347,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\AddCourseForm.resx">
       <DependentUpon>AddCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\EditClassForm.resx">
+      <DependentUpon>EditClassForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\EditCourseForm.resx">
       <DependentUpon>EditCourseForm.cs</DependentUpon>
@@ -383,8 +396,8 @@
     <EmbeddedResource Include="Student\StudentPanel.resx">
       <DependentUpon>StudentPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Admin\usersListForms.resx">
-      <DependentUpon>usersListForms.cs</DependentUpon>
+    <EmbeddedResource Include="Admin\ManageUsersForm.resx">
+      <DependentUpon>ManageUsersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -429,17 +442,6 @@
     <EmbeddedResource Include="ViewEmails.resx">
       <DependentUpon>ViewEmails.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dbDataSet.xsc">
-      <DependentUpon>dbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="dbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="dbDataSet.xss">
-      <DependentUpon>dbDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

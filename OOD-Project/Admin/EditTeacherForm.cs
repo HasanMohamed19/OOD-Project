@@ -13,8 +13,8 @@ namespace OOD_Project.Admin
     public partial class EditTeacherForm : Form
     {
         Teacher oldTeacher;
-        usersListForms parentForm;
-        public EditTeacherForm(Teacher oldTeacher, usersListForms parentForm)
+        ManageUsersForm parentForm;
+        public EditTeacherForm(Teacher oldTeacher, ManageUsersForm parentForm)
         {
             InitializeComponent();
             InitializeComboBoxes();
@@ -103,7 +103,7 @@ namespace OOD_Project.Admin
             string inTeacherId = txtTeacherId.Text;
 
             // create user based on data received
-            Teacher teacher = new Teacher(oldTeacher.UserId, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, UserStatus.inactive, false,
+            Teacher teacher = new Teacher(oldTeacher.UserId, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, UserStatus.inactive,
                 oldTeacher.TeacherId, inFName, inLName, inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
 
             // if there is teacher with universityId already, dont update

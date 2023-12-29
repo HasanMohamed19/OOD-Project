@@ -34,7 +34,6 @@ namespace OOD_Project
         private string email;
         private UserRole roleId;
         private UserStatus statusId;
-        private bool hasNotification;
 
         public string Email { get { return email; } set { email = value; } }
 
@@ -42,7 +41,6 @@ namespace OOD_Project
         public string Username { get => username; set => username = value; }
         public UserRole RoleId { get => roleId; set => roleId = value; }
         public UserStatus StatusId { get => statusId; set => statusId = value; }
-        public bool HasNotification { get => hasNotification; set => hasNotification = value; }
         public int UserId { get => userId; set => userId = value; }
 
         public User()
@@ -50,7 +48,7 @@ namespace OOD_Project
 
         }
 
-        public User(int userId, string username, string password, string email, UserRole roleId, UserStatus statusId, bool hasNotification)
+        public User(int userId, string username, string password, string email, UserRole roleId, UserStatus statusId)
         {
             this.userId = userId;
             this.username = username;
@@ -58,7 +56,6 @@ namespace OOD_Project
             Email = email;
             this.roleId = roleId;
             this.statusId = statusId;
-            this.hasNotification = hasNotification;
         }
 
 
@@ -207,7 +204,7 @@ namespace OOD_Project
             dbm.Command = dbm.Connection.CreateCommand();
 
             dbm.Command.Parameters.AddWithValue("@user_id", user_id);
-            dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id, u.has_notification " +
+            dbm.Command.CommandText = "SELECT u.user_id, u.username, u.password, u.email, u.role_id, u.status_id " +
                 " FROM  [dbo].[User] u " +
                 " WHERE  u.user_id = @user_id";
             try
@@ -223,9 +220,8 @@ namespace OOD_Project
                 string email = dbm.Reader.GetString(3);
                 UserRole roleId = (UserRole)dbm.Reader.GetInt32(4);
                 UserStatus statusId = (UserStatus)dbm.Reader.GetInt32(5);
-                bool hasNotification = dbm.Reader.GetBoolean(6);
 
-                user = new User(id, username, password, email, roleId, statusId, hasNotification);
+                user = new User(id, username, password, email, roleId, statusId);
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -250,7 +246,7 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@role_id", user.roleId);
             dbm.Command.Parameters.AddWithValue("@status_id", 1);
             dbm.Command.CommandText = "INSERT INTO [dbo].[User] (user_id, username, password, email, role_id, status_id)" +
-                " VALUES ([(NEXT VALUE FOR [dbo].[userIDSequence], @username, @password, @email, @role_id, @status_id)";
+                " VALUES (NEXT VALUE FOR [dbo].[userIDSequence], @username, @password, @email, @role_id, @status_id)";
 
             try
             {
@@ -499,7 +495,7 @@ namespace OOD_Project
                 int roleId = dbm.Reader.GetInt32(4);
                 int statusId = dbm.Reader.GetInt32(5);
                 bool hasNotification = dbm.Reader.GetBoolean(6);
-                User user = new User(userId, username, password, email, (UserRole)roleId, (UserStatus)statusId, hasNotification);
+                User user = new User(userId, username, password, email, (UserRole)roleId, (UserStatus)statusId);
                 users.Add(user);
             }
             dbm.Reader.Close();

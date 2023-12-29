@@ -10,62 +10,174 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
 
 
 namespace OOD_Project
 {
     public enum WeekDays
     {
+        saturday,
         sunday,
         monday,
         tuesday,
         wednesday,
         thursday,
-        friday,
-        saturday,
+        friday
     }
 
 
     public class Class
     {
 
-        private DateTime beginDate;
-        private string building;
         private int classId;
+        private string building;
+        private string roomNumber;
         private WeekDays dayOfTheWeek;
         private DateTime endTime;
-        private DateTime finishDate;
-        private string roomNumber;
         private DateTime startTime;
         private Section section;
 
-        public Class(DateTime beginDate, string building, int classId, WeekDays dayOfTheWeek, DateTime endTime, DateTime finishDate, string roomNumber, DateTime startTime, Section section)
+        public Class(int classId, string building, string roomNumber, WeekDays dayOfTheWeek, DateTime endTime, DateTime startTime, Section section)
         {
-            this.beginDate = beginDate;
-            this.building = building;
             this.classId = classId;
+            this.building = building;
+            this.roomNumber = roomNumber;
             this.dayOfTheWeek = dayOfTheWeek;
             this.endTime = endTime;
-            this.finishDate = finishDate;
-            this.roomNumber = roomNumber;
             this.startTime = startTime;
             this.section = section;
         }
 
-        ~Class()
-        {
 
+        public static void EditClass(Class c)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@class_id", c.ClassId);
+            dbm.Command.Parameters.AddWithValue("@start_time", c.StartTime);
+            dbm.Command.Parameters.AddWithValue("@end_time", c.EndTime);
+            dbm.Command.Parameters.AddWithValue("@building", c.Building);
+            dbm.Command.Parameters.AddWithValue("@room_number", c.RoomNumber);
+            dbm.Command.Parameters.AddWithValue("@section_id", c.Section.Id);
+            dbm.Command.Parameters.AddWithValue("@week_day_id", (int)c.DayOfTheWeek+1);
+            dbm.Command.CommandText = "UPDATE [dbo].[class] " +
+                "SET start_time = @start_time, end_time = @end_time, building = @building, room_number = @room_number, section_id = @section_id, week_day_id = @week_day_id " +
+                "WHERE class_id = @class_id";
+            
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
         }
 
-        public DateTime BeginDate
+        public static void DeleteClass(int class_id) 
         {
-            get
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@class_id", class_id);
+            dbm.Command.CommandText = "DELETE FROM [dbo].[class] WHERE class_id = @class_id ";
+            try
             {
-                return beginDate;
+                dbm.Command.ExecuteNonQuery();
             }
-            set
+            catch (Exception ex)
             {
-                beginDate = value;
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+        }
+
+        public static Class GetClass(int classId)
+        {
+            Class newClass = null;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@class_id", classId);
+            dbm.Command.CommandText = "SELECT class_id, start_time, end_time, building, room_number, section_id, week_day_id " +
+                "FROM [dbo].[class] " +
+                "WHERE class_id = @class_id ";
+            int section_id = -1;
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    
+                    int class_id = dbm.Reader.GetInt32(0);
+                    TimeSpan ts_startTime = dbm.Reader.GetTimeSpan(1); // cannot use GetDateTime, must convert
+                    TimeSpan ts_endTime = dbm.Reader.GetTimeSpan(2);
+                    string building = dbm.Reader.GetString(3);
+                    string roomNumber = dbm.Reader.GetString(4);
+                    section_id = dbm.Reader.GetInt32(5);
+                    WeekDays dayOfTheWeek = (WeekDays)dbm.Reader.GetInt32(6);
+                    // convert timespans to datetime
+                    DateTime startTime = new DateTime(2023,1,1,ts_startTime.Hours,ts_startTime.Minutes, 00);
+                    DateTime endTime = new DateTime(2023,1,1,ts_endTime.Hours,ts_endTime.Minutes, 00);
+
+                    newClass = new Class(class_id, building, roomNumber, dayOfTheWeek, endTime, startTime, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+            }
+            newClass.Section = Section.GetSection(section_id);
+
+            return newClass;
+        }
+        public static void AddClass(Class c)
+        {
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+
+            dbm.Command.Parameters.AddWithValue("@start_time", c.StartTime);
+            dbm.Command.Parameters.AddWithValue("@end_time", c.EndTime);
+            dbm.Command.Parameters.AddWithValue("@building", c.Building);
+            dbm.Command.Parameters.AddWithValue("@room_number", c.RoomNumber);
+            dbm.Command.Parameters.AddWithValue("@section_id", c.Section.Id);
+            dbm.Command.Parameters.AddWithValue("@week_day_id", (int)c.DayOfTheWeek+1);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[class] (class_id, start_time, end_time, building, room_number, section_id, week_day_id)" +
+                "VALUES (NEXT VALUE FOR [dbo].[classIDSequence], @start_time, @end_time, @building, @room_number, @section_id, @week_day_id)";
+
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
             }
         }
 
@@ -102,18 +214,6 @@ namespace OOD_Project
             set
             {
                 endTime = value;
-            }
-        }
-
-        public DateTime FinishDate
-        {
-            get
-            {
-                return finishDate;
-            }
-            set
-            {
-                finishDate = value;
             }
         }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,106 +14,211 @@ namespace OOD_Project.Admin
     public partial class ManageCourseForm : Form
     {
 
-        List<Course> courses = new List<Course>();
-        public AdminPanel adminPanel;
-        public ManageCourseForm(AdminPanel adminPanel)
+        public ManageCourseForm()
         {
             InitializeComponent();
-            //courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
-            //courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
-            //courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
-            //courses.Add(new Course(1, "OOD", "IT7006", "This is a description", "ICT", 15));
-            //foreach (var course in courses)
-            //{
-            //    ListViewItem item = new ListViewItem(course.Id.ToString());
-            //    item.Tag = course;
-            //    item.SubItems.Add(course.Name);
-            //    item.SubItems.Add(course.Code);
-            //    item.SubItems.Add(course.Credits.ToString());
-            //    item.SubItems.Add(course.Programme);
-            //    item.SubItems.Add(course.Sections.Count.ToString());
-            //    item.SubItems.Add(course.Description);
-            //    courseListView.Items.Add(item);
-            //}
-            populateCourses();
-            this.adminPanel = adminPanel;
+            PopulateDGVs();
         }
 
+        public void PopulateDGVs()
+        {
+            PopulateCourseDGV();
+            PopulateClassDGV();
+        }
 
-        private void populateCourses()
+        private void PopulateCourseDGV()
+        {
+            string command = "SELECT c.code AS Code, c.name AS Name, t.first_name + ' ' + t.last_name AS Teacher, " +
+                "p.programme_name AS Programme, c.credits AS Credits, s.capacity AS Capacity, s.crn AS CRN," +
+                " c.description AS Description, s.section_id " +
+                "FROM [dbo].[course] c " +
+                "JOIN [dbo].[section] s ON c.course_id = s.course_id " +
+                "JOIN [dbo].[teacher] t ON s.teacher_id = t.teacher_id " +
+                "JOIN [dbo].[programme] p on c.programme_id = p.programme_id ";
+            PopulateDataGrid(courseDG, command);
+        }
+
+        private void PopulateClassDGV()
+        {
+            // get selected section id
+            if (courseDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
+
+            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+
+            DatabaseManager dbm = DatabaseManager.Instance();
+
+            dbm.Command.Parameters.AddWithValue("@section_id",section_id);
+            dbm.Command.CommandText = "SELECT c.class_id AS ID, CONVERT(VARCHAR(5),start_time,108) + ' - ' + CONVERT(VARCHAR(5)" +
+                ",end_time,108) AS 'Timing', w.week_day AS Day, building AS Building, room_number AS 'Room Number' " +
+                "FROM [dbo].[class] c " +
+                "JOIN [dbo].[week_day] w ON c.week_day_id = w.week_day_id " +
+                "WHERE section_id = @section_id ";
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(dbm.Command);
+                BindingSource bs = new BindingSource();
+
+                da.Fill(dt);
+                bs.DataSource = dt;
+                classDG.DataSource = bs;
+                classDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                classDG.RowTemplate.MinimumHeight = 30;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+            }
+        }
+
+        private void PopulateDataGrid(DataGridView dgv, string sqlCommand)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
-            dbm.Connection.Open();
-            dbm.Command.CommandText = "SELECT * FROM [dbo].[course]";
-            dbm.Reader = dbm.Command.ExecuteReader();
-            while (dbm.Reader.Read())
+            dbm.Command.CommandText = sqlCommand;
+
+            try
             {
-                var item = new ListViewItem(dbm.Reader["course_id"].ToString());
-                item.SubItems.Add(dbm.Reader["name"].ToString());
-                item.SubItems.Add(dbm.Reader["code"].ToString());
-                item.SubItems.Add(dbm.Reader["description"].ToString());
-                item.SubItems.Add("1");
-                item.SubItems.Add(dbm.Reader["credits"].ToString());
-                
-                courseListView.Items.Add(item);
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(dbm.Command);
+                BindingSource bs = new BindingSource();
+
+                da.Fill(dt);
+                bs.DataSource = dt;
+                dgv.DataSource = bs;
+                dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+                dgv.RowTemplate.MinimumHeight = 30;
             }
-            MessageBox.Show(courseListView.Items.Count.ToString());
-            dbm.Connection.Close();
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-
         private void deleteCourseBtn_Click(object sender, EventArgs e)
         {
-            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected course?", "Delete Confirmation", MessageBoxButtons.YesNo);
-
-
-
-            if (deleteConfirmation == DialogResult.Yes)
+            // get selected course
+            if (courseDG.SelectedRows.Count < 1)
             {
-                while (courseListView.SelectedItems.Count > 0)
-                {
-                    courseListView.SelectedItems[0].Remove();
-
-                }
-
+                return;
             }
+            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+
+            // check if there are registered students in the course
+            if (!Section.CanDeleteSection(section_id))
+            {
+                MessageBox.Show("This course has students registered for it already. If you would like to delete it, please unregister the students first.","Cannot delete");
+                return;
+            }
+
+            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected course?", "Delete Confirmation", MessageBoxButtons.YesNo);
+            
+            if (deleteConfirmation != DialogResult.Yes)
+            {
+                return;
+            }
+
+            // delete course and section and classes
+            Section.DeleteSection(section_id);
+            // refresh view
+            PopulateDGVs();
         }
 
         private void editCourseBtn_Click(object sender, EventArgs e)
         {
-            if (courseListView.SelectedItems.Count == 0)
+            // get selected course
+            if (courseDG.SelectedRows.Count < 1)
             {
-                MessageBox.Show("Please select a course to edit","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
 
-            ListViewItem selectedItem = courseListView.SelectedItems[0];
-            Course selectedCourse = (Course) selectedItem.Tag;
-            MessageBox.Show((selectedCourse == null).ToString());
-            EditCourseForm editCourse = new EditCourseForm(this,selectedCourse,selectedItem.Index);
-            editCourse.Show();
-            adminPanel.Hide();
-
+            EditCourseForm editCourseForm = new EditCourseForm(section_id, this);
+            editCourseForm.Show();
         }
 
         private void addCourseBtn_Click(object sender, EventArgs e)
         {
-            AddCourseForm addCourseForm = new AddCourseForm(this);
-            addCourseForm.Show();
-            adminPanel.Hide();
+            AddCourseForm form = new AddCourseForm(this);
+            form.Show();
         }
 
-        public ListView GetCourseListView()
+        private void courseDG_SelectionChanged(object sender, EventArgs e)
         {
-            return courseListView;
-        }
-        public List<Course> getCourses()
-        {
-            return courses;
+            PopulateClassDGV();
         }
 
-        private void courseListView_SelectedIndexChanged(object sender, EventArgs e)
+        private void addClass_Click(object sender, EventArgs e)
         {
+            // get selected course
+            if (courseDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
+            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+
+            AddClassForm form = new AddClassForm(section_id, this);
+            form.Show();
+        }
+
+        private void editClass_Click(object sender, EventArgs e)
+        {
+            // get selected class
+            if (classDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
+            int class_id = Convert.ToInt32(classDG.SelectedRows[0].Cells[0].Value);
+
+            EditClassForm form = new EditClassForm(class_id, this);
+            form.Show();
+        }
+
+        private void deleteClass_Click(object sender, EventArgs e)
+        {
+            // get selected class
+            if (classDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
+            int class_id = Convert.ToInt32(classDG.SelectedRows[0].Cells[0].Value);
+
+            DialogResult deleteConfirmation = MessageBox.Show("Are you sure you want to delete selected class?", "Delete Confirmation", MessageBoxButtons.YesNo);
+
+            if (deleteConfirmation != DialogResult.Yes)
+            {
+                return;
+            }
+
+            Class.DeleteClass(class_id);
+            PopulateDGVs();
+
+        }
+
+        private void feedbackBtn_Click(object sender, EventArgs e)
+        {
+            // get selected section
+            if (courseDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
+            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+
+        }
+
+        private void reportBtn_Click(object sender, EventArgs e)
+        {
+            // get selected section
+            if (courseDG.SelectedRows.Count < 1)
+            {
+                return;
+            }
+            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
 
         }
     }

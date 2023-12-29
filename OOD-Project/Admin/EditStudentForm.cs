@@ -12,10 +12,10 @@ namespace OOD_Project.Admin
 {
     public partial class EditStudentForm : Form
     {
-        private usersListForms parentForm;
+        private ManageUsersForm parentForm;
         private Student oldStudent;
         List<Major> majors;
-        public EditStudentForm(Student oldStudent, usersListForms parentForm)
+        public EditStudentForm(Student oldStudent, ManageUsersForm parentForm)
         {
             majors = Major.GetMajors();
             InitializeComponent();
@@ -98,7 +98,7 @@ namespace OOD_Project.Admin
             DateTime inDOB = dateDOB.Value.Date;
 
             // TODO: implement validation
-            Student student = new Student(oldStudent.UserId, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, UserStatus.pending, false
+            Student student = new Student(oldStudent.UserId, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, UserStatus.pending
                 ,oldStudent.StudentId, inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
 
             // if there is student with universityId already, dont update
