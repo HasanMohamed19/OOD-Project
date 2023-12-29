@@ -155,6 +155,7 @@
             this.viewEmailsBtn.Click += new System.EventHandler(this.email_Click);
             // 
             // sendEmailBtn
+            // profileBar
             // 
             this.sendEmailBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
             this.sendEmailBtn.FlatAppearance.BorderSize = 0;
