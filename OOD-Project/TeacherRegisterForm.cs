@@ -63,7 +63,7 @@ namespace OOD_Project
             string inTeacherId = txtTeacherId.Text;
 
             // create user based on data received
-            Teacher teacher = new Teacher(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, UserStatus.pending,
+            Teacher teacher = new Teacher(0, inTeacherId, inCPR, inEmail, UserRole.teacher, UserStatus.pending,
                 0, inFName, inLName,inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
 
             try
