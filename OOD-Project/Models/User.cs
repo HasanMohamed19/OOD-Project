@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text.RegularExpressions;
 using OOD_Project.Admin;
+using System.Data.SqlClient;
 
 namespace OOD_Project
 {
@@ -273,6 +274,10 @@ namespace OOD_Project
             try
             {
                 dbm.Command.ExecuteNonQuery();
+            }
+            catch (SqlException e) when (e.Number == 547)
+            {
+                MessageBox.Show("This teacher has assigned section. Unassign him first and retry again.");
             }
             catch (Exception ex)
             {

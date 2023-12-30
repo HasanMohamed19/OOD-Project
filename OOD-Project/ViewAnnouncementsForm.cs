@@ -18,7 +18,47 @@ namespace OOD_Project
         {
             this.user_id = user_id;
             InitializeComponent();
-            PopulateAnnouncements();
+            if (user_id == 1)
+            {
+                PopulateAllAnnouncements();
+            } else
+            {
+                PopulateAnnouncements();
+            }
+            
+        }
+
+        private void PopulateAllAnnouncements()
+        {
+            // show all announcements for admin
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.CommandText = "SELECT announcement_id, title, announcement_type_name, date " +
+                " FROM [dbo].[announcement] a" +
+                " JOIN [dbo].[announcement_type] at ON a.announcement_type_id = at.announcement_type_id ORDER BY date DESC";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                while (dbm.Reader.Read())
+                {
+                    int announcementId = Convert.ToInt32(dbm.Reader["announcement_id"].ToString());
+                    announcementIds.Add(announcementId);
+                    var item = new ListViewItem(dbm.Reader["title"].ToString());
+                    item.SubItems.Add(dbm.Reader["announcement_type_name"].ToString());
+
+                    announcementsListView.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                dbm.Reader.Close();
+                dbm.Connection.Close();
+            }
         }
 
         public void PopulateAnnouncements()

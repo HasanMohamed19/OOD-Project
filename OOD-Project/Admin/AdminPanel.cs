@@ -44,7 +44,7 @@ namespace OOD_Project
 
         private void btnAddAnouncement_Click(object sender, EventArgs e)
         {
-            Helper.OpenChildForm(new AddAnouncementForm(), adminMainContent);
+            Helper.OpenChildForm(new ManageAnnouncements(), adminMainContent);
         }
 
         public void PerformNotificationAction(NotificationType type)
