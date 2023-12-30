@@ -60,7 +60,11 @@ namespace OOD_Project.TeacherGroup.ViewCourses
 
         private void studentsDG_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            
+            //  make sure only editing grade cell
+            if (studentsDG.CurrentCell.ColumnIndex != 2)
+            {
+                return;
+            }
 
             // get id of current cell
             string universityId = Convert.ToString(studentsDG.CurrentRow.Cells[0].Value);
