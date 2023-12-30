@@ -274,7 +274,10 @@ namespace OOD_Project
             try
             {
                 dbm.Command.ExecuteNonQuery();
-            } 
+            } catch (SqlException e) when (e.Number == 547)
+            {
+                MessageBox.Show("This teacher is already assigned to at least one course. Delete the courses first before removing this teacher.","Cannot Delete Teacher");
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
