@@ -174,7 +174,7 @@ namespace OOD_Project
                 string crn = dbm.Reader.GetString(1);
                 int capacity = dbm.Reader.GetInt32(2);
                 int teacher_id= dbm.Reader.GetInt32(3);
-                string reportPath = dbm.Reader.GetString(4);
+                string reportPath = dbm.Reader.IsDBNull(4) ? null : dbm.Reader.GetString(4);
                 bool isReportPublished = dbm.Reader.GetBoolean(5);
                 dbm.Reader.Close();
                 dbm.Connection.Close();

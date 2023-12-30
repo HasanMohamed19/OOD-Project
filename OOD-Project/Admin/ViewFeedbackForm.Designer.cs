@@ -33,20 +33,20 @@
             this.studentListView = new System.Windows.Forms.ListView();
             this.studentName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.feedbackTable = new System.Windows.Forms.TableLayoutPanel();
+            this.lblSuggestions = new System.Windows.Forms.Label();
+            this.lblA5 = new System.Windows.Forms.Label();
+            this.lblQ5 = new System.Windows.Forms.Label();
+            this.lblA4 = new System.Windows.Forms.Label();
+            this.lblQ4 = new System.Windows.Forms.Label();
+            this.lblA3 = new System.Windows.Forms.Label();
+            this.lblQ3 = new System.Windows.Forms.Label();
+            this.lblA2 = new System.Windows.Forms.Label();
+            this.lblQ2 = new System.Windows.Forms.Label();
+            this.lblQ1 = new System.Windows.Forms.Label();
+            this.lblA1 = new System.Windows.Forms.Label();
+            this.lblCourse = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblStudent = new System.Windows.Forms.Label();
-            this.lblCourse = new System.Windows.Forms.Label();
-            this.lblA1 = new System.Windows.Forms.Label();
-            this.lblQ1 = new System.Windows.Forms.Label();
-            this.lblQ2 = new System.Windows.Forms.Label();
-            this.lblA2 = new System.Windows.Forms.Label();
-            this.lblQ3 = new System.Windows.Forms.Label();
-            this.lblA3 = new System.Windows.Forms.Label();
-            this.lblQ4 = new System.Windows.Forms.Label();
-            this.lblA4 = new System.Windows.Forms.Label();
-            this.lblQ5 = new System.Windows.Forms.Label();
-            this.lblA5 = new System.Windows.Forms.Label();
-            this.lblSuggestions = new System.Windows.Forms.Label();
             this.feedbackTable.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.courseListView.Name = "courseListView";
             this.courseListView.Size = new System.Drawing.Size(200, 529);
             this.courseListView.TabIndex = 7;
-            this.courseListView.TileSize = new System.Drawing.Size(180, 90);
+            this.courseListView.TileSize = new System.Drawing.Size(175, 90);
             this.courseListView.UseCompatibleStateImageBehavior = false;
             this.courseListView.View = System.Windows.Forms.View.Tile;
             this.courseListView.SelectedIndexChanged += new System.EventHandler(this.courseListView_SelectedIndexChanged);
@@ -134,6 +134,140 @@
             this.feedbackTable.Size = new System.Drawing.Size(608, 529);
             this.feedbackTable.TabIndex = 9;
             // 
+            // lblSuggestions
+            // 
+            this.feedbackTable.SetColumnSpan(this.lblSuggestions, 2);
+            this.lblSuggestions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSuggestions.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuggestions.Location = new System.Drawing.Point(3, 413);
+            this.lblSuggestions.Name = "lblSuggestions";
+            this.lblSuggestions.Size = new System.Drawing.Size(602, 116);
+            this.lblSuggestions.TabIndex = 14;
+            this.lblSuggestions.Text = "Suggestion: \r\nGreat stuff!";
+            // 
+            // lblA5
+            // 
+            this.lblA5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblA5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblA5.Location = new System.Drawing.Point(307, 356);
+            this.lblA5.Name = "lblA5";
+            this.lblA5.Size = new System.Drawing.Size(298, 57);
+            this.lblA5.TabIndex = 13;
+            this.lblA5.Text = "Answer:\r\nStrongly Satisfied";
+            this.lblA5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblQ5
+            // 
+            this.lblQ5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblQ5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQ5.Location = new System.Drawing.Point(3, 356);
+            this.lblQ5.Name = "lblQ5";
+            this.lblQ5.Size = new System.Drawing.Size(298, 57);
+            this.lblQ5.TabIndex = 12;
+            this.lblQ5.Text = "Question 5: \r\nOverall, how satisfied are you with the course?";
+            this.lblQ5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblA4
+            // 
+            this.lblA4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblA4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblA4.Location = new System.Drawing.Point(307, 299);
+            this.lblA4.Name = "lblA4";
+            this.lblA4.Size = new System.Drawing.Size(298, 57);
+            this.lblA4.TabIndex = 11;
+            this.lblA4.Text = "Answer:\r\nStrongly Satisfied";
+            this.lblA4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblQ4
+            // 
+            this.lblQ4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblQ4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQ4.Location = new System.Drawing.Point(3, 299);
+            this.lblQ4.Name = "lblQ4";
+            this.lblQ4.Size = new System.Drawing.Size(298, 57);
+            this.lblQ4.TabIndex = 10;
+            this.lblQ4.Text = "Question 4: \r\nWas the course well-organized and easy to follow?";
+            this.lblQ4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblA3
+            // 
+            this.lblA3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblA3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblA3.Location = new System.Drawing.Point(307, 242);
+            this.lblA3.Name = "lblA3";
+            this.lblA3.Size = new System.Drawing.Size(298, 57);
+            this.lblA3.TabIndex = 9;
+            this.lblA3.Text = "Answer:\r\nStrongly Satisfied";
+            this.lblA3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblQ3
+            // 
+            this.lblQ3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblQ3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQ3.Location = new System.Drawing.Point(3, 242);
+            this.lblQ3.Name = "lblQ3";
+            this.lblQ3.Size = new System.Drawing.Size(298, 57);
+            this.lblQ3.TabIndex = 8;
+            this.lblQ3.Text = "Question 3: \r\nWas the level of difficulty appropriate for your understanding?";
+            this.lblQ3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblA2
+            // 
+            this.lblA2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblA2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblA2.Location = new System.Drawing.Point(307, 185);
+            this.lblA2.Name = "lblA2";
+            this.lblA2.Size = new System.Drawing.Size(298, 57);
+            this.lblA2.TabIndex = 7;
+            this.lblA2.Text = "Answer:\r\nStrongly Satisfied";
+            this.lblA2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblQ2
+            // 
+            this.lblQ2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblQ2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQ2.Location = new System.Drawing.Point(3, 185);
+            this.lblQ2.Name = "lblQ2";
+            this.lblQ2.Size = new System.Drawing.Size(298, 57);
+            this.lblQ2.TabIndex = 6;
+            this.lblQ2.Text = "Question 2: \r\nWere the course materials (textbooks, handouts, online resources) h" +
+    "elpful?";
+            this.lblQ2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblQ1
+            // 
+            this.lblQ1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblQ1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQ1.Location = new System.Drawing.Point(3, 128);
+            this.lblQ1.Name = "lblQ1";
+            this.lblQ1.Size = new System.Drawing.Size(298, 57);
+            this.lblQ1.TabIndex = 5;
+            this.lblQ1.Text = "Question 1: \r\nWere the assessments reflective of the course content and learning " +
+    "objectives?";
+            this.lblQ1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblA1
+            // 
+            this.lblA1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblA1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblA1.Location = new System.Drawing.Point(307, 128);
+            this.lblA1.Name = "lblA1";
+            this.lblA1.Size = new System.Drawing.Size(298, 57);
+            this.lblA1.TabIndex = 4;
+            this.lblA1.Text = "Answer:\r\nStrongly Satisfied";
+            this.lblA1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCourse
+            // 
+            this.lblCourse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCourse.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCourse.Location = new System.Drawing.Point(307, 71);
+            this.lblCourse.Name = "lblCourse";
+            this.lblCourse.Size = new System.Drawing.Size(298, 57);
+            this.lblCourse.TabIndex = 2;
+            this.lblCourse.Text = "Course: N/A";
+            this.lblCourse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblTitle
             // 
             this.feedbackTable.SetColumnSpan(this.lblTitle, 2);
@@ -156,140 +290,6 @@
             this.lblStudent.TabIndex = 1;
             this.lblStudent.Text = "Student: N/A";
             this.lblStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblCourse
-            // 
-            this.lblCourse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCourse.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCourse.Location = new System.Drawing.Point(307, 71);
-            this.lblCourse.Name = "lblCourse";
-            this.lblCourse.Size = new System.Drawing.Size(298, 57);
-            this.lblCourse.TabIndex = 2;
-            this.lblCourse.Text = "Course: N/A";
-            this.lblCourse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblA1
-            // 
-            this.lblA1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblA1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA1.Location = new System.Drawing.Point(307, 128);
-            this.lblA1.Name = "lblA1";
-            this.lblA1.Size = new System.Drawing.Size(298, 57);
-            this.lblA1.TabIndex = 4;
-            this.lblA1.Text = "Answer:\r\nStrongly Satisfied";
-            this.lblA1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblQ1
-            // 
-            this.lblQ1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblQ1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ1.Location = new System.Drawing.Point(3, 128);
-            this.lblQ1.Name = "lblQ1";
-            this.lblQ1.Size = new System.Drawing.Size(298, 57);
-            this.lblQ1.TabIndex = 5;
-            this.lblQ1.Text = "Question 1: \r\nWere the assessments reflective of the course content and learning " +
-    "objectives?";
-            this.lblQ1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblQ2
-            // 
-            this.lblQ2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblQ2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ2.Location = new System.Drawing.Point(3, 185);
-            this.lblQ2.Name = "lblQ2";
-            this.lblQ2.Size = new System.Drawing.Size(298, 57);
-            this.lblQ2.TabIndex = 6;
-            this.lblQ2.Text = "Question 2: \r\nWere the course materials (textbooks, handouts, online resources) h" +
-    "elpful?";
-            this.lblQ2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblA2
-            // 
-            this.lblA2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblA2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA2.Location = new System.Drawing.Point(307, 185);
-            this.lblA2.Name = "lblA2";
-            this.lblA2.Size = new System.Drawing.Size(298, 57);
-            this.lblA2.TabIndex = 7;
-            this.lblA2.Text = "Answer:\r\nStrongly Satisfied";
-            this.lblA2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblQ3
-            // 
-            this.lblQ3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblQ3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ3.Location = new System.Drawing.Point(3, 242);
-            this.lblQ3.Name = "lblQ3";
-            this.lblQ3.Size = new System.Drawing.Size(298, 57);
-            this.lblQ3.TabIndex = 8;
-            this.lblQ3.Text = "Question 3: \r\nWas the level of difficulty appropriate for your understanding?";
-            this.lblQ3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblA3
-            // 
-            this.lblA3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblA3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA3.Location = new System.Drawing.Point(307, 242);
-            this.lblA3.Name = "lblA3";
-            this.lblA3.Size = new System.Drawing.Size(298, 57);
-            this.lblA3.TabIndex = 9;
-            this.lblA3.Text = "Answer:\r\nStrongly Satisfied";
-            this.lblA3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblQ4
-            // 
-            this.lblQ4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblQ4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ4.Location = new System.Drawing.Point(3, 299);
-            this.lblQ4.Name = "lblQ4";
-            this.lblQ4.Size = new System.Drawing.Size(298, 57);
-            this.lblQ4.TabIndex = 10;
-            this.lblQ4.Text = "Question 4: \r\nWas the course well-organized and easy to follow?";
-            this.lblQ4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblA4
-            // 
-            this.lblA4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblA4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA4.Location = new System.Drawing.Point(307, 299);
-            this.lblA4.Name = "lblA4";
-            this.lblA4.Size = new System.Drawing.Size(298, 57);
-            this.lblA4.TabIndex = 11;
-            this.lblA4.Text = "Answer:\r\nStrongly Satisfied";
-            this.lblA4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblQ5
-            // 
-            this.lblQ5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblQ5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQ5.Location = new System.Drawing.Point(3, 356);
-            this.lblQ5.Name = "lblQ5";
-            this.lblQ5.Size = new System.Drawing.Size(298, 57);
-            this.lblQ5.TabIndex = 12;
-            this.lblQ5.Text = "Question 5: \r\nOverall, how satisfied are you with the course?";
-            this.lblQ5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblA5
-            // 
-            this.lblA5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblA5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblA5.Location = new System.Drawing.Point(307, 356);
-            this.lblA5.Name = "lblA5";
-            this.lblA5.Size = new System.Drawing.Size(298, 57);
-            this.lblA5.TabIndex = 13;
-            this.lblA5.Text = "Answer:\r\nStrongly Satisfied";
-            this.lblA5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblSuggestions
-            // 
-            this.feedbackTable.SetColumnSpan(this.lblSuggestions, 2);
-            this.lblSuggestions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSuggestions.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuggestions.Location = new System.Drawing.Point(3, 413);
-            this.lblSuggestions.Name = "lblSuggestions";
-            this.lblSuggestions.Size = new System.Drawing.Size(602, 116);
-            this.lblSuggestions.TabIndex = 14;
-            this.lblSuggestions.Text = "Suggestion: \r\nGreat stuff!";
             // 
             // ViewFeedbackForm
             // 

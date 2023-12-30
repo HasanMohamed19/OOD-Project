@@ -299,20 +299,20 @@ namespace OOD_Project
             this.tlpQuestion1.Controls.Add(this.RbNeutral1, 0, 0);
             this.tlpQuestion1.Controls.Add(this.RbVeryUnsatisfied1, 0, 0);
             this.tlpQuestion1.Controls.Add(this.RbUnsatisfied1, 0, 0);
-            this.tlpQuestion1.Location = new System.Drawing.Point(-3, 2);
+            this.tlpQuestion1.Location = new System.Drawing.Point(-3, -2);
             this.tlpQuestion1.Margin = new System.Windows.Forms.Padding(0);
             this.tlpQuestion1.Name = "tlpQuestion1";
             this.tlpQuestion1.RowCount = 1;
             this.tlpQuestion1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpQuestion1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tlpQuestion1.Size = new System.Drawing.Size(434, 45);
+            this.tlpQuestion1.Size = new System.Drawing.Size(434, 49);
             this.tlpQuestion1.TabIndex = 45;
             // 
             // RbSatisfied1
             // 
             this.RbSatisfied1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbSatisfied1.AutoSize = true;
-            this.RbSatisfied1.Location = new System.Drawing.Point(294, 16);
+            this.RbSatisfied1.Location = new System.Drawing.Point(294, 18);
             this.RbSatisfied1.Margin = new System.Windows.Forms.Padding(2);
             this.RbSatisfied1.Name = "RbSatisfied1";
             this.RbSatisfied1.Size = new System.Drawing.Size(14, 13);
@@ -324,7 +324,7 @@ namespace OOD_Project
             // 
             this.RbVerySatisfied1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVerySatisfied1.AutoSize = true;
-            this.RbVerySatisfied1.Location = new System.Drawing.Point(382, 16);
+            this.RbVerySatisfied1.Location = new System.Drawing.Point(382, 18);
             this.RbVerySatisfied1.Margin = new System.Windows.Forms.Padding(2);
             this.RbVerySatisfied1.Name = "RbVerySatisfied1";
             this.RbVerySatisfied1.Size = new System.Drawing.Size(14, 13);
@@ -336,7 +336,7 @@ namespace OOD_Project
             // 
             this.RbNeutral1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbNeutral1.AutoSize = true;
-            this.RbNeutral1.Location = new System.Drawing.Point(208, 16);
+            this.RbNeutral1.Location = new System.Drawing.Point(208, 18);
             this.RbNeutral1.Margin = new System.Windows.Forms.Padding(2);
             this.RbNeutral1.Name = "RbNeutral1";
             this.RbNeutral1.Size = new System.Drawing.Size(14, 13);
@@ -348,7 +348,7 @@ namespace OOD_Project
             // 
             this.RbVeryUnsatisfied1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVeryUnsatisfied1.AutoSize = true;
-            this.RbVeryUnsatisfied1.Location = new System.Drawing.Point(36, 16);
+            this.RbVeryUnsatisfied1.Location = new System.Drawing.Point(36, 18);
             this.RbVeryUnsatisfied1.Margin = new System.Windows.Forms.Padding(2);
             this.RbVeryUnsatisfied1.Name = "RbVeryUnsatisfied1";
             this.RbVeryUnsatisfied1.Size = new System.Drawing.Size(14, 13);
@@ -360,7 +360,7 @@ namespace OOD_Project
             // 
             this.RbUnsatisfied1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbUnsatisfied1.AutoSize = true;
-            this.RbUnsatisfied1.Location = new System.Drawing.Point(122, 16);
+            this.RbUnsatisfied1.Location = new System.Drawing.Point(122, 18);
             this.RbUnsatisfied1.Margin = new System.Windows.Forms.Padding(2);
             this.RbUnsatisfied1.Name = "RbUnsatisfied1";
             this.RbUnsatisfied1.Size = new System.Drawing.Size(14, 13);
@@ -410,7 +410,7 @@ namespace OOD_Project
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(433, 45);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(433, 54);
             this.tableLayoutPanel3.TabIndex = 40;
             // 
             // label5
@@ -418,7 +418,7 @@ namespace OOD_Project
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(356, 4);
+            this.label5.Location = new System.Drawing.Point(356, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 36);
@@ -430,7 +430,7 @@ namespace OOD_Project
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(269, 13);
+            this.label4.Location = new System.Drawing.Point(269, 18);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 18);
@@ -442,7 +442,7 @@ namespace OOD_Project
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(187, 13);
+            this.label3.Location = new System.Drawing.Point(187, 18);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 18);
@@ -454,7 +454,7 @@ namespace OOD_Project
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 4);
+            this.label1.Location = new System.Drawing.Point(4, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 36);
@@ -466,7 +466,7 @@ namespace OOD_Project
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(88, 13);
+            this.label2.Location = new System.Drawing.Point(88, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 18);

@@ -60,16 +60,18 @@ namespace OOD_Project
                     break;
                 case 2:
                     TeacherPanel teacherPanel = new TeacherPanel();
+                    Global.TeacherId = Teacher.GetTeacher(Global.UserId).TeacherId;
                     teacherPanel.Show();
                     this.Hide();
                     break;
                 case 3:
                     StudentPanel studentPanel = new StudentPanel();
+                    Global.StudentId = Student.GetStudent(Global.UserId).StudentId;
                     studentPanel.Show();
                     this.Hide();
                     break;
                 default:
-                    MessageBox.Show("Login unsuccessful. Invalid user type", "Login Failed");
+                    MessageBox.Show("Login unsuccessful.", "Login Failed");
                     break;
             }
         }

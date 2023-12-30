@@ -27,6 +27,81 @@ namespace OOD_Project
             this.byStudent = byStudent;
         }
 
+        public static void AddFeedback(Feedback feedback)
+        {
+            // insert feedback
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@student_id", feedback.ByStudent.StudentId);
+            dbm.Command.Parameters.AddWithValue("@suggesstions", feedback.Suggestions);
+            dbm.Command.Parameters.AddWithValue("@course_id", feedback.ForCourse.Id);
+            dbm.Command.CommandText = "INSERT INTO [dbo].[Feedback] (feedback_id, student_id, suggesstions, course_id)" +
+                "VALUES (NEXT VALUE FOR [dbo].[feedbackIDSequence], @student_id, @suggesstions, @course_id)";
+
+            try
+            {
+                dbm.Command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+            // get new feedback id
+            int newFeedbackId = -1;
+            dbm.Connection.Open();
+            dbm.Command.CommandText = "SELECT CAST(CURRENT_VALUE AS INT) FROM SYS.SEQUENCES WHERE NAME='feedbackIDSequence'";
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    newFeedbackId = dbm.Reader.GetInt32(0);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                dbm.Reader.Close();
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+            // insert answers
+            for (int i = 1; i<= 5; i++)
+            {
+                dbm.Connection.Open();
+                dbm.Command = dbm.Connection.CreateCommand();
+                dbm.Command.Parameters.AddWithValue("@feedback_id", newFeedbackId);
+                dbm.Command.Parameters.AddWithValue("@question_number", i);
+                dbm.Command.Parameters.AddWithValue("@answer_rating", feedback.Answers[i-1]);
+                dbm.Command.CommandText = "INSERT INTO [dbo].[Feedback_Answer] (feedback_answer_id, answer_rating, question_number, feedback_id)" +
+                    "VALUES (NEXT VALUE FOR [dbo].[FeedbackAnswerIDSequence], @answer_rating, @question_number, @feedback_id)";
+
+                try
+                {
+                    dbm.Command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    dbm.Command.Parameters.Clear();
+                    dbm.Connection.Close();
+                }
+            }
+        }
         public static Feedback GetFeedback(int course_id, int student_id)
         {
             Feedback feedback = null;
@@ -47,9 +122,6 @@ namespace OOD_Project
 
                 if (!dbm.Reader.Read())
                 {
-                    dbm.Reader.Close();
-                    dbm.Connection.Close();
-                    MessageBox.Show("ERROR: Feedback not found");
                     return null;
                 }
                 int feedbackId = dbm.Reader.GetInt32(0);
@@ -57,7 +129,7 @@ namespace OOD_Project
                 dbm.Reader.Close();
                 dbm.Connection.Close();
 
-                feedback = new Feedback(new List<int>(),suggestions, Course.GetCourse(course_id), feedbackId, Student.GetStudentFromStudentID(student_id));
+                feedback = new Feedback(new List<int>(5),suggestions, Course.GetCourse(course_id), feedbackId, Student.GetStudentFromStudentID(student_id));
 
                 // get answers
                 dbm.Connection.Open();
@@ -78,7 +150,11 @@ namespace OOD_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
+            } finally
+            {
+                dbm.Reader.Close();
+                dbm.Connection.Close();
             }
 
             return feedback;
