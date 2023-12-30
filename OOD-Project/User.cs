@@ -52,7 +52,7 @@ namespace OOD_Project
         {
             this.userId = userId;
             this.username = username;
-            this.Password= Password;
+            Password= password;
             Email = email;
             this.roleId = roleId;
             this.statusId = statusId;
@@ -320,7 +320,7 @@ namespace OOD_Project
 
         public static int SendEmail(Email email)
         {
-            email.Attach(email.Recipent);
+            email.Attach(email.Recipent); // add recipient as observer for notification
 
             int emailId = 0;
             DatabaseManager dbm = DatabaseManager.Instance();
@@ -346,9 +346,10 @@ namespace OOD_Project
                 dbm.Connection.Close();
 
             }
-            email.Notify();
+            email.Notify(); // send notification
 
 
+            // return new emailId
             dbm.Connection.Open();
 
             dbm.Command.CommandText = "SELECT CAST(CURRENT_VALUE AS INT) FROM SYS.SEQUENCES WHERE NAME='emailIDSequence'";

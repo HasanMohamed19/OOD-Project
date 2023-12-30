@@ -98,7 +98,7 @@ namespace OOD_Project
 
         // check if an inactive student account exists with this id
         // used to prevent admin from duplicating universityIds, they must be unique
-        public static bool InactiveStudentExistsWithId(string universityId)
+        public static bool InactiveStudentExistsWithId(string universityId, int existingStudentId)
         {
             List<int> status = new List<int>();
 
@@ -107,9 +107,11 @@ namespace OOD_Project
             dbm.Command = dbm.Connection.CreateCommand();
 
             dbm.Command.Parameters.AddWithValue("@student_university_id", universityId);
+            dbm.Command.Parameters.AddWithValue("@student_id", existingStudentId);
             dbm.Command.CommandText = "SELECT u.status_id FROM [dbo].[student] s, [dbo].[User] u " +
                 "WHERE s.user_id = u.user_id " +
-                "AND s.student_university_id = @student_university_id";
+                "AND s.student_university_id = @student_university_id " +
+                "AND NOT s.student_id = @student_id";
 
             dbm.Reader = dbm.Command.ExecuteReader();
 

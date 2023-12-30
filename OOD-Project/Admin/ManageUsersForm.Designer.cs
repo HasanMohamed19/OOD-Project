@@ -98,6 +98,7 @@
             this.currentUsersDG.MultiSelect = false;
             this.currentUsersDG.Name = "currentUsersDG";
             this.currentUsersDG.ReadOnly = true;
+            this.currentUsersDG.RowHeadersVisible = false;
             this.currentUsersDG.RowHeadersWidth = 51;
             this.currentUsersDG.RowTemplate.Height = 24;
             this.currentUsersDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -216,6 +217,7 @@
             this.inactiveDGV.MultiSelect = false;
             this.inactiveDGV.Name = "inactiveDGV";
             this.inactiveDGV.ReadOnly = true;
+            this.inactiveDGV.RowHeadersVisible = false;
             this.inactiveDGV.RowHeadersWidth = 51;
             this.inactiveDGV.RowTemplate.Height = 24;
             this.inactiveDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -234,6 +236,7 @@
             this.pendingDGV.MultiSelect = false;
             this.pendingDGV.Name = "pendingDGV";
             this.pendingDGV.ReadOnly = true;
+            this.pendingDGV.RowHeadersVisible = false;
             this.pendingDGV.RowHeadersWidth = 51;
             this.pendingDGV.RowTemplate.Height = 24;
             this.pendingDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

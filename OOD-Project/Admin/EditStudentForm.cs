@@ -103,7 +103,7 @@ namespace OOD_Project.Admin
                 ,oldStudent.StudentId, inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
 
             // if there is student with universityId already, dont update
-            if (Student.InactiveStudentExistsWithId(student.StudentUniversityId))
+            if (Student.InactiveStudentExistsWithId(student.StudentUniversityId, student.StudentId))
             {
                 MessageBox.Show("There is already a student with the same Student ID in the system. Please add a student with a different ID or delete the existing one.", "Student Already Exists");
                 return;

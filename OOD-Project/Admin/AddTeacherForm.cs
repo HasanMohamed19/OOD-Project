@@ -72,7 +72,7 @@ namespace OOD_Project.Admin
                 0, inFName, inLName, inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
 
             // if there is teacher with universityId already, dont add
-            if (Teacher.InactiveTeacherExistsWithId(teacher.TeacherUniversityId))
+            if (Teacher.InactiveTeacherExistsWithId(teacher.TeacherUniversityId, -1)) // use -1 because this is new teacher
             {
                 MessageBox.Show("There is already a teacher with the same Teacher ID in the system. Please add a teacher with a different ID or delete the existing one.", "Teacher Already Exists");
                 return;

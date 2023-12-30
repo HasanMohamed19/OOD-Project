@@ -213,7 +213,7 @@ namespace OOD_Project
 
         // check if an inactive teacher account exists with this id
         // used to prevent admin from duplicating universityIds, they must be unique
-        public static bool InactiveTeacherExistsWithId(string universityId)
+        public static bool InactiveTeacherExistsWithId(string universityId, int existingTeacherId)
         {
             List<int> status = new List<int>();
 
@@ -222,9 +222,11 @@ namespace OOD_Project
             dbm.Command = dbm.Connection.CreateCommand();
 
             dbm.Command.Parameters.AddWithValue("@teacher_university_id", universityId);
+            dbm.Command.Parameters.AddWithValue("@teacher_id", existingTeacherId);
             dbm.Command.CommandText = "SELECT u.status_id FROM [dbo].[teacher] t, [dbo].[User] u " +
                 "WHERE t.user_id = u.user_id " +
-                "AND t.teacher_university_id = @teacher_university_id";
+                "AND t.teacher_university_id = @teacher_university_id " +
+                "AND NOT t.teacher_id = @teacher_id";
 
             dbm.Reader = dbm.Command.ExecuteReader();
 

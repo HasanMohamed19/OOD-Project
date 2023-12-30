@@ -141,6 +141,12 @@ namespace OOD_Project.TeacherGroup.ViewCourses
                 string path = filePicker.FileName;
                 MessageBox.Show(path);
                 Teacher.UploadReport(path, courseId);
+                Course course = Course.GetCourse(courseId);
+                // send email for notification
+                Email email = new Email($"The grades for the course {course.Name} have been sent. Please check and publish them to students once ready.",0,User.GetUser(1),User.GetUser(Global.UserId), $"Grades Sent For {course.Code.Trim()}");
+
+                User.SendEmail(email);
+
             }
 
         }
