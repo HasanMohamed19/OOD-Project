@@ -157,5 +157,21 @@ namespace OOD_Project
         {
             setButtonEnabled();
         }
+
+        private void txtFNameT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent non-letter keys
+            }
+        }
+
+        private void txtLNameT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent non-letter keys
+            }
+        }
     }
 }

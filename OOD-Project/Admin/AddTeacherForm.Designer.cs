@@ -137,6 +137,7 @@
             this.comboBranch.Name = "comboBranch";
             this.comboBranch.Size = new System.Drawing.Size(245, 37);
             this.comboBranch.TabIndex = 37;
+            this.comboBranch.SelectedIndexChanged += new System.EventHandler(this.comboBranch_SelectedIndexChanged);
             // 
             // comboProgramme
             // 
@@ -148,6 +149,7 @@
             this.comboProgramme.Name = "comboProgramme";
             this.comboProgramme.Size = new System.Drawing.Size(245, 37);
             this.comboProgramme.TabIndex = 38;
+            this.comboProgramme.SelectedIndexChanged += new System.EventHandler(this.comboProgramme_SelectedIndexChanged);
             // 
             // txtTeacherId
             // 
@@ -155,9 +157,11 @@
             this.txtTeacherId.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTeacherId.Location = new System.Drawing.Point(643, 17);
             this.txtTeacherId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTeacherId.MaxLength = 10;
             this.txtTeacherId.Name = "txtTeacherId";
             this.txtTeacherId.Size = new System.Drawing.Size(245, 37);
             this.txtTeacherId.TabIndex = 36;
+            this.txtTeacherId.TextChanged += new System.EventHandler(this.txtTeacherId_TextChanged);
             this.txtTeacherId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTeacherId_KeyPress);
             // 
             // label1
@@ -218,9 +222,12 @@
             this.txtFNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFNameT.Location = new System.Drawing.Point(200, 17);
             this.txtFNameT.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFNameT.MaxLength = 30;
             this.txtFNameT.Name = "txtFNameT";
             this.txtFNameT.Size = new System.Drawing.Size(245, 37);
             this.txtFNameT.TabIndex = 17;
+            this.txtFNameT.TextChanged += new System.EventHandler(this.txtFNameT_TextChanged);
+            this.txtFNameT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFNameT_KeyPress);
             // 
             // txtLNameT
             // 
@@ -228,9 +235,12 @@
             this.txtLNameT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLNameT.Location = new System.Drawing.Point(200, 64);
             this.txtLNameT.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLNameT.MaxLength = 30;
             this.txtLNameT.Name = "txtLNameT";
             this.txtLNameT.Size = new System.Drawing.Size(245, 37);
             this.txtLNameT.TabIndex = 19;
+            this.txtLNameT.TextChanged += new System.EventHandler(this.txtLNameT_TextChanged);
+            this.txtLNameT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLNameT_KeyPress);
             // 
             // label19
             // 
@@ -310,9 +320,11 @@
             this.txtPhoneT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhoneT.Location = new System.Drawing.Point(643, 111);
             this.txtPhoneT.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPhoneT.MaxLength = 12;
             this.txtPhoneT.Name = "txtPhoneT";
             this.txtPhoneT.Size = new System.Drawing.Size(245, 37);
             this.txtPhoneT.TabIndex = 23;
+            this.txtPhoneT.TextChanged += new System.EventHandler(this.txtPhoneT_TextChanged);
             this.txtPhoneT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneT_KeyPress);
             // 
             // label22
@@ -334,9 +346,11 @@
             this.txtEmailT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmailT.Location = new System.Drawing.Point(200, 111);
             this.txtEmailT.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmailT.MaxLength = 50;
             this.txtEmailT.Name = "txtEmailT";
             this.txtEmailT.Size = new System.Drawing.Size(245, 37);
             this.txtEmailT.TabIndex = 25;
+            this.txtEmailT.TextChanged += new System.EventHandler(this.txtEmailT_TextChanged);
             // 
             // label23
             // 
@@ -370,9 +384,11 @@
             this.txtCPRT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPRT.Location = new System.Drawing.Point(200, 158);
             this.txtCPRT.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCPRT.MaxLength = 9;
             this.txtCPRT.Name = "txtCPRT";
             this.txtCPRT.Size = new System.Drawing.Size(245, 37);
             this.txtCPRT.TabIndex = 21;
+            this.txtCPRT.TextChanged += new System.EventHandler(this.txtCPRT_TextChanged);
             this.txtCPRT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPRT_KeyPress);
             // 
             // panelBottom

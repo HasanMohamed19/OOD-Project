@@ -21,6 +21,7 @@ namespace OOD_Project.Admin
             this.oldTeacher = oldTeacher;
             this.parentForm = parentForm;
             UpdateView();
+            btnSave.Enabled = false;
         }
         List<Branch> branches = Branch.GetBranches();
         public void CloseAndRefresh()
@@ -117,6 +118,20 @@ namespace OOD_Project.Admin
             CloseAndRefresh();
         }
 
+        private void setButtonEnabled()
+        {
+            if ((txtEmailT.Text != String.Empty) && (txtTeacherId.Text != String.Empty) && (txtCPRT.Text != String.Empty)
+                && (txtFNameT.Text != String.Empty) && (txtLNameT.Text != String.Empty) && (txtPhoneT.Text != String.Empty) && (txtTeacherId.Text != String.Empty)
+                && (!radioMaleT.Checked || !radioFemaleT.Checked) && comboProgramme.SelectedIndex != -1 && comboBranch.SelectedIndex != -1)
+            {
+                btnSave.Enabled = true;
+            }
+            else
+            {
+                btnSave.Enabled = false;
+            }
+        }
+
         private void txtTeacherId_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
@@ -130,6 +145,62 @@ namespace OOD_Project.Admin
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void txtFNameT_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtLNameT_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtEmailT_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtCPRT_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void comboProgramme_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtTeacherId_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtPhoneT_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void comboBranch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtFNameT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent non-letter keys
+            }
+        }
+
+        private void txtLNameT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent non-letter keys
             }
         }
     }

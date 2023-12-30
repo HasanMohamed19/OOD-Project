@@ -168,10 +168,12 @@
             this.txtFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFName.Location = new System.Drawing.Point(246, 17);
             this.txtFName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFName.MaxLength = 30;
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(245, 37);
             this.txtFName.TabIndex = 17;
             this.txtFName.TextChanged += new System.EventHandler(this.txtFName_TextChanged);
+            this.txtFName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFName_KeyPress);
             // 
             // txtLName
             // 
@@ -179,10 +181,12 @@
             this.txtLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLName.Location = new System.Drawing.Point(246, 64);
             this.txtLName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLName.MaxLength = 30;
             this.txtLName.Name = "txtLName";
             this.txtLName.Size = new System.Drawing.Size(245, 37);
             this.txtLName.TabIndex = 19;
             this.txtLName.TextChanged += new System.EventHandler(this.txtLName_TextChanged);
+            this.txtLName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLName_KeyPress);
             // 
             // label11
             // 
@@ -262,6 +266,7 @@
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Location = new System.Drawing.Point(755, 111);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPhone.MaxLength = 12;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(245, 37);
             this.txtPhone.TabIndex = 23;
@@ -287,6 +292,7 @@
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(246, 111);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(245, 37);
             this.txtEmail.TabIndex = 25;
@@ -311,6 +317,7 @@
             this.txtStudentID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStudentID.Location = new System.Drawing.Point(755, 17);
             this.txtStudentID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStudentID.MaxLength = 10;
             this.txtStudentID.Name = "txtStudentID";
             this.txtStudentID.Size = new System.Drawing.Size(245, 37);
             this.txtStudentID.TabIndex = 32;
@@ -336,6 +343,7 @@
             this.txtCPR.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPR.Location = new System.Drawing.Point(246, 158);
             this.txtCPR.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCPR.MaxLength = 9;
             this.txtCPR.Name = "txtCPR";
             this.txtCPR.Size = new System.Drawing.Size(245, 37);
             this.txtCPR.TabIndex = 21;

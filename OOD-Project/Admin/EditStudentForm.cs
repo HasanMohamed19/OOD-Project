@@ -23,6 +23,7 @@ namespace OOD_Project.Admin
             this.parentForm = parentForm;
             this.oldStudent = oldStudent;
             UpdateView();
+            btnSave.Enabled = false;
         }
 
         public void CloseAndRefresh()
@@ -96,7 +97,7 @@ namespace OOD_Project.Admin
                 return;
             }
             DateTime inDOB = dateDOB.Value.Date;
-
+            
             // TODO: implement validation
             Student student = new Student(oldStudent.UserId, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, UserStatus.pending
                 ,oldStudent.StudentId, inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
@@ -110,6 +111,20 @@ namespace OOD_Project.Admin
 
             Student.UpdateStudent(student);
             CloseAndRefresh();
+        }
+
+        private void setButtonEnabled()
+        {
+            if ((txtEmail.Text != String.Empty) && (txtStudentID.Text != String.Empty) && (txtCPR.Text != String.Empty)
+                && (txtFName.Text != String.Empty) && (txtLName.Text != String.Empty) && (txtPhone.Text != String.Empty) && (txtStudentID.Text != String.Empty)
+                && (!radioMale.Checked || !radioFemale.Checked) && comboMajor.SelectedIndex != -1)
+            {
+                btnSave.Enabled = true;
+            }
+            else
+            {
+                btnSave.Enabled = false;
+            }
         }
 
         private void txtStudentID_KeyPress(object sender, KeyPressEventArgs e)
@@ -126,6 +141,57 @@ namespace OOD_Project.Admin
             {
                 e.Handled = true;
             }
+        }
+
+        private void txtFName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent non-letter keys
+            }
+        }
+
+        private void txtLName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent non-letter keys
+            }
+        }
+
+        private void txtFName_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtLName_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtCPR_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void comboMajor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtStudentID_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+            setButtonEnabled();
         }
     }
 }

@@ -155,5 +155,13 @@ namespace OOD_Project.Admin
             //}
             setButtonEnabled();
         }
+
+        private void txtFName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;  // Prevent non-letter keys
+            }
+        }
     }
 }
