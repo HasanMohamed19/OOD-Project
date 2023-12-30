@@ -195,7 +195,7 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@course_id", courseId);
             dbm.Command.Parameters.AddWithValue("@student_id", student_id);
             dbm.Command.CommandText = "SELECT c.name, c.credits, c.description, p.programme_name, cl.start_time, cl.end_time, cl.building, cl.room_number, " +
-                "s.crn, s.is_report_published, r.student_grade, t.first_name, t.last_name, " +
+                "s.crn, CASE WHEN (s.is_report_published = 'TRUE') THEN LTRIM(STR(r.student_grade,4,1)) ELSE 'Not Available' END AS student_grade, t.first_name, t.last_name, " +
                 "w.week_day FROM [dbo].[course] c " +
                 "JOIN [dbo].[section] s ON c.course_id = s.course_id " +
                 " JOIN [dbo].[teacher] t ON t.teacher_id = s.teacher_id " +
@@ -217,16 +217,7 @@ namespace OOD_Project
                     courseCreditsLabel.Text = "Credits: " + dbm.Reader["credits"].ToString();
                     courseProgrammeLabel.Text = "Programme: " + dbm.Reader["programme_name"].ToString();
                     courseDescription.Text = "Description: " + dbm.Reader["description"].ToString();
-                    if (Convert.ToBoolean(dbm.Reader["is_report_published"]))
-                    {
-                        courseSectionLabel.Text = "Grade: " + (dbm.Reader["student_grade"].ToString());
-                    } else if (Convert.ToBoolean(dbm.Reader["is_report_published"]))
-                    {
-                        courseSectionLabel.Text = "Grade: Not Published Yet";
-                    } else
-                    {
-                        courseSectionLabel.Text = "Grade: " + (dbm.Reader.IsDBNull(9) ? "N/A" : dbm.Reader["student_grade"]).ToString();
-                    }
+                    courseSectionLabel.Text = "Grade: " + dbm.Reader["student_grade"].ToString();
                     
                     ListViewItem classDetails = new ListViewItem(dbm.Reader["week_day"].ToString());
                     classDetails.SubItems.Add(dbm.Reader["start_time"] + " - " + dbm.Reader["end_time"]);

@@ -30,7 +30,8 @@ namespace OOD_Project.Admin
         private void PopulateCourseDGV()
         {
             string command = "SELECT s.section_id, c.code AS Code, c.name AS Name, t.first_name + ' ' + t.last_name AS Teacher, " +
-                "s.is_report_published AS 'Report Published', p.programme_name AS Programme, c.credits AS Credits, s.capacity AS Capacity, s.crn AS CRN," +
+                "s.is_report_published AS 'Report Published', CASE WHEN (s.report_path IS NOT NULL) THEN 'Available' ELSE " +
+                "'Not Available' END AS Report, p.programme_name AS Programme, c.credits AS Credits, s.capacity AS Capacity, s.crn AS CRN," +
                 " c.description AS Description " +
                 "FROM [dbo].[course] c " +
                 "JOIN [dbo].[section] s ON c.course_id = s.course_id " +
