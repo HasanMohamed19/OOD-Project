@@ -259,9 +259,11 @@
             this.txtCredits.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCredits.Location = new System.Drawing.Point(694, 69);
             this.txtCredits.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCredits.MaxLength = 2;
             this.txtCredits.Name = "txtCredits";
             this.txtCredits.Size = new System.Drawing.Size(245, 37);
             this.txtCredits.TabIndex = 51;
+            this.txtCredits.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCredits_KeyPress);
             // 
             // comboTeacher
             // 
@@ -280,6 +282,7 @@
             this.txtCRN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCRN.Location = new System.Drawing.Point(221, 234);
             this.txtCRN.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCRN.MaxLength = 10;
             this.txtCRN.Name = "txtCRN";
             this.txtCRN.Size = new System.Drawing.Size(245, 37);
             this.txtCRN.TabIndex = 48;
@@ -331,6 +334,7 @@
             this.txtCapacity.Name = "txtCapacity";
             this.txtCapacity.Size = new System.Drawing.Size(245, 37);
             this.txtCapacity.TabIndex = 45;
+            this.txtCapacity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCapacity_KeyPress);
             // 
             // comboProgramme
             // 
@@ -349,6 +353,7 @@
             this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCode.Location = new System.Drawing.Point(221, 16);
             this.txtCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCode.MaxLength = 10;
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(245, 37);
             this.txtCode.TabIndex = 42;
@@ -423,6 +428,7 @@
             this.txtCourseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCourseName.Location = new System.Drawing.Point(221, 69);
             this.txtCourseName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCourseName.MaxLength = 50;
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.Size = new System.Drawing.Size(245, 37);
             this.txtCourseName.TabIndex = 10;
@@ -433,6 +439,7 @@
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(219, 115);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(17, 5, 4, 4);
+            this.txtDescription.MaxLength = 500;
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(719, 111);

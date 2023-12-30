@@ -97,7 +97,7 @@ namespace OOD_Project.Admin
             this.btnRight.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRight.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnRight.Location = new System.Drawing.Point(620, 16);
-            this.btnRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRight.Margin = new System.Windows.Forms.Padding(4);
             this.btnRight.Name = "btnRight";
             this.btnRight.Size = new System.Drawing.Size(336, 66);
             this.btnRight.TabIndex = 37;
@@ -111,7 +111,7 @@ namespace OOD_Project.Admin
             this.panelHeader.Controls.Add(this.headerLbl);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(4);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(972, 71);
             this.panelHeader.TabIndex = 40;
@@ -173,10 +173,12 @@ namespace OOD_Project.Admin
             this.txtCredits.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCredits.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCredits.Location = new System.Drawing.Point(694, 69);
-            this.txtCredits.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCredits.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCredits.MaxLength = 2;
             this.txtCredits.Name = "txtCredits";
             this.txtCredits.Size = new System.Drawing.Size(245, 37);
             this.txtCredits.TabIndex = 51;
+            this.txtCredits.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCredits_KeyPress);
             // 
             // comboTeacher
             // 
@@ -184,7 +186,7 @@ namespace OOD_Project.Admin
             this.comboTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTeacher.FormattingEnabled = true;
             this.comboTeacher.Location = new System.Drawing.Point(694, 238);
-            this.comboTeacher.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboTeacher.Margin = new System.Windows.Forms.Padding(4);
             this.comboTeacher.Name = "comboTeacher";
             this.comboTeacher.Size = new System.Drawing.Size(245, 37);
             this.comboTeacher.TabIndex = 50;
@@ -194,7 +196,8 @@ namespace OOD_Project.Admin
             this.txtCRN.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCRN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCRN.Location = new System.Drawing.Point(221, 234);
-            this.txtCRN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCRN.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCRN.MaxLength = 10;
             this.txtCRN.Name = "txtCRN";
             this.txtCRN.Size = new System.Drawing.Size(245, 37);
             this.txtCRN.TabIndex = 48;
@@ -242,10 +245,11 @@ namespace OOD_Project.Admin
             this.txtCapacity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCapacity.Location = new System.Drawing.Point(221, 287);
-            this.txtCapacity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCapacity.Margin = new System.Windows.Forms.Padding(4);
             this.txtCapacity.Name = "txtCapacity";
             this.txtCapacity.Size = new System.Drawing.Size(245, 37);
             this.txtCapacity.TabIndex = 45;
+            this.txtCapacity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCapacity_KeyPress);
             // 
             // comboProgramme
             // 
@@ -253,7 +257,7 @@ namespace OOD_Project.Admin
             this.comboProgramme.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboProgramme.FormattingEnabled = true;
             this.comboProgramme.Location = new System.Drawing.Point(694, 20);
-            this.comboProgramme.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboProgramme.Margin = new System.Windows.Forms.Padding(4);
             this.comboProgramme.Name = "comboProgramme";
             this.comboProgramme.Size = new System.Drawing.Size(245, 37);
             this.comboProgramme.TabIndex = 44;
@@ -263,7 +267,8 @@ namespace OOD_Project.Admin
             this.txtCode.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCode.Location = new System.Drawing.Point(221, 16);
-            this.txtCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCode.MaxLength = 10;
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(245, 37);
             this.txtCode.TabIndex = 42;
@@ -337,7 +342,8 @@ namespace OOD_Project.Admin
             this.txtCourseName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCourseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCourseName.Location = new System.Drawing.Point(221, 69);
-            this.txtCourseName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCourseName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCourseName.MaxLength = 50;
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.Size = new System.Drawing.Size(245, 37);
             this.txtCourseName.TabIndex = 10;
@@ -348,6 +354,7 @@ namespace OOD_Project.Admin
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(219, 115);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(17, 5, 4, 4);
+            this.txtDescription.MaxLength = 500;
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(719, 111);
@@ -359,7 +366,7 @@ namespace OOD_Project.Admin
             this.bottomPnl.Controls.Add(this.btnRight);
             this.bottomPnl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.bottomPnl.Location = new System.Drawing.Point(0, 399);
-            this.bottomPnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bottomPnl.Margin = new System.Windows.Forms.Padding(4);
             this.bottomPnl.Name = "bottomPnl";
             this.bottomPnl.Size = new System.Drawing.Size(972, 97);
             this.bottomPnl.TabIndex = 42;
@@ -373,7 +380,7 @@ namespace OOD_Project.Admin
             this.btnLeft.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLeft.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnLeft.Location = new System.Drawing.Point(16, 16);
-            this.btnLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLeft.Margin = new System.Windows.Forms.Padding(4);
             this.btnLeft.Name = "btnLeft";
             this.btnLeft.Size = new System.Drawing.Size(336, 66);
             this.btnLeft.TabIndex = 38;
@@ -392,7 +399,7 @@ namespace OOD_Project.Admin
             this.pagesContainer.Controls.Add(this.coursePage, 0, 0);
             this.pagesContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pagesContainer.Location = new System.Drawing.Point(0, 71);
-            this.pagesContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pagesContainer.Margin = new System.Windows.Forms.Padding(4);
             this.pagesContainer.Name = "pagesContainer";
             this.pagesContainer.RowCount = 1;
             this.pagesContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -429,7 +436,7 @@ namespace OOD_Project.Admin
             this.studentsListView.FullRowSelect = true;
             this.studentsListView.HideSelection = false;
             this.studentsListView.Location = new System.Drawing.Point(4, 4);
-            this.studentsListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.studentsListView.Margin = new System.Windows.Forms.Padding(4);
             this.studentsListView.Name = "studentsListView";
             this.studentsListView.Size = new System.Drawing.Size(963, 320);
             this.studentsListView.TabIndex = 58;
@@ -506,7 +513,7 @@ namespace OOD_Project.Admin
             this.btnDeleteClass.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteClass.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnDeleteClass.Location = new System.Drawing.Point(725, 129);
-            this.btnDeleteClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteClass.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteClass.Name = "btnDeleteClass";
             this.btnDeleteClass.Size = new System.Drawing.Size(230, 38);
             this.btnDeleteClass.TabIndex = 56;
@@ -523,7 +530,7 @@ namespace OOD_Project.Admin
             this.btnAddClass.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddClass.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnAddClass.Location = new System.Drawing.Point(489, 129);
-            this.btnAddClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddClass.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddClass.Name = "btnAddClass";
             this.btnAddClass.Size = new System.Drawing.Size(228, 38);
             this.btnAddClass.TabIndex = 55;
@@ -538,7 +545,7 @@ namespace OOD_Project.Admin
             this.timeEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.timeEnd.Location = new System.Drawing.Point(221, 77);
-            this.timeEnd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeEnd.Margin = new System.Windows.Forms.Padding(4);
             this.timeEnd.Name = "timeEnd";
             this.timeEnd.ShowUpDown = true;
             this.timeEnd.Size = new System.Drawing.Size(245, 29);
@@ -551,7 +558,7 @@ namespace OOD_Project.Admin
             this.comboDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboDay.FormattingEnabled = true;
             this.comboDay.Location = new System.Drawing.Point(221, 126);
-            this.comboDay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboDay.Margin = new System.Windows.Forms.Padding(4);
             this.comboDay.Name = "comboDay";
             this.comboDay.Size = new System.Drawing.Size(245, 37);
             this.comboDay.TabIndex = 51;
@@ -561,7 +568,7 @@ namespace OOD_Project.Admin
             this.txtRoom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRoom.Location = new System.Drawing.Point(725, 69);
-            this.txtRoom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRoom.Margin = new System.Windows.Forms.Padding(4);
             this.txtRoom.Name = "txtRoom";
             this.txtRoom.Size = new System.Drawing.Size(229, 37);
             this.txtRoom.TabIndex = 48;
@@ -619,7 +626,7 @@ namespace OOD_Project.Admin
             this.txtBuilding.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtBuilding.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuilding.Location = new System.Drawing.Point(725, 16);
-            this.txtBuilding.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuilding.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuilding.Name = "txtBuilding";
             this.txtBuilding.Size = new System.Drawing.Size(229, 37);
             this.txtBuilding.TabIndex = 42;
@@ -643,7 +650,7 @@ namespace OOD_Project.Admin
             this.timeStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.timeStart.Location = new System.Drawing.Point(221, 24);
-            this.timeStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeStart.Margin = new System.Windows.Forms.Padding(4);
             this.timeStart.Name = "timeStart";
             this.timeStart.ShowUpDown = true;
             this.timeStart.Size = new System.Drawing.Size(245, 29);
@@ -665,7 +672,7 @@ namespace OOD_Project.Admin
             this.classesListView.FullRowSelect = true;
             this.classesListView.HideSelection = false;
             this.classesListView.Location = new System.Drawing.Point(17, 175);
-            this.classesListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.classesListView.Margin = new System.Windows.Forms.Padding(4);
             this.classesListView.MultiSelect = false;
             this.classesListView.Name = "classesListView";
             this.classesListView.Size = new System.Drawing.Size(938, 137);
@@ -713,7 +720,7 @@ namespace OOD_Project.Admin
             this.Controls.Add(this.bottomPnl);
             this.Controls.Add(this.panelHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddCourseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Course";
