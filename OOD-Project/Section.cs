@@ -326,10 +326,10 @@ namespace OOD_Project
 
             try
             {
-                int rows = dbm.Command.ExecuteNonQuery();
+                dbm.Command.ExecuteNonQuery();
             } catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
             } finally
             {
                 dbm.Command.Parameters.Clear();

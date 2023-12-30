@@ -29,14 +29,20 @@ namespace OOD_Project.Admin
 
         private void PopulateCourseDGV()
         {
-            string command = "SELECT c.code AS Code, c.name AS Name, t.first_name + ' ' + t.last_name AS Teacher, " +
-                "p.programme_name AS Programme, c.credits AS Credits, s.capacity AS Capacity, s.crn AS CRN," +
-                " c.description AS Description, s.section_id, s.is_report_published AS 'Report Published' " +
+            string command = "SELECT s.section_id, c.code AS Code, c.name AS Name, t.first_name + ' ' + t.last_name AS Teacher, " +
+                "s.is_report_published AS 'Report Published', p.programme_name AS Programme, c.credits AS Credits, s.capacity AS Capacity, s.crn AS CRN," +
+                " c.description AS Description " +
                 "FROM [dbo].[course] c " +
                 "JOIN [dbo].[section] s ON c.course_id = s.course_id " +
                 "JOIN [dbo].[teacher] t ON s.teacher_id = t.teacher_id " +
                 "JOIN [dbo].[programme] p on c.programme_id = p.programme_id ";
             PopulateDataGrid(courseDG, command);
+            courseDG.Columns[0].Visible = false;
+        }
+
+        private int GetSectionId()
+        {
+            return Convert.ToInt32(courseDG.SelectedRows[0].Cells[0].Value);
         }
 
         private void PopulateClassDGV()
@@ -47,7 +53,7 @@ namespace OOD_Project.Admin
                 return;
             }
 
-            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+            int section_id = GetSectionId();
 
             DatabaseManager dbm = DatabaseManager.Instance();
 
@@ -108,7 +114,7 @@ namespace OOD_Project.Admin
             {
                 return;
             }
-            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+            int section_id = GetSectionId();
 
             // check if there are registered students in the course
             if (!Section.CanDeleteSection(section_id))
@@ -137,7 +143,7 @@ namespace OOD_Project.Admin
             {
                 return;
             }
-            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+            int section_id = GetSectionId();
 
             EditCourseForm editCourseForm = new EditCourseForm(section_id, this);
             editCourseForm.Show();
@@ -165,7 +171,7 @@ namespace OOD_Project.Admin
             {
                 return;
             }
-            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+            int section_id = GetSectionId();
 
             AddClassForm form = new AddClassForm(section_id, this);
             form.Show();
@@ -212,7 +218,7 @@ namespace OOD_Project.Admin
             {
                 return;
             }
-            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
+            int section_id = GetSectionId();
 
         }
 
@@ -224,8 +230,7 @@ namespace OOD_Project.Admin
                 return;
             }
 
-            int section_id = Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value);
-            bool isReportPublished = Convert.ToBoolean(courseDG.SelectedRows[0].Cells[9].Value);
+            int section_id = GetSectionId();
             string reportPath = Section.GetReport(section_id);
 
             if (!string.IsNullOrWhiteSpace(reportPath))
@@ -240,7 +245,7 @@ namespace OOD_Project.Admin
                     string selectedFileName = saveFileDialog.FileName;
                     string selectedDirectoryPath = Path.GetDirectoryName(selectedFileName);
                     
-                    string courseID = Course.getCourseIdByCourseCode(courseDG.SelectedRows[0].Cells[0].Value.ToString());
+                    string courseID = Course.getCourseIdByCourseCode(courseDG.SelectedRows[0].Cells[1].Value.ToString());
                     MessageBox.Show(Path.Combine(DocumentHelper.coursesDirectory, courseID, "Reports", reportName));
                     DocumentHelper.CopyFile(Path.Combine(DocumentHelper.coursesDirectory, courseID, "Reports", reportName), Path.Combine(selectedDirectoryPath, selectedFileName));
                 }
@@ -251,14 +256,21 @@ namespace OOD_Project.Admin
 
         private void btnPublishReport_Click(object sender, EventArgs e)
         {
-            List<User> students = Student.GetStudentsOfCourse(Convert.ToInt32(courseDG.SelectedRows[0].Cells[8].Value));
-            string courseCode = courseDG.SelectedRows[0].Cells[0].Value.ToString();
-            string courseName = courseDG.SelectedRows[0].Cells[1].Value.ToString();
-            string sectionId = courseDG.SelectedRows[0].Cells[8].Value.ToString();
+            bool isReportPublished = Convert.ToBoolean(courseDG.SelectedRows[0].Cells[4].Value);
+            if (isReportPublished)
+            {
+                MessageBox.Show("Report has already been published.", "Cannot Publish");
+                return;
+            }
+            List<User> students = Student.GetStudentsOfCourse(GetSectionId());
+            string courseCode = courseDG.SelectedRows[0].Cells[1].Value.ToString();
+            string courseName = courseDG.SelectedRows[0].Cells[2].Value.ToString();
+            string sectionId = GetSectionId().ToString();
             Announcement announcement = new Announcement(0, $"{courseCode}-{courseName} grade has been published.", DateTime.Now, students, false, "Grade Published", Announcement.AnnouncementType.grade);
             Announcement.PublishAnnouncement(announcement);
             Section.PublishReport(sectionId);
             // need to check path before? and how to update the view
+            PopulateDGVs();
         }
     }
 }
