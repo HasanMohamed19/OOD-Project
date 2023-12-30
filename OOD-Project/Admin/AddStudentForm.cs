@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -76,7 +77,12 @@ namespace OOD_Project.Admin
             }
             DateTime inDOB = dateDOB.Value.Date;
 
-
+            // validate email
+            if (!Regex.Match(inEmail, "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$").Success)
+            {
+                MessageBox.Show("Your email is invalid. Please retry.","Invalid Email");
+                return;
+            }
 
             // TODO: implement validation
             Student student = new Student(0, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, status

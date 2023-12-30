@@ -96,10 +96,9 @@ namespace OOD_Project.Admin
             this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRight.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRight.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRight.Location = new System.Drawing.Point(620, 16);
-            this.btnRight.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRight.Location = new System.Drawing.Point(465, 13);
             this.btnRight.Name = "btnRight";
-            this.btnRight.Size = new System.Drawing.Size(336, 66);
+            this.btnRight.Size = new System.Drawing.Size(252, 54);
             this.btnRight.TabIndex = 37;
             this.btnRight.Text = "Next";
             this.btnRight.UseVisualStyleBackColor = false;
@@ -111,9 +110,8 @@ namespace OOD_Project.Admin
             this.panelHeader.Controls.Add(this.headerLbl);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Margin = new System.Windows.Forms.Padding(4);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(972, 71);
+            this.panelHeader.Size = new System.Drawing.Size(729, 58);
             this.panelHeader.TabIndex = 40;
             // 
             // headerLbl
@@ -122,9 +120,8 @@ namespace OOD_Project.Admin
             this.headerLbl.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.headerLbl.ForeColor = System.Drawing.SystemColors.ControlText;
             this.headerLbl.Location = new System.Drawing.Point(0, 0);
-            this.headerLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.headerLbl.Name = "headerLbl";
-            this.headerLbl.Size = new System.Drawing.Size(972, 71);
+            this.headerLbl.Size = new System.Drawing.Size(729, 58);
             this.headerLbl.TabIndex = 37;
             this.headerLbl.Text = "Course Form";
             this.headerLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -155,28 +152,27 @@ namespace OOD_Project.Admin
             this.coursePage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.coursePage.Location = new System.Drawing.Point(0, 0);
             this.coursePage.Margin = new System.Windows.Forms.Padding(0);
-            this.coursePage.MaximumSize = new System.Drawing.Size(972, 0);
-            this.coursePage.MinimumSize = new System.Drawing.Size(972, 0);
+            this.coursePage.MaximumSize = new System.Drawing.Size(729, 0);
+            this.coursePage.MinimumSize = new System.Drawing.Size(729, 0);
             this.coursePage.Name = "coursePage";
-            this.coursePage.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.coursePage.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.coursePage.RowCount = 5;
             this.coursePage.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.coursePage.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.coursePage.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.coursePage.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.coursePage.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.coursePage.Size = new System.Drawing.Size(972, 328);
+            this.coursePage.Size = new System.Drawing.Size(729, 266);
             this.coursePage.TabIndex = 41;
             // 
             // txtCredits
             // 
             this.txtCredits.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCredits.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCredits.Location = new System.Drawing.Point(694, 69);
-            this.txtCredits.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCredits.Location = new System.Drawing.Point(519, 56);
             this.txtCredits.MaxLength = 2;
             this.txtCredits.Name = "txtCredits";
-            this.txtCredits.Size = new System.Drawing.Size(245, 37);
+            this.txtCredits.Size = new System.Drawing.Size(185, 31);
             this.txtCredits.TabIndex = 51;
             this.txtCredits.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCredits_KeyPress);
             // 
@@ -185,31 +181,29 @@ namespace OOD_Project.Admin
             this.comboTeacher.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboTeacher.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboTeacher.FormattingEnabled = true;
-            this.comboTeacher.Location = new System.Drawing.Point(694, 238);
-            this.comboTeacher.Margin = new System.Windows.Forms.Padding(4);
+            this.comboTeacher.Location = new System.Drawing.Point(519, 193);
             this.comboTeacher.Name = "comboTeacher";
-            this.comboTeacher.Size = new System.Drawing.Size(245, 37);
+            this.comboTeacher.Size = new System.Drawing.Size(185, 32);
             this.comboTeacher.TabIndex = 50;
             // 
             // txtCRN
             // 
             this.txtCRN.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCRN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCRN.Location = new System.Drawing.Point(221, 234);
-            this.txtCRN.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCRN.Location = new System.Drawing.Point(164, 191);
             this.txtCRN.MaxLength = 10;
             this.txtCRN.Name = "txtCRN";
-            this.txtCRN.Size = new System.Drawing.Size(245, 37);
+            this.txtCRN.Size = new System.Drawing.Size(185, 31);
             this.txtCRN.TabIndex = 48;
             // 
             // crnLbl
             // 
             this.crnLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crnLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.crnLbl.Location = new System.Drawing.Point(17, 239);
-            this.crnLbl.Margin = new System.Windows.Forms.Padding(4, 9, 4, 0);
+            this.crnLbl.Location = new System.Drawing.Point(13, 195);
+            this.crnLbl.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.crnLbl.Name = "crnLbl";
-            this.crnLbl.Size = new System.Drawing.Size(181, 44);
+            this.crnLbl.Size = new System.Drawing.Size(135, 36);
             this.crnLbl.TabIndex = 49;
             this.crnLbl.Text = "CRN:";
             this.crnLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -219,10 +213,9 @@ namespace OOD_Project.Admin
             this.teacherLbl.AutoSize = true;
             this.teacherLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teacherLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teacherLbl.Location = new System.Drawing.Point(489, 230);
-            this.teacherLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.teacherLbl.Location = new System.Drawing.Point(366, 188);
             this.teacherLbl.Name = "teacherLbl";
-            this.teacherLbl.Size = new System.Drawing.Size(181, 53);
+            this.teacherLbl.Size = new System.Drawing.Size(135, 43);
             this.teacherLbl.TabIndex = 47;
             this.teacherLbl.Text = "Teacher:";
             this.teacherLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -232,10 +225,9 @@ namespace OOD_Project.Admin
             this.capacityLbl.AutoSize = true;
             this.capacityLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.capacityLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.capacityLbl.Location = new System.Drawing.Point(17, 283);
-            this.capacityLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.capacityLbl.Location = new System.Drawing.Point(13, 231);
             this.capacityLbl.Name = "capacityLbl";
-            this.capacityLbl.Size = new System.Drawing.Size(181, 45);
+            this.capacityLbl.Size = new System.Drawing.Size(135, 37);
             this.capacityLbl.TabIndex = 46;
             this.capacityLbl.Text = "Capacity:";
             this.capacityLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -244,10 +236,9 @@ namespace OOD_Project.Admin
             // 
             this.txtCapacity.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCapacity.Location = new System.Drawing.Point(221, 287);
-            this.txtCapacity.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCapacity.Location = new System.Drawing.Point(164, 234);
             this.txtCapacity.Name = "txtCapacity";
-            this.txtCapacity.Size = new System.Drawing.Size(245, 37);
+            this.txtCapacity.Size = new System.Drawing.Size(185, 31);
             this.txtCapacity.TabIndex = 45;
             this.txtCapacity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCapacity_KeyPress);
             // 
@@ -256,31 +247,29 @@ namespace OOD_Project.Admin
             this.comboProgramme.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboProgramme.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboProgramme.FormattingEnabled = true;
-            this.comboProgramme.Location = new System.Drawing.Point(694, 20);
-            this.comboProgramme.Margin = new System.Windows.Forms.Padding(4);
+            this.comboProgramme.Location = new System.Drawing.Point(519, 15);
             this.comboProgramme.Name = "comboProgramme";
-            this.comboProgramme.Size = new System.Drawing.Size(245, 37);
+            this.comboProgramme.Size = new System.Drawing.Size(185, 32);
             this.comboProgramme.TabIndex = 44;
             // 
             // txtCode
             // 
             this.txtCode.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCode.Location = new System.Drawing.Point(221, 16);
-            this.txtCode.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCode.Location = new System.Drawing.Point(164, 13);
             this.txtCode.MaxLength = 10;
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(245, 37);
+            this.txtCode.Size = new System.Drawing.Size(185, 31);
             this.txtCode.TabIndex = 42;
             // 
             // lblCode
             // 
             this.lblCode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCode.Location = new System.Drawing.Point(17, 21);
-            this.lblCode.Margin = new System.Windows.Forms.Padding(4, 9, 4, 0);
+            this.lblCode.Location = new System.Drawing.Point(13, 17);
+            this.lblCode.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(181, 44);
+            this.lblCode.Size = new System.Drawing.Size(135, 36);
             this.lblCode.TabIndex = 43;
             this.lblCode.Text = "Course Code:";
             this.lblCode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -290,10 +279,10 @@ namespace OOD_Project.Admin
             this.creditsLbl.AutoSize = true;
             this.creditsLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.creditsLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creditsLbl.Location = new System.Drawing.Point(489, 74);
-            this.creditsLbl.Margin = new System.Windows.Forms.Padding(4, 9, 4, 0);
+            this.creditsLbl.Location = new System.Drawing.Point(366, 60);
+            this.creditsLbl.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.creditsLbl.Name = "creditsLbl";
-            this.creditsLbl.Size = new System.Drawing.Size(181, 36);
+            this.creditsLbl.Size = new System.Drawing.Size(135, 30);
             this.creditsLbl.TabIndex = 16;
             this.creditsLbl.Text = "Credits:";
             this.creditsLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -303,10 +292,9 @@ namespace OOD_Project.Admin
             this.programmeLbl.AutoSize = true;
             this.programmeLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.programmeLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.programmeLbl.Location = new System.Drawing.Point(489, 12);
-            this.programmeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.programmeLbl.Location = new System.Drawing.Point(366, 10);
             this.programmeLbl.Name = "programmeLbl";
-            this.programmeLbl.Size = new System.Drawing.Size(181, 53);
+            this.programmeLbl.Size = new System.Drawing.Size(135, 43);
             this.programmeLbl.TabIndex = 18;
             this.programmeLbl.Text = "Programme:";
             this.programmeLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -316,10 +304,10 @@ namespace OOD_Project.Admin
             this.descriptionLbl.AutoSize = true;
             this.descriptionLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.descriptionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLbl.Location = new System.Drawing.Point(17, 119);
-            this.descriptionLbl.Margin = new System.Windows.Forms.Padding(4, 9, 4, 0);
+            this.descriptionLbl.Location = new System.Drawing.Point(13, 97);
+            this.descriptionLbl.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.descriptionLbl.Name = "descriptionLbl";
-            this.descriptionLbl.Size = new System.Drawing.Size(181, 111);
+            this.descriptionLbl.Size = new System.Drawing.Size(135, 91);
             this.descriptionLbl.TabIndex = 29;
             this.descriptionLbl.Text = "Description:";
             this.descriptionLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -329,10 +317,9 @@ namespace OOD_Project.Admin
             this.courseNameLbl.AutoSize = true;
             this.courseNameLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.courseNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseNameLbl.Location = new System.Drawing.Point(17, 65);
-            this.courseNameLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.courseNameLbl.Location = new System.Drawing.Point(13, 53);
             this.courseNameLbl.Name = "courseNameLbl";
-            this.courseNameLbl.Size = new System.Drawing.Size(181, 45);
+            this.courseNameLbl.Size = new System.Drawing.Size(135, 37);
             this.courseNameLbl.TabIndex = 14;
             this.courseNameLbl.Text = "Course Name:";
             this.courseNameLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -341,23 +328,22 @@ namespace OOD_Project.Admin
             // 
             this.txtCourseName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCourseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCourseName.Location = new System.Drawing.Point(221, 69);
-            this.txtCourseName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCourseName.Location = new System.Drawing.Point(164, 56);
             this.txtCourseName.MaxLength = 50;
             this.txtCourseName.Name = "txtCourseName";
-            this.txtCourseName.Size = new System.Drawing.Size(245, 37);
+            this.txtCourseName.Size = new System.Drawing.Size(185, 31);
             this.txtCourseName.TabIndex = 10;
             // 
             // txtDescription
             // 
             this.coursePage.SetColumnSpan(this.txtDescription, 3);
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(219, 115);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(17, 5, 4, 4);
+            this.txtDescription.Location = new System.Drawing.Point(164, 94);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(13, 4, 3, 3);
             this.txtDescription.MaxLength = 500;
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(719, 111);
+            this.txtDescription.Size = new System.Drawing.Size(540, 91);
             this.txtDescription.TabIndex = 32;
             // 
             // bottomPnl
@@ -365,10 +351,9 @@ namespace OOD_Project.Admin
             this.bottomPnl.Controls.Add(this.btnLeft);
             this.bottomPnl.Controls.Add(this.btnRight);
             this.bottomPnl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottomPnl.Location = new System.Drawing.Point(0, 399);
-            this.bottomPnl.Margin = new System.Windows.Forms.Padding(4);
+            this.bottomPnl.Location = new System.Drawing.Point(0, 324);
             this.bottomPnl.Name = "bottomPnl";
-            this.bottomPnl.Size = new System.Drawing.Size(972, 97);
+            this.bottomPnl.Size = new System.Drawing.Size(729, 79);
             this.bottomPnl.TabIndex = 42;
             // 
             // btnLeft
@@ -379,10 +364,9 @@ namespace OOD_Project.Admin
             this.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLeft.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLeft.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnLeft.Location = new System.Drawing.Point(16, 16);
-            this.btnLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLeft.Location = new System.Drawing.Point(12, 13);
             this.btnLeft.Name = "btnLeft";
-            this.btnLeft.Size = new System.Drawing.Size(336, 66);
+            this.btnLeft.Size = new System.Drawing.Size(252, 54);
             this.btnLeft.TabIndex = 38;
             this.btnLeft.Text = "Back";
             this.btnLeft.UseVisualStyleBackColor = false;
@@ -398,12 +382,11 @@ namespace OOD_Project.Admin
             this.pagesContainer.Controls.Add(this.classPage, 1, 0);
             this.pagesContainer.Controls.Add(this.coursePage, 0, 0);
             this.pagesContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pagesContainer.Location = new System.Drawing.Point(0, 71);
-            this.pagesContainer.Margin = new System.Windows.Forms.Padding(4);
+            this.pagesContainer.Location = new System.Drawing.Point(0, 58);
             this.pagesContainer.Name = "pagesContainer";
             this.pagesContainer.RowCount = 1;
             this.pagesContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pagesContainer.Size = new System.Drawing.Size(972, 328);
+            this.pagesContainer.Size = new System.Drawing.Size(729, 266);
             this.pagesContainer.TabIndex = 39;
             // 
             // studentsPage
@@ -413,13 +396,13 @@ namespace OOD_Project.Admin
             this.studentsPage.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.studentsPage.Controls.Add(this.studentsListView, 0, 0);
             this.studentsPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.studentsPage.Location = new System.Drawing.Point(972, 0);
+            this.studentsPage.Location = new System.Drawing.Point(729, 0);
             this.studentsPage.Margin = new System.Windows.Forms.Padding(0);
-            this.studentsPage.MinimumSize = new System.Drawing.Size(972, 0);
+            this.studentsPage.MinimumSize = new System.Drawing.Size(729, 0);
             this.studentsPage.Name = "studentsPage";
             this.studentsPage.RowCount = 1;
             this.studentsPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.studentsPage.Size = new System.Drawing.Size(972, 328);
+            this.studentsPage.Size = new System.Drawing.Size(729, 266);
             this.studentsPage.TabIndex = 39;
             // 
             // studentsListView
@@ -435,10 +418,9 @@ namespace OOD_Project.Admin
             this.studentsListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studentsListView.FullRowSelect = true;
             this.studentsListView.HideSelection = false;
-            this.studentsListView.Location = new System.Drawing.Point(4, 4);
-            this.studentsListView.Margin = new System.Windows.Forms.Padding(4);
+            this.studentsListView.Location = new System.Drawing.Point(3, 3);
             this.studentsListView.Name = "studentsListView";
-            this.studentsListView.Size = new System.Drawing.Size(963, 320);
+            this.studentsListView.Size = new System.Drawing.Size(723, 260);
             this.studentsListView.TabIndex = 58;
             this.studentsListView.UseCompatibleStateImageBehavior = false;
             this.studentsListView.View = System.Windows.Forms.View.Details;
@@ -489,19 +471,19 @@ namespace OOD_Project.Admin
             this.classPage.Controls.Add(this.timeStart, 1, 0);
             this.classPage.Controls.Add(this.classesListView, 0, 4);
             this.classPage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.classPage.Location = new System.Drawing.Point(972, 0);
+            this.classPage.Location = new System.Drawing.Point(729, 0);
             this.classPage.Margin = new System.Windows.Forms.Padding(0);
-            this.classPage.MaximumSize = new System.Drawing.Size(972, 0);
-            this.classPage.MinimumSize = new System.Drawing.Size(972, 0);
+            this.classPage.MaximumSize = new System.Drawing.Size(729, 0);
+            this.classPage.MinimumSize = new System.Drawing.Size(729, 0);
             this.classPage.Name = "classPage";
-            this.classPage.Padding = new System.Windows.Forms.Padding(13, 12, 13, 12);
+            this.classPage.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.classPage.RowCount = 5;
             this.classPage.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.classPage.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.classPage.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.classPage.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.classPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.classPage.Size = new System.Drawing.Size(972, 328);
+            this.classPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.classPage.Size = new System.Drawing.Size(729, 266);
             this.classPage.TabIndex = 43;
             // 
             // btnDeleteClass
@@ -512,10 +494,9 @@ namespace OOD_Project.Admin
             this.btnDeleteClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteClass.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteClass.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDeleteClass.Location = new System.Drawing.Point(725, 129);
-            this.btnDeleteClass.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteClass.Location = new System.Drawing.Point(543, 105);
             this.btnDeleteClass.Name = "btnDeleteClass";
-            this.btnDeleteClass.Size = new System.Drawing.Size(230, 38);
+            this.btnDeleteClass.Size = new System.Drawing.Size(172, 31);
             this.btnDeleteClass.TabIndex = 56;
             this.btnDeleteClass.Text = "Delete";
             this.btnDeleteClass.UseVisualStyleBackColor = false;
@@ -529,10 +510,9 @@ namespace OOD_Project.Admin
             this.btnAddClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddClass.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddClass.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddClass.Location = new System.Drawing.Point(489, 129);
-            this.btnAddClass.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddClass.Location = new System.Drawing.Point(366, 105);
             this.btnAddClass.Name = "btnAddClass";
-            this.btnAddClass.Size = new System.Drawing.Size(228, 38);
+            this.btnAddClass.Size = new System.Drawing.Size(171, 31);
             this.btnAddClass.TabIndex = 55;
             this.btnAddClass.Text = "Add";
             this.btnAddClass.UseVisualStyleBackColor = false;
@@ -544,11 +524,10 @@ namespace OOD_Project.Admin
             this.timeEnd.CustomFormat = "hh:mm tt";
             this.timeEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeEnd.Location = new System.Drawing.Point(221, 77);
-            this.timeEnd.Margin = new System.Windows.Forms.Padding(4);
+            this.timeEnd.Location = new System.Drawing.Point(164, 62);
             this.timeEnd.Name = "timeEnd";
             this.timeEnd.ShowUpDown = true;
-            this.timeEnd.Size = new System.Drawing.Size(245, 29);
+            this.timeEnd.Size = new System.Drawing.Size(185, 24);
             this.timeEnd.TabIndex = 53;
             this.timeEnd.Value = new System.DateTime(2023, 12, 29, 8, 0, 0, 0);
             // 
@@ -557,30 +536,28 @@ namespace OOD_Project.Admin
             this.comboDay.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboDay.FormattingEnabled = true;
-            this.comboDay.Location = new System.Drawing.Point(221, 126);
-            this.comboDay.Margin = new System.Windows.Forms.Padding(4);
+            this.comboDay.Location = new System.Drawing.Point(164, 101);
             this.comboDay.Name = "comboDay";
-            this.comboDay.Size = new System.Drawing.Size(245, 37);
+            this.comboDay.Size = new System.Drawing.Size(185, 32);
             this.comboDay.TabIndex = 51;
             // 
             // txtRoom
             // 
             this.txtRoom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRoom.Location = new System.Drawing.Point(725, 69);
-            this.txtRoom.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRoom.Location = new System.Drawing.Point(543, 56);
             this.txtRoom.Name = "txtRoom";
-            this.txtRoom.Size = new System.Drawing.Size(229, 37);
+            this.txtRoom.Size = new System.Drawing.Size(173, 31);
             this.txtRoom.TabIndex = 48;
             // 
             // label5
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 127);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 9, 4, 0);
+            this.label5.Location = new System.Drawing.Point(13, 103);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(181, 44);
+            this.label5.Size = new System.Drawing.Size(135, 36);
             this.label5.TabIndex = 47;
             this.label5.Text = "Day:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -589,10 +566,10 @@ namespace OOD_Project.Admin
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 74);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 9, 4, 0);
+            this.label1.Location = new System.Drawing.Point(13, 60);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 44);
+            this.label1.Size = new System.Drawing.Size(135, 36);
             this.label1.TabIndex = 44;
             this.label1.Text = "End Time:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -601,10 +578,10 @@ namespace OOD_Project.Admin
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(489, 74);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 9, 4, 0);
+            this.label3.Location = new System.Drawing.Point(366, 60);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(228, 44);
+            this.label3.Size = new System.Drawing.Size(171, 36);
             this.label3.TabIndex = 45;
             this.label3.Text = "Room Number:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -613,10 +590,10 @@ namespace OOD_Project.Admin
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(489, 21);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 9, 4, 0);
+            this.label4.Location = new System.Drawing.Point(366, 17);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(228, 44);
+            this.label4.Size = new System.Drawing.Size(171, 36);
             this.label4.TabIndex = 46;
             this.label4.Text = "Building Number:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -625,20 +602,19 @@ namespace OOD_Project.Admin
             // 
             this.txtBuilding.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtBuilding.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuilding.Location = new System.Drawing.Point(725, 16);
-            this.txtBuilding.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuilding.Location = new System.Drawing.Point(543, 13);
             this.txtBuilding.Name = "txtBuilding";
-            this.txtBuilding.Size = new System.Drawing.Size(229, 37);
+            this.txtBuilding.Size = new System.Drawing.Size(173, 31);
             this.txtBuilding.TabIndex = 42;
             // 
             // label7
             // 
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 21);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 9, 4, 0);
+            this.label7.Location = new System.Drawing.Point(13, 17);
+            this.label7.Margin = new System.Windows.Forms.Padding(3, 7, 3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(181, 44);
+            this.label7.Size = new System.Drawing.Size(135, 36);
             this.label7.TabIndex = 43;
             this.label7.Text = "Start Time:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -649,11 +625,10 @@ namespace OOD_Project.Admin
             this.timeStart.CustomFormat = "hh:mm tt";
             this.timeStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.timeStart.Location = new System.Drawing.Point(221, 24);
-            this.timeStart.Margin = new System.Windows.Forms.Padding(4);
+            this.timeStart.Location = new System.Drawing.Point(164, 19);
             this.timeStart.Name = "timeStart";
             this.timeStart.ShowUpDown = true;
-            this.timeStart.Size = new System.Drawing.Size(245, 29);
+            this.timeStart.Size = new System.Drawing.Size(185, 24);
             this.timeStart.TabIndex = 52;
             this.timeStart.Value = new System.DateTime(2023, 12, 29, 8, 0, 0, 0);
             // 
@@ -671,11 +646,10 @@ namespace OOD_Project.Admin
             this.classesListView.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.classesListView.FullRowSelect = true;
             this.classesListView.HideSelection = false;
-            this.classesListView.Location = new System.Drawing.Point(17, 175);
-            this.classesListView.Margin = new System.Windows.Forms.Padding(4);
+            this.classesListView.Location = new System.Drawing.Point(13, 142);
             this.classesListView.MultiSelect = false;
             this.classesListView.Name = "classesListView";
-            this.classesListView.Size = new System.Drawing.Size(938, 137);
+            this.classesListView.Size = new System.Drawing.Size(703, 111);
             this.classesListView.TabIndex = 57;
             this.classesListView.UseCompatibleStateImageBehavior = false;
             this.classesListView.View = System.Windows.Forms.View.Details;
@@ -712,15 +686,14 @@ namespace OOD_Project.Admin
             // 
             // AddCourseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(972, 496);
+            this.ClientSize = new System.Drawing.Size(729, 403);
             this.Controls.Add(this.pagesContainer);
             this.Controls.Add(this.bottomPnl);
             this.Controls.Add(this.panelHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddCourseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Course";

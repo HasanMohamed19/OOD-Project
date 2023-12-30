@@ -407,8 +407,11 @@ namespace OOD_Project
 
             try
             {
-                int rows = dbm.Command.ExecuteNonQuery();
-                //MessageBox.Show($"Teacher added successfully {rows}");
+                int rows = dbm.Command.ExecuteNonQuery(); 
+                if (teacher.StatusId == UserStatus.inactive)
+                {
+                    MessageBox.Show("Registration request sent. Please wait for approval from the admin. Check your email to be notified.", "Request Sent");
+                }
             }
             catch (Exception ex)
             {
