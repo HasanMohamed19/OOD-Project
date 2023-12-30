@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeacherPanel));
             this.panelHeader = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.viewCoursesBtn = new System.Windows.Forms.Button();
@@ -147,9 +148,9 @@
             this.notificationPnl.Controls.Add(this.profileBar);
             this.notificationPnl.Dock = System.Windows.Forms.DockStyle.Right;
             this.notificationPnl.Location = new System.Drawing.Point(807, 0);
-            this.notificationPnl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.notificationPnl.Margin = new System.Windows.Forms.Padding(2);
             this.notificationPnl.Name = "notificationPnl";
-            this.notificationPnl.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.notificationPnl.Padding = new System.Windows.Forms.Padding(3);
             this.notificationPnl.Size = new System.Drawing.Size(200, 72);
             this.notificationPnl.TabIndex = 8;
             // 
@@ -159,7 +160,7 @@
             this.profileBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.profileBar.Location = new System.Drawing.Point(3, 3);
             this.profileBar.LoggedInUser = null;
-            this.profileBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profileBar.Margin = new System.Windows.Forms.Padding(4);
             this.profileBar.Name = "profileBar";
             this.profileBar.NotificationList = null;
             this.profileBar.ParentContainer = null;
@@ -171,7 +172,7 @@
             this.teacherMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.teacherMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.teacherMainContent.Location = new System.Drawing.Point(0, 72);
-            this.teacherMainContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.teacherMainContent.Margin = new System.Windows.Forms.Padding(2);
             this.teacherMainContent.Name = "teacherMainContent";
             this.teacherMainContent.Size = new System.Drawing.Size(1007, 528);
             this.teacherMainContent.TabIndex = 4;
@@ -184,12 +185,13 @@
             this.Controls.Add(this.teacherMainContent);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(1023, 639);
             this.MinimumSize = new System.Drawing.Size(1023, 639);
             this.Name = "TeacherPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TeacherPanel";
+            this.Text = "Teacher Panel";
             this.panelHeader.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.notificationPnl.ResumeLayout(false);

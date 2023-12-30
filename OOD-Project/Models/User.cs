@@ -336,7 +336,7 @@ namespace OOD_Project
             try
             {
                 dbm.Command.ExecuteNonQuery();
-                MessageBox.Show("Email sent successfully", "Email sent", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Email sent successfully", "Email sent", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

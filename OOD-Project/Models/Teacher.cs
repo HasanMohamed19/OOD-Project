@@ -120,7 +120,7 @@ namespace OOD_Project
                 {
                     dbm.Reader.Close();
                     dbm.Connection.Close();
-                    MessageBox.Show("ERROR: Teacher not found");
+                    Console.WriteLine("ERROR: Teacher not found");
                     return null;
                 }
                 int id = dbm.Reader.GetInt32(0);
@@ -176,7 +176,7 @@ namespace OOD_Project
                 {
                     dbm.Reader.Close();
                     dbm.Connection.Close();
-                    MessageBox.Show("ERROR: Teacher not found");
+                    Console.WriteLine("ERROR: Teacher not found");
                     return null;
                 }
                 int id = dbm.Reader.GetInt32(0);
@@ -362,11 +362,11 @@ namespace OOD_Project
             try
             {
                 int rows = dbm.Command.ExecuteNonQuery();
-                MessageBox.Show($"User added successfully {rows}");
+                //MessageBox.Show($"User added successfully {rows}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -384,7 +384,7 @@ namespace OOD_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -408,11 +408,11 @@ namespace OOD_Project
             try
             {
                 int rows = dbm.Command.ExecuteNonQuery();
-                MessageBox.Show($"Teacher added successfully {rows}");
+                //MessageBox.Show($"Teacher added successfully {rows}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -475,7 +475,6 @@ namespace OOD_Project
                 }
 
                 // check if report already exists
-                MessageBox.Show(DocumentHelper.IsFileExists(newReportPath).ToString());
                 if (DocumentHelper.IsFileExists(newReportPath))
                 {
 
@@ -484,10 +483,7 @@ namespace OOD_Project
                     {
                         dbm.Command.ExecuteNonQuery();
                         DocumentHelper.CopyFile(reportPath, newReportPath);
-                    } else
-                    {
-                        MessageBox.Show("Report upload cancelled");
-                    }
+                    } 
                 } else
                 {
                     dbm.Command.ExecuteNonQuery();

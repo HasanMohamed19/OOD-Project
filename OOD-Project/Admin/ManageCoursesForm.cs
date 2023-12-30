@@ -247,7 +247,7 @@ namespace OOD_Project.Admin
                     string selectedDirectoryPath = Path.GetDirectoryName(selectedFileName);
                     
                     string courseID = Course.getCourseIdByCourseCode(courseDG.SelectedRows[0].Cells[1].Value.ToString());
-                    MessageBox.Show(Path.Combine(DocumentHelper.coursesDirectory, courseID, "Reports", reportName));
+                    //MessageBox.Show(Path.Combine(DocumentHelper.coursesDirectory, courseID, "Reports", reportName));
                     DocumentHelper.CopyFile(Path.Combine(DocumentHelper.coursesDirectory, courseID, "Reports", reportName), Path.Combine(selectedDirectoryPath, selectedFileName));
                 }
 

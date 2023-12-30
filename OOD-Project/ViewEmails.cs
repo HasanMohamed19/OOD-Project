@@ -100,6 +100,12 @@ namespace OOD_Project
                 dbm.Connection.Close();
             }
 
+            if (emailsListView.Items.Count <= 0)
+            {
+                return;
+            }
+            emailsListView.Items[0].Selected = true;
+
         }
         private void PopulateInbox()
         {
@@ -141,7 +147,12 @@ namespace OOD_Project
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();
             }
-            
+
+            if (emailsListView.Items.Count <= 0)
+            {
+                return;
+            }
+            emailsListView.Items[0].Selected = true;
 
         }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPanel));
             this.panelHeader = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.manageBranchesBtn = new System.Windows.Forms.Button();
@@ -38,8 +39,8 @@
             this.viewFeedbackBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.notificationPnl = new System.Windows.Forms.Panel();
-            this.adminMainContent = new System.Windows.Forms.Panel();
             this.profileBar = new OOD_Project.ProfileBar();
+            this.adminMainContent = new System.Windows.Forms.Panel();
             this.panelHeader.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.notificationPnl.SuspendLayout();
@@ -193,16 +194,6 @@
             this.notificationPnl.Size = new System.Drawing.Size(181, 72);
             this.notificationPnl.TabIndex = 8;
             // 
-            // adminMainContent
-            // 
-            this.adminMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.adminMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.adminMainContent.Location = new System.Drawing.Point(0, 72);
-            this.adminMainContent.Margin = new System.Windows.Forms.Padding(4);
-            this.adminMainContent.Name = "adminMainContent";
-            this.adminMainContent.Size = new System.Drawing.Size(1008, 529);
-            this.adminMainContent.TabIndex = 3;
-            // 
             // profileBar
             // 
             this.profileBar.BackColor = System.Drawing.Color.Transparent;
@@ -215,6 +206,16 @@
             this.profileBar.Size = new System.Drawing.Size(173, 64);
             this.profileBar.TabIndex = 0;
             // 
+            // adminMainContent
+            // 
+            this.adminMainContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
+            this.adminMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adminMainContent.Location = new System.Drawing.Point(0, 72);
+            this.adminMainContent.Margin = new System.Windows.Forms.Padding(4);
+            this.adminMainContent.Name = "adminMainContent";
+            this.adminMainContent.Size = new System.Drawing.Size(1008, 529);
+            this.adminMainContent.TabIndex = 3;
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +224,7 @@
             this.Controls.Add(this.adminMainContent);
             this.Controls.Add(this.panelHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1024, 640);
             this.MinimumSize = new System.Drawing.Size(1024, 640);
             this.Name = "AdminPanel";

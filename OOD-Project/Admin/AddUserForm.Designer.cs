@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUserForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnRegisterAsTeacher = new System.Windows.Forms.Button();
             this.btnRegisterAsStudent = new System.Windows.Forms.Button();
@@ -103,9 +104,10 @@
             this.ClientSize = new System.Drawing.Size(684, 361);
             this.Controls.Add(this.addUserContainer);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddUserForm";
+            this.Text = "Add User";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

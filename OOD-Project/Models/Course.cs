@@ -135,6 +135,7 @@ namespace OOD_Project
                 return true;
             } catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return false;
             } finally
             {
@@ -186,22 +187,20 @@ namespace OOD_Project
             {
                 dbm.Reader = dbm.Command.ExecuteReader();
 
-                if (dbm.Reader.Read())
+                if (!dbm.Reader.Read())
                 {
-                    
-                    return dbm.Reader["course_id"].ToString();
+                    return "";
                 }
-                
-                return "";
+                return dbm.Reader["course_id"].ToString();
             } catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return "";
             } finally
             {
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();
             }
-           
 
         }
 

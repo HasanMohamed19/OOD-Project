@@ -139,7 +139,6 @@ namespace OOD_Project.TeacherGroup.ViewCourses
             if (DialogResult == DialogResult.OK)
             {
                 string path = filePicker.FileName;
-                MessageBox.Show(path);
                 Teacher.UploadReport(path, courseId);
                 Course course = Course.GetCourse(courseId);
                 // send email for notification

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmailForm));
             this.recipientTxt = new System.Windows.Forms.TextBox();
             this.subjectTxt = new System.Windows.Forms.TextBox();
             this.bodyText = new System.Windows.Forms.RichTextBox();
@@ -74,7 +75,7 @@
             this.bodyText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bodyText.Location = new System.Drawing.Point(18, 78);
-            this.bodyText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bodyText.Margin = new System.Windows.Forms.Padding(2);
             this.bodyText.Name = "bodyText";
             this.bodyText.Size = new System.Drawing.Size(462, 326);
             this.bodyText.TabIndex = 2;
@@ -120,7 +121,7 @@
             this.attachmentsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.attachmentsListView.HideSelection = false;
             this.attachmentsListView.Location = new System.Drawing.Point(18, 408);
-            this.attachmentsListView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.attachmentsListView.Margin = new System.Windows.Forms.Padding(2);
             this.attachmentsListView.Name = "attachmentsListView";
             this.attachmentsListView.Size = new System.Drawing.Size(462, 78);
             this.attachmentsListView.TabIndex = 12;
@@ -158,7 +159,7 @@
             this.emailTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.emailTableLayout.Location = new System.Drawing.Point(0, 0);
             this.emailTableLayout.Name = "emailTableLayout";
-            this.emailTableLayout.Padding = new System.Windows.Forms.Padding(16, 16, 16, 16);
+            this.emailTableLayout.Padding = new System.Windows.Forms.Padding(16);
             this.emailTableLayout.RowCount = 5;
             this.emailTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.emailTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
@@ -216,7 +217,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(498, 555);
             this.Controls.Add(this.emailTableLayout);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EmailForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Send Email";

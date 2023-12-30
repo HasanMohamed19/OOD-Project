@@ -29,6 +29,7 @@ namespace OOD_Project.Admin
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddCourseForm));
             this.btnRight = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.headerLbl = new System.Windows.Forms.Label();
@@ -685,6 +686,7 @@ namespace OOD_Project.Admin
             this.Controls.Add(this.pagesContainer);
             this.Controls.Add(this.bottomPnl);
             this.Controls.Add(this.panelHeader);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddCourseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Course";

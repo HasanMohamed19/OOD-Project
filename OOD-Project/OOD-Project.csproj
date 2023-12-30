@@ -174,28 +174,28 @@
     <Compile Include="Admin\ViewFeedbackForm.Designer.cs">
       <DependentUpon>ViewFeedbackForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Announcement.cs" />
-    <Compile Include="Branch.cs" />
+    <Compile Include="Models\Announcement.cs" />
+    <Compile Include="Models\Branch.cs" />
     <Compile Include="ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class.cs" />
-    <Compile Include="Content.cs" />
-    <Compile Include="Course.cs" />
+    <Compile Include="Models\Class.cs" />
+    <Compile Include="Models\Content.cs" />
+    <Compile Include="Models\Course.cs" />
     <Compile Include="DatabaseManager.cs" />
     <Compile Include="DocumentHelper.cs" />
-    <Compile Include="Email.cs" />
-    <Compile Include="EmailAttachment.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\EmailAttachment.cs" />
     <Compile Include="EmailForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EmailForm.Designer.cs">
       <DependentUpon>EmailForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Feedback.cs" />
+    <Compile Include="Models\Feedback.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Helpers\Helper.cs" />
     <Compile Include="Helpers\INotificationObserver.cs" />
@@ -207,8 +207,8 @@
       <DependentUpon>NotificationCell.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ProfileBarContainer.cs" />
-    <Compile Include="Major.cs" />
-    <Compile Include="Notification.cs" />
+    <Compile Include="Models\Major.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="NotificationMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,9 +245,9 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registration.cs" />
-    <Compile Include="Section.cs" />
-    <Compile Include="Student.cs" />
+    <Compile Include="Models\Registration.cs" />
+    <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Student\StudentPanel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,7 +260,7 @@
     <Compile Include="Student\ViewCoursesForm.Designer.cs">
       <DependentUpon>ViewCoursesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Teacher.cs" />
+    <Compile Include="Models\Teacher.cs" />
     <Compile Include="TeacherGroup\ViewCourses\ViewStudentsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,7 +297,7 @@
     <Compile Include="TeacherGroup\ViewCourses\ViewCourseForm.Designer.cs">
       <DependentUpon>ViewCourseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Admin\ManageUsersForm.cs">
       <SubType>Form</SubType>
     </Compile>

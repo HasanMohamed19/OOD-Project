@@ -408,7 +408,7 @@ namespace OOD_Project
             try
             {
                 int rows = dbm.Command.ExecuteNonQuery();
-                MessageBox.Show($"User added successfully {rows}");
+                //MessageBox.Show($"User added successfully {rows}");
             }
             catch (Exception ex)
             {
@@ -461,7 +461,7 @@ namespace OOD_Project
             try
             {
                 int rows = dbm.Command.ExecuteNonQuery();
-                MessageBox.Show($"Student added successfully {rows}");
+                //MessageBox.Show($"Student added successfully {rows}");
             }
             catch (Exception ex)
             {

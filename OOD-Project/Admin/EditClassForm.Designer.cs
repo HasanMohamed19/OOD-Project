@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditClassForm));
             this.panelHeader = new System.Windows.Forms.Panel();
             this.headerLbl = new System.Windows.Forms.Label();
             this.classPage = new System.Windows.Forms.TableLayoutPanel();
@@ -238,9 +239,10 @@
             this.ClientSize = new System.Drawing.Size(729, 264);
             this.Controls.Add(this.classPage);
             this.Controls.Add(this.panelHeader);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditClassForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EditClassForm";
+            this.Text = "Edit Class";
             this.panelHeader.ResumeLayout(false);
             this.classPage.ResumeLayout(false);
             this.classPage.PerformLayout();
