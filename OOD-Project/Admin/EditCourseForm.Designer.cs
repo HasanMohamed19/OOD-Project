@@ -236,7 +236,7 @@
             this.coursePage.MaximumSize = new System.Drawing.Size(729, 0);
             this.coursePage.MinimumSize = new System.Drawing.Size(729, 0);
             this.coursePage.Name = "coursePage";
-            this.coursePage.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.coursePage.Padding = new System.Windows.Forms.Padding(10);
             this.coursePage.RowCount = 5;
             this.coursePage.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.coursePage.RowStyles.Add(new System.Windows.Forms.RowStyle());

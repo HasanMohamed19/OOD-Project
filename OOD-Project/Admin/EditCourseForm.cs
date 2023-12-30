@@ -16,6 +16,7 @@ namespace OOD_Project.Admin
 
         private ManageCourseForm manageCourse;
         private CourseScreens currentScreen = CourseScreens.course;
+        private int oldTeacherId;
 
         private enum CourseScreens
         {
@@ -31,6 +32,7 @@ namespace OOD_Project.Admin
             this.manageCourse = manageCourse;
             section = Section.GetSection(section_id);
             course = Course.GetCourse(section.AssignedCourse.Id);
+            oldTeacherId = section.AssignedTeacher.TeacherId; // save old id for validation later
             InitializeComponent();
             InitializeComboBoxes();
             PopulateStudentsView();
@@ -162,14 +164,19 @@ namespace OOD_Project.Admin
             }
 
             Course.EditCourse(course);
-            int sectionsAssigned = Teacher.GetCoursesAssigned(section.AssignedTeacher.TeacherId);
-            if (sectionsAssigned >= 3)
+            // if teacher was changed, check number of courses assigned
+            if (oldTeacherId != section.AssignedTeacher.TeacherId)
             {
-                MessageBox.Show($"{section.AssignedTeacher.FirstName} {section.AssignedTeacher.LastName} has already 3 sections assigned. Cannot assign more courses.", "Teacher cant be assigned");
-            } else
-            {
-                Section.EditSection(section);
-            }
+                // do not assign if teacher has 3 or more courses already assigned
+                int sectionsAssigned = Teacher.GetCoursesAssigned(section.AssignedTeacher.TeacherId);
+                if (sectionsAssigned >= 3)
+                {
+                    MessageBox.Show($"{section.AssignedTeacher.FirstName} {section.AssignedTeacher.LastName} has already 3 sections assigned. Cannot assign more courses.", "Teacher cant be assigned");
+                    return;
+                } // if less than 3, continue
+            } //if teacher was not changed, continue
+            Section.EditSection(section);
+
             // update students
             foreach (Student student in registeredStudents)
             {
