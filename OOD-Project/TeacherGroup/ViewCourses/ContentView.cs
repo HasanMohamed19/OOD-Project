@@ -39,18 +39,24 @@ namespace OOD_Project.TeacherGroup.ViewCourses
                 foreach (string file in filePicker.FileNames)
                 {
                     string fileName = Path.GetFileName(file);
-                    ListViewItem contentFile = new ListViewItem(fileName);
-                    long fileSizeInBytes = new FileInfo(file).Length;
-                    // rename the view later
-                    string fileSize = $"{fileSizeInBytes / 1024} KB";
-                    contentFile.SubItems.Add(fileSize);
-                    classesListView.Items.Add(contentFile);
-                    string newRelativePath = Path.Combine(DocumentHelper.coursesRelativePath, courseId.ToString(), fileName);
-                    Teacher.UploadContent(newRelativePath, courseId);
-                    //MessageBox.Show(Path.Combine(DocumentHelper.parentDirectory, courseId.ToString()));
-                    MessageBox.Show(Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), fileName));
+                    
                     string newFullPath = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), fileName);
-                    DocumentHelper.CopyFile(file, newFullPath);
+                    if (DocumentHelper.IsFileExists(newFullPath))
+                    {
+                        MessageBox.Show($"This course has already a file with this name. {fileName} can't be uploaded again.", "Duplicate File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } else
+                    {
+                        ListViewItem contentFile = new ListViewItem(fileName);
+                        long fileSizeInBytes = new FileInfo(file).Length;
+                        // rename the view later
+                        string fileSize = $"{fileSizeInBytes / 1024} KB";
+                        contentFile.SubItems.Add(fileSize);
+                        classesListView.Items.Add(contentFile);
+                        string newRelativePath = Path.Combine(DocumentHelper.coursesRelativePath, courseId.ToString(), fileName);
+                        Teacher.UploadContent(newRelativePath, courseId);
+                        DocumentHelper.CopyFile(file, newFullPath);
+                    }
+                    
                 }
             }
         }
@@ -107,26 +113,29 @@ namespace OOD_Project.TeacherGroup.ViewCourses
 
         private void deleteContentBtn_Click(object sender, EventArgs e)
         {
-            //DatabaseManager dbm = DatabaseManager.Instance();
-            //dbm.Connection.Open();
-            //dbm.Command = dbm.Connection.CreateCommand();
-            //dbm.Command.Parameters.AddWithValue("@course_id", courseId);
-            //dbm.Command.CommandText = "DELETE FROM [dbo].[content] WHERE course_id = @course_id AND ";
-            //try
-            //{
-            //    int numberOfFileDeleted = dbm.Command.ExecuteNonQuery();
-            //    classesListView.Items.Remove(classesListView.SelectedItems[0]);
-            //    MessageBox.Show($"{numberOfFileDeleted} has been deleted.");
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-            //finally
-            //{
-            //    dbm.Command.Parameters.Clear();
-            //    dbm.Connection.Close();
-            //}
+            ListViewItem selectedItem = classesListView.SelectedItems[0];
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@course_id", courseId);
+            dbm.Command.Parameters.AddWithValue("@filename", selectedItem.Text);
+            dbm.Command.CommandText = "DELETE FROM [dbo].[content] WHERE course_id = @course_id AND filename = @filename";
+            try
+            {
+                int numberOfFileDeleted = dbm.Command.ExecuteNonQuery();
+                classesListView.Items.Remove(selectedItem);
+                DocumentHelper.DeleteFile(Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), selectedItem.Text));
+                MessageBox.Show($"{numberOfFileDeleted} file has been deleted.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
         }
     }
 }

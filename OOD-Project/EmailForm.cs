@@ -13,7 +13,7 @@ namespace OOD_Project
 {
     public partial class EmailForm : Form
     {
-        private Dictionary<int, string> emails = new Dictionary<int, string>();
+        private List<string> emails = new List<string>();
         private List<string> files = new List<string>();
         private string selectedAttachmentName = "";
         private string recipientEmail;
@@ -21,7 +21,6 @@ namespace OOD_Project
         public EmailForm(string recipientEmail)
         {
             InitializeComponent();
-            GetEmails();
             if (!string.IsNullOrWhiteSpace(recipientEmail))
             {
                 this.recipientEmail = recipientEmail;
@@ -41,26 +40,36 @@ namespace OOD_Project
             string subject = subjectTxt.Text;
             string content = bodyText.Text;
             string recipientEmail = recipientTxt.Text;
+
             User recipient = User.GetUser(User.GetUserIdByEmail(recipientEmail));
             User emailSender = User.GetUser(Global.UserId);
             Email email = new Email(content,0, recipient, emailSender, subject);
-            int newEmailId = User.SendEmail(email);
-            if (files.Count > 0)
+            GetEmails();
+            bool isEmailExist = emails.Contains(recipientEmail);
+            if (isEmailExist)
             {
-                foreach (var file in files)
+                int newEmailId = User.SendEmail(email);
+                if (files.Count > 0)
                 {
-                    User.SendAttachments(file, newEmailId);
+                    foreach (var file in files)
+                    {
+                        User.SendAttachments(file, newEmailId);
+                    }
                 }
-            }
-            // after sending clear attachments
-            //files.Clear();
-            //recipientTxt.Text = "To";
-            //attachmentsListView.Items.Clear();
-            //subjectTxt.Text = "Subject";
-            //bodyText.Text = "";
+                // after sending clear attachments
+                //files.Clear();
+                //recipientTxt.Text = "To";
+                //attachmentsListView.Items.Clear();
+                //subjectTxt.Text = "Subject";
+                //bodyText.Text = "";
 
-            // close the form after sending email
-            this.Close();
+                // close the form after sending email
+                this.Close();
+            } else
+            {
+                MessageBox.Show($"No user was found with this email: {recipientEmail}", "Email wasn't sent", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
 
         }
 
@@ -132,14 +141,14 @@ namespace OOD_Project
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
-            dbm.Command.CommandText = "SELECT user_id, email FROM [dbo].[User]";
+            dbm.Command.CommandText = "SELECT email FROM [dbo].[User]";
             try
             {
                 dbm.Reader = dbm.Command.ExecuteReader();
 
                 while (dbm.Reader.Read())
                 {
-                    emails.Add(dbm.Reader.GetInt32(0), dbm.Reader.GetString(1));
+                    emails.Add(dbm.Reader.GetString(0));
                 }
             } catch (Exception ex)
             {

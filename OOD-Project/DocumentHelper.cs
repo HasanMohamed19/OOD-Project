@@ -34,7 +34,7 @@ namespace OOD_Project
             try
             {
                 //File.Copy(sourceFilePath, destinationFilePath, true);  // Copy the file
-                File.Copy(source, destination, true);
+                File.Copy(source, destination, false);
             }
             catch (Exception ex)
             {
