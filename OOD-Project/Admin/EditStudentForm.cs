@@ -104,6 +104,15 @@ namespace OOD_Project.Admin
                 MessageBox.Show("Your email is invalid. Please retry.", "Invalid Email");
                 return;
             }
+            if (oldStudent.Email != inEmail)
+            {
+                if (User.GetUserIdByEmail(inEmail) != -1) // if user already exists with this email, dont allow
+                {
+                    MessageBox.Show("Email already in use. Please try another email.", "Invalid Email");
+                    return;
+                }
+            }
+            
             Student student = new Student(oldStudent.UserId, inFName + "_" + inLName, inCPR, inEmail, UserRole.student, UserStatus.pending
                 ,oldStudent.StudentId, inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
 

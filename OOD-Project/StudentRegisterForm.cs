@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -78,9 +79,17 @@ namespace OOD_Project
                 return;
             }
             DateTime inDOB = dateDOB.Value.Date;
-
-            // validate input
-
+            // validate email
+            if (!Regex.Match(inEmail, "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$").Success)
+            {
+                MessageBox.Show("Your email is invalid. Please retry.", "Invalid Email");
+                return;
+            }
+            if (User.GetUserIdByEmail(inEmail) != -1) // if user already exists with this email, dont allow
+            {
+                MessageBox.Show("Email already in use. Please try another email.", "Invalid Email");
+                return;
+            }
             Student student = new Student(0, inStudentID, inCPR, inEmail, UserRole.student, UserStatus.pending
                 ,0, inFName, inLName, inDOB, inCPR, inGender, inPhone, inMajor, inStudentID);
 

@@ -109,6 +109,14 @@ namespace OOD_Project.Admin
                 MessageBox.Show("Your email is invalid. Please retry.", "Invalid Email");
                 return;
             }
+            if (oldTeacher.Email != inEmail)
+            {
+                if (User.GetUserIdByEmail(inEmail) != -1) // if user already exists with this email, dont allow
+                {
+                    MessageBox.Show("Email already in use. Please try another email.", "Invalid Email");
+                    return;
+                }
+            }
             // create user based on data received
             Teacher teacher = new Teacher(oldTeacher.UserId, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, UserStatus.inactive,
                 oldTeacher.TeacherId, inFName, inLName, inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);

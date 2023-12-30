@@ -495,7 +495,8 @@ namespace OOD_Project
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@email", email);
-            dbm.Command.CommandText = "SELECT user_id FROM [dbo].[User] WHERE email = @email";
+            dbm.Command.CommandText = "SELECT user_id FROM [dbo].[User] WHERE email = @email " +
+                "AND status_id = 2 ";
 
             try
             {
