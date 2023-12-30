@@ -9,11 +9,11 @@ namespace OOD_Project
 {
     public static class DocumentHelper
     {
-        // for checking the physical folder in the user machine
+        // used for checking the physical folder in the user machine
         public static string parentDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppFiles");
         public static string emailsDiretory = Path.Combine(parentDirectory, "Emails");
         public static string coursesDirectory = Path.Combine(parentDirectory, "Courses");
-        // for inserting in database
+        // used for inserting in database, we used relative paths here so that the db can work in different environements
         public static string parentRelativePath = $"bin\\debug\\AppFiles";
         public static string emailsRelativePath = Path.Combine(parentRelativePath, "Emails");
         public static string coursesRelativePath = Path.Combine(parentRelativePath, "Courses");
@@ -33,7 +33,6 @@ namespace OOD_Project
         {
             try
             {
-                //File.Copy(sourceFilePath, destinationFilePath, true);  // Copy the file
                 File.Copy(source, destination, false);
             }
             catch (Exception ex)

@@ -12,6 +12,9 @@ using System.Runtime.ConstrainedExecution;
 
 namespace OOD_Project.Admin
 {
+    /* 
+     *  This class is used to send emails over smtp. In our project, we used this functionality to notify the registered user whether his/her request was acceppted or rejcted.
+     */
     public class EmailController
     {
         static EmailController instance;
@@ -19,6 +22,7 @@ namespace OOD_Project.Admin
 
         private EmailController()
         {
+            // smtp client setup
             smtpClient = new SmtpClient("smtp.gmail.com", 587)
             {
                 EnableSsl = true,
@@ -26,7 +30,7 @@ namespace OOD_Project.Admin
                 Credentials = new NetworkCredential("elms3dmin@gmail.com", "zalf dpnb abwl hepa\r\n")
             };
         }
-
+        // to use singleton since we only need one instance
         public static EmailController Instance()
         {
             if (instance == null) 

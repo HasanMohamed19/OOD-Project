@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOD_Project
 {
-    // this class to be used to store data about current logged in user (other option is to store them application settings)
+    // this class to be used to store data about current logged in user
     public static class Global
     {
 

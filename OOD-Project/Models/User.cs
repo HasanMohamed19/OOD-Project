@@ -27,6 +27,10 @@ namespace OOD_Project
         accepted = 2,
         inactive = 3
     }
+
+    /*
+        This class represents the User, which is the parent class for all user types in the system as well as the admin
+    */
     public class User: INotificationObserver
     {
         private int userId;
