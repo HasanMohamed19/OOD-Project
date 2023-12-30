@@ -21,7 +21,6 @@ namespace OOD_Project
         public EmailForm(string recipientEmail)
         {
             InitializeComponent();
-
             GetEmails();
             if (!string.IsNullOrWhiteSpace(recipientEmail))
             {
@@ -32,6 +31,7 @@ namespace OOD_Project
             else
             {
                 this.recipientEmail = null;
+                btnSendEmail.Enabled = false;
             }
         }
 
@@ -69,19 +69,21 @@ namespace OOD_Project
             OpenFileDialog filePicker = new OpenFileDialog();
             // set the folderpath when clicking the button to desktop
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            filePicker.Multiselect = true;
             filePicker.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             filePicker.FilterIndex = 2;
             filePicker.InitialDirectory = desktopPath;
             
             if (filePicker.ShowDialog() == DialogResult.OK)
             {
-                files.AddRange(filePicker.FileNames);
-                foreach (string file in filePicker.FileNames)
-                {
-                    ListViewItem item = new ListViewItem(Path.GetFileName(file));
-                    attachmentsListView.Items.Add(item);
-                }
+                string fileName = filePicker.FileName;
+                files.Add(fileName);
+                ListViewItem item = new ListViewItem(Path.GetFileName(fileName));
+                attachmentsListView.Items.Add(item);
+                //foreach (string file in filePicker.FileNames)
+                //{
+                //    ListViewItem item = new ListViewItem(Path.GetFileName(file));
+                //    attachmentsListView.Items.Add(item);
+                //}
             }
 
         }
@@ -110,7 +112,7 @@ namespace OOD_Project
         {
             // since gmail and outlook allow an email to have empty body and no attachments we'll do the same
             // the only thing required is the recipient email
-            bool allEmpty = recipientTxt.Text.Length == 0;
+            bool allEmpty = recipientTxt.Text.Length == 0 || recipientTxt.Text.Length < 10;
             btnSendEmail.Enabled = !allEmpty;
             
         }

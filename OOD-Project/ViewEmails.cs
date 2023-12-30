@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace OOD_Project
         private string selectedAttachmentName;
         static ImageList attachment = new ImageList();
         private bool forInbox;
+        int selectedEmailId = -1;
         public ViewEmails(bool forInbox)
         {
 
@@ -182,11 +184,12 @@ namespace OOD_Project
             attachmentsListView.Items.Clear();
             if (emailsListView.SelectedItems.Count > 0)
             {
-                // starts from zero
+                // starts from zero                 
                 int selectedIndex = emailsListView.SelectedItems[0].Index;
-                updateEmailDetails(emailIds[selectedIndex]);
-                loadAttachments(emailIds[selectedIndex]);
-                bool hasAttachments = emailHasAttachments(emailIds[selectedIndex]);
+                selectedEmailId = emailIds[selectedIndex];
+                updateEmailDetails(selectedEmailId);
+                loadAttachments(selectedEmailId);
+                bool hasAttachments = emailHasAttachments(selectedEmailId);
                 //MessageBox.Show(hasAttachments.ToString());
             }
         }
@@ -272,14 +275,20 @@ namespace OOD_Project
             SaveFileDialog savePicker = new SaveFileDialog();
             // set the folderpath when clicking the button to desktop
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
             savePicker.InitialDirectory = desktopPath;
             savePicker.FileName = selectedAttachmentName;
             if (savePicker.ShowDialog() == DialogResult.OK)
-            {   
-                MessageBox.Show(selectedAttachmentName);
-                DocumentHelper.CopyFile("C:\\Users\\Hassan\\Documents\\OODProject.txt", savePicker.FileName);
-                
+            {
+
+                int recipientId = User.GetRecipientId(selectedEmailId);
+                int senderId = User.GetSenderId(selectedEmailId);
+                MessageBox.Show(recipientId.ToString());
+                if (recipientId != 0 || senderId != 0)
+                {
+                    string originalPath = Path.Combine(DocumentHelper.emailsDiretory, $"{senderId}_{recipientId}", selectedEmailId.ToString(), selectedAttachmentName);
+                    DocumentHelper.CopyFile(originalPath, savePicker.FileName);
+                }             
+
             }
         }
     }

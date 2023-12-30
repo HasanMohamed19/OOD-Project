@@ -378,7 +378,37 @@ namespace OOD_Project
 
         }
 
-        private static int getRecipientId(int eid)
+        public static int GetSenderId(int eid)
+        {
+            int sid = 0;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@email_id", eid);
+            dbm.Command.CommandText = "SELECT sender_user_id FROM [dbo].[email] WHERE email_id = @email_id";
+
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                if (dbm.Reader.Read())
+                {
+                    sid = Convert.ToInt32(dbm.Reader["sender_user_id"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+
+            return sid;
+        }
+
+        public static int GetRecipientId(int eid)
         {
             int rid = 0;
             DatabaseManager dbm = DatabaseManager.Instance();
@@ -408,16 +438,17 @@ namespace OOD_Project
 
         public static void SendAttachments(string path, int emailId)
         {
-            int recId = getRecipientId(emailId);
+            int recId = GetRecipientId(emailId);
             string fileName = Path.GetFileName(path);
             //string folderPath = Path.GetDirectoryName(path);
             string dest = Path.Combine(DocumentHelper.emailsDiretory, (Global.UserId.ToString() + "_" + recId.ToString()), emailId.ToString());
-            string newPath = Path.Combine(dest, fileName);
+            string relativeDest = Path.Combine(DocumentHelper.emailsRelativePath, (Global.UserId.ToString() + "_" + recId.ToString()), emailId.ToString());
+            string newPath = Path.Combine(relativeDest, fileName);
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@file_name", fileName);
-            dbm.Command.Parameters.AddWithValue("@folder_path", dest);
+            dbm.Command.Parameters.AddWithValue("@folder_path", relativeDest);
             dbm.Command.Parameters.AddWithValue("@email_id", emailId);
             dbm.Command.CommandText = "INSERT INTO [dbo].[email_attachment] (email_attachment_id, filename, folder_path, email_id)" +
                 " VALUES(NEXT VALUE FOR [dbo].[emaiAttachmentIDSequence], @file_name, @folder_path, @email_id)";
@@ -431,7 +462,7 @@ namespace OOD_Project
                     DocumentHelper.MakeDirectory(dest);
                    
                 }
-                DocumentHelper.CopyFile(path, Path.Combine(dest, newPath));
+                DocumentHelper.CopyFile(path, Path.Combine(dest, fileName));
 
             }
             catch (Exception ex)
