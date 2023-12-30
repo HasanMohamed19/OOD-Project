@@ -64,7 +64,7 @@ namespace OOD_Project
 
         public string BranchName { get => branchName; set => branchName = value; }
 
-
+        
         public static Branch GetBranchForTeacher(int teacher_id)
         {
             Branch branch = null;
