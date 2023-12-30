@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.usersListControls = new System.Windows.Forms.FlowLayoutPanel();
             this.emailBtn = new System.Windows.Forms.Button();
             this.generateBtn = new System.Windows.Forms.Button();
             this.publishBtn = new System.Windows.Forms.Button();
             this.studentsDG = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.usersListControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentsDG)).BeginInit();
             this.SuspendLayout();
@@ -44,6 +45,7 @@
             this.usersListControls.Controls.Add(this.emailBtn);
             this.usersListControls.Controls.Add(this.generateBtn);
             this.usersListControls.Controls.Add(this.publishBtn);
+            this.usersListControls.Controls.Add(this.label1);
             this.usersListControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.usersListControls.Location = new System.Drawing.Point(0, 0);
             this.usersListControls.Name = "usersListControls";
@@ -103,28 +105,40 @@
             this.studentsDG.AllowUserToAddRows = false;
             this.studentsDG.AllowUserToDeleteRows = false;
             this.studentsDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.studentsDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.studentsDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.studentsDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentsDG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.studentsDG.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.studentsDG.Location = new System.Drawing.Point(0, 33);
-            this.studentsDG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.studentsDG.Margin = new System.Windows.Forms.Padding(2);
             this.studentsDG.MultiSelect = false;
             this.studentsDG.Name = "studentsDG";
             this.studentsDG.RowHeadersWidth = 51;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentsDG.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentsDG.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.studentsDG.RowTemplate.Height = 24;
             this.studentsDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.studentsDG.Size = new System.Drawing.Size(773, 427);
             this.studentsDG.TabIndex = 8;
+            this.studentsDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDG_CellClick);
             this.studentsDG.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentsDG_CellEndEdit);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(489, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(272, 30);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Click on a Grade cell to edit";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ViewStudentsForm
             // 
@@ -150,5 +164,6 @@
         private System.Windows.Forms.Button emailBtn;
         private System.Windows.Forms.DataGridView studentsDG;
         private System.Windows.Forms.Button publishBtn;
+        private System.Windows.Forms.Label label1;
     }
 }

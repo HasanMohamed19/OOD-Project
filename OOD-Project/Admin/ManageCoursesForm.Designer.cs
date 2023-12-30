@@ -38,7 +38,6 @@ namespace OOD_Project.Admin
             this.courseControls = new System.Windows.Forms.FlowLayoutPanel();
             this.lblCourses = new System.Windows.Forms.Label();
             this.deleteCourseBtn = new System.Windows.Forms.Button();
-            this.feedbackBtn = new System.Windows.Forms.Button();
             this.reportBtn = new System.Windows.Forms.Button();
             this.btnPublishReport = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -93,7 +92,6 @@ namespace OOD_Project.Admin
             this.courseControls.Controls.Add(this.addCourseBtn);
             this.courseControls.Controls.Add(this.editCourseBtn);
             this.courseControls.Controls.Add(this.deleteCourseBtn);
-            this.courseControls.Controls.Add(this.feedbackBtn);
             this.courseControls.Controls.Add(this.reportBtn);
             this.courseControls.Controls.Add(this.btnPublishReport);
             this.courseControls.Dock = System.Windows.Forms.DockStyle.Top;
@@ -127,21 +125,6 @@ namespace OOD_Project.Admin
             this.deleteCourseBtn.UseVisualStyleBackColor = false;
             this.deleteCourseBtn.Click += new System.EventHandler(this.deleteCourseBtn_Click);
             // 
-            // feedbackBtn
-            // 
-            this.feedbackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
-            this.feedbackBtn.FlatAppearance.BorderSize = 0;
-            this.feedbackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.feedbackBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.feedbackBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.feedbackBtn.Location = new System.Drawing.Point(352, 3);
-            this.feedbackBtn.Name = "feedbackBtn";
-            this.feedbackBtn.Size = new System.Drawing.Size(133, 27);
-            this.feedbackBtn.TabIndex = 5;
-            this.feedbackBtn.Text = "View Feedback";
-            this.feedbackBtn.UseVisualStyleBackColor = false;
-            this.feedbackBtn.Click += new System.EventHandler(this.feedbackBtn_Click);
-            // 
             // reportBtn
             // 
             this.reportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(76)))), ((int)(((byte)(166)))));
@@ -149,7 +132,7 @@ namespace OOD_Project.Admin
             this.reportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.reportBtn.Location = new System.Drawing.Point(491, 3);
+            this.reportBtn.Location = new System.Drawing.Point(352, 3);
             this.reportBtn.Name = "reportBtn";
             this.reportBtn.Size = new System.Drawing.Size(149, 27);
             this.reportBtn.TabIndex = 6;
@@ -164,7 +147,7 @@ namespace OOD_Project.Admin
             this.btnPublishReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPublishReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPublishReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
-            this.btnPublishReport.Location = new System.Drawing.Point(646, 3);
+            this.btnPublishReport.Location = new System.Drawing.Point(507, 3);
             this.btnPublishReport.Name = "btnPublishReport";
             this.btnPublishReport.Size = new System.Drawing.Size(149, 27);
             this.btnPublishReport.TabIndex = 7;
@@ -207,7 +190,7 @@ namespace OOD_Project.Admin
             this.classDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.classDG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.classDG.Location = new System.Drawing.Point(2, 350);
-            this.classDG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.classDG.Margin = new System.Windows.Forms.Padding(2);
             this.classDG.MultiSelect = false;
             this.classDG.Name = "classDG";
             this.classDG.ReadOnly = true;
@@ -304,7 +287,7 @@ namespace OOD_Project.Admin
             this.courseDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.courseDG.Dock = System.Windows.Forms.DockStyle.Fill;
             this.courseDG.Location = new System.Drawing.Point(2, 41);
-            this.courseDG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.courseDG.Margin = new System.Windows.Forms.Padding(2);
             this.courseDG.MultiSelect = false;
             this.courseDG.Name = "courseDG";
             this.courseDG.ReadOnly = true;
@@ -326,7 +309,7 @@ namespace OOD_Project.Admin
             this.ClientSize = new System.Drawing.Size(1008, 529);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManageCourseForm";
             this.Text = "Manage Courses";
             this.courseControls.ResumeLayout(false);
@@ -353,7 +336,6 @@ namespace OOD_Project.Admin
         private System.Windows.Forms.DataGridView classDG;
         private System.Windows.Forms.Label lblCourses;
         private System.Windows.Forms.Label lblClass;
-        private System.Windows.Forms.Button feedbackBtn;
         private System.Windows.Forms.Button reportBtn;
         private System.Windows.Forms.Button btnPublishReport;
     }

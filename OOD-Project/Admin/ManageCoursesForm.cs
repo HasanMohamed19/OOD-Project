@@ -160,7 +160,6 @@ namespace OOD_Project.Admin
         {
             bool courseSelected = courseDG.SelectedRows.Count > 0;
             btnPublishReport.Enabled = courseSelected;
-            feedbackBtn.Enabled = courseSelected;
             reportBtn.Enabled = courseSelected;
             PopulateClassDGV();
         }
@@ -209,17 +208,6 @@ namespace OOD_Project.Admin
 
             Class.DeleteClass(class_id);
             PopulateDGVs();
-
-        }
-
-        private void feedbackBtn_Click(object sender, EventArgs e)
-        {
-            // get selected section
-            if (courseDG.SelectedRows.Count < 1)
-            {
-                return;
-            }
-            int section_id = GetSectionId();
 
         }
 

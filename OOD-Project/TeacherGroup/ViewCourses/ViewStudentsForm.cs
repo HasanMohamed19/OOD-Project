@@ -48,6 +48,9 @@ namespace OOD_Project.TeacherGroup.ViewCourses
                 studentsDG.DataSource = bs;
                 studentsDG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
                 studentsDG.RowTemplate.MinimumHeight = 30;
+                studentsDG.Columns[0].ReadOnly = true;
+                studentsDG.Columns[1].ReadOnly = true;
+                studentsDG.Columns[3].ReadOnly = true;
             }
             catch (Exception ex)
             {
@@ -61,7 +64,8 @@ namespace OOD_Project.TeacherGroup.ViewCourses
         private void studentsDG_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             //  make sure only editing grade cell
-            if (studentsDG.CurrentCell.ColumnIndex != 2)
+            if (studentsDG.CurrentCell.ColumnIndex != 2
+                || studentsDG.CurrentCell.Value == null)
             {
                 return;
             }
@@ -100,7 +104,7 @@ namespace OOD_Project.TeacherGroup.ViewCourses
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close(); 
             }
-            PopulateStudents();
+            BeginInvoke(new MethodInvoker(PopulateStudents)); // invoke instead of call to prevent errors
 
         }
 
@@ -162,6 +166,11 @@ namespace OOD_Project.TeacherGroup.ViewCourses
             // open email form and sent to user
             EmailForm emailForm = new EmailForm(recipient.Email);
             emailForm.ShowDialog();
+        }
+
+        private void studentsDG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //studentsDG.BeginEdit(true);
         }
     }
 }

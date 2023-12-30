@@ -62,7 +62,6 @@ namespace OOD_Project.Admin
                     btnLeft.Text = "Cancel";
                     break;
                 case CourseScreens.classes:
-                    CreateCourse();
                     headerLbl.Text = "Add Classes";
                     btnLeft.Text = "Back";
                     btnRight.Text = "Next";
@@ -199,6 +198,18 @@ namespace OOD_Project.Admin
         private void btnRight_Click(object sender, EventArgs e)
         {
             // go to next screen or finish
+            if (currentScreen == CourseScreens.course)
+            {
+                try
+                {
+                    CreateCourse();
+                }
+                catch
+                {
+                    MessageBox.Show("Please enter correct values.", "Invalid Input");
+                    return;
+                }
+            }
             if ((int)currentScreen >= 2) {
                 SaveCourse();
                 Close(); 

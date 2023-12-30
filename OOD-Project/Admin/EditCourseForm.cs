@@ -91,7 +91,6 @@ namespace OOD_Project.Admin
                     btnRight.Text = "Next";
                     break;
                 case CourseScreens.students:
-                    UpdateCourse();
                     headerLbl.Text = "Register Students";
                     btnLeft.Text = "Back";
                     btnRight.Text = "Save";
@@ -190,6 +189,17 @@ namespace OOD_Project.Admin
         private void btnRight_Click(object sender, EventArgs e)
         {
             // go to next screen or finish
+            if (currentScreen == CourseScreens.course)
+            {
+                try
+                {
+                    UpdateCourse();
+                } catch {
+                    MessageBox.Show("Please enter correct values.", "Invalid Input");
+                    return;
+                }
+
+            }
             if ((int)currentScreen >= 1)
             {
                 SaveCourse();

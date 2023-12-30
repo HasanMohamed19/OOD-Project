@@ -50,6 +50,7 @@ namespace OOD_Project.Admin
             try
             {
                 smtpClient.Send(msgMail);
+                MessageBox.Show("Email has been sent to the user. They are now able to log in to the system.", "User Accepted");
             }
             catch (Exception ex)
             {
@@ -73,6 +74,7 @@ namespace OOD_Project.Admin
             try
             {
                 smtpClient.Send(msgMail);
+                MessageBox.Show("Rejection email has been sent to the user.", "User Rejected");
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

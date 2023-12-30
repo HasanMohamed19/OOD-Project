@@ -461,7 +461,8 @@ namespace OOD_Project
             try
             {
                 int rows = dbm.Command.ExecuteNonQuery();
-                //MessageBox.Show($"Student added successfully {rows}");
+                // if pending user, tell them to wait for admin approval
+                MessageBox.Show("Registration request sent. Please wait for approval from the admin. Check your email to be notified.", "Request Sent");
             }
             catch (Exception ex)
             {

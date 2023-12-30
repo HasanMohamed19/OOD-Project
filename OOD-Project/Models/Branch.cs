@@ -12,6 +12,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
+using System.Data.SqlClient;
 
 namespace OOD_Project
 {
@@ -159,6 +160,10 @@ namespace OOD_Project
             {
                 dbm.Command.ExecuteNonQuery();
                 return true;
+            } catch (SqlException e) when (e.Number == 547)
+            {
+                MessageBox.Show("Cannot delete branch because at least one teacher is under it. Please remove the teachers and try again.", "Branch Not Deleted");
+                return false;
             }
             catch (Exception ex)
             {
