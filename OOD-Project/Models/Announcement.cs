@@ -111,7 +111,7 @@ namespace OOD_Project
             try
             {
                 int rows = dbm.Command.ExecuteNonQuery();
-                MessageBox.Show($"Announcement published successfully {rows}");
+                MessageBox.Show($"Announcement published successfully.", "Published");
             }
             catch (Exception ex)
             {

@@ -65,7 +65,8 @@ namespace OOD_Project.TeacherGroup.ViewCourses
         {
             //  make sure only editing grade cell
             if (studentsDG.CurrentCell.ColumnIndex != 2
-                || studentsDG.CurrentCell.Value == null)
+                || studentsDG.CurrentCell.Value == null
+                || studentsDG.CurrentCell.Value is DBNull)
             {
                 return;
             }
