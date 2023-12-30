@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Text.RegularExpressions;
 using OOD_Project.Admin;
+using System.Data.SqlClient;
 
 namespace OOD_Project
 {
@@ -263,7 +264,7 @@ namespace OOD_Project
             }
         }
 
-        public static bool DeleteUser(int user_id)
+        public static void DeleteUser(int user_id)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
@@ -273,18 +274,16 @@ namespace OOD_Project
             try
             {
                 dbm.Command.ExecuteNonQuery();
-            }
+            } 
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                return false;
             }
             finally
             {
                 dbm.Command.Parameters.Clear();
                 dbm.Connection.Close();
             }
-            return true;
 
         }
 

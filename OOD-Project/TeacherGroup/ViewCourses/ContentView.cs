@@ -86,6 +86,7 @@ namespace OOD_Project.TeacherGroup.ViewCourses
             {
                 string folderPath = dbm.Reader["folder_path"].ToString();
                 string fileName = dbm.Reader["filename"].ToString();
+                string content_id = dbm.Reader["content_id"].ToString();
                 string relativePath = Path.Combine(folderPath, fileName);
                 string fullPath = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), fileName);
                 ListViewItem courseContent = new ListViewItem(dbm.Reader["filename"].ToString());
@@ -93,6 +94,7 @@ namespace OOD_Project.TeacherGroup.ViewCourses
                 // rename the view later
                 string fileSize = $"{fileSizeInBytes / 1024} KB";
                 courseContent.SubItems.Add(fileSize);
+                courseContent.SubItems.Add(content_id);
                 classesListView.Items.Add(courseContent);
             }
             dbm.Command.Parameters.Clear();
@@ -107,26 +109,15 @@ namespace OOD_Project.TeacherGroup.ViewCourses
 
         private void deleteContentBtn_Click(object sender, EventArgs e)
         {
-            //DatabaseManager dbm = DatabaseManager.Instance();
-            //dbm.Connection.Open();
-            //dbm.Command = dbm.Connection.CreateCommand();
-            //dbm.Command.Parameters.AddWithValue("@course_id", courseId);
-            //dbm.Command.CommandText = "DELETE FROM [dbo].[content] WHERE course_id = @course_id AND ";
-            //try
-            //{
-            //    int numberOfFileDeleted = dbm.Command.ExecuteNonQuery();
-            //    classesListView.Items.Remove(classesListView.SelectedItems[0]);
-            //    MessageBox.Show($"{numberOfFileDeleted} has been deleted.");
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-            //finally
-            //{
-            //    dbm.Command.Parameters.Clear();
-            //    dbm.Connection.Close();
-            //}
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this file?","Confirm Delete", MessageBoxButtons.YesNoCancel);
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
+            string text = classesListView.SelectedItems[0].SubItems[2].Text;
+            int content_id = Convert.ToInt32(text);
+            Content.DeleteContent(content_id);
+            PopulateCourseContent(courseId);
         }
     }
 }

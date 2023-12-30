@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
@@ -84,6 +85,9 @@ namespace OOD_Project
             try
             {
                 dbm.Command.ExecuteNonQuery();
+            } catch (SqlException e) when (e.Number == 547)
+            {
+                MessageBox.Show("This section has registered students in it. If you would like to delete it, remove the students first.", "Cannot Delete Section");
             }
             catch (Exception ex)
             {
