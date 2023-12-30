@@ -64,9 +64,9 @@ namespace OOD_Project
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
             dbm.Command.Parameters.AddWithValue("@sender_user_id", Global.UserId);
-            dbm.Command.CommandText = "SELECT e.*, sender.username AS SenderUsername " +
+            dbm.Command.CommandText = "SELECT e.*, recipient.username AS RecUsername " +
                 "FROM [dbo].[email] e " +
-                "JOIN [dbo].[User] sender ON e.sender_user_id = sender.user_id " +
+                "JOIN [dbo].[User] recipient ON e.recipient_user_id = recipient.user_id " +
                 "WHERE e.sender_user_id = @sender_user_id ORDER BY email_id DESC";
 
             try
@@ -79,7 +79,7 @@ namespace OOD_Project
                     string body = dbm.Reader["body"].ToString();
                     string subject = dbm.Reader["subject"].ToString();
 
-                    ListViewItem emailItem = new ListViewItem(dbm.Reader["SenderUsername"].ToString());
+                    ListViewItem emailItem = new ListViewItem(dbm.Reader["RecUsername"].ToString());
                     emailItem.SubItems.Add(dbm.Reader["subject"].ToString());
                     //if (Convert.ToInt32(dbm.Reader["NumberOfAttachments"].ToString()) > 0)
                     //{
@@ -116,8 +116,8 @@ namespace OOD_Project
             dbm.Command.Parameters.AddWithValue("@recipient_user_id", Global.UserId);
             //dbm.Command.CommandText = "SELECT * FROM [dbo].[email] WHERE recipient_user_id = @recipient_user_id ORDER BY email_id DESC";
             dbm.Command.CommandText = "SELECT e.*, " +
-                "recipient.username AS RecUserName, recipient.email AS RecEmail FROM [dbo].[email] e " +
-                "JOIN [dbo].[User] recipient ON e.recipient_user_id = recipient.user_id " +
+                "sender.username AS SenderUserName, sender.email AS SenderEmail FROM [dbo].[email] e " +
+                "JOIN [dbo].[User] sender ON e.sender_user_id = sender.user_id " +
                 "WHERE e.recipient_user_id = @recipient_user_id ORDER BY email_id DESC";
             try
             {
@@ -129,7 +129,7 @@ namespace OOD_Project
                     string body = dbm.Reader["body"].ToString();
                     string subject = dbm.Reader["subject"].ToString();
 
-                    ListViewItem emailItem = new ListViewItem(dbm.Reader["RecUserName"].ToString());
+                    ListViewItem emailItem = new ListViewItem(dbm.Reader["SenderUserName"].ToString());
                     emailItem.SubItems.Add(dbm.Reader["subject"].ToString());
                     //if (Convert.ToInt32(dbm.Reader["NumberOfAttachments"].ToString()) > 0)
                     //{
