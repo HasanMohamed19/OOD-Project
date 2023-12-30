@@ -138,12 +138,12 @@
             // 
             this.feedbackTable.SetColumnSpan(this.lblSuggestions, 2);
             this.lblSuggestions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSuggestions.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSuggestions.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuggestions.Location = new System.Drawing.Point(3, 413);
             this.lblSuggestions.Name = "lblSuggestions";
             this.lblSuggestions.Size = new System.Drawing.Size(602, 116);
             this.lblSuggestions.TabIndex = 14;
-            this.lblSuggestions.Text = "Suggestion: \r\nGreat stuff!";
+            this.lblSuggestions.Text = "Suggestions: \r\nGreat stuff!";
             // 
             // lblA5
             // 

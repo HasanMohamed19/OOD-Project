@@ -22,7 +22,7 @@ namespace OOD_Project.Admin
             "Unsatisfied",
             "Neutral",
             "Satisfied",
-            "Very satisfied",
+            "Very satisfied"
         };
 
         public ViewFeedbackForm()
@@ -41,11 +41,11 @@ namespace OOD_Project.Admin
             }
             lblCourse.Text = $"Course: {feedback.ForCourse.Name}";
             lblStudent.Text = $"Student: {feedback.ByStudent.FirstName} {feedback.ByStudent.LastName}";
-            lblA1.Text = $"Answer:\n{feedback.Answers[0]}";
-            lblA2.Text = $"Answer:\n{feedback.Answers[1]}";
-            lblA3.Text = $"Answer:\n{feedback.Answers[2]}";
-            lblA4.Text = $"Answer:\n{feedback.Answers[3]}";
-            lblA5.Text = $"Answer:\n{feedback.Answers[4]}";
+            lblA1.Text = $"Answer:\n{answers[feedback.Answers[0] - 1]}";
+            lblA2.Text = $"Answer:\n{answers[feedback.Answers[1] - 1]}";
+            lblA3.Text = $"Answer:\n{answers[feedback.Answers[2] - 1]}";
+            lblA4.Text = $"Answer:\n{answers[feedback.Answers[3] - 1]}";
+            lblA5.Text = $"Answer:\n{answers[feedback.Answers[4] - 1]}";
             lblSuggestions.Text = $"Suggestions:\n{feedback.Suggestions}";
         }
 
@@ -78,6 +78,7 @@ namespace OOD_Project.Admin
                 return;
             }
             studentListView.Items.Clear();
+            studentIds.Clear();
             // get section_id from selected course
             int section_id = Section.GetSectionFromCourse(courseIds[courseListView.SelectedItems[0].Index]).Id;
             // get all students that are registered in selected course, display in the sidebar
