@@ -183,21 +183,29 @@ namespace OOD_Project
             UserRole role = GetUserRoleFromDGV(pendingDGV);
 
             // send accept email
+            
             EmailController ec = EmailController.Instance();
             switch (role)
             {
                 case UserRole.student:
                     Student student = Student.GetStudent(selectedId);
+                    if (!User.AcceptPendingUser(selectedId, role))
+                    {
+                        return;
+                    }
                     ec.SendAcceptEmail(student.Email, student.FirstName, student.LastName, student.StudentUniversityId, student.Cpr);
                     break;
                 case UserRole.teacher:
                     Teacher teacher = Teacher.GetTeacher(selectedId);
+                    if (!User.AcceptPendingUser(selectedId, role))
+                    {
+                        return;
+                    }
                     ec.SendAcceptEmail(teacher.Email, teacher.FirstName, teacher.LastName, teacher.TeacherUniversityId, teacher.Cpr);
                     break;
                 default:
                     return;
             }
-            User.AcceptPendingUser(selectedId, role);
             PopulateGrids();
         }
 
@@ -218,21 +226,29 @@ namespace OOD_Project
             UserRole role = GetUserRoleFromDGV(pendingDGV);
 
             // send rejection email
+            
             EmailController ec = EmailController.Instance();
             switch (role)
             {
                 case UserRole.student:
                     Student student = Student.GetStudent(selectedId);
+                    if (!User.DeleteUser(selectedId))
+                    {
+                        return;
+                    }
                     ec.SendRejectEmail(student.Email, student.FirstName, student.LastName);
                     break;
                 case UserRole.teacher:
                     Teacher teacher = Teacher.GetTeacher(selectedId);
+                    if (!User.DeleteUser(selectedId))
+                    {
+                        return;
+                    }
                     ec.SendRejectEmail(teacher.Email, teacher.FirstName, teacher.LastName);
                     break;
                 default:
                     return;
             }
-            User.DeleteUser(selectedId);
 
             PopulateGrids();
 

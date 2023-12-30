@@ -65,7 +65,7 @@ namespace OOD_Project
 
 
         
-        public static void AcceptPendingUser(int user_id, UserRole role)
+        public static bool AcceptPendingUser(int user_id, UserRole role)
         {
             int inactive_id;
             string university_id;
@@ -81,7 +81,7 @@ namespace OOD_Project
                     } catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
-                        return;
+                        return false;
                     }
                     break;
                 case UserRole.teacher:
@@ -92,11 +92,11 @@ namespace OOD_Project
                     } catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
-                        return;
+                        return false;
                     }
                     break;
                 default:
-                    return;
+                    return false;
             }
 
             // update status of inactive user
@@ -104,6 +104,7 @@ namespace OOD_Project
 
             // delete pending user
             DeleteUser(user_id);
+            return true;
         }
 
         public static bool IsPasswordValidForUser(int user_id, string password)
@@ -282,6 +283,7 @@ namespace OOD_Project
             catch (SqlException e) when (e.Number == 547)
             {
                 MessageBox.Show("This teacher has assigned section. Unassign him first and retry again.");
+                return false;
             }
             catch (Exception ex)
             {
