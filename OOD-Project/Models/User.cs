@@ -340,6 +340,7 @@ namespace OOD_Project
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                return -1;
             } finally
             {
                 dbm.Command.Parameters.Clear();
@@ -547,7 +548,6 @@ namespace OOD_Project
             {
                 Notification notif = new Notification(email.Body, this, 0, email.Subject, NotificationType.email, false);
                 Notification.AddNotification(notif);
-                //EmailController.Instance().SendNotificationEmail("202100937@student.polytechnic.bh");
             }
         }
     }
