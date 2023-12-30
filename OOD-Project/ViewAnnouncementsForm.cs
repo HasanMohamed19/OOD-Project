@@ -29,12 +29,17 @@ namespace OOD_Project
             dbm.Command = dbm.Connection.CreateCommand();
 
             dbm.Command.Parameters.AddWithValue("@user_id", user_id);
-            dbm.Command.CommandText = "SELECT a.announcement_id, title, announcement_type_name " +
+            dbm.Command.CommandText = "SELECT a.announcement_id, title, announcement_type_name, date " +
+                " FROM [dbo].[announcement] a " +
+                " JOIN [dbo].[announcement_type] at ON a.announcement_type_id = at.announcement_type_id " +
+                " WHERE a.is_global = 'TRUE' " +
+                " UNION ALL " +
+                " SELECT a.announcement_id, title, announcement_type_name, date " +
                 " FROM [dbo].[announcement] a " +
                 " JOIN [dbo].[announcement_type] at ON a.announcement_type_id = at.announcement_type_id " +
                 " JOIN [dbo].[user_announcement] ua ON ua.announcement_id = a.announcement_id " +
-                " WHERE is_global = 1 OR ua.user_id = @user_id " +
-                " ORDER BY a.announcement_id DESC";
+                " WHERE ua.user_id = @user_id " +
+                " ORDER BY date DESC ";
             try
             {
                 dbm.Reader = dbm.Command.ExecuteReader();

@@ -494,7 +494,6 @@ namespace OOD_Project
                 string email = dbm.Reader["email"].ToString();
                 int roleId = dbm.Reader.GetInt32(4);
                 int statusId = dbm.Reader.GetInt32(5);
-                bool hasNotification = dbm.Reader.GetBoolean(6);
                 User user = new User(userId, username, password, email, (UserRole)roleId, (UserStatus)statusId);
                 users.Add(user);
             }
@@ -519,42 +518,5 @@ namespace OOD_Project
                 //EmailController.Instance().SendNotificationEmail("202100937@student.polytechnic.bh");
             }
         }
-
-
-        //public override string ToString()
-        //{
-        //    string rolename = RoleId.ToString();
-        //    string status = StatusId.ToString();
-        //    return rolename + " " + FirstName + " " + LastName + "\n"
-        //        + Email + " " + Cpr + " " + "\n"
-        //        + Username + " " + Password + " " + Phone + "\n"
-        //        + Dob + " " + Gender + "Status: " + status;
-        //}
     }
-
-    
-
-    
-
-    //public class Admin : User
-    //{
-    //    private int adminId;
-
-    //    public int AdminId { get => adminId; set => adminId = value; }
-        
-    //    public Admin() 
-    //    {
-    //        this.AdminId = 0;
-    //        RoleId = UserRole.admin;
-    //        StatusId = UserStatus.accepted;
-
-    //        FirstName = "Admin";
-    //        LastName = string.Empty;
-    //        Gender = 'M';
-    //        Dob = DateTime.Now;
-    //        Phone = string.Empty;
-    //        Cpr = string.Empty;
-    //        Email = string.Empty;
-    //    }
-    //}
 }
