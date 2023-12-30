@@ -72,18 +72,27 @@ namespace OOD_Project
             filePicker.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             filePicker.FilterIndex = 2;
             filePicker.InitialDirectory = desktopPath;
-            
+            filePicker.Multiselect = true;
             if (filePicker.ShowDialog() == DialogResult.OK)
             {
-                string fileName = filePicker.FileName;
-                files.Add(fileName);
-                ListViewItem item = new ListViewItem(Path.GetFileName(fileName));
-                attachmentsListView.Items.Add(item);
-                //foreach (string file in filePicker.FileNames)
-                //{
-                //    ListViewItem item = new ListViewItem(Path.GetFileName(file));
-                //    attachmentsListView.Items.Add(item);
-                //}
+                //string fileName = filePicker.FileName;
+                //files.Add(fileName);
+                //ListViewItem item = new ListViewItem(Path.GetFileName(fileName));
+                //attachmentsListView.Items.Add(item);
+                foreach (string file in filePicker.FileNames)
+                {
+                    string fileName = Path.GetFileName(file);
+                    if (files.Contains(file))
+                    {
+                        MessageBox.Show($"This email has already a file with this name. {fileName} can't be uploaded again.", "Duplicate File", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } else
+                    {
+                        files.Add(file);
+                        ListViewItem item = new ListViewItem(fileName);
+                        attachmentsListView.Items.Add(item);
+                    }
+                    
+                }
             }
 
         }
@@ -106,6 +115,7 @@ namespace OOD_Project
         {
             int selectedItemIndex = attachmentsListView.SelectedItems[0].Index;
             attachmentsListView.Items.Remove(attachmentsListView.SelectedItems[0]);
+            files.RemoveAt(selectedItemIndex);
         }
 
         private void recipientTxt_TextChanged(object sender, EventArgs e)
