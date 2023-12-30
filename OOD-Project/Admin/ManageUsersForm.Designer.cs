@@ -90,6 +90,7 @@
             // 
             this.currentUsersDG.AllowUserToAddRows = false;
             this.currentUsersDG.AllowUserToDeleteRows = false;
+            this.currentUsersDG.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.currentUsersDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.currentUsersDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.currentUsersDG.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -98,6 +99,7 @@
             this.currentUsersDG.MultiSelect = false;
             this.currentUsersDG.Name = "currentUsersDG";
             this.currentUsersDG.ReadOnly = true;
+            this.currentUsersDG.RowHeadersVisible = false;
             this.currentUsersDG.RowHeadersWidth = 51;
             this.currentUsersDG.RowTemplate.Height = 24;
             this.currentUsersDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -175,6 +177,7 @@
             // 
             // pendingUsersTab
             // 
+            this.pendingUsersTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.pendingUsersTab.Controls.Add(this.tableLayoutPanel1);
             this.pendingUsersTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingUsersTab.Location = new System.Drawing.Point(4, 22);
@@ -183,7 +186,6 @@
             this.pendingUsersTab.Size = new System.Drawing.Size(1000, 503);
             this.pendingUsersTab.TabIndex = 1;
             this.pendingUsersTab.Text = "Pending Users";
-            this.pendingUsersTab.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -208,36 +210,40 @@
             // 
             this.inactiveDGV.AllowUserToAddRows = false;
             this.inactiveDGV.AllowUserToDeleteRows = false;
+            this.inactiveDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.inactiveDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inactiveDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.inactiveDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inactiveDGV.Location = new System.Drawing.Point(2, 289);
+            this.inactiveDGV.Location = new System.Drawing.Point(2, 283);
             this.inactiveDGV.Margin = new System.Windows.Forms.Padding(2);
             this.inactiveDGV.MultiSelect = false;
             this.inactiveDGV.Name = "inactiveDGV";
             this.inactiveDGV.ReadOnly = true;
+            this.inactiveDGV.RowHeadersVisible = false;
             this.inactiveDGV.RowHeadersWidth = 51;
             this.inactiveDGV.RowTemplate.Height = 24;
             this.inactiveDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.inactiveDGV.Size = new System.Drawing.Size(990, 206);
+            this.inactiveDGV.Size = new System.Drawing.Size(990, 212);
             this.inactiveDGV.TabIndex = 10;
             // 
             // pendingDGV
             // 
             this.pendingDGV.AllowUserToAddRows = false;
             this.pendingDGV.AllowUserToDeleteRows = false;
+            this.pendingDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(234)))), ((int)(((byte)(238)))));
             this.pendingDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.pendingDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.pendingDGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pendingDGV.Location = new System.Drawing.Point(2, 41);
+            this.pendingDGV.Location = new System.Drawing.Point(2, 35);
             this.pendingDGV.Margin = new System.Windows.Forms.Padding(2);
             this.pendingDGV.MultiSelect = false;
             this.pendingDGV.Name = "pendingDGV";
             this.pendingDGV.ReadOnly = true;
+            this.pendingDGV.RowHeadersVisible = false;
             this.pendingDGV.RowHeadersWidth = 51;
             this.pendingDGV.RowTemplate.Height = 24;
             this.pendingDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.pendingDGV.Size = new System.Drawing.Size(990, 205);
+            this.pendingDGV.Size = new System.Drawing.Size(990, 211);
             this.pendingDGV.TabIndex = 9;
             // 
             // flowLayoutPanel2
@@ -247,9 +253,10 @@
             this.flowLayoutPanel2.Controls.Add(this.editInactive);
             this.flowLayoutPanel2.Controls.Add(this.deleteInactive);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 251);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 248);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(988, 33);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(994, 33);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
             // label1
@@ -312,9 +319,10 @@
             this.flowLayoutPanel1.Controls.Add(this.btnAccept);
             this.flowLayoutPanel1.Controls.Add(this.btnReject);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(988, 33);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(994, 33);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // label2

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace OOD_Project
@@ -148,8 +149,9 @@ namespace OOD_Project
             dbm.Connection.Close();
             return branches;
         }
-        public static bool DeleteBranch(int branch_id)
+        public static void DeleteBranch(int branch_id)
         {
+            
             DatabaseManager dbm = DatabaseManager.Instance();
             dbm.Connection.Open();
             dbm.Command = dbm.Connection.CreateCommand();
@@ -158,12 +160,10 @@ namespace OOD_Project
             try
             {
                 dbm.Command.ExecuteNonQuery();
-                return true;
             }
-            catch (Exception ex)
+            catch (SqlException e) when (e.Number == 547) // catch delete constraint exception
             {
-                MessageBox.Show(ex.Message);
-                return false;
+                MessageBox.Show("Cannot delete branch because there are teachers currently assigned to it. Please remove them first before deleting this branch.", "Branch Not Deleted");
             }
             finally
             {
