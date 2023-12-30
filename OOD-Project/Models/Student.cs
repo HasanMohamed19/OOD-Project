@@ -462,7 +462,10 @@ namespace OOD_Project
             {
                 int rows = dbm.Command.ExecuteNonQuery();
                 // if pending user, tell them to wait for admin approval
-                MessageBox.Show("Registration request sent. Please wait for approval from the admin. Check your email to be notified.", "Request Sent");
+                if (student.StatusId == UserStatus.inactive)
+                {
+                    MessageBox.Show("Registration request sent. Please wait for approval from the admin. Check your email to be notified.", "Request Sent");
+                }
             }
             catch (Exception ex)
             {

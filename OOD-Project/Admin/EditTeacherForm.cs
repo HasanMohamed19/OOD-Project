@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -102,7 +103,12 @@ namespace OOD_Project.Admin
             }
             DateTime inDOB = dateDOBT.Value.Date;
             string inTeacherId = txtTeacherId.Text;
-
+            // validate email
+            if (!Regex.Match(inEmail, "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$").Success)
+            {
+                MessageBox.Show("Your email is invalid. Please retry.", "Invalid Email");
+                return;
+            }
             // create user based on data received
             Teacher teacher = new Teacher(oldTeacher.UserId, inFName + "_" + inLName, inCPR, inEmail, UserRole.teacher, UserStatus.inactive,
                 oldTeacher.TeacherId, inFName, inLName, inDOB, inCPR, inGender, inPhone, inBranch, inProgramme, inTeacherId);
