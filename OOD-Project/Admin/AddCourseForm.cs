@@ -142,6 +142,12 @@ namespace OOD_Project.Admin
                 return;
             }
 
+            if (Teacher.GetCoursesAssigned(section.AssignedTeacher.TeacherId) >= 3)
+            {
+                MessageBox.Show($"{section.AssignedTeacher.FirstName} {section.AssignedTeacher.LastName} has already 3 courses. Cannout assign more.");
+                return;
+            }
+
             List<Student> selectedStudents = new List<Student>();
             for (int i = 0; i < studentsListView.CheckedItems.Count; i++)
             {

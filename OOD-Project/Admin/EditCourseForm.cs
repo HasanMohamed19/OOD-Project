@@ -162,7 +162,14 @@ namespace OOD_Project.Admin
             }
 
             Course.EditCourse(course);
-            Section.EditSection(section);
+            int sectionsAssigned = Teacher.GetCoursesAssigned(section.AssignedTeacher.TeacherId);
+            if (sectionsAssigned >= 3)
+            {
+                MessageBox.Show($"{section.AssignedTeacher.FirstName} {section.AssignedTeacher.LastName} has already 3 sections assigned. Cannot assign more courses.", "Teacher cant be assigned");
+            } else
+            {
+                Section.EditSection(section);
+            }
             // update students
             foreach (Student student in registeredStudents)
             {

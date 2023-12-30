@@ -502,9 +502,26 @@ namespace OOD_Project
 
         }
 
-        public static void DownloadContent(Content content)
+        public static int GetCoursesAssigned(int teacherId)
         {
-            
+            int numberOfCoursesAssigned = -1;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@teacher_id", teacherId);
+            dbm.Command.CommandText = "SELECT COUNT(*) FROM [dbo].[section] WHERE teacher_id = @teacher_id";
+            try
+            {
+                numberOfCoursesAssigned = (int)dbm.Command.ExecuteScalar();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            } finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+            return numberOfCoursesAssigned;
         }
 
         public string FirstName { get => firstName; set => firstName = value; }
