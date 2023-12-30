@@ -27,7 +27,7 @@ namespace OOD_Project.Admin
             {
                 EnableSsl = true,
                 UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("elms3dmin@gmail.com", "zalf dpnb abwl hepa\r\n")
+                Credentials = new NetworkCredential("elms3dmin@gmail.com", "pixg ebvq lofi nzzk\r\n")
             };
         }
         // to use singleton since we only need one instance
