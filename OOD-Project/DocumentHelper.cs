@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace OOD_Project
 {
+    /*
+     * This class is used to store the important paths for the courses files.
+     * It contains also all the methods for for dealing with upload/downloading files.
+     */
     public static class DocumentHelper
     {
         // used for checking the physical folder in the user machine

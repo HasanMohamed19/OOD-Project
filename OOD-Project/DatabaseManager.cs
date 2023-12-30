@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace OOD_Project
 {
+    /*
+     * Class for connecting to the database. used singleton becuase we need to ensure that we have only one connection to the db.
+     */
     public class DatabaseManager
     {
         static DatabaseManager instance;

@@ -88,6 +88,7 @@ namespace OOD_Project.Admin
             msgMail.Dispose();
         }
 
+        // this method can be used to have real email notification as well
         public void SendNotificationEmail(string recipientEmail)
         {
             string body = "You have a new Notification. Please check the system";

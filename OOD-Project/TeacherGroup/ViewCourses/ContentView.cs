@@ -23,6 +23,7 @@ namespace OOD_Project.TeacherGroup.ViewCourses
             PopulateCourseContent(courseId);
         }
 
+        // this method will get the files from the db and display their names 
         private void uploadContentBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog filePicker = new OpenFileDialog();
@@ -61,6 +62,7 @@ namespace OOD_Project.TeacherGroup.ViewCourses
             }
         }
 
+        // method for downloading content
         private void downloadContentBtn_Click(object sender, EventArgs e)
         {
             if (classesListView.SelectedItems.Count > 0)
@@ -79,7 +81,7 @@ namespace OOD_Project.TeacherGroup.ViewCourses
         }
 
         
-
+        // mthod for populating course content
         private void PopulateCourseContent(int courseId)
         {
             DatabaseManager dbm = DatabaseManager.Instance();
@@ -96,7 +98,6 @@ namespace OOD_Project.TeacherGroup.ViewCourses
                 string fullPath = Path.Combine(DocumentHelper.coursesDirectory, courseId.ToString(), fileName);
                 ListViewItem courseContent = new ListViewItem(dbm.Reader["filename"].ToString());
                 long fileSizeInBytes = new FileInfo(fullPath).Length;
-                // rename the view later
                 string fileSize = $"{fileSizeInBytes / 1024} KB";
                 courseContent.SubItems.Add(fileSize);
                 classesListView.Items.Add(courseContent);
@@ -111,6 +112,7 @@ namespace OOD_Project.TeacherGroup.ViewCourses
             //PopulateCourseContent(courseId);
         }
 
+        // method for downloading the content
         private void deleteContentBtn_Click(object sender, EventArgs e)
         {
             ListViewItem selectedItem = classesListView.SelectedItems[0];
