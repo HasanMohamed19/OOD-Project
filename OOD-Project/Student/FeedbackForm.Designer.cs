@@ -103,9 +103,9 @@ namespace OOD_Project
             // 
             this.groupBox2.Controls.Add(this.tlpQuestion3);
             this.groupBox2.Location = new System.Drawing.Point(401, 164);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(392, 40);
             this.groupBox2.TabIndex = 42;
             this.groupBox2.TabStop = false;
@@ -136,7 +136,7 @@ namespace OOD_Project
             this.RbSatisfied3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbSatisfied3.AutoSize = true;
             this.RbSatisfied3.Location = new System.Drawing.Point(294, 16);
-            this.RbSatisfied3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbSatisfied3.Margin = new System.Windows.Forms.Padding(2);
             this.RbSatisfied3.Name = "RbSatisfied3";
             this.RbSatisfied3.Size = new System.Drawing.Size(14, 13);
             this.RbSatisfied3.TabIndex = 46;
@@ -148,7 +148,7 @@ namespace OOD_Project
             this.RbVerySatisfied3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVerySatisfied3.AutoSize = true;
             this.RbVerySatisfied3.Location = new System.Drawing.Point(382, 16);
-            this.RbVerySatisfied3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbVerySatisfied3.Margin = new System.Windows.Forms.Padding(2);
             this.RbVerySatisfied3.Name = "RbVerySatisfied3";
             this.RbVerySatisfied3.Size = new System.Drawing.Size(14, 13);
             this.RbVerySatisfied3.TabIndex = 45;
@@ -160,7 +160,7 @@ namespace OOD_Project
             this.RbNeutral3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbNeutral3.AutoSize = true;
             this.RbNeutral3.Location = new System.Drawing.Point(208, 16);
-            this.RbNeutral3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbNeutral3.Margin = new System.Windows.Forms.Padding(2);
             this.RbNeutral3.Name = "RbNeutral3";
             this.RbNeutral3.Size = new System.Drawing.Size(14, 13);
             this.RbNeutral3.TabIndex = 44;
@@ -172,7 +172,7 @@ namespace OOD_Project
             this.RbVeryUnsatisfied3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVeryUnsatisfied3.AutoSize = true;
             this.RbVeryUnsatisfied3.Location = new System.Drawing.Point(36, 16);
-            this.RbVeryUnsatisfied3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbVeryUnsatisfied3.Margin = new System.Windows.Forms.Padding(2);
             this.RbVeryUnsatisfied3.Name = "RbVeryUnsatisfied3";
             this.RbVeryUnsatisfied3.Size = new System.Drawing.Size(14, 13);
             this.RbVeryUnsatisfied3.TabIndex = 43;
@@ -184,7 +184,7 @@ namespace OOD_Project
             this.RbUnsatisfied3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbUnsatisfied3.AutoSize = true;
             this.RbUnsatisfied3.Location = new System.Drawing.Point(122, 16);
-            this.RbUnsatisfied3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbUnsatisfied3.Margin = new System.Windows.Forms.Padding(2);
             this.RbUnsatisfied3.Name = "RbUnsatisfied3";
             this.RbUnsatisfied3.Size = new System.Drawing.Size(14, 13);
             this.RbUnsatisfied3.TabIndex = 42;
@@ -195,7 +195,7 @@ namespace OOD_Project
             // 
             this.txtQuestion6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuestion6.Location = new System.Drawing.Point(2, 41);
-            this.txtQuestion6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtQuestion6.Margin = new System.Windows.Forms.Padding(2);
             this.txtQuestion6.Multiline = true;
             this.txtQuestion6.Name = "txtQuestion6";
             this.txtQuestion6.Size = new System.Drawing.Size(828, 72);
@@ -279,9 +279,9 @@ namespace OOD_Project
             this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.radioButton5);
             this.groupBox1.Location = new System.Drawing.Point(401, 56);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(429, 44);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
@@ -299,21 +299,21 @@ namespace OOD_Project
             this.tlpQuestion1.Controls.Add(this.RbNeutral1, 0, 0);
             this.tlpQuestion1.Controls.Add(this.RbVeryUnsatisfied1, 0, 0);
             this.tlpQuestion1.Controls.Add(this.RbUnsatisfied1, 0, 0);
-            this.tlpQuestion1.Location = new System.Drawing.Point(-3, 2);
+            this.tlpQuestion1.Location = new System.Drawing.Point(-3, -2);
             this.tlpQuestion1.Margin = new System.Windows.Forms.Padding(0);
             this.tlpQuestion1.Name = "tlpQuestion1";
             this.tlpQuestion1.RowCount = 1;
             this.tlpQuestion1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpQuestion1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
-            this.tlpQuestion1.Size = new System.Drawing.Size(434, 45);
+            this.tlpQuestion1.Size = new System.Drawing.Size(434, 49);
             this.tlpQuestion1.TabIndex = 45;
             // 
             // RbSatisfied1
             // 
             this.RbSatisfied1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbSatisfied1.AutoSize = true;
-            this.RbSatisfied1.Location = new System.Drawing.Point(294, 16);
-            this.RbSatisfied1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbSatisfied1.Location = new System.Drawing.Point(294, 18);
+            this.RbSatisfied1.Margin = new System.Windows.Forms.Padding(2);
             this.RbSatisfied1.Name = "RbSatisfied1";
             this.RbSatisfied1.Size = new System.Drawing.Size(14, 13);
             this.RbSatisfied1.TabIndex = 46;
@@ -324,8 +324,8 @@ namespace OOD_Project
             // 
             this.RbVerySatisfied1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVerySatisfied1.AutoSize = true;
-            this.RbVerySatisfied1.Location = new System.Drawing.Point(382, 16);
-            this.RbVerySatisfied1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbVerySatisfied1.Location = new System.Drawing.Point(382, 18);
+            this.RbVerySatisfied1.Margin = new System.Windows.Forms.Padding(2);
             this.RbVerySatisfied1.Name = "RbVerySatisfied1";
             this.RbVerySatisfied1.Size = new System.Drawing.Size(14, 13);
             this.RbVerySatisfied1.TabIndex = 45;
@@ -336,8 +336,8 @@ namespace OOD_Project
             // 
             this.RbNeutral1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbNeutral1.AutoSize = true;
-            this.RbNeutral1.Location = new System.Drawing.Point(208, 16);
-            this.RbNeutral1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbNeutral1.Location = new System.Drawing.Point(208, 18);
+            this.RbNeutral1.Margin = new System.Windows.Forms.Padding(2);
             this.RbNeutral1.Name = "RbNeutral1";
             this.RbNeutral1.Size = new System.Drawing.Size(14, 13);
             this.RbNeutral1.TabIndex = 44;
@@ -348,8 +348,8 @@ namespace OOD_Project
             // 
             this.RbVeryUnsatisfied1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVeryUnsatisfied1.AutoSize = true;
-            this.RbVeryUnsatisfied1.Location = new System.Drawing.Point(36, 16);
-            this.RbVeryUnsatisfied1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbVeryUnsatisfied1.Location = new System.Drawing.Point(36, 18);
+            this.RbVeryUnsatisfied1.Margin = new System.Windows.Forms.Padding(2);
             this.RbVeryUnsatisfied1.Name = "RbVeryUnsatisfied1";
             this.RbVeryUnsatisfied1.Size = new System.Drawing.Size(14, 13);
             this.RbVeryUnsatisfied1.TabIndex = 43;
@@ -360,8 +360,8 @@ namespace OOD_Project
             // 
             this.RbUnsatisfied1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbUnsatisfied1.AutoSize = true;
-            this.RbUnsatisfied1.Location = new System.Drawing.Point(122, 16);
-            this.RbUnsatisfied1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbUnsatisfied1.Location = new System.Drawing.Point(122, 18);
+            this.RbUnsatisfied1.Margin = new System.Windows.Forms.Padding(2);
             this.RbUnsatisfied1.Name = "RbUnsatisfied1";
             this.RbUnsatisfied1.Size = new System.Drawing.Size(14, 13);
             this.RbUnsatisfied1.TabIndex = 42;
@@ -373,7 +373,7 @@ namespace OOD_Project
             this.radioButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(496, 20);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(14, 13);
             this.radioButton1.TabIndex = 10;
@@ -385,7 +385,7 @@ namespace OOD_Project
             this.radioButton5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.radioButton5.AutoSize = true;
             this.radioButton5.Location = new System.Drawing.Point(416, 20);
-            this.radioButton5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton5.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(14, 13);
             this.radioButton5.TabIndex = 9;
@@ -410,7 +410,7 @@ namespace OOD_Project
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(433, 45);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(433, 54);
             this.tableLayoutPanel3.TabIndex = 40;
             // 
             // label5
@@ -418,7 +418,7 @@ namespace OOD_Project
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(356, 4);
+            this.label5.Location = new System.Drawing.Point(356, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 36);
@@ -430,7 +430,7 @@ namespace OOD_Project
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(269, 13);
+            this.label4.Location = new System.Drawing.Point(269, 18);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 18);
@@ -442,7 +442,7 @@ namespace OOD_Project
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(187, 13);
+            this.label3.Location = new System.Drawing.Point(187, 18);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 18);
@@ -454,7 +454,7 @@ namespace OOD_Project
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 4);
+            this.label1.Location = new System.Drawing.Point(4, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 36);
@@ -466,7 +466,7 @@ namespace OOD_Project
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(88, 13);
+            this.label2.Location = new System.Drawing.Point(88, 18);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 18);
@@ -479,8 +479,8 @@ namespace OOD_Project
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.lblQuestion6, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtQuestion6, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(26, 390);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(27, 390);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.43708F));
@@ -533,8 +533,8 @@ namespace OOD_Project
             this.tableLayoutPanel1.Controls.Add(this.lblQuestion1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblQuestions, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(26, 59);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 59);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -551,9 +551,9 @@ namespace OOD_Project
             // 
             this.groupBox5.Controls.Add(this.tlpQuestion2);
             this.groupBox5.Location = new System.Drawing.Point(401, 110);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(392, 40);
             this.groupBox5.TabIndex = 45;
             this.groupBox5.TabStop = false;
@@ -585,7 +585,7 @@ namespace OOD_Project
             this.RbSatisfied2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbSatisfied2.AutoSize = true;
             this.RbSatisfied2.Location = new System.Drawing.Point(294, 16);
-            this.RbSatisfied2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbSatisfied2.Margin = new System.Windows.Forms.Padding(2);
             this.RbSatisfied2.Name = "RbSatisfied2";
             this.RbSatisfied2.Size = new System.Drawing.Size(14, 13);
             this.RbSatisfied2.TabIndex = 46;
@@ -597,7 +597,7 @@ namespace OOD_Project
             this.RbVerySatisfied2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVerySatisfied2.AutoSize = true;
             this.RbVerySatisfied2.Location = new System.Drawing.Point(382, 16);
-            this.RbVerySatisfied2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbVerySatisfied2.Margin = new System.Windows.Forms.Padding(2);
             this.RbVerySatisfied2.Name = "RbVerySatisfied2";
             this.RbVerySatisfied2.Size = new System.Drawing.Size(14, 13);
             this.RbVerySatisfied2.TabIndex = 45;
@@ -609,7 +609,7 @@ namespace OOD_Project
             this.RbNeutral2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbNeutral2.AutoSize = true;
             this.RbNeutral2.Location = new System.Drawing.Point(208, 16);
-            this.RbNeutral2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbNeutral2.Margin = new System.Windows.Forms.Padding(2);
             this.RbNeutral2.Name = "RbNeutral2";
             this.RbNeutral2.Size = new System.Drawing.Size(14, 13);
             this.RbNeutral2.TabIndex = 44;
@@ -621,7 +621,7 @@ namespace OOD_Project
             this.RbVeryUnsatisfied2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVeryUnsatisfied2.AutoSize = true;
             this.RbVeryUnsatisfied2.Location = new System.Drawing.Point(36, 16);
-            this.RbVeryUnsatisfied2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbVeryUnsatisfied2.Margin = new System.Windows.Forms.Padding(2);
             this.RbVeryUnsatisfied2.Name = "RbVeryUnsatisfied2";
             this.RbVeryUnsatisfied2.Size = new System.Drawing.Size(14, 13);
             this.RbVeryUnsatisfied2.TabIndex = 43;
@@ -633,7 +633,7 @@ namespace OOD_Project
             this.RbUnsatisfied2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbUnsatisfied2.AutoSize = true;
             this.RbUnsatisfied2.Location = new System.Drawing.Point(122, 16);
-            this.RbUnsatisfied2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbUnsatisfied2.Margin = new System.Windows.Forms.Padding(2);
             this.RbUnsatisfied2.Name = "RbUnsatisfied2";
             this.RbUnsatisfied2.Size = new System.Drawing.Size(14, 13);
             this.RbUnsatisfied2.TabIndex = 42;
@@ -644,9 +644,9 @@ namespace OOD_Project
             // 
             this.groupBox4.Controls.Add(this.tlpQuestion5);
             this.groupBox4.Location = new System.Drawing.Point(401, 272);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(392, 40);
             this.groupBox4.TabIndex = 44;
             this.groupBox4.TabStop = false;
@@ -677,7 +677,7 @@ namespace OOD_Project
             this.RbSatisfied5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbSatisfied5.AutoSize = true;
             this.RbSatisfied5.Location = new System.Drawing.Point(294, 16);
-            this.RbSatisfied5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbSatisfied5.Margin = new System.Windows.Forms.Padding(2);
             this.RbSatisfied5.Name = "RbSatisfied5";
             this.RbSatisfied5.Size = new System.Drawing.Size(14, 13);
             this.RbSatisfied5.TabIndex = 46;
@@ -689,7 +689,7 @@ namespace OOD_Project
             this.RbVerySatisfied5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVerySatisfied5.AutoSize = true;
             this.RbVerySatisfied5.Location = new System.Drawing.Point(382, 16);
-            this.RbVerySatisfied5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbVerySatisfied5.Margin = new System.Windows.Forms.Padding(2);
             this.RbVerySatisfied5.Name = "RbVerySatisfied5";
             this.RbVerySatisfied5.Size = new System.Drawing.Size(14, 13);
             this.RbVerySatisfied5.TabIndex = 45;
@@ -701,7 +701,7 @@ namespace OOD_Project
             this.RbNeutral5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbNeutral5.AutoSize = true;
             this.RbNeutral5.Location = new System.Drawing.Point(208, 16);
-            this.RbNeutral5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbNeutral5.Margin = new System.Windows.Forms.Padding(2);
             this.RbNeutral5.Name = "RbNeutral5";
             this.RbNeutral5.Size = new System.Drawing.Size(14, 13);
             this.RbNeutral5.TabIndex = 44;
@@ -713,7 +713,7 @@ namespace OOD_Project
             this.RbVeryUnsatisfied5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVeryUnsatisfied5.AutoSize = true;
             this.RbVeryUnsatisfied5.Location = new System.Drawing.Point(36, 16);
-            this.RbVeryUnsatisfied5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbVeryUnsatisfied5.Margin = new System.Windows.Forms.Padding(2);
             this.RbVeryUnsatisfied5.Name = "RbVeryUnsatisfied5";
             this.RbVeryUnsatisfied5.Size = new System.Drawing.Size(14, 13);
             this.RbVeryUnsatisfied5.TabIndex = 43;
@@ -725,7 +725,7 @@ namespace OOD_Project
             this.RbUnsatisfied5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbUnsatisfied5.AutoSize = true;
             this.RbUnsatisfied5.Location = new System.Drawing.Point(122, 16);
-            this.RbUnsatisfied5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbUnsatisfied5.Margin = new System.Windows.Forms.Padding(2);
             this.RbUnsatisfied5.Name = "RbUnsatisfied5";
             this.RbUnsatisfied5.Size = new System.Drawing.Size(14, 13);
             this.RbUnsatisfied5.TabIndex = 42;
@@ -736,9 +736,9 @@ namespace OOD_Project
             // 
             this.groupBox3.Controls.Add(this.tlpQuestion4);
             this.groupBox3.Location = new System.Drawing.Point(401, 218);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(392, 40);
             this.groupBox3.TabIndex = 43;
             this.groupBox3.TabStop = false;
@@ -769,7 +769,7 @@ namespace OOD_Project
             this.RbSatisfied4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbSatisfied4.AutoSize = true;
             this.RbSatisfied4.Location = new System.Drawing.Point(294, 16);
-            this.RbSatisfied4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbSatisfied4.Margin = new System.Windows.Forms.Padding(2);
             this.RbSatisfied4.Name = "RbSatisfied4";
             this.RbSatisfied4.Size = new System.Drawing.Size(14, 13);
             this.RbSatisfied4.TabIndex = 46;
@@ -781,7 +781,7 @@ namespace OOD_Project
             this.RbVerySatisfied4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVerySatisfied4.AutoSize = true;
             this.RbVerySatisfied4.Location = new System.Drawing.Point(382, 16);
-            this.RbVerySatisfied4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbVerySatisfied4.Margin = new System.Windows.Forms.Padding(2);
             this.RbVerySatisfied4.Name = "RbVerySatisfied4";
             this.RbVerySatisfied4.Size = new System.Drawing.Size(14, 13);
             this.RbVerySatisfied4.TabIndex = 45;
@@ -793,7 +793,7 @@ namespace OOD_Project
             this.RbNeutral4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbNeutral4.AutoSize = true;
             this.RbNeutral4.Location = new System.Drawing.Point(208, 16);
-            this.RbNeutral4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbNeutral4.Margin = new System.Windows.Forms.Padding(2);
             this.RbNeutral4.Name = "RbNeutral4";
             this.RbNeutral4.Size = new System.Drawing.Size(14, 13);
             this.RbNeutral4.TabIndex = 44;
@@ -805,7 +805,7 @@ namespace OOD_Project
             this.RbVeryUnsatisfied4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbVeryUnsatisfied4.AutoSize = true;
             this.RbVeryUnsatisfied4.Location = new System.Drawing.Point(36, 16);
-            this.RbVeryUnsatisfied4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbVeryUnsatisfied4.Margin = new System.Windows.Forms.Padding(2);
             this.RbVeryUnsatisfied4.Name = "RbVeryUnsatisfied4";
             this.RbVeryUnsatisfied4.Size = new System.Drawing.Size(14, 13);
             this.RbVeryUnsatisfied4.TabIndex = 43;
@@ -817,7 +817,7 @@ namespace OOD_Project
             this.RbUnsatisfied4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.RbUnsatisfied4.AutoSize = true;
             this.RbUnsatisfied4.Location = new System.Drawing.Point(122, 16);
-            this.RbUnsatisfied4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RbUnsatisfied4.Margin = new System.Windows.Forms.Padding(2);
             this.RbUnsatisfied4.Name = "RbUnsatisfied4";
             this.RbUnsatisfied4.Size = new System.Drawing.Size(14, 13);
             this.RbUnsatisfied4.TabIndex = 42;
@@ -846,7 +846,7 @@ namespace OOD_Project
             this.Controls.Add(this.btnSendFeedback);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.courseTitleLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FeedbackForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Course Feedback";

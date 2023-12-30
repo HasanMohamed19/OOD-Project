@@ -30,11 +30,6 @@ namespace OOD_Project
             Helper.OpenChildForm(new ManageBranchesForm(), adminMainContent);
         }
 
-        private void manageInformationBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void manageUsersBtn_Click(object sender, EventArgs e)
         {
             Helper.OpenChildForm(new ManageUsersForm(), adminMainContent);
@@ -83,9 +78,10 @@ namespace OOD_Project
             Helper.OpenChildForm(new ViewEmailForm(), adminMainContent);
         }
 
-        private void sendEmailBtn_Click(object sender, EventArgs e)
+
+        private void viewFeedbackBtn_Click(object sender, EventArgs e)
         {
-            new EmailForm(null).ShowDialog();
+            Helper.OpenChildForm(new ViewFeedbackForm(), adminMainContent);
         }
     }
 }

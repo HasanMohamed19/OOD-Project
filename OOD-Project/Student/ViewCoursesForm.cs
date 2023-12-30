@@ -41,22 +41,47 @@ namespace OOD_Project
             contentClassBtn.Text = showingContentView ? "View Classes" : "View Content";
 
         }
+        // returns false nothing found, true otherwise
+        private bool IsFeedbackSubmitted(int course_id)
+        {
+            bool submitted = false;
+            DatabaseManager dbm = DatabaseManager.Instance();
+            dbm.Connection.Open();
+            dbm.Command = dbm.Connection.CreateCommand();
+            dbm.Command.Parameters.AddWithValue("@student_id", Global.StudentId);
+            dbm.Command.Parameters.AddWithValue("@course_id", course_id);
+            dbm.Command.CommandText = "SELECT * FROM [dbo].[Feedback] WHERE student_id = @student_id AND course_id = @course_id";
 
+            try
+            {
+                dbm.Reader = dbm.Command.ExecuteReader();
+                submitted = dbm.Reader.HasRows;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dbm.Command.Parameters.Clear();
+                dbm.Connection.Close();
+            }
+            return submitted;
+        }
         private void feedbackBtn_Click(object sender, EventArgs e)
         {
+
             Course selectedCourse;
             if (selectedIndex != -1)
             {
                 selectedCourse = Course.GetCourse(coursesId[selectedIndex]);
-                
+                if (IsFeedbackSubmitted(selectedCourse.Id))
+                {
+                    MessageBox.Show("Feedback already submitted");
+                    return;
+                }
                 FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
-                FeedbackForm.ShowDialog();
-            }
-            else
-            {
-               //selectedCourse = (Course)coursesListView.Items[0].Tag;
-               //FeedbackForm FeedbackForm = new FeedbackForm(selectedCourse);
-               //FeedbackForm.Show();
+                FeedbackForm.Show();
             }
         }
 
