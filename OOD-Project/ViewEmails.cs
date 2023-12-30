@@ -293,7 +293,6 @@ namespace OOD_Project
 
                 int recipientId = User.GetRecipientId(selectedEmailId);
                 int senderId = User.GetSenderId(selectedEmailId);
-                MessageBox.Show(recipientId.ToString());
                 if (recipientId != 0 || senderId != 0)
                 {
                     string originalPath = Path.Combine(DocumentHelper.emailsDiretory, $"{senderId}_{recipientId}", selectedEmailId.ToString(), selectedAttachmentName);
