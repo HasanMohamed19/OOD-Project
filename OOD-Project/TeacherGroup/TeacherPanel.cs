@@ -36,9 +36,11 @@ namespace OOD_Project
             {
                 case NotificationType.announcement:
                     // go to announcement tab
+                    Helper.OpenChildForm(new ViewAnnouncementsForm(loggedInUser.UserId), teacherMainContent);
                     break;
                 case NotificationType.email:
                     // go to email tab
+                    Helper.OpenChildForm(new ViewEmailForm(), teacherMainContent);
                     break;
             }
         }
@@ -63,6 +65,11 @@ namespace OOD_Project
         private void sendEmailBtn_Click(object sender, EventArgs e)
         {
             new EmailForm(null).ShowDialog();
+        }
+
+        private void announcementsBtn_Click(object sender, EventArgs e)
+        {
+            Helper.OpenChildForm(new ViewAnnouncementsForm(loggedInUser.UserId), teacherMainContent);
         }
     }
 }

@@ -267,7 +267,7 @@ namespace OOD_Project.Admin
             string courseCode = courseDG.SelectedRows[0].Cells[1].Value.ToString();
             string courseName = courseDG.SelectedRows[0].Cells[2].Value.ToString();
             string sectionId = GetSectionId().ToString();
-            Announcement announcement = new Announcement(0, $"{courseCode}-{courseName} grade has been published.", DateTime.Now, students, false, "Grade Published", Announcement.AnnouncementType.grade);
+            Announcement announcement = new Announcement(0, $"Grades for {courseCode.Trim()} - {courseName} have been published. Please check the course page to find your grade.", DateTime.Now, students, false, "Grade Published", Announcement.AnnouncementType.grade);
             Announcement.PublishAnnouncement(announcement);
             Section.PublishReport(sectionId);
             // need to check path before? and how to update the view

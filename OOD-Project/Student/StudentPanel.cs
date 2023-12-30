@@ -38,7 +38,7 @@ namespace OOD_Project
             {
                 case NotificationType.announcement:
                     // go to announcement tab
-                    Helper.OpenChildForm(new ViewAnnouncementsForm(), studentMainContent);
+                    Helper.OpenChildForm(new ViewAnnouncementsForm(loggedInUser.UserId), studentMainContent);
                     break;
                 case NotificationType.email:
                     // go to email tab
@@ -59,7 +59,7 @@ namespace OOD_Project
 
         private void viewAnnouncementBtn_Click(object sender, EventArgs e)
         {
-            Helper.OpenChildForm(new ViewAnnouncementsForm(), studentMainContent);
+            Helper.OpenChildForm(new ViewAnnouncementsForm(loggedInUser.UserId), studentMainContent);
         }
 
         public void GoToChangePassword()
